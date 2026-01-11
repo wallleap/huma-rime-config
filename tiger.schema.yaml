@@ -51,7 +51,7 @@ switches: # 0 默认关，1 默认开
   #   reset: 0
   #   states: [ 词组, 单字 ]
   - options: [_keyboard_default, _keyboard_defaultzj]
-    reset: 1
+    reset: 0
     states: [ 助记关, 助记开 ]
   # - name: fanjian  #繁转简滤镜
   #   reset: 0
