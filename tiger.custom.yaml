@@ -9,6 +9,17 @@ patch:
   #style/layout/border_width: 2 #边框宽度，默认是0
   #style/layout/border_height: 2 #边框高度，默认是0
 
+  # 反查改为 !（手机上方便使用）
+  reverse_lookup/prefix: "!"
+  reverse_lookup/tips: "〔双拼〕"
+  reverse_lookup/preedit_format:
+    - "xform/^!//"
+    - "xform/([nl])v/$1ü/"
+    - "xform/([nl])ue/$1üe/"
+    - "xform/([jqxy])v/$1u/"
+  recognizer/patterns/reverse_lookup: "^![a-z]*'?$"
+  speller/alphabet: "[;'zyxwvutsrqponmlkjihgfedcba]!"
+
   menu/page_size: 9 # 自定义候选个数，可修改。若要改成5个，行首加上#号注释即可（Rime默认就是5个）
   #style/horizontal: true # 默认是false竖排显示，删掉行首的#号，可横排显示（横排建议把上面这行注释掉）
   #style/layout/candidate_spacing: 17 #候选框改为横排后,增加 候选与候选 的间距
