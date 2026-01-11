@@ -16,7 +16,7 @@ patch:
   #style/layout/min_width: 85  #候选框改为横排后,增加最小宽度
   #style/layout/max_width: 1200 #候选框改为横排后，限制最大宽度，超长自动换行
   # 横排显示建议把下面这行也注释掉，换成阿拉伯数字标号
-  menu/alternative_select_labels: [ ㊀, ㊁, ㊂, ㊃, ㊄, ㊅, ㊆, ㊇, ㊈ ]  # 自定义候选序号显示符，可自定修改，如要显示阿拉伯数字，直接注释掉这行（在前面加#号）
+  # menu/alternative_select_labels: [ ㊀, ㊁, ㊂, ㊃, ㊄, ㊅, ㊆, ㊇, ㊈ ]  # 自定义候选序号显示符，可自定修改，如要显示阿拉伯数字，直接注释掉这行（在前面加#号）
   # 以下是备选样式（自行删除#号即可生效，只能生效一种）
   #menu/alternative_select_labels: [ ①,②,③,④,⑤,⑥,⑦,⑧,⑨,⑩ ]
   #menu/alternative_select_labels: [ ❶,❷,❸,❹,❺,❻,❼,❽,❾,❿ ]
