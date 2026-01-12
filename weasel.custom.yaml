@@ -7,7 +7,7 @@ patch:
   style/+:
     color_scheme: purity_of_essence     # 切换主题
     color_scheme_dark: purity_of_form   # 暗黑模式下主题
-    horizontal: true              # 候选横排
+    horizontal: false             # 候选横排
     inline_preedit: false         # 内嵌编码（仅支持TSF）
     preedit_type: composition
     display_tray_icon: false      # 显示托盘图标
