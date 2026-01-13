@@ -1,6 +1,96 @@
 
+# https://github.com/rime/squirrel/wiki
 patch:
+  # keyboard_layout: zh-Hans-CN             # 键盘布局：last | default | 等
+  show_notifications_when: always         # 显示切换方案或开关状态时的通知：always 总是，never 从不，appropriate 合适时
+  show_notifications_via_notification_center: true # 使用系统通知中心显示通知
+  # chord_duration: 0.1                     # 连击时长，单位秒
+  # 应用程序选项：ascii_mode 初始为西文模式，no_inline 不使用行内编辑
+  #   inline 强制使用行内编辑，vim_mode 退出 Vim 插入模式自动切换输入法状态
+  # app_options: {}
+  app_options:
+    com.apple.Spotlight:
+      ascii_mode: true
+    com.microsoft.VSCode:
+      ascii_mode: true
+      vim_mode: true
+      inline: true
+    com.googlecode.iterm2:
+      ascii_mode: true
+      vim_mode: true
+      inline: true
+    com.raycast.macos:
+      ascii_mode: true
+    org.vim.MacVim:
+      ascii_mode: true  # 初始爲西文模式
+      no_inline: true   # 不使用行內編輯
+      vim_mode: true    # 退出VIM插入模式自動切換輸入法狀態
+
   preset_color_schemes:
+    purity_of_essence:
+      name: 純粹的本質／Purity of Essence
+      author: 佛振
+      showPaging: false
+      memorize_size: false
+      inline_preedit: false
+      inline_candidate: false
+      corner_radius: 12
+      border_height: -2e+0
+      border_width: -2
+      hilited_corner_radius: 12
+      hilited_border_height: 2
+      surrounding_extra_expansion: 0
+      line_spacing: 1.2
+      spacing: -4
+      base_offset: -6.5
+      shadow_size: 4
+      color-space: display_p3
+      back_color: '0x7FFFFFFF'              # 整体背景色，可以包含透明度
+      border_color: '0x03152079'            # 边框颜色
+      # preedit_back_color: '0x7FFFFFFF'      # 预编辑区背景色
+      text_color: '0x243ADC'                # 编辑区非高亮编码颜色
+      # hilited_back_color: '0x0086FAED'      # 编辑区高亮背景色
+      hilited_text_color: '0x55669C'        # 编辑区高亮编码颜色
+      # candidate_back_color: '0x7FFFFFFF'    # 候选词背景色
+      candidate_text_color: '0xE4212A53'    # 候选词颜色
+      label_color: '0xA7263364'             # 候选编号颜色
+      comment_text_color: '0x69729B'        # 候选词注释颜色
+      hilited_candidate_back_color: '0x323E74' # 高亮候选词背景色
+      hilited_candidate_text_color: '0xAEE2EE' # 高亮候选词颜色
+      hilited_candidate_label_color: '0x80AEE2EE' # 高亮候选词编号颜色
+      hilited_comment_text_color: '0x80D1D9E6'   # 高亮候选词注释颜色
+    purity_of_form:
+      name: 純粹的形式／Purity of Form
+      author: 雨過之後、佛振
+      showPaging: false
+      memorize_size: false
+      inline_preedit: false
+      inline_candidate: false
+      corner_radius: 12
+      border_height: -2e+0
+      border_width: -2
+      hilited_corner_radius: 12
+      hilited_border_height: 2
+      surrounding_extra_expansion: 0
+      line_spacing: 1.2
+      spacing: -4
+      base_offset: -6.5
+      shadow_size: 4
+      color-space: display_p3
+      back_color: '0xC7444444'
+      border_color: '0x03152079'
+      # preedit_back_color: '0xB2444444'
+      text_color: '0xC4C15C'
+      # hilited_back_color: '0x404040'
+      hilited_text_color: '0xE8E8E8'
+      # candidate_back_color: '0xB2444444'
+      candidate_text_color: '0xABFFFFFF'
+      label_color: '0x959595'
+      comment_text_color: '0x959595'
+      hilited_candidate_back_color: '0x7696BE'
+      hilited_candidate_text_color: '0xCC000000'
+      hilited_candidate_label_color: '0x80000000'
+      hilited_comment_text_color: '0x80000000'
     mac_light:
       name: Mac浅色
       horizontal: true             # true横排，false竖排
@@ -277,14 +367,14 @@ patch:
     #capture_type: none
     #color_font: true
     comment_font_face: "Consolas, Apple Color Emoji, TumanPUA, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-    comment_font_point: 16 #滤镜字号
+    comment_font_point: 10                  # 候选注释大小
     #display_tray_icon: false
     font_face: "Consolas, Apple Color Emoji, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-    font_point: 16 #主字体字号
+    font_point: 16                          # 候选字词大小
     #fullscreen: false
     inline_preedit: true #鼠须管开嵌入在QQ上可能会有点问题，这里可改为 true 关闭嵌入模式
     label_font_face: "LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-    label_font_point: 16 #标号字号
+    label_font_point: 12                    # 候选编号大小
     #label_format: "%s."
     layout:
       min_width: 85
@@ -293,8 +383,27 @@ patch:
     line_spacing: 8
     hilite_spacing: 6
     spacing: 12
-    color_scheme: rose_red
-    color_scheme_dark: easy_dark
     # 鼠须管盲打，嵌入首选，删除下面两行的#号，即可生效
     #alpha: 0.0001
     #inline_candidate: true
+    translucency: true                      # 毛玻璃总开关：true 开启，false 关闭
+    alpha: 0.95                             # 透明度
+    # mutual_exclusion: true                  # 候选区各颜色是否独立
+    horizontal: false                       # 水平排列
+    # 候选词格式 [label] 编号, [candidate] 候选词, [comment] 注释
+    # candidate_format: "\u2005%c.\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
+    candidate_format: '[label]. [candidate] [comment]'
+    candidate_list_layout: stack            # 候选词列表布局：stack 堆叠，linear 平铺
+    text_orientation: horizontal            # 文本方向：horizontal 水平，vertical 垂直
+    # inline_preedit: true                    # 行内编辑：true 在文本框中显示预编码，false 在预编辑区显示编码
+    # inline_candidate: true                  # 行内显示第一候选：true 显示，false 不显示，和上面的 inline_preedit 搭配使用
+    # memorize_size: true                     # 让候选框不来回跳动
+    base_offset: 0                          # 文字基线高度调节
+    border_height: 0                        # 外框边框高度，大于圆角半径才生效
+    border_width: 0                         # 外框边框宽度，大于圆角半
+    shadow_size: 4                          # 高亮候选词投影大小
+    surrounding_extra_expansion: 0          # 设置了 canditate_back_color 后，调节非高亮候选词背景相对于高亮背景的大小
+    color_space: display_p3                 # 颜色空间
+    color_scheme: purity_of_essence
+    color_scheme_dark: purity_of_form
+  
