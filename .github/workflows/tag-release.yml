@@ -53,6 +53,8 @@ jobs:
             --exclude=".gitignore" \
             --exclude=".gitattributes" \
             --exclude=".github" \
+            --exclude="changelog.txt" \
+            --exclude="crawler.py" \
             --exclude="plum" \
             --transform='s/^./Rime/' \
             .
