@@ -7,9 +7,19 @@ patch:
   "style/key_font": LXGWWenKaiGBScreen.ttf
   "style/key_font_size": 14
 
-  "preset_color_schemes/light_yellow_gradient":
-    name: A-浅暖黄渐变
-    author: 还原图中配色
+  # 键盘布局微调
+  "style/vertical_gap": 2
+  "style/horizontal_gap": 16
+  "style/keyboard_padding": 4
+  "style/keyboard_padding_bottom": 4
+
+  # 注释提示文字位置调整
+  "style/comment_on_top": false
+
+  # 自定义配色方案
+  "preset_color_schemes/a_yellow_gradient":
+    name: 暖黄渐变 / Yellow Gradient
+    author: vonnelu
     # 核心背景与边框
     back_color: 0xfffffbf5
     border_color: 0xfff0e8d0
@@ -30,7 +40,7 @@ patch:
     hilited_text_color: 0xff333333
     hilited_back_color: 0xfffdd866
     # 按键基础样式
-    key_back_color: 0x55ffffff
+    key_back_color: 0x7fffffff
     key_border_color: 0xfff0e8d0
     key_text_color: 0xff333333
     key_symbol_color: 0xff999999
@@ -52,7 +62,7 @@ patch:
     preview_back_color: 0x55fdd866
     preview_text_color: 0xff333333
     # 额外按键精细化配置
-    bkg: 0x55ffffff
+    bkg: 0xffffffff
     tkg: 0xff333333
     benter: 0xfffdd866
     tenter: 0xff333333
@@ -62,17 +72,17 @@ patch:
     tbs: 0xff333333
     baoe: 0xffffffff
     taoe: 0xff333333
-    bh1: 0x55ffffff
+    bh1: 0x7fffffff
     th1: 0xff333333
-    bh2: 0x55ffffff
+    bh2: 0x7fffffff
     th2: 0xff333333
-    bh3: 0x55ffffff
+    bh3: 0x7fffffff
     th3: 0xff333333
-    bh4: 0x55ffffff
+    bh4: 0x7fffffff
     th4: 0xff333333
-  "preset_color_schemes/dark_brown_tone":
-    name: A-深棕暗调
-    author: 还原图中配色
+  "preset_color_schemes/a_dark_brown_tone":
+    name: 深棕暗调 / Dark Brown Tone
+    author: vonnelu
     # 核心背景与边框
     back_color: 0xff2d231d
     border_color: 0xff4a3c32
@@ -93,7 +103,7 @@ patch:
     hilited_text_color: 0xffffffff
     hilited_back_color: 0xff995a3e
     # 按键基础样式
-    key_back_color: 0x554a3c32
+    key_back_color: 0x7f4a3c32
     key_border_color: 0xff5a483c
     key_text_color: 0xffffffff
     key_symbol_color: 0xffcccccc
@@ -125,249 +135,14 @@ patch:
     tbs: 0xffffffff
     baoe: 0xff4a3c32
     taoe: 0xffffffff
-    bh1: 0x554a3c32
+    bh1: 0x7f4a3c32
     th1: 0xffffffff
-    bh2: 0x554a3c32
+    bh2: 0x7f4a3c32
     th2: 0xffffffff
-    bh3: 0x554a3c32
+    bh3: 0x7f4a3c32
     th3: 0xffffffff
-    bh4: 0x554a3c32
+    bh4: 0x7f4a3c32
     th4: 0xffffffff
-  
-  "preset_color_schemes/light_elegant":
-    name: 清新亮色／Light Elegant # 方案名稱
-    author: 基于原配置优化 # 作者資訊
-    back_color: 0xffffffff # 候選區背景（纯白，提升通透感）
-    border_color: 0xffd1d5db # 邊框（柔和浅灰，比原来更温暖）
-    candidate_separator_color: 0xffd1d5db # 候選分割背景（与边框统一，整洁）
-    candidate_text_color: 0xff1f2937 # 候選文字（深炭灰，比原来更柔和）
-    comment_text_color: 0xff6b7280 # 提示（中灰，不抢主体视线）
-    hilited_back_color: 0xffe5e7eb # 標明編碼背景（浅灰，更突出的编码区域）
-    hilited_candidate_back_color: 0xffeff6ff # 標明候選背景（极淡蓝底，更柔和的高亮）
-    hilited_candidate_text_color: 0xff1e40af # 標明候選文字（深蓝色，更强的对比度）
-    hilited_comment_text_color: 0xff1f2937 # 標明提示（深炭灰，保证可读性）
-    hilited_key_back_color: 0xffdbeafe # 標明按鍵背景（淡蓝底，与主题统一）
-    hilited_key_symbol_color: 0xff1e40af # 標明按鍵符號（深蓝色，突出选中状态）
-    hilited_key_text_color: 0xff1f2937 # 標明按鍵文字（深炭灰，保证清晰）
-    hilited_off_key_back_color: 0xfff3f4f6 # 標明按鍵關閉狀態背景（极浅灰，区分激活状态）
-    hilited_off_key_text_color: 0xff6b7280 # 標明按鍵關閉狀態文字（中灰，标识未激活）
-    hilited_on_key_back_color: 0xffdbeafe # 標明按鍵打開狀態背景（与高亮按键统一）
-    hilited_on_key_text_color: 0xff1e40af # 標明按鍵打開狀態文字（深蓝色，突出激活）
-    hilited_text_color: 0xff1e40af # 標明編碼（深蓝色，与整体配色呼应）
-    key_back_color: 0xffffffff # 按鍵背景（纯白，更清爽的视觉效果）
-    key_border_color: 0xffd1d5db # 按鍵邊框（柔和浅灰，与整体风格统一）
-    key_symbol_color: 0xff6b7280 # 按鍵符號（中灰，保证识别度）
-    key_text_color: 0xff1f2937 # 按鍵文字（深炭灰，护眼清晰）
-    keyboard_back_color: 0xfff9fafb # 鍵盤背景（极浅灰，与按键区分，提升层次感）
-    label_color: 0xff1e40af # 標籤（深蓝色，突出关键标识）
-    off_key_back_color: 0xffe5e7eb # 按鍵關閉狀態背景（浅灰，标识未激活）
-    off_key_text_color: 0xff6b7280 # 按鍵關閉狀態文字（中灰，保证可读性）
-    on_key_back_color: 0xff3b82f6 # 按鍵打開狀態背景（鲜艳蓝，突出激活）
-    on_key_text_color: 0xffffffff # 按鍵打開狀態文字（纯白，与蓝底对比强烈）
-    preview_back_color: 0x55e5e7eb # 按鍵提示背景（半透浅灰，不遮挡视线）
-    preview_text_color: 0xff1e40af # 按鍵提示文字（深蓝色，突出提示内容）
-    shadow_color: 0x22000000 # 陰影（纯黑半透，更自然的立体感）
-    text_color: 0xff1f2937 # 編碼（深炭灰，保证清晰）
-    text_back_color: 0xccffffff # 編碼區背景（半透纯白，通透整洁）
-    # 额外按键细节配置（延续主题风格）
-    bkg: 0xffffffff # 空格键背景色（纯白，更清爽）
-    tkg: 0xff1f2937 # 空格键文字颜色（深炭灰）
-    benter: 0xff3b82f6 # 回车键背景色（鲜艳蓝，突出核心功能）
-    tenter: 0xffffffff # 回车键文字颜色（纯白，对比清晰）
-    bgn: 0xffe5e7eb # 功能键背景色（浅灰，与整体统一）
-    tgn: 0xff1f2937 # 功能键文字颜色（深炭灰，保证可读）
-    bbs: 0xffe5e7eb # 退格键背景色（浅灰，与功能键统一）
-    tbs: 0xff1f2937 # 退格键文字颜色（深炭灰，保证可读）
-    baoe: 0xffffffff # aoeiu背景色（纯白，与按键统一）
-    taoe: 0xff3b82f6 # aoeiu文字颜色（鲜艳蓝，突出拼音核心区）
-    bh1: 0xffffffff # 第一行背景色
-    th1: 0xff1f2937 # 第一行文字颜色
-    bh2: 0xffffffff # 第二行背景色
-    th2: 0xff1f2937 # 第二行文字颜色
-    bh3: 0xffffffff # 第三行背景色
-    th3: 0xff1f2937 # 第三行文字颜色
-    bh4: 0xffffffff # 第四行背景色
-    th4: 0xff1f2937 # 第四行文字颜色
-  "preset_color_schemes/dark_eye_care":
-    name: 护眼暗色／Dark Eye Care # 方案名稱
-    author: 基于原配置优化 # 作者資訊
-    back_color: 0xff0f0f10 # 候選區背景（更柔和的深黑，减少眼部疲劳）
-    border_color: 0xff374151 # 邊框（温暖深灰，比原来更舒适）
-    candidate_separator_color: 0xff374151 # 候選分割背景（与边框统一，整洁不杂乱）
-    candidate_text_color: 0xfff3f4f6 # 候選文字（更亮的浅灰，提高可读性）
-    comment_text_color: 0xff9ca3af # 提示（中等灰度，不抢主体视线）
-    hilited_back_color: 0xff1f2937 # 標明編碼背景（深蓝灰，突出编码区域）
-    hilited_candidate_back_color: 0xff1e3a8a # 標明候選背景（深蓝色底，增强层次感）
-    hilited_candidate_text_color: 0xffdbeafe # 標明候選文字（浅蓝色，醒目不刺眼）
-    hilited_comment_text_color: 0xfff3f4f6 # 標明提示（浅灰，保证可读性）
-    hilited_key_back_color: 0xff1e3a8a # 標明按鍵背景（深蓝底，与主题统一）
-    hilited_key_symbol_color: 0xffdbeafe # 標明按鍵符號（浅蓝，突出选中状态）
-    hilited_key_text_color: 0xfff3f4f6 # 標明按鍵文字（浅灰，保证清晰）
-    hilited_off_key_back_color: 0xff111827 # 標明按鍵關閉狀態背景（深黑灰，区分激活状态）
-    hilited_off_key_text_color: 0xff9ca3af # 標明按鍵關閉狀態文字（中灰，标识未激活）
-    hilited_on_key_back_color: 0xff1e3a8a # 標明按鍵打開狀態背景（与高亮按键统一）
-    hilited_on_key_text_color: 0xffdbeafe # 標明按鍵打開狀態文字（浅蓝，突出激活）
-    hilited_text_color: 0xffdbeafe # 標明編碼（浅蓝，与整体配色呼应）
-    key_back_color: 0xff111827 # 按鍵背景（深黑灰，更舒适的对比）
-    key_border_color: 0xff374151 # 按鍵邊框（温暖深灰，与整体风格统一）
-    key_symbol_color: 0xff9ca3af # 按鍵符號（中灰，保证识别度）
-    key_text_color: 0xfff3f4f6 # 按鍵文字（浅灰，护眼清晰）
-    keyboard_back_color: 0xff0f0f10 # 鍵盤背景（与候选区统一，提升整体感）
-    label_color: 0xff60a5fa # 標籤（鲜艳蓝，突出关键标识）
-    off_key_back_color: 0xff374151 # 按鍵關閉狀態背景（温暖深灰，标识未激活）
-    off_key_text_color: 0xff9ca3af # 按鍵關閉狀態文字（中灰，保证可读性）
-    on_key_back_color: 0xff3b82f6 # 按鍵打開狀態背景（鲜艳蓝，突出激活）
-    on_key_text_color: 0xfff3f4f6 # 按鍵打開狀態文字（浅灰，与蓝底对比清晰）
-    preview_back_color: 0x55374151 # 按鍵提示背景（半透温暖深灰，不遮挡视线）
-    preview_text_color: 0xffdbeafe # 按鍵提示文字（浅蓝，突出提示内容）
-    shadow_color: 0x22000000 # 陰影（纯黑半透，轻微立体感，不厚重）
-    text_color: 0xfff3f4f6 # 編碼（浅灰，保证清晰）
-    text_back_color: 0xcc0f0f10 # 編碼區背景（半透深黑灰，通透整洁）
-    # 额外按键细节配置（延续主题风格）
-    bkg: 0xff111827 # 空格键背景色（深黑灰）
-    tkg: 0xfff3f4f6 # 空格键文字颜色（浅灰）
-    benter: 0xff3b82f6 # 回车键背景色（鲜艳蓝，突出核心功能）
-    tenter: 0xfff3f4f6 # 回车键文字颜色（浅灰，对比清晰）
-    bgn: 0xff374151 # 功能键背景色（温暖深灰，与整体统一）
-    tgn: 0xfff3f4f6 # 功能键文字颜色（浅灰，保证可读）
-    bbs: 0xff374151 # 退格键背景色（温暖深灰，与功能键统一）
-    tbs: 0xfff3f4f6 # 退格键文字颜色（浅灰，保证可读）
-    baoe: 0xff111827 # aoeiu背景色（与按键统一）
-    taoe: 0xff60a5fa # aoeiu文字颜色（鲜艳蓝，突出拼音核心区）
-    bh1: 0xff111827 # 第一行背景色
-    th1: 0xfff3f4f6 # 第一行文字颜色
-    bh2: 0xff111827 # 第二行背景色
-    th2: 0xfff3f4f6 # 第二行文字颜色
-    bh3: 0xff111827 # 第三行背景色
-    th3: 0xfff3f4f6 # 第三行文字颜色
-    bh4: 0xff111827 # 第四行背景色
-    th4: 0xfff3f4f6 # 第四行文字颜色
-  # 完整莫兰迪配色方案
-  "preset_color_schemes/morandi_soft":
-    name: 柔和莫兰迪／Soft Morandi
-    author: 豆包编程助手
-    # 核心背景与边框
-    back_color: 0xfff8f5f2
-    border_color: 0xffe8e0d8
-    keyboard_back_color: 0xfff5f0eb
-    shadow_color: 0x15c8b8a8
-    # 候选区相关
-    candidate_separator_color: 0xffe8e0d8
-    candidate_text_color: 0xff706658
-    hilited_candidate_back_color: 0xffe8ded1
-    hilited_candidate_text_color: 0xff9d7b63
-    # 提示文字相关
-    comment_text_color: 0xffa89e8f
-    hilited_comment_text_color: 0xff706658
-    # 编码区相关
-    text_color: 0xff706658
-    text_back_color: 0xccf8f5f2
-    hilited_text_color: 0xff9d7b63
-    hilited_back_color: 0xccede6dd
-    # 按键基础样式
-    key_back_color: 0xfffaf7f4
-    key_border_color: 0xffe8e0d8
-    key_text_color: 0xff706658
-    key_symbol_color: 0xffa89e8f
-    # 按键高亮（选中/激活）
-    hilited_key_back_color: 0xfff0e8df
-    hilited_key_text_color: 0xff706658
-    hilited_key_symbol_color: 0xff9d7b63
-    # 开关按键样式
-    off_key_back_color: 0xffe8e0d8
-    off_key_text_color: 0xffa89e8f
-    hilited_off_key_back_color: 0xfff3ede8
-    hilited_off_key_text_color: 0xffa89e8f
-    on_key_back_color: 0xff9d7b63
-    on_key_text_color: 0xfff8f5f2
-    hilited_on_key_back_color: 0xffe8ded1
-    hilited_on_key_text_color: 0xff9d7b63
-    # 其他细节
-    label_color: 0xff9d7b63
-    preview_back_color: 0x55e8e0d8
-    preview_text_color: 0xff9d7b63
-    # 额外按键精细化配置（空格键、回车键等）
-    bkg: 0xfffaf7f4
-    tkg: 0xff706658
-    benter: 0xff9d7b63
-    tenter: 0xfff8f5f2
-    bgn: 0xffe8e0d8
-    tgn: 0xff706658
-    bbs: 0xffe8e0d8
-    tbs: 0xff706658
-    baoe: 0xfffaf7f4
-    taoe: 0xff9d7b63
-    bh1: 0xfffaf7f4
-    th1: 0xff706658
-    bh2: 0xfffaf7f4
-    th2: 0xff706658
-    bh3: 0xfffaf7f4
-    th3: 0xff706658
-    bh4: 0xfffaf7f4
-    th4: 0xff706658
-  # 完整极简霓虹配色方案
-  "preset_color_schemes/neon_minimal":
-    name: 极简霓虹／Neon Minimal
-    author: 豆包编程助手
-    # 核心背景与边框
-    back_color: 0xff121212
-    border_color: 0xff2a2a2a
-    keyboard_back_color: 0xff151515
-    shadow_color: 0x2000e5ff
-    # 候选区相关
-    candidate_separator_color: 0xff2a2a2a
-    candidate_text_color: 0xfff0f0f0
-    hilited_candidate_back_color: 0xff1a1a3a
-    hilited_candidate_text_color: 0xff00e5ff
-    # 提示文字相关
-    comment_text_color: 0xff666666
-    hilited_comment_text_color: 0xfff0f0f0
-    # 编码区相关
-    text_color: 0xfff0f0f0
-    text_back_color: 0xcc121212
-    hilited_text_color: 0xff00e5ff
-    hilited_back_color: 0xcc2a2a2a
-    # 按键基础样式
-    key_back_color: 0xff181818
-    key_border_color: 0xff2a2a2a
-    key_text_color: 0xfff0f0f0
-    key_symbol_color: 0xff666666
-    # 按键高亮（选中/激活）
-    hilited_key_back_color: 0xff1f1f4f
-    hilited_key_text_color: 0xfff0f0f0
-    hilited_key_symbol_color: 0xff00e5ff
-    # 开关按键样式
-    off_key_back_color: 0xff2a2a2a
-    off_key_text_color: 0xff666666
-    hilited_off_key_back_color: 0xff181818
-    hilited_off_key_text_color: 0xff666666
-    on_key_back_color: 0xff00e5ff
-    on_key_text_color: 0xff121212
-    hilited_on_key_back_color: 0xff1a1a3a
-    hilited_on_key_text_color: 0xff00e5ff
-    # 其他细节
-    label_color: 0xff00e5ff
-    preview_back_color: 0x552a2a2a
-    preview_text_color: 0xff00e5ff
-    # 额外按键精细化配置（空格键、回车键等）
-    bkg: 0xff181818
-    tkg: 0xfff0f0f0
-    benter: 0xff00e5ff
-    tenter: 0xff121212
-    bgn: 0xff2a2a2a
-    tgn: 0xfff0f0f0
-    bbs: 0xff2a2a2a
-    tbs: 0xfff0f0f0
-    baoe: 0xff181818
-    taoe: 0xff00e5ff
-    bh1: 0xff181818
-    th1: 0xfff0f0f0
-    bh2: 0xff181818
-    th2: 0xfff0f0f0
-    bh3: 0xff181818
-    th3: 0xfff0f0f0
-    bh4: 0xff181818
-    th4: 0xfff0f0f0
 
   # 设置默认使用该配色方案
-  "style/color_scheme": light_yellow_gradient
+  "style/color_scheme": a_dark_brown_tone
