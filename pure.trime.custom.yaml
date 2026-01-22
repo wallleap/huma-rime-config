@@ -1,4 +1,16 @@
 patch:
+  # 全局字体设置
+  "style/candidate_font":
+    [
+      LXGWWenKaiGBScreen.ttf,
+      TH-Tshyn-P2.ttf,
+      TH-Tshyn-P0.ttf,
+      SegoeUIEmoji.ttf,
+      NotoColorEmoji-Regular.ttf,
+    ]
+  "style/comment_font":
+    [LXGWWenKaiGBScreen.ttf, TH-Tshyn-P2.ttf, TH-Tshyn-P0.ttf]
+
   # 自定义配色方案
   "preset_color_schemes/a_yellow_gradient":
     name: 暖黄渐变 / Yellow Gradient
