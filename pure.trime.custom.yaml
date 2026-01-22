@@ -1,21 +1,4 @@
 patch:
-  # 全局字体设置
-  "style/candidate_font": LXGWWenKaiGBScreen.ttf
-  "style/comment_font": LXGWWenKaiGBScreen.ttf
-  "style/candidate_font_size": 16
-  "style/comment_font_size": 12
-  "style/key_font": LXGWWenKaiGBScreen.ttf
-  "style/key_font_size": 14
-
-  # 键盘布局微调
-  "style/vertical_gap": 2
-  "style/horizontal_gap": 16
-  "style/keyboard_padding": 4
-  "style/keyboard_padding_bottom": 4
-
-  # 注释提示文字位置调整
-  "style/comment_on_top": false
-
   # 自定义配色方案
   "preset_color_schemes/a_yellow_gradient":
     name: 暖黄渐变 / Yellow Gradient

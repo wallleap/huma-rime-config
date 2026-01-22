@@ -3,7 +3,7 @@
 patch:
   translator/dictionary: tiger.extended #引入增补自定词典，这个不要改动
   #translator/enable_completion: true # 编码提示，默认关闭，删掉行首的#号，即可开启
-  speller/auto_select_pattern: ^;\w+|^\w{4}$  # 四码上屏功能，删掉行首的#号，即可开启
+  speller/auto_select_pattern: ^;\w+|^\w{4}$ # 四码上屏功能，删掉行首的#号，即可开启
   #speller/alphabet: "['zyxwvutsrqponmlkjihgfedcba]" # 取消分号引导的快符功能（分号不作码元），删掉行首#号即可生效
   #style/mark_text: " " #编号前标志，这里是空格，可在引号里可以自己加东西替换，如 "😅"
   #style/layout/border_width: 2 #边框宽度，默认是0
@@ -40,7 +40,7 @@ patch:
   #menu/alternative_select_labels: [ Ⓐ,Ⓑ,Ⓒ,Ⓓ,Ⓔ,Ⓕ,Ⓖ,Ⓗ,Ⓘ,Ⓙ ]
   #menu/alternative_select_labels: [ ⓐ,ⓑ,ⓒ,ⓓ,ⓔ,ⓕ,ⓖ,ⓗ,ⓘ,ⓙ ]
 
-  #style/preedit_type: preview # 嵌入首选项内容(字词)。有4个选项可设：input 嵌入输入码 | composition 嵌入编码 | preview 嵌入首选项 | preview_all 嵌入全部内容 
+  #style/preedit_type: preview # 嵌入首选项内容(字词)。有4个选项可设：input 嵌入输入码 | composition 嵌入编码 | preview 嵌入首选项 | preview_all 嵌入全部内容
   #style/layout/margin_y : -1 # 启用后可隐藏候选框(盲打)，建议配合上面的嵌入首选项，一起使用
 
   #style/inline_preedit: false # 嵌入编码模式，默认是true开启，若想关闭，取消注释即可（删除前面的#号）
@@ -61,13 +61,16 @@ patch:
   # #候选前编号标志字体
   #style/label_font_face: "LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
   #style/label_font_point: 15 #候选前编号标志字号
+  # 全局字体设置
+  "style/candidate_font": LXGWWenKaiGBScreen.ttf
+  "style/comment_font": LXGWWenKaiGBScreen.ttf
 
   # 去除拼音滤镜的括号，如对括号有需求，可在下面5行前面加上#号注释掉
   #pinyin/comment_format:
-   #- 'xform/&nbsp;/ /'
-   #- 'xform/^/ /'
-   #- 'xform/（//'
-   #- 'xform/）//'
+  #- 'xform/&nbsp;/ /'
+  #- 'xform/^/ /'
+  #- 'xform/（//'
+  #- 'xform/）//'
   # 也可自己把 （ 替换成别的，比如 'xform/（/〔/'
 
   # 让【 】可以直接上屏（对应的重复上屏的功能也没了）
