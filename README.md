@@ -4,8 +4,6 @@
 
 适用全平台
 
-反查键改成 `!` (感叹号)
-
 ## 如何使用
 
 安装方法：
@@ -27,3 +25,9 @@ Rime-config 压缩包，解压得到 `Rime` 目录，替换（或复制里面文
 ![](https://cdn.wallleap.cn/img/pic/illustration/20260115111422545.png?imageSlim)
 
 ![](https://cdn.wallleap.cn/img/pic/illustration/20260115111443166.jpg?imageSlim)
+
+## 反查
+
+触发键为 \`，ESC 下面，Tab 键上面那个
+
+使用小鹤双拼进行反查
