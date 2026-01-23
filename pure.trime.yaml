@@ -300,7 +300,7 @@ liquid_keyboard:
     keys: # 按键（显示名称为对应的label，不能放太多）
       - liquid_keyboard_exit
       - space1
-      - BackSpace
+      # - BackSpace
       - Return2
       - clipboard_window
       - liquid_keyboard_tabs
@@ -687,7 +687,7 @@ liquid_keyboard:
       ]
 
 tool_bar:
-  button_spacing: 5 # 按钮间距
+  button_spacing: 2 # 按钮间距
   button_font: iconfont.ttf # 按钮字体
 
   # 左侧固定主按钮配置
@@ -702,7 +702,7 @@ tool_bar:
       horizontal_inset: 0 # 水平方向内缩量
     # 前景内容设置
     foreground:
-      style: "ic@dots_horizontal" # 内置质感设计图标样式（以ic@开头）
+      style: "ic@widgets_outline" # 新版wiki，图标样式（以ic@开头）
       fg_normal: candidate_text_color # 正常状态前景色 (本地图片不允许着色)
       # fg_highlight:        # 高亮状态前景色
       padding: 10 # 前景内容与背景边界的内边距
@@ -718,18 +718,18 @@ tool_bar:
 
   emoji_button: &emoji_button
     foreground:
-      style: "ic@emoticon"
+      style: "ic@emoticon_wink_outline"
     # 前景样式可以为空，使用默认样式，按钮将显示为 action 的 label
     action: liquid_keyboard_emoji
 
   clipboard_button: &clipboard_button
     foreground:
-      style: "ic@clipboard"
+      style: "ic@content_paste"
     action: clipboard_window
 
   edit_button: &edit_button
     foreground:
-      style: "ic@cursor_text"
+      style: "ic@circle_edit_outline"
     action: Keyboard_editor
 
   ascii_mode_button: &ascii_mode_button
@@ -741,7 +741,7 @@ tool_bar:
 
   full_shape_button: &full_shape_button
     foreground:
-      option_styles: ["ic@moon_full", "ic@moon_new"]
+      option_styles: ["ic@circle_outline", "ic@record_circle_outline"]
     action: Zenkaku_Hankaku
 
   # 右侧按钮列表（从右向左排列）
@@ -1261,6 +1261,7 @@ preset_keyboards:
       - {
           click: Keyboard_number,
           long_click: Menu,
+          label_symbol: "方案",
           width: 12.5,
           key_back_color: bgn,
           key_text_color: tgn,
@@ -7745,7 +7746,6 @@ preset_keyboards:
           key_text_color: th3,
         }
       - {
-          label: "⌫",
           click: BackSpace,
           width: 15.5,
           key_text_size: "25",
@@ -8054,7 +8054,6 @@ preset_keyboards:
           key_text_color: th3,
         }
       - {
-          label: "⌫",
           click: BackSpace,
           width: 15.5,
           key_text_size: "25",
@@ -8157,11 +8156,11 @@ preset_keys:
   VOLUME_UP: { label: 音量+, send: VOLUME_UP }
   VOLUME_MUTE: { label: 静音, send: VOLUME_MUTE }
   # 编辑
-  Shift_L: { label: "⬆", preview: "⇧", functional: false, send: Shift_L }
+  Shift_L: { label: "ic@apple_keyboard_shift", preview: "ic@apple_keyboard_shift", functional: false, send: Shift_L }
   Shift_L3:
     {
-      label: "⬆",
-      preview: "⇧",
+      label: "ic@apple_keyboard_shift",
+      preview: "ic@apple_keyboard_shift",
       functional: false,
       send: Shift_L,
       shift_lock: click,
@@ -8172,16 +8171,16 @@ preset_keys:
   Hide: { label: 隐藏, send: BACK }
   BackSpace:
     {
-      label: "⌫",
-      preview: "⌫",
+      label: "ic@backspace_outline",
+      preview: "ic@backspace_outline",
       repeatable: true,
       functional: false,
       send: BackSpace,
     }
   BackSpace2:
     {
-      label: "⌫",
-      preview: "⌫",
+      label: "ic@backspace_outline",
+      preview: "ic@backspace_outline",
       repeatable: true,
       functional: false,
       slide_delete: true,
