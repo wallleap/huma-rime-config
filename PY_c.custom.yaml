@@ -6,6 +6,9 @@ patch:
   schema/half_icon: "icons/half.ico"
   schema/icon: "icons/zh.ico"
 
+  engine/filters/+:
+    - lua_filter@*is_in_user_dict # 是否在用户词典中
+
   speller/algebra:
     - erase/^xx$/
     - derive/^([jqxy])u$/$1v/
@@ -75,6 +78,9 @@ patch:
   #   - "xform/(^|[ '])u/$1sh/"
   #   - xform/([jqxy])v/$1u/
   #   - xform/([nl])v/$1ü/
+
+  # lua 配置 -- 是否在用户词典中
+  is_in_user_dict: true
 
   "style/horizontal": true
   "style/candidate_list_layout": linear
