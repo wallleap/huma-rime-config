@@ -12,6 +12,9 @@ patch:
   engine/filters/+:
     - lua_filter@*is_in_user_dict # 是否在用户词典中
 
+  engine/translators/+:
+    - lua_translator@*uuid_translator # UUID 输入
+
   menu/page_size: 9 # 自定义候选个数，可修改。若要改成5个，行首加上#号注释即可（Rime默认就是5个）
   #style/horizontal: true # 默认是false竖排显示，删掉行首的#号，可横排显示（横排建议把上面这行注释掉）
   #style/layout/candidate_spacing: 17 #候选框改为横排后,增加 候选与候选 的间距

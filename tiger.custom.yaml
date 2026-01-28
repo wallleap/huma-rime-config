@@ -9,6 +9,9 @@ patch:
   #style/layout/border_width: 2 #边框宽度，默认是0
   #style/layout/border_height: 2 #边框高度，默认是0
 
+  engine/translators/+:
+    - lua_translator@*uuid_translator # UUID 输入
+
   # 反查
   reverse_lookup/prefix: "`"
   reverse_lookup/tips: "〔双拼〕"

@@ -9,6 +9,9 @@ patch:
   engine/filters/+:
     - lua_filter@*is_in_user_dict # 是否在用户词典中
 
+  engine/translators/+:
+    - lua_translator@*uuid_translator # UUID 输入
+
   speller/algebra:
     - erase/^xx$/
     - derive/^([jqxy])u$/$1v/
