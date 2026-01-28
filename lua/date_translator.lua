@@ -8,7 +8,6 @@
 -- /week 星期
 -- /month 月份
 -- /fjq 节气
--- /djs 倒计时
 
 ------------------------------------
 ------wirting by 98wubi Group-------
@@ -1984,31 +1983,7 @@ local function date_translator(input, seg)
         end
       end
     end -- if tonumber
-
-    --倒计时
-  elseif (input == "/djs") then
-    -- 1. 农历生日倒计时（核心新增）
-    local nl_birth_y = "1997" -- 农历生日年
-    local nl_birth_m = "11"   -- 农历生日月
-    local nl_birth_d = "17"   -- 农历生日日
-    local nl_diff = nl_shengri2(nl_birth_y, nl_birth_m, nl_birth_d)
-    -- 处理异常，确保输出无空格
-    nl_diff = nl_diff ~= "计算异常" and nl_diff or "计算失败"
-    local nl_sxjsr = "距离下次农历生日还有" .. nl_diff .. "天"
-    candidate = Candidate("/djs", seg.start, seg._end, nl_sxjsr, "")
-    yield(candidate)
-
-    -- 2. 公历生日倒计时（保留，格式优化）
-    local greg_birth_y = "1997"
-    local greg_birth_m = "11"
-    local greg_birth_d = "17"
-    local greg_target = greg_birth_y .. greg_birth_m .. greg_birth_d
-    local greg_diff = diffDate2(os.date("%Y%m%d"), greg_target)
-    greg_diff = greg_diff and greg_diff or "计算失败"
-    local greg_sxjsr = "距离下次公历生日还有" .. greg_diff .. "天"
-    candidate = Candidate("/djs", seg.start, seg._end, greg_sxjsr, "")
-    yield(candidate)
-  end -- if
-end   -- function
+  end   -- if
+end     -- function
 
 return date_translator
