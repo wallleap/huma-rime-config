@@ -11,6 +11,7 @@ patch:
 
   engine/translators/+:
     - lua_translator@*uuid_translator # UUID 输入
+    - lua_translator@*date_translator # 动态日期时间输入
 
   speller/algebra:
     - erase/^xx$/
