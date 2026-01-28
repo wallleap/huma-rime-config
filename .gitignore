@@ -1,5 +1,20 @@
-build
-*.userdb
-installation.yaml
+.DS_Store
 user.yaml
-geckodriver.log
+installation.yaml
+*.userdb/
+build/
+user_history.txt
+sync/
+*.log
+*.bak
+*.tmp
+.rebuild
+--rebuild/
+backup_*/
+data/
+trash/
+
+# 用户自定义短语文件
+custom_phrase.txt
+
+PY_c.txt

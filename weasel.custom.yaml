@@ -6,41 +6,38 @@ patch:
       vim_mode: true
       # ascii_mode 英文模式 | inline_preedit 行内显示预编辑区域 | vim_mode vim 模式
   style/+:
-    color_scheme: purity_of_essence     # 切换主题
-    color_scheme_dark: purity_of_form   # 暗黑模式下主题
-    horizontal: false             # 候选横排
-    inline_preedit: false         # 内嵌编码（仅支持TSF）
+    color_scheme: purity_of_essence # 切换主题
+    color_scheme_dark: purity_of_form # 暗黑模式下主题
+    horizontal: true # 候选横排
+    inline_preedit: false # 内嵌编码（仅支持TSF）
     preedit_type: composition
-    display_tray_icon: false      # 显示托盘图标
-    label_font_face: "LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-    font_face: "Consolas, Apple Color Emoji, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-    comment_font_face: "Consolas, Apple Color Emoji, TumanPUA, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-    # font_face: "-apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif"
+    display_tray_icon: false # 显示托盘图标
+    font_face: "-apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif"
     font_point: 16
     label_format: "%s."
-    # label_font_face: "-apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif"
+    label_font_face: "-apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif"
     label_font_point: 12
-    # comment_font_face: "-apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif"
+    comment_font_face: "-apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif"
     comment_font_point: 12
     layout:
       align_type: bottom
-      max_width: 0	#set 0 to disable max width
+      max_width: 0 #set 0 to disable max width
       min_width: 0
       min_height: 0
-      max_height: 0	#set 0 to disable max height
-      border_width: 1         # 边框宽度
-      margin_x: 10            # 外边距横向      
-      margin_y: 8             # 外边距竖向
-      spacing: 2              # 输入和候选间的距离
-      candidate_spacing: 20   # 每个候选项之间的距离
-      hilite_spacing: 4       # 高亮字间距
+      max_height: 0 #set 0 to disable max height
+      border_width: 1 # 边框宽度
+      margin_x: 10 # 外边距横向
+      margin_y: 8 # 外边距竖向
+      spacing: 2 # 输入和候选间的距离
+      candidate_spacing: 20 # 每个候选项之间的距离
+      hilite_spacing: 4 # 高亮字间距
       # hilite_padding: 4       # 高亮背景内边距
       hilite_padding_x: 6
       hilite_padding_y: 4
       # round_corner: 16   #别名 hilited_corner_radius
       hilited_corner_radius: 12 # 高亮背景圆角大小
-      corner_radius: 16       # 外框圆角
-      shadow_radius: 4        # 阴影
+      corner_radius: 16 # 外框圆角
+      shadow_radius: 4 # 阴影
       shadow_offset_x: 4
       shadow_offset_y: 4
       linespacing: 0 # percentage of font point, 0 to disable
@@ -48,46 +45,45 @@ patch:
   preset_color_schemes/purity_of_essence:
     name: 純粹的本質／Purity of Essence
     author: vonnelu
-    back_color: '0xe6ffffff'            # 整体背景 透明度 90%
-    border_color: '0x08ADD3E4'          # 边框颜色
-    text_color: '0x3737fb'              # 内选区域文字颜色
-    hilited_text_color: '0x4782a9'      # 内选区域编码颜色
-    hilited_back_color: '0x00ffffff'    # 内选背景 完全透明
-    hilited_comment_text_color: '0x8dd7f2'    # 候选词高亮备注颜色
-    hilited_candidate_text_color: '0xbefcfe'  # 候选高亮文字颜色
-    hilited_candidate_back_color: '0x20467e'  # 候选词高亮背景色
-    hilited_label_color: '0x65a5d2'           # 候选词高亮序号标签颜色
-    candidate_text_color: '0x124364'    # 候选词文字颜色
-    comment_text_color: '0x2b7fa6'      # 候选词提示颜色
-    label_color: '0x126bca'             # 候选词序号标签颜色
-    shadow_color: '0x1a20467e'             # 阴影颜色
+    back_color: "0xe6ffffff" # 整体背景 透明度 90%
+    border_color: "0x08ADD3E4" # 边框颜色
+    text_color: "0x3737fb" # 内选区域文字颜色
+    hilited_text_color: "0x4782a9" # 内选区域编码颜色
+    hilited_back_color: "0x00ffffff" # 内选背景 完全透明
+    hilited_comment_text_color: "0x8dd7f2" # 候选词高亮备注颜色
+    hilited_candidate_text_color: "0xbefcfe" # 候选高亮文字颜色
+    hilited_candidate_back_color: "0x20467e" # 候选词高亮背景色
+    hilited_label_color: "0x65a5d2" # 候选词高亮序号标签颜色
+    candidate_text_color: "0x124364" # 候选词文字颜色
+    comment_text_color: "0x2b7fa6" # 候选词提示颜色
+    label_color: "0x126bca" # 候选词序号标签颜色
+    shadow_color: "0x1a20467e" # 阴影颜色
   preset_color_schemes/purity_of_form:
     name: 純粹的形式／Purity of Form
     author: vonnelu
-    back_color: '0xe6444444'            # 整体背景 透明度 90%
-    border_color: '0x03152079'          # 边框颜色
-    text_color: '0xC4C15C'              # 内选区域文字颜色
-    hilited_text_color: '0xE8E8E8'      # 内选区域编码颜色
-    hilited_back_color: '0x00ffffff'    # 内选背景 完全透明
-    hilited_comment_text_color: '0x8dd7f2'    # 候选词高亮备注颜色
-    hilited_candidate_text_color: '0xCC000000'  # 候选高亮文字颜色
-    hilited_candidate_back_color: '0x7696BE'  # 候选词高亮背景色
-    hilited_label_color: '0xafddfd'           # 候选词高亮序号标签颜色
-    candidate_text_color: '0xABFFFFFF'    # 候选词文字颜色
-    comment_text_color: '0xb8e8ff'      # 候选词提示颜色
-    label_color: '0x959595'             # 候选词序号标签颜色
-    shadow_color: '0x1a20467e'             # 阴影颜色
+    back_color: "0xe6444444" # 整体背景 透明度 90%
+    border_color: "0x03152079" # 边框颜色
+    text_color: "0xC4C15C" # 内选区域文字颜色
+    hilited_text_color: "0xE8E8E8" # 内选区域编码颜色
+    hilited_back_color: "0x00ffffff" # 内选背景 完全透明
+    hilited_comment_text_color: "0x8dd7f2" # 候选词高亮备注颜色
+    hilited_candidate_text_color: "0xCC000000" # 候选高亮文字颜色
+    hilited_candidate_back_color: "0x7696BE" # 候选词高亮背景色
+    hilited_label_color: "0xafddfd" # 候选词高亮序号标签颜色
+    candidate_text_color: "0xABFFFFFF" # 候选词文字颜色
+    comment_text_color: "0xb8e8ff" # 候选词提示颜色
+    label_color: "0x959595" # 候选词序号标签颜色
+    shadow_color: "0x1a20467e" # 阴影颜色
   preset_color_schemes/green:
     name: "绿色／green"
     author: "modified"
     candidate_format: "%c\u2005%@" # 编号 %c 和候选词 %@ 前后的空间
-    back_color: 0xFFFFFF                # 候选条背景保持白色，增强对比
-    border_color: 0xE6F4EA              # 浅绿色边框
-    candidate_text_color: 0x333333      # 候选文字深灰色，清晰可读
-    comment_text_color: 0xA0A0A0        # 提示文字浅灰色
+    back_color: 0xFFFFFF # 候选条背景保持白色，增强对比
+    border_color: 0xE6F4EA # 浅绿色边框
+    candidate_text_color: 0x333333 # 候选文字深灰色，清晰可读
+    comment_text_color: 0xA0A0A0 # 提示文字浅灰色
     hilited_candidate_label_color: 0xFFFFFF # 选中项编号白色
-    hilited_candidate_text_color: 0xFFFFFF  # 选中项文字白色
-    hilited_candidate_back_color: 0x34A853  # 选中项背景：鲜明的绿色（类似Google绿）
-    label_color: 0x70C174               # 候选编号浅绿色
-    text_color: 0x1E8E3E                # 高亮文字深绿色
-  
+    hilited_candidate_text_color: 0xFFFFFF # 选中项文字白色
+    hilited_candidate_back_color: 0x34A853 # 选中项背景：鲜明的绿色（类似Google绿）
+    label_color: 0x70C174 # 候选编号浅绿色
+    text_color: 0x1E8E3E # 高亮文字深绿色

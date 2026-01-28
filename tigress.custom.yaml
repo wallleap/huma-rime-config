@@ -41,16 +41,14 @@ patch:
   # 竖排候选框超长时自动倒序
   style/vertical_auto_reverse: false # 词版默认关闭，若想启用，在行首加上#即可
 
+  style/comment_font_face: "Consolas, Apple Color Emoji, TumanPUA, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
+  style/font_face: "Consolas, Apple Color Emoji, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
+  style/label_font_face: "LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
 
-  # #候选字体
-  #style/font_face: "Consolas, Segoe UI Emoji, Noto Color Emoji, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-  #style/font_point: 15 #主字体字号
-  # #滤镜内容字体
-  #style/comment_font_face: "Consolas, Segoe UI Emoji, Noto Color Emoji, TumanPUA, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-  #style/comment_font_point: 15 # 滤镜内容字号
-  # #候选前编号标志字体
-  #style/label_font_face: "LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-  #style/label_font_point: 15 #候选前编号标志字号
+  schema/ascii_icon: "icons/en.ico"
+  schema/full_icon: "icons/full.ico"
+  schema/half_icon: "icons/half.ico"
+  schema/icon: "icons/tiger.ico"
 
   # 去除拼音滤镜的括号，如对括号有需求，可在下面5行前面加上#号注释掉
   #pinyin/comment_format:
