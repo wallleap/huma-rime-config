@@ -1,17 +1,17 @@
 # pure.trime.yaml
 # 修改自 tongwenfeng.trime.yaml
-name: 朴素  # 方案名称
-author: "vonnelu<vonnelu@163.com>"  # 作者信息
+name: 朴素 # 方案名称
+author: "vonnelu<vonnelu@163.com>" # 作者信息
 
 # 键盘高度
 height:
-  1: &jpgd1 30  # 表情键盘
-  2: &jpgd2 24  # 颜文字键盘1
-  3: &jpgd3 24  # 颜文字键盘2
-  4: &jpgd4 58  # 主键盘
-  5: &jpgd5 39.5  # 符号键盘
-  6: &hgap 20  # 键盘横缝大小
-  7: &sgap 12  # 键盘竖缝大小
+  1: &jpgd1 30 # 表情键盘
+  2: &jpgd2 24 # 颜文字键盘1
+  3: &jpgd3 24 # 颜文字键盘2
+  4: &jpgd4 58 # 主键盘
+  5: &jpgd5 39.5 # 符号键盘
+  6: &hgap 20 # 键盘横缝大小
+  7: &sgap 12 # 键盘竖缝大小
 
 # 键盘圆角
 round_corner:
@@ -21,77 +21,77 @@ round_corner:
 
 # 界面风格、功能开关
 style:
-  auto_caps: false  # 自動句首大寫:true|false
+  auto_caps: false # 自動句首大寫:true|false
   candidate_use_cursor: true
-  candidate_font: han.ttf  # 候选字体
-  candidate_padding: 5  # 候选项内边距
-  candidate_spacing: 0.5  # 候选间距
-  candidate_text_size: 18  # 候选字号
-  candidate_view_height: 28  # 候选区高度
-  comment_font: comment.ttf  # 编码提示字体
-  comment_height: 18  # 编码提示区高度
-  comment_on_top: false  # 编码提示在上方或右侧
-  comment_text_size: 10  # 编码提示字号
-  hanb_font: hanb.ttf  # 扩充字体
-  horizontal_gap: *hgap  # 键水平间距
-  key_font: symbol.ttf  # 键盘字体
-  key_height: *jpgd4  # 键高
-  key_long_text_size: 18  # 长标签字号
-  key_text_size: 20  # 键字号
-  key_width: 10.0  # 键宽，占屏幕宽的百分比
+  candidate_font: han.ttf # 候选字体
+  candidate_padding: 5 # 候选项内边距
+  candidate_spacing: 0.5 # 候选间距
+  candidate_text_size: 18 # 候选字号
+  candidate_view_height: 28 # 候选区高度
+  comment_font: comment.ttf # 编码提示字体
+  comment_height: 18 # 编码提示区高度
+  comment_on_top: false # 编码提示在上方或右侧
+  comment_text_size: 10 # 编码提示字号
+  hanb_font: hanb.ttf # 扩充字体
+  horizontal_gap: *hgap # 键水平间距
+  key_font: symbol.ttf # 键盘字体
+  key_height: *jpgd4 # 键高
+  key_long_text_size: 18 # 长标签字号
+  key_text_size: 20 # 键字号
+  key_width: 10.0 # 键宽，占屏幕宽的百分比
   keyboard_padding: 6
   keyboard_padding_bottom: 6
-  label_text_size: 8  # 标签字号
-  label_font: label.ttf  # 编标签字体
-  latin_font: latin.ttf  # 西文本体
-  keyboard_height: 268  # 锁定键盘高度，避免切换时键盘高度变化而造成闪烁
-  keyboard_height_land: 200  # 锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
-  popup_font: latin.ttf  # 按键提示字体
-  popup_width: 38  # 按键提示宽度
-  popup_height: 48  # 按键提示高度
-  popup_bottom_margin: 68  # 按键提示底边距
-  popup_key_height: 48  # 按键提示内键高度
-  popup_text_size: 23  # 按键提示字号
-  proximity_correction: true  # 按键纠错
-  reset_ascii_mode: false  # 显示键盘时重置为中文状态
-  round_corner: *round1  # 按键圆角半径
-  shadow_radius: 0.0  # 按键阴影半径
-  symbol_font: symbol.ttf  # 符号字体
-  symbol_text_size: 10  # 符号字号
-  text_font: latin.ttf  # 编码字体
+  label_text_size: 8 # 标签字号
+  label_font: label.ttf # 编标签字体
+  latin_font: latin.ttf # 西文本体
+  keyboard_height: 268 # 锁定键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_height_land: 200 # 锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
+  popup_font: latin.ttf # 按键提示字体
+  popup_width: 38 # 按键提示宽度
+  popup_height: 48 # 按键提示高度
+  popup_bottom_margin: 68 # 按键提示底边距
+  popup_key_height: 48 # 按键提示内键高度
+  popup_text_size: 23 # 按键提示字号
+  proximity_correction: true # 按键纠错
+  reset_ascii_mode: false # 显示键盘时重置为中文状态
+  round_corner: *round1 # 按键圆角半径
+  shadow_radius: 0.0 # 按键阴影半径
+  symbol_font: symbol.ttf # 符号字体
+  symbol_text_size: 10 # 符号字号
+  text_font: latin.ttf # 编码字体
   vertical_correction: -10
-  vertical_gap: *sgap  # 键盘行距
-  enter_label_mode: 2  # 是否使用App提供的ActionLabel内容作为Enter键的文本（由于多数App没有适配ActionLable，实际影响不大）。0不使用，1只使用actionlabel，2优先使用，3当其他方式没有获得label时才读取actionlabel
-  enter_labels:  # 定义Enter键的文本
+  vertical_gap: *sgap # 键盘行距
+  enter_label_mode: 2 # 是否使用App提供的ActionLabel内容作为Enter键的文本（由于多数App没有适配ActionLable，实际影响不大）。0不使用，1只使用actionlabel，2优先使用，3当其他方式没有获得label时才读取actionlabel
+  enter_labels: # 定义Enter键的文本
     go: 前往
     done: 完成
     next: 下个
     pre: 上个
     search: 搜索
     send: 发送
-    default: 换行  # 定义默认Enter键的文本
+    default: 换行 # 定义默认Enter键的文本
 
-preedit:  # 预编辑文本视图参数
-  horizontal_padding: 8  # 横向内边距（整数）
+preedit: # 预编辑文本视图参数
+  horizontal_padding: 8 # 横向内边距（整数）
   #  alpha: 0.8                 # 透明度（0-1，浮点）
-  top_end_radius: 4  # 末上端圆角（浮点）
-  foreground:  # 前景样式
-    font_size: 16  # 预编辑字体大小（浮点）
+  top_end_radius: 4 # 末上端圆角（浮点）
+  foreground: # 前景样式
+    font_size: 16 # 预编辑字体大小（浮点）
 
-window:  # 候选窗口（悬浮窗）参数
-  insets:  # 窗口内边距
-    vertical: 4  # 纵向内边距（整数）
-    horizontal: 4  # 横向内边距（整数）
-  item_padding:  # 候选项内边距
+window: # 候选窗口（悬浮窗）参数
+  insets: # 窗口内边距
+    vertical: 4 # 纵向内边距（整数）
+    horizontal: 4 # 横向内边距（整数）
+  item_padding: # 候选项内边距
     #    vertical: 0           # 纵向内边距（整数）
-    horizontal: 4  # 横向内边距（整数）
+    horizontal: 4 # 横向内边距（整数）
   #  min_width: 0          # 最小宽度（整数）
   #  corner_radius: 0      # 圆角半径（浮点）
   #  alpha: 1              # 透明度（0-1，浮点）
-  foreground:  # 前景样式
-    label_font_size: 16  # 序号字体大小（浮点）
-    text_font_size: 16  # 文字字体大小（浮点）
-    comment_font_size: 12  # 注释字体大小（浮点）
+  foreground: # 前景样式
+    label_font_size: 16 # 序号字体大小（浮点）
+    text_font_size: 16 # 文字字体大小（浮点）
+    comment_font_size: 12 # 注释字体大小（浮点）
 
 # 最好保留一项，防止其他主题使用 __include 时无法加载
 fallback_colors:
@@ -136,152 +136,152 @@ fallback_colors:
 
 #颜色 0xaarrggbb "#aarrggbb"
 colors:
-  1: &color1 0xFF222222  # 深黑
-  2: &color2 0xFFE1E2E6  # 浅灰
-  3: &color3 0xFF999999  # 深灰
-  4: &color4 0xFFC7C9D0  # 灰
+  1: &color1 0xFF222222 # 深黑
+  2: &color2 0xFFE1E2E6 # 浅灰
+  3: &color3 0xFF999999 # 深灰
+  4: &color4 0xFFC7C9D0 # 灰
   5: &color5 0xff131313
-  6: &color6 0xFF4F84FE  # 蓝色
+  6: &color6 0xFF4F84FE # 蓝色
   7: &color7 0x00
-  8: &color8 0xFF9E9E9E  # 深灰
-  9: &color9 0xFFFFFFFF  # 纯白
+  8: &color8 0xFF9E9E9E # 深灰
+  9: &color9 0xFFFFFFFF # 纯白
 
 # 配色方案
 preset_color_schemes:
   default:
-    name: "默认／Default"  # 方案名称
-    author: vonnelu  # 作者信息
-    dark_scheme: default_dark  # 对应暗色颜色
+    name: "默认／Default" # 方案名称
+    author: vonnelu # 作者信息
+    dark_scheme: default_dark # 对应暗色颜色
     # ▼悬浮窗口
-    border_color: *color2  # 悬浮窗边框
-    label_color: *color3  # 悬浮窗候选序号
-    hilited_text_color: *color1  # 高亮编码
-    text_color: *color6  # 编码
-    hilited_back_color: *color2  # 高亮编码背景
-    text_back_color: *color2  # 编码区背景 ☆支持图片
+    border_color: *color2 # 悬浮窗边框
+    label_color: *color3 # 悬浮窗候选序号
+    hilited_text_color: *color1 # 高亮编码
+    text_color: *color6 # 编码
+    hilited_back_color: *color2 # 高亮编码背景
+    text_back_color: *color2 # 编码区背景 ☆支持图片
     # ▼输入面板
-    root_background: *color2  # 键盘和候选区整体背景 ☆
+    root_background: *color2 # 键盘和候选区整体背景 ☆
     # ▼候选项
-    back_color: *color2  # 候选区背景
-    candidate_backgroud: *color2  # 候选区整体背景 ☆
-    hilited_candidate_back_color: *color2  # 高亮候选背景  
-    candidate_separator_color: *color2  # 候选分割线
-    candidate_text_color: *color1  # 候选文本
-    hilited_candidate_text_color: *color6  # 高亮候选文本
-    comment_text_color: *color3  # 候选项注释
+    back_color: *color2 # 候选区背景
+    candidate_backgroud: *color2 # 候选区整体背景 ☆
+    hilited_candidate_back_color: *color2 # 高亮候选背景
+    candidate_separator_color: *color2 # 候选分割线
+    candidate_text_color: *color1 # 候选文本
+    hilited_candidate_text_color: *color6 # 高亮候选文本
+    comment_text_color: *color3 # 候选项注释
     hilited_comment_text_color: *color3 # 高亮候选项注释
     # ▼键盘
-    key_back_color: *color9  # 按键背景 ☆
-    hilited_key_back_color: *color6  # 高亮按键背景 ☆
-    key_text_color: *color1  # 按键文本
-    hilited_key_text_color: *color9  # 高亮按键文本
-    key_symbol_color: *color8  # 按键符号 
-    hilited_key_symbol_color: *color2  # 高亮按键符号
-    popup_back_color: *color4  # 按键提示背景
-    popup_text_color: *color6  # 按键提示文本
-    hilited_popup_text_color: *color9  # 高亮按键提示文本
-    shadow_color: *color1  # 按键文字阴影
+    key_back_color: *color9 # 按键背景 ☆
+    hilited_key_back_color: *color6 # 高亮按键背景 ☆
+    key_text_color: *color1 # 按键文本
+    hilited_key_text_color: *color9 # 高亮按键文本
+    key_symbol_color: *color8 # 按键符号
+    hilited_key_symbol_color: *color2 # 高亮按键符号
+    popup_back_color: *color4 # 按键提示背景
+    popup_text_color: *color6 # 按键提示文本
+    hilited_popup_text_color: *color9 # 高亮按键提示文本
+    shadow_color: *color1 # 按键文字阴影
     # keyboard_back_color: *color2  # 键盘背景（使用下面这个） ☆
-    keyboard_backgroud: *color2  # 键盘背景，铺满候选栏和导航栏 ☆
-    liquid_keyboard_backgroud: *color2  # liquidKeyBoard 键盘背景 ☆
-    long_text_back_color: *color2  # 长文本的按键背景（比如剪贴板） ☆
-    key_border_color: *color8  # 按键边框
+    keyboard_backgroud: *color2 # 键盘背景，铺满候选栏和导航栏 ☆
+    liquid_keyboard_backgroud: *color2 # liquidKeyBoard 键盘背景 ☆
+    long_text_back_color: *color2 # 长文本的按键背景（比如剪贴板） ☆
+    key_border_color: *color8 # 按键边框
     # ▼功能键
-    off_key_back_color: *color4  # 功能键背景 ☆
-    hilited_off_key_back_color: *color2  # 功能键高亮背景（按下时） ☆
-    off_key_text_color: *color8  # 功能键文本
+    off_key_back_color: *color4 # 功能键背景 ☆
+    hilited_off_key_back_color: *color2 # 功能键高亮背景（按下时） ☆
+    off_key_text_color: *color8 # 功能键文本
     hilited_off_key_text_color: *color9 # 功能键高亮文本
-    on_key_back_color: *color6  # Shift 键锁定时背景 ☆
-    hilited_on_key_back_color: *color2  # Shift 键锁定时背景（按下时） ☆
-    on_key_text_color: *color9  # Shift 键锁定时文本
-    hilited_on_key_text_color: *color2  # Shift 键锁定时高亮文本
+    on_key_back_color: *color6 # Shift 键锁定时背景 ☆
+    hilited_on_key_back_color: *color2 # Shift 键锁定时背景（按下时） ☆
+    on_key_text_color: *color9 # Shift 键锁定时文本
+    hilited_on_key_text_color: *color2 # Shift 键锁定时高亮文本
     # ▼后面使用
-    bkg: *color9  # 空格键背景色
-    tkg: *color1  # 空格键文字颜色
-    benter: *color6  # 回车键背景色
-    tenter: *color9  # 回车键文字颜色
-    bgn: *color4  # 功能键背景色
-    tgn: *color1  # 功能键文字颜色
-    bbs: *color4  # 退格键背景色
-    tbs: *color1  # 退格键文字颜色
-    baoe: *color9  # aoeiu背景色
-    taoe: *color6  # aoeiu文字颜色
-    bh1: *color9  # 第一行背景色
-    th1: *color1  # 第一行文字颜色
-    bh2: *color9  # 第二行背景色
-    th2: *color1  # 第二行文字颜色
-    bh3: *color9  # 第三行背景色
-    th3: *color1  # 第三行文字颜色
-    bh4: *color9  # 第四行背景色
-    th4: *color1  # 第四行文字颜色
+    bkg: *color9 # 空格键背景色
+    tkg: *color1 # 空格键文字颜色
+    benter: *color6 # 回车键背景色
+    tenter: *color9 # 回车键文字颜色
+    bgn: *color4 # 功能键背景色
+    tgn: *color1 # 功能键文字颜色
+    bbs: *color4 # 退格键背景色
+    tbs: *color1 # 退格键文字颜色
+    baoe: *color9 # aoeiu背景色
+    taoe: *color6 # aoeiu文字颜色
+    bh1: *color9 # 第一行背景色
+    th1: *color1 # 第一行文字颜色
+    bh2: *color9 # 第二行背景色
+    th2: *color1 # 第二行文字颜色
+    bh3: *color9 # 第三行背景色
+    th3: *color1 # 第三行文字颜色
+    bh4: *color9 # 第四行背景色
+    th4: *color1 # 第四行文字颜色
 
   #--------配色开始----------------#
   default_dark:
-    name: 暗黑／Dark  # 方案名稱
-    author: vonnelu  # 作者資訊
-    light_scheme: default  # 对应亮色颜色
+    name: 暗黑／Dark # 方案名稱
+    author: vonnelu # 作者資訊
+    light_scheme: default # 对应亮色颜色
     # ▼悬浮窗口
-    border_color: 0xFF222222  # 悬浮窗边框
-    label_color: 0x9E9E9E  # 悬浮窗候选序号
-    hilited_text_color: 0x99FFFFFF  # 高亮编码
-    text_color: 0xFFFFFF  # 编码
-    hilited_back_color: 0xFF222222  # 高亮编码背景
-    text_back_color: 0xFF222222  # 编码区背景 ☆支持图片
+    border_color: 0xFF222222 # 悬浮窗边框
+    label_color: 0x9E9E9E # 悬浮窗候选序号
+    hilited_text_color: 0x99FFFFFF # 高亮编码
+    text_color: 0xFFFFFF # 编码
+    hilited_back_color: 0xFF222222 # 高亮编码背景
+    text_back_color: 0xFF222222 # 编码区背景 ☆支持图片
     # ▼输入面板
-    root_background: 0xFF222222  # 键盘和候选区整体背景 ☆
+    root_background: 0xFF222222 # 键盘和候选区整体背景 ☆
     # ▼候选项
-    back_color: 0xFF222222  # 候选区背景
-    candidate_backgroud: 0xFF222222  # 候选区整体背景 ☆
-    hilited_candidate_back_color: 0xFF4870D0  # 高亮候选背景  
-    candidate_separator_color: 0xFF222222  # 候选分割线
-    candidate_text_color: 0xFFFFFF  # 候选文本
-    hilited_candidate_text_color: 0xFFFFFF  # 高亮候选文本
-    comment_text_color: 0x9E9E9E  # 候选项注释
+    back_color: 0xFF222222 # 候选区背景
+    candidate_backgroud: 0xFF222222 # 候选区整体背景 ☆
+    hilited_candidate_back_color: 0xFF4870D0 # 高亮候选背景
+    candidate_separator_color: 0xFF222222 # 候选分割线
+    candidate_text_color: 0xFFFFFF # 候选文本
+    hilited_candidate_text_color: 0xFFFFFF # 高亮候选文本
+    comment_text_color: 0x9E9E9E # 候选项注释
     hilited_comment_text_color: 0xCCFFFFFF # 高亮候选项注释
     # ▼键盘
-    key_back_color: 0x595D60  # 按键背景 ☆
-    hilited_key_back_color: 0x4870D0  # 高亮按键背景 ☆
-    key_text_color: 0xF5F5F5  # 按键文本
-    hilited_key_text_color: 0xF5F5F5  # 高亮按键文本
-    key_symbol_color: 0x999999  # 按键符号 
-    hilited_key_symbol_color: 0xCCFFFFFF  # 高亮按键符号
-    popup_back_color: 0x595D60  # 按键提示背景
-    popup_text_color: 0xCCFFFFFF  # 按键提示文本
-    hilited_popup_text_color: 0xF5F5F5  # 高亮按键提示文本
+    key_back_color: 0x595D60 # 按键背景 ☆
+    hilited_key_back_color: 0x4870D0 # 高亮按键背景 ☆
+    key_text_color: 0xF5F5F5 # 按键文本
+    hilited_key_text_color: 0xF5F5F5 # 高亮按键文本
+    key_symbol_color: 0x999999 # 按键符号
+    hilited_key_symbol_color: 0xCCFFFFFF # 高亮按键符号
+    popup_back_color: 0x595D60 # 按键提示背景
+    popup_text_color: 0xCCFFFFFF # 按键提示文本
+    hilited_popup_text_color: 0xF5F5F5 # 高亮按键提示文本
     # shadow_color: *color1  # 按键文字阴影
     # keyboard_back_color: *color2  # 键盘背景（使用下面这个） ☆
-    keyboard_backgroud: 0xFF222222  # 键盘背景，铺满候选栏和导航栏 ☆
-    liquid_keyboard_backgroud: 0xFF222222  # liquidKeyBoard 键盘背景 ☆
-    long_text_back_color: 0xFF222222  # 长文本的按键背景（比如剪贴板） ☆
-    key_border_color: 0x595D60  # 按键边框
+    keyboard_backgroud: 0xFF222222 # 键盘背景，铺满候选栏和导航栏 ☆
+    liquid_keyboard_backgroud: 0xFF222222 # liquidKeyBoard 键盘背景 ☆
+    long_text_back_color: 0xFF222222 # 长文本的按键背景（比如剪贴板） ☆
+    key_border_color: 0x595D60 # 按键边框
     # ▼功能键
-    off_key_back_color: 0x333333  # 功能键背景 ☆
-    hilited_off_key_back_color: 0xFF222222  # 功能键高亮背景（按下时） ☆
-    off_key_text_color: 0xF5F5F5  # 功能键文本
+    off_key_back_color: 0x333333 # 功能键背景 ☆
+    hilited_off_key_back_color: 0xFF222222 # 功能键高亮背景（按下时） ☆
+    off_key_text_color: 0xF5F5F5 # 功能键文本
     hilited_off_key_text_color: *color9 # 功能键高亮文本
-    on_key_back_color: 0x4870D0  # Shift 键锁定时背景 ☆
-    hilited_on_key_back_color: 0xFF222222  # Shift 键锁定时背景（按下时） ☆
-    on_key_text_color: *color9  # Shift 键锁定时文本
-    hilited_on_key_text_color: 0xFFFFFFFF  # Shift 键锁定时高亮文本
+    on_key_back_color: 0x4870D0 # Shift 键锁定时背景 ☆
+    hilited_on_key_back_color: 0xFF222222 # Shift 键锁定时背景（按下时） ☆
+    on_key_text_color: *color9 # Shift 键锁定时文本
+    hilited_on_key_text_color: 0xFFFFFFFF # Shift 键锁定时高亮文本
     # ▼后面使用
-    bkg: 0x595D60  # 空格键背景色
-    tkg: 0xF5F5F5  # 空格键文字颜色
-    benter: 0x4870D0  # 回车键背景色
-    tenter: 0xF5F5F5  # 回车键文字颜色
-    bgn: 0x333333  # 功能键背景色
-    tgn: 0xF5F5F5  # 功能键文字颜色
-    bbs: 0x333333  # 退格键背景色
-    tbs: 0xF5F5F5  # 退格键文字颜色
-    baoe: 0x333333  # aoeiu背景色
-    taoe: 0x595D60  # aoeiu文字颜色
-    bh1: 0x595D60  # 第一行背景色
-    th1: 0xF5F5F5  # 第一行文字颜色
-    bh2: 0x595D60  # 第二行背景色
-    th2: 0xF5F5F5  # 第二行文字颜色
-    bh3: 0x595D60  # 第三行背景色
-    th3: 0xF5F5F5  # 第三行文字颜色
-    bh4: 0x595D60  # 第四行背景色
-    th4: 0xF5F5F5  # 第四行文字颜色
+    bkg: 0x595D60 # 空格键背景色
+    tkg: 0xF5F5F5 # 空格键文字颜色
+    benter: 0x4870D0 # 回车键背景色
+    tenter: 0xF5F5F5 # 回车键文字颜色
+    bgn: 0x333333 # 功能键背景色
+    tgn: 0xF5F5F5 # 功能键文字颜色
+    bbs: 0x333333 # 退格键背景色
+    tbs: 0xF5F5F5 # 退格键文字颜色
+    baoe: 0x333333 # aoeiu背景色
+    taoe: 0x595D60 # aoeiu文字颜色
+    bh1: 0x595D60 # 第一行背景色
+    th1: 0xF5F5F5 # 第一行文字颜色
+    bh2: 0x595D60 # 第二行背景色
+    th2: 0xF5F5F5 # 第二行文字颜色
+    bh3: 0x595D60 # 第三行背景色
+    th3: 0xF5F5F5 # 第三行文字颜色
+    bh4: 0x595D60 # 第四行背景色
+    th4: 0xF5F5F5 # 第四行文字颜色
 #--------配色结束----------------#
 
 liquid_keyboard:
@@ -745,8 +745,7 @@ tool_bar:
     action: Zenkaku_Hankaku
 
   # 右侧按钮列表（从右向左排列）
-  buttons:
-    [
+  buttons: [
       *hide_button,
       *emoji_button,
       *clipboard_button,
@@ -785,8 +784,8 @@ preset_keyboards:
           long_click: W,
           swipe_up: "2",
           swipe_down: "二",
-          key_back_color: bh1, 
-          key_text_color: th1
+          key_back_color: bh1,
+          key_text_color: th1,
         }
       - {
           label: "E",
@@ -795,8 +794,8 @@ preset_keyboards:
           long_click: E,
           swipe_up: "3",
           swipe_down: "三",
-          key_back_color: bh1, 
-          key_text_color: th1
+          key_back_color: bh1,
+          key_text_color: th1,
         }
       - {
           label: "R",
@@ -805,8 +804,8 @@ preset_keyboards:
           long_click: R,
           swipe_up: "4",
           swipe_down: "四",
-          key_back_color: bh1, 
-          key_text_color: th1
+          key_back_color: bh1,
+          key_text_color: th1,
         }
       - {
           label: "T",
@@ -815,8 +814,8 @@ preset_keyboards:
           long_click: T,
           swipe_up: "5",
           swipe_down: "五",
-          key_back_color: bh1, 
-          key_text_color: th1
+          key_back_color: bh1,
+          key_text_color: th1,
         }
       - {
           label: "Y",
@@ -825,8 +824,8 @@ preset_keyboards:
           long_click: Y,
           swipe_up: "6",
           swipe_down: "六",
-          key_back_color: bh1, 
-          key_text_color: th1
+          key_back_color: bh1,
+          key_text_color: th1,
         }
       - {
           label: "U",
@@ -835,8 +834,8 @@ preset_keyboards:
           long_click: U,
           swipe_up: "7",
           swipe_down: "七",
-          key_back_color: bh1, 
-          key_text_color: th1
+          key_back_color: bh1,
+          key_text_color: th1,
         }
       - {
           label: "I",
@@ -845,8 +844,8 @@ preset_keyboards:
           long_click: I,
           swipe_up: "8",
           swipe_down: "八",
-          key_back_color: bh1, 
-          key_text_color: th1
+          key_back_color: bh1,
+          key_text_color: th1,
         }
       - {
           label: "O",
@@ -855,8 +854,8 @@ preset_keyboards:
           long_click: O,
           swipe_up: "9",
           swipe_down: "九",
-          key_back_color: bh1, 
-          key_text_color: th1
+          key_back_color: bh1,
+          key_text_color: th1,
         }
       - {
           label: "P",
@@ -865,8 +864,8 @@ preset_keyboards:
           long_click: P,
           swipe_up: "0",
           swipe_down: "零",
-          key_back_color: bh1, 
-          key_text_color: th1
+          key_back_color: bh1,
+          key_text_color: th1,
         }
 
       - { width: 5, key_back_color: bh2, key_text_color: th2 }
@@ -877,8 +876,8 @@ preset_keyboards:
           long_click: A,
           swipe_up: "-",
           swipe_down: "_",
-          key_back_color: bh2, 
-          key_text_color: th2
+          key_back_color: bh2,
+          key_text_color: th2,
         }
       - {
           label: "S",
@@ -887,8 +886,8 @@ preset_keyboards:
           long_click: S,
           swipe_up: "/",
           swipe_down: "/",
-          key_back_color: bh2, 
-          key_text_color: th2
+          key_back_color: bh2,
+          key_text_color: th2,
         }
       - {
           label: "D",
@@ -897,8 +896,8 @@ preset_keyboards:
           long_click: D,
           swipe_up: "：",
           swipe_down: "：",
-          key_back_color: bh2, 
-          key_text_color: th2
+          key_back_color: bh2,
+          key_text_color: th2,
         }
       - {
           label: "F",
@@ -907,8 +906,8 @@ preset_keyboards:
           long_click: F,
           swipe_up: "；",
           swipe_down: "；",
-          key_back_color: bh2, 
-          key_text_color: th2
+          key_back_color: bh2,
+          key_text_color: th2,
         }
       - {
           label: "G",
@@ -917,8 +916,8 @@ preset_keyboards:
           long_click: G,
           swipe_up: "（）{Left}",
           swipe_down: "(){Left}",
-          key_back_color: bh2, 
-          key_text_color: th2
+          key_back_color: bh2,
+          key_text_color: th2,
         }
       - {
           label: "H",
@@ -927,8 +926,8 @@ preset_keyboards:
           long_click: H,
           swipe_up: "～",
           swipe_down: "~",
-          key_back_color: bh2, 
-          key_text_color: th2
+          key_back_color: bh2,
+          key_text_color: th2,
         }
       - {
           label: "J",
@@ -937,8 +936,8 @@ preset_keyboards:
           long_click: J,
           swipe_up: "@",
           swipe_down: "@",
-          key_back_color: bh2, 
-          key_text_color: th2
+          key_back_color: bh2,
+          key_text_color: th2,
         }
       - {
           label: "K",
@@ -947,8 +946,8 @@ preset_keyboards:
           long_click: K,
           swipe_up: "*",
           swipe_down: "*",
-          key_back_color: bh2, 
-          key_text_color: th2
+          key_back_color: bh2,
+          key_text_color: th2,
         }
       - {
           label: "L",
@@ -957,8 +956,8 @@ preset_keyboards:
           long_click: L,
           swipe_up: "“”{Left}",
           swipe_down: "“”{Left}",
-          key_back_color: bh2, 
-          key_text_color: th2
+          key_back_color: bh2,
+          key_text_color: th2,
         }
       - { width: 5, key_back_color: bh2, key_text_color: th2 }
 
@@ -979,10 +978,10 @@ preset_keyboards:
           label_symbol: "`",
           click: z,
           long_click: Z,
-          swipe_up: "`",
-          swipe_down: "·",
-          key_back_color: bh3, 
-          key_text_color: th3
+          swipe_up: "‵",
+          swipe_down: "`",
+          key_back_color: bh3,
+          key_text_color: th3,
         }
       - {
           label: "X",
@@ -991,8 +990,8 @@ preset_keyboards:
           long_click: X,
           swipe_up: ".",
           swipe_down: ".",
-          key_back_color: bh3, 
-          key_text_color: th3
+          key_back_color: bh3,
+          key_text_color: th3,
         }
       - {
           label: "C",
@@ -1001,8 +1000,8 @@ preset_keyboards:
           long_click: C,
           swipe_up: "#",
           swipe_down: "#",
-          key_back_color: bh3, 
-          key_text_color: th3
+          key_back_color: bh3,
+          key_text_color: th3,
         }
       - {
           label: "V",
@@ -1011,8 +1010,8 @@ preset_keyboards:
           long_click: V,
           swipe_up: "、",
           swipe_down: "、",
-          key_back_color: bh3, 
-          key_text_color: th3
+          key_back_color: bh3,
+          key_text_color: th3,
         }
       - {
           label: "B",
@@ -1021,8 +1020,8 @@ preset_keyboards:
           long_click: B,
           swipe_up: "？",
           swipe_down: "？",
-          key_back_color: bh3, 
-          key_text_color: th3
+          key_back_color: bh3,
+          key_text_color: th3,
         }
       - {
           label: "N",
@@ -1031,8 +1030,8 @@ preset_keyboards:
           long_click: N,
           swipe_up: "！",
           swipe_down: "!",
-          key_back_color: bh3, 
-          key_text_color: th3
+          key_back_color: bh3,
+          key_text_color: th3,
         }
       - {
           label: "M",
@@ -1041,8 +1040,8 @@ preset_keyboards:
           long_click: M,
           swipe_up: "…",
           swipe_down: "……",
-          key_back_color: bh3, 
-          key_text_color: th3
+          key_back_color: bh3,
+          key_text_color: th3,
         }
       - {
           click: BackSpace2,
@@ -1129,59 +1128,176 @@ preset_keyboards:
     key_symbol_offset_y: 4
     ascii_mode: 1
     keys:
-      - { click: q, long_click: 1, key_back_color: bh1, key_text_color: th1 }
-      - { click: w, long_click: 2, key_back_color: bh1, key_text_color: th1 }
-      - { click: e, long_click: 3, key_back_color: bh1, key_text_color: th1 }
-      - { click: r, long_click: 4, key_back_color: bh1, key_text_color: th1 }
-      - { click: t, long_click: 5, key_back_color: bh1, key_text_color: th1 }
-      - { click: y, long_click: 6, key_back_color: bh1, key_text_color: th1 }
-      - { click: u, long_click: 7, key_back_color: bh1, key_text_color: th1 }
-      - { click: i, long_click: 8, key_back_color: bh1, key_text_color: th1 }
-      - { click: o, long_click: 9, key_back_color: bh1, key_text_color: th1 }
-      - { click: p, long_click: 0, key_back_color: bh1, key_text_color: th1 }
+      - {
+          click: q,
+          long_click: Q,
+          label_symbol: "1",
+          swipe_up: "1",
+          swipe_down: "1",
+          key_back_color: bh1,
+          key_text_color: th1,
+        }
+      - {
+          click: w,
+          long_click: W,
+          label_symbol: "2",
+          swipe_up: "2",
+          swipe_down: "2",
+          key_back_color: bh1,
+          key_text_color: th1,
+        }
+      - {
+          click: e,
+          label_symbol: "3",
+          long_click: E,
+          swipe_up: "3",
+          swipe_down: "3",
+          key_back_color: bh1,
+          key_text_color: th1,
+        }
+      - {
+          click: r,
+          long_click: R,
+          label_symbol: "4",
+          swipe_up: "4",
+          swipe_down: "4",
+          key_back_color: bh1,
+          key_text_color: th1,
+        }
+      - {
+          click: t,
+          long_click: T,
+          label_symbol: "5",
+          swipe_up: "5",
+          swipe_down: "5",
+          key_back_color: bh1,
+          key_text_color: th1,
+        }
+      - {
+          click: y,
+          long_click: Y,
+          label_symbol: "6",
+          swipe_up: "6",
+          swipe_down: "6",
+          key_back_color: bh1,
+          key_text_color: th1,
+        }
+      - {
+          click: u,
+          long_click: U,
+          label_symbol: "7",
+          swipe_up: "7",
+          swipe_down: "7",
+          key_back_color: bh1,
+          key_text_color: th1,
+        }
+      - {
+          click: i,
+          long_click: I,
+          label_symbol: "8",
+          swipe_up: "8",
+          swipe_down: "8",
+          key_back_color: bh1,
+          key_text_color: th1,
+        }
+      - {
+          click: o,
+          long_click: O,
+          label_symbol: "9",
+          swipe_up: "9",
+          swipe_down: "9",
+          key_back_color: bh1,
+          key_text_color: th1,
+        }
+      - {
+          click: p,
+          long_click: P,
+          label_symbol: "0",
+          swipe_up: "0",
+          swipe_down: "0",
+          key_back_color: bh1,
+          key_text_color: th1,
+        }
 
       - { width: 5, key_back_color: bh2, key_text_color: th2 }
       - {
           click: a,
-          long_click: select_all,
+          long_click: A,
+          label_symbol: "全选",
+          swipe_up: select_all,
+          swipe_down: select_all,
           key_back_color: bh2,
           key_text_color: th2,
         }
-      - { click: s, long_click: "@", key_back_color: bh2, key_text_color: th2 }
-      - { click: d, long_click: "#", key_back_color: bh2, key_text_color: th2 }
-      - { click: f, long_click: "$", key_back_color: bh2, key_text_color: th2 }
+      - {
+          click: s,
+          long_click: S,
+          label_symbol: "@",
+          swipe_up: "@",
+          swipe_down: "@",
+          key_back_color: bh2,
+          key_text_color: th2,
+        }
+      - {
+          click: d,
+          long_click: D,
+          label_symbol: "#",
+          swipe_up: "#",
+          swipe_down: "#",
+          key_back_color: bh2,
+          key_text_color: th2,
+        }
+      - {
+          click: f,
+          long_click: F,
+          label_symbol: "$",
+          swipe_up: "$",
+          swipe_down: "$",
+          key_back_color: bh2,
+          key_text_color: th2,
+        }
       - {
           click: g,
-          long_click: "%",
-          swipe_down: "date_time",
+          long_click: G,
+          label_symbol: "%",
+          swipe_up: "%",
+          swipe_down: "%",
           key_back_color: bh2,
           key_text_color: th2,
         }
       - {
           click: h,
-          long_click: "!",
-          swipe_down: "+",
+          long_click: H,
+          label_symbol: "!",
+          swipe_up: "!",
+          swipe_down: "!",
           key_back_color: bh2,
           key_text_color: th2,
         }
       - {
           click: j,
-          long_click: "&",
-          swipe_down: "-",
+          long_click: J,
+          label_symbol: "&",
+          swipe_up: "&",
+          swipe_down: "&",
           key_back_color: bh2,
           key_text_color: th2,
         }
       - {
           click: k,
-          long_click: "*",
-          swipe_down: "_",
+          long_click: K,
+          label_symbol: "*",
+          swipe_up: "*",
+          swipe_down: "*",
           key_back_color: bh2,
           key_text_color: th2,
         }
       - {
           click: l,
-          long_click: "(){Left}",
-          swipe_down: "=",
+          long_click: L,
+          label_symbol: "()",
+          swipe_up: "(){Left}",
+          swipe_down: "(){Left}",
           key_back_color: bh2,
           key_text_color: th2,
         }
@@ -1199,44 +1315,64 @@ preset_keyboards:
         }
       - {
           click: z,
-          long_click: "`",
-          swipe_down: "[]{Left}",
+          long_click: Z,
+          label_symbol: "`",
+          swipe_up: "`",
+          swipe_down: "`",
           key_back_color: bh3,
           key_text_color: th3,
         }
       - {
           click: x,
-          long_click: cut,
-          swipe_down: "{}{Left}",
+          long_click: X,
+          label_symbol: "剪切",
+          swipe_up: cut,
+          swipe_down: cut,
           key_back_color: bh3,
           key_text_color: th3,
         }
       - {
           click: c,
-          long_click: copy,
-          swipe_down: " ",
+          long_click: C,
+          label_symbol: "复制",
+          swipe_up: copy,
+          swipe_down: copy,
           key_back_color: bh3,
           key_text_color: th3,
         }
       - {
           click: v,
-          long_click: paste_clip,
-          swipe_down: paste,
+          long_click: V,
+          label_symbol: "粘贴",
+          swipe_up: paste_clip,
+          swipe_down: paste_clip,
           key_back_color: bh3,
           key_text_color: th3,
         }
       - {
           click: b,
-          long_click: ";",
-          swipe_down: "\\",
+          long_click: B,
+          label_symbol: ";",
+          swipe_up: ";",
+          swipe_down: ";",
           key_back_color: bh3,
           key_text_color: th3,
         }
-      - { click: n, long_click: ":", key_back_color: bh3, key_text_color: th3 }
+      - {
+          click: n,
+          long_click: N,
+          label_symbol: ":",
+          swipe_up: ":",
+          swipe_down: ":",
+          key_back_color: bh3,
+          key_text_color: th3,
+        }
       - {
           click: m,
-          long_click: "?",
-          swipe_down: "|",
+          long_click: M,
+          label_symbol: "?",
+          swipe_up: "?",
+          swipe_down: "?",
           key_back_color: bh3,
           key_text_color: th3,
         }
@@ -1270,6 +1406,10 @@ preset_keyboards:
           click: ".",
           label: "。",
           long_click: Keyboard_kao,
+          key_text_offset_y: -1,
+          # key_text_offset_x: 5,
+          key_symbol_offset_y: 6,
+          # key_symbol_offset_x: 1.4,
           key_back_color: bh4,
           key_text_color: th4,
         }
@@ -1277,16 +1417,15 @@ preset_keyboards:
           label: "SPACE",
           click: space,
           # long_click: space_R2,
-          swipe_left: "Left",
-          swipe_right: "Right",
-          swipe_up: Keyboard_fbj,
+          label_symbol: "英文",
+          # swipe_up: Keyboard_fbj,
           width: 30,
           key_back_color: bkg,
           key_text_color: tkg,
         }
       - {
           # click: space_R2,
-          click: Keyboard_default_ch,
+          click: Keyboard_default_zh,
           key_text_size: "18",
           key_text_offset_y: -0.1,
           key_back_color: bh4,
@@ -1344,11 +1483,7 @@ preset_keyboards:
       - { click: 7 }
       - { click: 8 }
       - { click: 9 }
-      - {
-          click: "=",
-          key_back_color: bgn,
-          key_text_color: tgn,
-        }
+      - { click: "=", key_back_color: bgn, key_text_color: tgn }
 
       - {
           click: Keyboard_bqrw,
@@ -8156,7 +8291,13 @@ preset_keys:
   VOLUME_UP: { label: 音量+, send: VOLUME_UP }
   VOLUME_MUTE: { label: 静音, send: VOLUME_MUTE }
   # 编辑
-  Shift_L: { label: "ic@apple_keyboard_shift", preview: "ic@apple_keyboard_shift", functional: false, send: Shift_L }
+  Shift_L:
+    {
+      label: "ic@apple_keyboard_shift",
+      preview: "ic@apple_keyboard_shift",
+      functional: false,
+      send: Shift_L,
+    }
   Shift_L3:
     {
       label: "ic@apple_keyboard_shift",
@@ -8249,20 +8390,18 @@ preset_keys:
   #切换键盘
   Keyboard_letter:
     { label: En, functional: false, send: Eisu_toggle, select: letter }
-  Keyboard_default:
-    {
+  Keyboard_default: {
       label: 返回,
       functional: false,
       send: Eisu_toggle,
-      select: default
+      select: default,
       # select: .default
     }
-  Keyboard_default_ch:
-    {
+  Keyboard_default_zh: {
       label: 中,
       functional: false,
       send: Eisu_toggle,
-      select: default
+      select: default,
       # select: .default
     }
   Keyboard_switch:
