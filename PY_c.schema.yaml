@@ -93,7 +93,6 @@ engine:
     - history_translator@historySJ # 历史上屏 手机
     - lua_translator@number_translator # 数字转大写
     - lua_translator@calculator_translator # 简易计算器
-    - lua_translator@shijian2_translator # 高级时间
 
   filters:
     # - lua_filter@core2022  #自定义字集过滤lua；放在最上面完美解决简繁滤镜出错的问题
