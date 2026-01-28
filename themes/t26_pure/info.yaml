@@ -1,0 +1,4 @@
+# encoding: utf-8
+__include: ./../public/info/default:/
+name: 中文26键朴素
+version: 1.0.0
