@@ -3,6 +3,7 @@ user.yaml
 installation.yaml
 *.userdb/
 build/
+opencc/*.ocd2
 user_history.txt
 sync/
 *.log
