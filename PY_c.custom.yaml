@@ -4,7 +4,7 @@ patch:
   schema/ascii_icon: "icons/en.ico"
   schema/full_icon: "icons/full.ico"
   schema/half_icon: "icons/half.ico"
-  schema/icon: "icons/zh.ico"
+  schema/icon: "icons/shuang.ico"
 
   engine/filters/+:
     - lua_filter@*is_in_user_dict # 是否在用户词典中
