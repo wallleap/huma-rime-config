@@ -6,9 +6,9 @@ name: tigress.extended
 version: "2.0"
 sort: by_weight
 import_tables:
-  - tigress
-  - tigress_ci
-  - tigress_simp_ci  # 在-前面加上#号，即可关闭简词
+  - dicts/tigress
+  - dicts/tigress_ci
+  - dicts/tigress_simp_ci  # 在-前面加上#号，即可关闭简词
   
 columns:
   - text

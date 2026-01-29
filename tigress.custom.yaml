@@ -3,7 +3,7 @@
 patch:
   schema/name: 虎词
 
-  translator/dictionary: tigress.extended #引入增补自定词典，这个不要改动
+  # translator/dictionary: tigress.extended #引入增补自定词典，这个不要改动
   #translator/enable_completion: true # 编码提示，默认关闭，删掉行首的#号，即可开启
   #speller/auto_select_pattern: ^;\w+|^\w{4}$  # 四码上屏功能，删掉行首的#号，即可开启
   #speller/alphabet: "['zyxwvutsrqponmlkjihgfedcba]" # 取消分号引导的快符功能（分号不作码元），删掉行首#号即可生效

@@ -6,7 +6,7 @@ name: tiger.extended
 version: "2.0"
 sort: by_weight
 import_tables:
-  - tiger
+  - dicts/tiger
   
 columns:
   - text

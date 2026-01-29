@@ -116,7 +116,7 @@ speller:
   # 若要添加四码上屏功能，在  ^;\w+ 后面 加上  |^\w{4}$  即可
 
 translator:
-  dictionary: tigress
+  dictionary: tigress.extended
   enable_charset_filter: false
   enable_encoder: false
   enable_sentence: false
@@ -146,11 +146,11 @@ key_binder:
     #- { when: composing, accept: Return, send: Escape }
     #- { accept: space, send: space, when: has_menu } #有候选时空格上屏首选
     #- { accept: space, send: Escape, when: composing } #无候选时(空码)空格清屏
-    - { accept: semicolon, send: 2, when: has_menu } # 分号次选
-    - { when: has_menu, accept: apostrophe, send: 3 } # 引号三选
-    - { when: composing, accept: Tab, send: Escape } # tab清屏
-    - { when: has_menu, accept: minus, send: Page_Up } # - 向后翻页
-    - { when: has_menu, accept: equal, send: Page_Down } # = 向前翻页
+    # - { accept: semicolon, send: 2, when: has_menu } # 分号次选
+    # - { when: has_menu, accept: apostrophe, send: 3 } # 引号三选
+    # - { when: composing, accept: Tab, send: Escape } # tab清屏
+    # - { when: has_menu, accept: minus, send: Page_Up } # - 向后翻页
+    # - { when: has_menu, accept: equal, send: Page_Down } # = 向前翻页
     # - { when: composing, accept: bracketleft, send: Page_Up } # [ 后翻
     # - { when: composing, accept: bracketright, send: Page_Down } # ] 前翻
     - { accept: "Control+o", toggle: simplification, when: composing } # 简繁开关
@@ -172,8 +172,8 @@ key_binder:
     # - { when: composing, accept: '_', toggle: extended_char} # 手机 自定字集开关1
     # - { when: composing, accept: ':', toggle: extended_char} # 手机 自定字集开关2
     # - { when: composing, accept: '"', toggle: chaifen } # 手机 拆分滤镜开关
-    - { when: has_menu, accept: Right, send: Down } # 右方向键 向后移动焦点
-    - { when: has_menu, accept: Left, send: Up } # 左方向键 向前移动焦点
+    # - { when: has_menu, accept: Right, send: Down } # 右方向键 向后移动焦点
+    # - { when: has_menu, accept: Left, send: Up } # 左方向键 向前移动焦点
     - { when: always, accept: "Control+period", toggle: ascii_punct } # 中英标点切换
     #- { when: always, accept: "Shift+space" , toggle: full_shape } # 全半角切换
 
