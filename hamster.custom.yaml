@@ -9,8 +9,16 @@ patch:
     style:
       # 需要把 fonts 中的字体上传到仓输入法的 /Fonts 中
       fontFace:
+        - url: "Consolas.ttf"
+        - url: "TumanPUA.ttf"
         - url: "LXGWWenKaiGBScreen.ttf"
+        - url: "simsun.ttc"
+        - url: "simsunb.ttf"
+        - url: "simsung.ttf"
         - url: "TH-Tshyn-P0.ttf"
+        - url: "TH-Tshyn-P1.ttf"
         - url: "TH-Tshyn-P2.ttf"
-        - url: "SegoeUIEmoji.ttf"
+        - url: "TH-Tshyn-P16.ttf"
+        - url: "TH-Times.ttc"
         - url: "NotoColorEmoji-Regular.ttf"
+        - url: "SegoeUIEmoji.ttf"

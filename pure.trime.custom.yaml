@@ -2,14 +2,35 @@ patch:
   # 全局字体设置
   "style/candidate_font":
     [
+      Consolas.ttf,
       LXGWWenKaiGBScreen.ttf,
-      TH-Tshyn-P2.ttf,
+      simsun.ttc,
+      simsunb.ttf,
+      simsung.ttf,
       TH-Tshyn-P0.ttf,
+      TH-Tshyn-P1.ttf,
+      TH-Tshyn-P2.ttf,
+      TH-Tshyn-P16.ttf,
+      TH-Times.ttc,
       NotoColorEmoji-Regular.ttf,
       SegoeUIEmoji.ttf,
     ]
   "style/comment_font":
-    [LXGWWenKaiGBScreen.ttf, TH-Tshyn-P2.ttf, TH-Tshyn-P0.ttf]
+    [
+      Consolas.ttf,
+      TumanPUA.ttf,
+      LXGWWenKaiGBScreen.ttf,
+      simsun.ttc,
+      simsunb.ttf,
+      simsung.ttf,
+      TH-Tshyn-P0.ttf,
+      TH-Tshyn-P1.ttf,
+      TH-Tshyn-P2.ttf,
+      TH-Tshyn-P16.ttf,
+      TH-Times.ttc,
+      NotoColorEmoji-Regular.ttf,
+      SegoeUIEmoji.ttf,
+    ]
 
   # 自定义配色方案
   "preset_color_schemes/a_yellow_gradient":
