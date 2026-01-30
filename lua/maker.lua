@@ -15,9 +15,19 @@ local function load_dict()
         if not line:match("^#") and not line:match("^%-%-") then
             local text, weight, code = line:match("([^\t]+)\t([^\t]+)\t([^\t]+)")
             if text and code then
-                -- Store the first occurrence (highest weight)
                 if not code_map[code] then
-                    code_map[code] = text
+                    code_map[code] = {}
+                end
+                -- Avoid duplicates
+                local exists = false
+                for _, v in ipairs(code_map[code]) do
+                    if v == text then
+                        exists = true
+                        break
+                    end
+                end
+                if not exists then
+                    table.insert(code_map[code], text)
                 end
             end
         end
@@ -104,6 +114,19 @@ function M.processor(key, env)
     return kNoop
 end
 
+-- Helper to generate combinations of characters
+local function get_combinations(lists, index)
+    if index > #lists then return {""} end
+    local suffixes = get_combinations(lists, index + 1)
+    local result = {}
+    for _, char in ipairs(lists[index]) do
+        for _, suffix in ipairs(suffixes) do
+            table.insert(result, char .. suffix)
+        end
+    end
+    return result
+end
+
 function M.translator(input, seg, env)
     -- Mode 1: Serve session words (Immediate access)
     if not input:find("'") then
@@ -127,28 +150,27 @@ function M.translator(input, seg, env)
     if #codes < 2 then return end
     
     -- Lookup chars
-    local chars = {}
+    local char_lists = {}
     local valid = true
     for _, c in ipairs(codes) do
-        local ch = code_map[c]
-        if not ch then
+        local list = code_map[c]
+        if not list then
             valid = false
             break 
         end
-        table.insert(chars, ch)
+        table.insert(char_lists, list)
     end
     
     if not valid then return end
     
-    local word = table.concat(chars)
+    local words = get_combinations(char_lists, 1)
     local new_code = get_code(codes)
     
-    -- Create candidate
-    -- Candidate(type, start, end, text, comment)
-    -- Removed "(需部署)" because it is now available immediately via session cache
-    local cand = Candidate("word_maker", seg.start, seg._end, word, "☯ 造词: " .. new_code)
-    cand.quality = 100
-    yield(cand)
+    for _, word in ipairs(words) do
+        local cand = Candidate("word_maker", seg.start, seg._end, word, " ☯ 造词: " .. new_code)
+        cand.quality = 100
+        yield(cand)
+    end
 end
 
 return M
