@@ -101,6 +101,11 @@ function M.processor(key, env)
     
     -- Length Limit Logic
     if #input >= 4 then
+        -- If input starts with ` (reverse lookup), allow
+        if input:sub(1,1) == "`" then
+            return kNoop
+        end
+
         -- If input already has ', allow
         if input:find("'") then
             return kNoop
