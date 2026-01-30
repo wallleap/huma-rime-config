@@ -3,6 +3,8 @@ patch:
   "style/candidate_font":
     [
       Consolas.ttf,
+      SegoeUIEmoji.ttf,
+      NotoColorEmoji-Regular.ttf,
       LXGWWenKaiGBScreen.ttf,
       simsun.ttc,
       simsunb.ttf,
@@ -12,12 +14,12 @@ patch:
       TH-Tshyn-P2.ttf,
       TH-Tshyn-P16.ttf,
       TH-Times.ttc,
-      NotoColorEmoji-Regular.ttf,
-      SegoeUIEmoji.ttf,
     ]
   "style/comment_font":
     [
       Consolas.ttf,
+      NotoColorEmoji-Regular.ttf,
+      SegoeUIEmoji.ttf,
       TumanPUA.ttf,
       LXGWWenKaiGBScreen.ttf,
       simsun.ttc,
