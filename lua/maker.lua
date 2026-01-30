@@ -1,4 +1,6 @@
 local M = {}
+local base = require("lib.base")
+local rime_dir = base.get_rime_dir()
 local code_map = {}
 local dict_loaded = false
 local session_words = {} -- Store words added in this session
@@ -6,7 +8,7 @@ local session_words = {} -- Store words added in this session
 local function load_dict()
     if dict_loaded then return end
     -- Try to read the dictionary file
-    local file = io.open("f:/Configs/Rime/dicts/tigress.dict.yaml", "r")
+    local file = io.open(rime_dir .. "/dicts/tigress.dict.yaml", "r")
     if not file then return end
     
     for line in file:lines() do
@@ -83,7 +85,7 @@ function M.processor(key, env)
                 table.insert(session_words[code], cand.text)
 
                 -- Target file path
-                local file_path = "f:/Configs/Rime/tigress.txt"
+                local file_path = rime_dir .. "/tigress.txt"
                 
                 -- Open file in append mode (creates if not exists)
                 local f = io.open(file_path, "a")
