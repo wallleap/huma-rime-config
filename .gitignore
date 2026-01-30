@@ -16,7 +16,7 @@ data/
 trash/
 
 # 用户自定义短语文件
-custom_phrase.txt
+*_phrase.txt
 
 PY_c.txt
-tigress.txt
+tigress*.txt
