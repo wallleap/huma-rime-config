@@ -196,10 +196,22 @@ function M.processor(key, env)
                     local file_path = rime_dir .. "/" .. output_file
                     
                     -- Open file in append mode (creates if not exists)
+                    -- Try to ensure file exists first (fix for some mobile envs)
+                    local check = io.open(file_path, "r")
+                    if not check then
+                        local create = io.open(file_path, "w")
+                        if create then create:close() end
+                    else
+                        check:close()
+                    end
+
                     local f = io.open(file_path, "a")
                     if f then
                         f:write(cand.text .. "\t" .. code .. "\t100\n")
+                        f:flush()
                         f:close()
+                    elseif log and log.error then
+                        log.error("Maker: Failed to write to " .. file_path)
                     end
                 end
             end
