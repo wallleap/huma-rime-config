@@ -21,6 +21,7 @@ function M.get_rime_dir()
     -- 截取路径：移除 /lua/lib/base.lua
     local dir = path:match("^(.*)/lua/lib/base%.lua$")
     if dir then
+        if dir == "" then return "." end
         return dir
     end
     

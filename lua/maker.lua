@@ -55,8 +55,14 @@ local function load_dict(dict_name)
     if dict_loaded[dict_name] then return end
     -- Try to read the dictionary file
     local file_path = rime_dir .. "/dicts/" .. dict_name .. ".dict.yaml"
-    local file = io.open(file_path, "r")
-    if not file then return end
+    local file, err = io.open(file_path, "r")
+    if not file then
+        -- Log error if possible (Rime Lua usually provides log global)
+        if log and log.error then
+            log.error("Maker: Failed to open dictionary: " .. file_path .. ", error: " .. (err or "unknown"))
+        end
+        return 
+    end
     
     for line in file:lines() do
         -- Format: text \t weight \t code
