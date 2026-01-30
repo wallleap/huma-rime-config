@@ -24,6 +24,8 @@ patch:
     - lua_translator@*date_translator # 动态日期时间输入
     - table_translator@custom_phrase
 
+  reverse_lookup/tips: "〔双拼〕"
+
   custom_phrase:
     dictionary: ""
     user_dict: tigress_phrase
