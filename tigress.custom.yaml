@@ -25,7 +25,7 @@ patch:
 
   custom_phrase:
     dictionary: ""
-    user_dict: tigress
+    user_dict: tigress_phrase
     db_class: stabledb
     enable_completion: false
     enable_sentence: false
@@ -54,6 +54,12 @@ patch:
 
   # lua 配置 -- 是否在用户词典中
   is_in_user_dict: true
+
+  # lua 配置：造词功能
+  maker:
+    separator: "'"
+    candidate_mark: "☯"
+    excluded_prefixes: ["`"]      # 排除的前缀，支持多字符，例如 ["`", "rv"]
 
   #style/preedit_type: preview # 嵌入首选项内容(字词)。有4个选项可设：input 嵌入输入码 | composition 嵌入编码 | preview 嵌入首选项 | preview_all 嵌入全部内容
   #style/layout/margin_y : -1 # 启用后可隐藏候选框(盲打)，建议配合上面的嵌入首选项，一起使用
