@@ -19,17 +19,16 @@ patch:
     - lua_filter@*is_in_user_dict # 是否在用户词典中
 
   engine/translators/+:
-    - table_translator@custom_phrase
     - lua_translator@*uuid_translator # UUID 输入
     - lua_translator@*date_translator # 动态日期时间输入
 
-  custom_phrase:
-    dictionary: ""
-    user_dict: tigress
-    db_class: stabledb
-    enable_completion: false
-    enable_sentence: false
-    initial_quality: 100
+  #custom_phrase:
+  #  dictionary: ""
+  #  user_dict: tigress
+  #  db_class: stabledb
+  #  enable_completion: false
+  #  enable_sentence: false
+  #  initial_quality: 100
 
 
   menu/page_size: 9 # 自定义候选个数，可修改。若要改成5个，行首加上#号注释即可（Rime默认就是5个）

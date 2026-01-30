@@ -1,6 +1,7 @@
 local M = {}
 local code_map = {}
 local dict_loaded = false
+local session_words = {} -- Store words added in this session
 
 local function load_dict()
     if dict_loaded then return end
@@ -61,10 +62,16 @@ function M.processor(key, env)
         local cand = context:get_selected_candidate()
         if cand and cand.type == "word_maker" then
             -- Parse the comment to get the code
-            -- Comment format: " 造词: code (需部署)"
+            -- Comment format: "☯ 造词: code"
             -- Extract only the alphabetic code
             local code = cand.comment:match(":%s*([a-z]+)")
             if code then
+                -- Add to session words (Immediate access)
+                if not session_words[code] then
+                    session_words[code] = {}
+                end
+                table.insert(session_words[code], cand.text)
+
                 -- Target file path
                 local file_path = "f:/Configs/Rime/tigress.txt"
                 
@@ -98,8 +105,20 @@ function M.processor(key, env)
 end
 
 function M.translator(input, seg, env)
-    if not input:find("'") then return end
-    
+    -- Mode 1: Serve session words (Immediate access)
+    if not input:find("'") then
+        local words = session_words[input]
+        if words then
+            for _, word in ipairs(words) do
+                local cand = Candidate("custom_phrase", seg.start, seg._end, word, "")
+                cand.quality = 100
+                yield(cand)
+            end
+        end
+        return
+    end
+
+    -- Mode 2: Word Maker Logic
     local codes = {}
     for s in input:gmatch("[^']+") do
         table.insert(codes, s)
@@ -126,7 +145,8 @@ function M.translator(input, seg, env)
     
     -- Create candidate
     -- Candidate(type, start, end, text, comment)
-    local cand = Candidate("word_maker", seg.start, seg._end, word, " 造词: " .. new_code .. " (需部署)")
+    -- Removed "(需部署)" because it is now available immediately via session cache
+    local cand = Candidate("word_maker", seg.start, seg._end, word, "☯ 造词: " .. new_code)
     cand.quality = 100
     yield(cand)
 end
