@@ -131,15 +131,18 @@ end
 
 function M.translator(input, seg, env)
     -- Mode 1: Serve session words (Immediate access)
-    if not input:find("'") then
-        local words = session_words[input]
-        if words then
-            for _, word in ipairs(words) do
-                local cand = Candidate("custom_phrase", seg.start, seg._end, word, "")
-                cand.quality = 100
-                yield(cand)
-            end
+    -- Also try to match words even if input contains ' (strip it first)
+    local clean_input = input:gsub("'", "")
+    local words = session_words[clean_input]
+    if words then
+        for _, word in ipairs(words) do
+            local cand = Candidate("custom_phrase", seg.start, seg._end, word, "")
+            cand.quality = 100
+            yield(cand)
         end
+    end
+
+    if not input:find("'") then
         return
     end
 
@@ -149,7 +152,23 @@ function M.translator(input, seg, env)
         table.insert(codes, s)
     end
     
-    if #codes < 2 then return end
+    if #codes < 2 then 
+        -- If input has ' but only 1 code segment, show candidates for that segment
+        if #codes == 1 and input:find("'") then
+            local code = codes[1]
+            -- Check dictionary
+            local dict_candidates = code_map[code]
+            if dict_candidates then
+                for _, word in ipairs(dict_candidates) do
+                    -- Yield as simple candidates, not word_maker
+                    local cand = Candidate("custom_phrase", seg.start, seg._end, word, "")
+                    cand.quality = 100
+                    yield(cand)
+                end
+            end
+        end
+        return 
+    end
     
     -- Lookup chars
     local char_lists = {}
