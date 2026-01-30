@@ -16,6 +16,7 @@ patch:
   #style/layout/border_height: 2 #边框高度，默认是0
 
   engine/filters/+:
+    - lua_filter@maker_filter # 过滤掉系统词库中已存在的用户造词
     - lua_filter@*is_in_user_dict # 是否在用户词典中
 
   engine/translators/+:

@@ -8,4 +8,5 @@ exe_processor = require("exe")                           -- 网页启动器
 maker = require("maker")
 maker_processor = maker.processor
 maker_translator = maker.translator
+maker_filter = maker.filter
 

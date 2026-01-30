@@ -4,6 +4,8 @@ local rime_dir = base.get_rime_dir()
 local code_map = {}
 local dict_loaded = {} -- Map<dict_name, boolean>
 local session_words = {} -- Store words added in this session
+local user_file_words = {} -- Store words loaded from output file (text -> true)
+local user_file_loaded = false
 
 -- Helper to get config
 local function get_config(env, key, default)
@@ -104,6 +106,24 @@ local function load_dict(dict_name)
     dict_loaded[dict_name] = true
 end
 
+local function load_user_file(env)
+    if user_file_loaded then return end
+    local output_file = get_output_file(env)
+    local file_path = rime_dir .. "/" .. output_file
+    local file = io.open(file_path, "r")
+    if file then
+        for line in file:lines() do
+             -- Format: text \t code \t weight
+             local text = line:match("([^\t]+)")
+             if text then
+                 user_file_words[text] = true
+             end
+        end
+        file:close()
+    end
+    user_file_loaded = true
+end
+
 -- Calculate code based on rules
 local function get_code(codes)
     if #codes == 2 then
@@ -158,16 +178,29 @@ function M.processor(key, env)
                 if not session_words[code] then
                     session_words[code] = {}
                 end
-                table.insert(session_words[code], cand.text)
-
-                -- Target file path
-                local file_path = rime_dir .. "/" .. output_file
                 
-                -- Open file in append mode (creates if not exists)
-                local f = io.open(file_path, "a")
-                if f then
-                    f:write(cand.text .. "\t" .. code .. "\t100\n")
-                    f:close()
+                -- Check duplication in session words
+                local in_session = false
+                for _, w in ipairs(session_words[code]) do
+                    if w == cand.text then in_session = true break end
+                end
+                if not in_session then
+                    table.insert(session_words[code], cand.text)
+                end
+                
+                -- Only write to file if not already loaded from file
+                if not user_file_words[cand.text] then
+                    user_file_words[cand.text] = true
+
+                    -- Target file path
+                    local file_path = rime_dir .. "/" .. output_file
+                    
+                    -- Open file in append mode (creates if not exists)
+                    local f = io.open(file_path, "a")
+                    if f then
+                        f:write(cand.text .. "\t" .. code .. "\t100\n")
+                        f:close()
+                    end
                 end
             end
             -- Allow the commit to proceed
@@ -220,6 +253,7 @@ function M.translator(input, seg, env)
     
     -- Ensure dict is loaded (in case translator runs first or independently)
     if not dict_loaded[dict_name] then load_dict(dict_name) end
+    if not user_file_loaded then load_user_file(env) end
 
     -- Mode 1: Serve session words (Immediate access)
     -- Also try to match words even if input contains separator (strip it first)
@@ -286,9 +320,77 @@ function M.translator(input, seg, env)
     local new_code = get_code(codes)
     
     for _, word in ipairs(words) do
-        local cand = Candidate("word_maker", seg.start, seg._end, word, " " .. mark .. " 造词: " .. new_code)
+        local exists = user_file_words[word]
+        if not exists then
+             -- Check session words (iterate)
+             for _, list in pairs(session_words) do
+                 for _, w in ipairs(list) do
+                     if w == word then
+                         exists = true
+                         break
+                     end
+                 end
+                 if exists then break end
+             end
+        end
+
+        local comment = " " .. mark .. " 造词: " .. new_code
+        if exists then
+            comment = " ⚡ 已在词库"
+        end
+
+        local cand = Candidate("word_maker", seg.start, seg._end, word, comment)
         cand.quality = 100
         yield(cand)
+    end
+end
+
+-- Filter to deduplicate user words vs system words
+function M.filter(input, env)
+    -- Load user file words once
+    if not user_file_loaded then load_user_file(env) end
+
+    -- We need to buffer candidates to check for duplicates across types
+    local pending = {}
+    for cand in input:iter() do
+        table.insert(pending, cand)
+    end
+    
+    local seen_texts = {}
+    
+    for _, cand in ipairs(pending) do
+        -- Check if this word is a known user word (from file or current session)
+        -- OR if it's explicitly typed as custom_phrase/word_maker
+        local is_user_word = user_file_words[cand.text] or 
+                             (session_words and next(session_words)) and (function() 
+                                 -- Check if text is in any session_words entry? No, session_words is code->list.
+                                 -- Easier: just check cand type or simple duplication logic.
+                                 return false 
+                             end)() or
+                             cand.type == "custom_phrase" or 
+                             cand.type == "word_maker"
+
+        -- Actually, we can just deduplicate by text. 
+        -- If we see the same text twice, we drop the second one.
+        -- Assumption: User words (custom_phrase) usually appear first due to high quality.
+        -- If system word appears first but matches a user word, we keep it. 
+        -- (Wait, if system word matches user word, we might want to ensure it gets marked by is_in_user_dict later. 
+        -- Since is_in_user_dict checks the DB, yielding the system word is fine, it will get marked.)
+        
+        -- Special case: If we have multiple candidates with same text,
+        -- we prefer the one that is NOT a generic table type if possible?
+        -- But usually custom_phrase IS table type.
+        
+        if not seen_texts[cand.text] then
+            seen_texts[cand.text] = true
+            yield(cand)
+        else
+            -- Duplicate text found.
+            -- If the previous one was system and this one is "custom_phrase" (explicit type), 
+            -- we might have made a mistake by keeping the system one?
+            -- But custom_phrase with initial_quality=100 should come first.
+            -- So dropping subsequent duplicates is generally safe.
+        end
     end
 end
 
