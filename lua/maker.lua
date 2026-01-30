@@ -54,8 +54,16 @@ end
 local function load_dict(dict_name)
     if dict_loaded[dict_name] then return end
     -- Try to read the dictionary file
-    local file_path = rime_dir .. "/dicts/" .. dict_name .. ".dict.yaml"
+    -- 1. Try relative path (better for some environments)
+    local file_path = "dicts/" .. dict_name .. ".dict.yaml"
     local file, err = io.open(file_path, "r")
+    
+    -- 2. If failed, try absolute path using rime_dir
+    if not file then
+        file_path = rime_dir .. "/dicts/" .. dict_name .. ".dict.yaml"
+        file, err = io.open(file_path, "r")
+    end
+
     if not file then
         -- Log error if possible (Rime Lua usually provides log global)
         if log and log.error then
@@ -68,8 +76,13 @@ local function load_dict(dict_name)
         -- Format: text \t weight \t code
         -- Ignore comments
         if not line:match("^#") and not line:match("^%-%-") then
+            -- Trim trailing whitespace (including \r for Windows/DOS format on macOS/Linux)
+            line = line:gsub("[\r\n]+$", "")
             local text, weight, code = line:match("([^\t]+)\t([^\t]+)\t([^\t]+)")
             if text and code then
+                -- Trim potential \r from code if match didn't catch it (though gsub above should handle it)
+                code = code:gsub("%s+$", "") 
+                
                 if not code_map[code] then
                     code_map[code] = {}
                 end
