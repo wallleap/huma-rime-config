@@ -99,80 +99,73 @@ local function load_schemas(env)
    end
 end
 
+local function apply_switch(engine, target_id, env)
+   local final_target_id = target_id
+   local current_id = engine.schema.schema_id
+
+   -- If selected schema is the current one, cycle to the next one in the list
+   if target_id == current_id then
+       if not schemas_cache then load_schemas(env) end
+       if schemas_cache and #schemas_cache > 0 then
+           local current_idx = 0
+           for i, item in ipairs(schemas_cache) do
+               if item.id == current_id then
+                   current_idx = i
+                   break
+               end
+           end
+           
+           if current_idx > 0 then
+               local next_idx = (current_idx % #schemas_cache) + 1
+               final_target_id = schemas_cache[next_idx].id
+           elseif #schemas_cache > 0 then
+               final_target_id = schemas_cache[1].id
+           end
+       end
+   end
+   
+   engine:apply_schema(Schema(final_target_id))
+   -- context:clear() will be called by caller if needed
+end
+
 function M.init(env)
    load_schemas(env)
    
    local context = env.engine.context
    
-   -- Track selected candidate
-   if context.select_notifier then
-       env.select_conn = context.select_notifier:connect(function(ctx)
-           local cand = ctx:get_selected_candidate()
-           if cand then
-               -- Try to identify if it is a switcher candidate
-               local genuine = cand
-               if cand.get_genuine then genuine = cand:get_genuine() end
-               
-               if genuine.type:find("^schema_switch:") then
-                   env.selected_switcher_id = genuine.type:sub(15)
-               elseif cand.type:find("^schema_switch:") then
-                   env.selected_switcher_id = cand.type:sub(15)
-               else
-                   -- Fallback: check by name
-                   local text = cand.text:gsub(" 👈", "")
-                   if id_name_map[text] then
-                       env.selected_switcher_id = id_name_map[text]
-                   else
-                       env.selected_switcher_id = nil
-                   end
-               end
-           else
-               env.selected_switcher_id = nil
-           end
-       end)
-   end
-   
    -- Handle commit event (for mouse clicks / touch input)
    if context.commit_notifier then
        env.commit_conn = context.commit_notifier:connect(function(ctx)
-           if ctx.input == "mode" and env.selected_switcher_id then
-               -- A commit happened in mode switching context, and we have a valid switcher target
-               local target_id = env.selected_switcher_id
-               local engine = env.engine
-               
-               -- Try to delete the committed text (best effort)
-               -- Note: delete_surrounding_text is not always supported or available in all contexts
-               if context.delete_surrounding_text then
-                   -- Assuming length of committed text matches candidate text length
-                   -- Since we can't easily know exact length here, we skip or try conservative delete
-                   -- context:delete_surrounding_text(2, 0) -- Example: delete 2 chars
-               end
-               
-               -- Logic duplicated from apply_switch
-               local final_target_id = target_id
-               local current_id = engine.schema.schema_id
-               
-               if target_id == current_id then
-                   if not schemas_cache then load_schemas(env) end
-                   if schemas_cache and #schemas_cache > 0 then
-                       local current_idx = 0
-                       for i, item in ipairs(schemas_cache) do
-                           if item.id == current_id then
-                               current_idx = i
-                               break
-                           end
-                       end
-                       if current_idx > 0 then
-                           local next_idx = (current_idx % #schemas_cache) + 1
-                           final_target_id = schemas_cache[next_idx].id
-                       elseif #schemas_cache > 0 then
-                           final_target_id = schemas_cache[1].id
-                       end
+           -- Check if the commit text matches a schema name
+           -- We do this check regardless of ctx.input because on some platforms input might be cleared before commit notification
+           -- But to be safe, we only check if the commit text looks like a schema name
+           
+           if not schemas_cache then load_schemas(env) end
+           
+           local commit_text = ctx:get_commit_text()
+           local text = commit_text:gsub(" 👈", "")
+           
+           -- If we are in 'mode' state (or just committed a known schema name)
+           -- Note: Checking ctx.input == "mode" might be unreliable on some mobile engines if input is cleared early
+           -- So we rely on the text content matching a known schema name.
+           -- To prevent accidental switches during normal typing, we could check if we have recently been in 'mode'
+           -- but simpliest is to check if input is 'mode' OR if we are very sure.
+           -- Let's stick to checking ctx.input == "mode" first, if that fails we might need another flag.
+           
+           if ctx.input == "mode" then
+               local target_id = id_name_map[text]
+               if target_id then
+                   local engine = env.engine
+                   
+                   -- Attempt to clear the committed text from the editor
+                   -- This is best-effort and depends on engine support
+                   if context.delete_surrounding_text then
+                       -- context:delete_surrounding_text(utf8.len(commit_text), 0) -- hypothetical
                    end
+                   
+                   apply_switch(engine, target_id, env)
+                   context:clear()
                end
-               
-               engine:apply_schema(Schema(final_target_id))
-               -- Context clear is usually automatic after commit, but apply_schema resets it anyway
            end
        end)
    end
@@ -293,32 +286,8 @@ function M.processor(key, env)
    local engine = env.engine
    local context = engine.context
    
-   local function apply_switch(target_id)
-       local final_target_id = target_id
-       local current_id = engine.schema.schema_id
-
-       -- If selected schema is the current one, cycle to the next one in the list
-       if target_id == current_id then
-           if not schemas_cache then load_schemas(env) end
-           if schemas_cache and #schemas_cache > 0 then
-               local current_idx = 0
-               for i, item in ipairs(schemas_cache) do
-                   if item.id == current_id then
-                       current_idx = i
-                       break
-                   end
-               end
-               
-               if current_idx > 0 then
-                   local next_idx = (current_idx % #schemas_cache) + 1
-                   final_target_id = schemas_cache[next_idx].id
-               elseif #schemas_cache > 0 then
-                   final_target_id = schemas_cache[1].id
-               end
-           end
-       end
-       
-       engine:apply_schema(Schema(final_target_id))
+   local function processor_apply_switch(target_id)
+       apply_switch(engine, target_id, env)
        context:clear()
    end
    
@@ -361,7 +330,7 @@ function M.processor(key, env)
    local is_confirm = (keycode == 32 or keycode == 65293 or keycode == 65421)
    
    if schema_id_to_switch and is_confirm then
-       apply_switch(schema_id_to_switch)
+       processor_apply_switch(schema_id_to_switch)
        return 1 -- kAccepted
    end
    
@@ -393,7 +362,7 @@ function M.processor(key, env)
                
                local item = sorted_list[target_index + 1]
                if item then
-                   apply_switch(item.id)
+                   processor_apply_switch(item.id)
                    return 1 -- kAccepted
                end
            end
