@@ -101,6 +101,86 @@ end
 
 function M.init(env)
    load_schemas(env)
+   
+   local context = env.engine.context
+   
+   -- Track selected candidate
+   if context.select_notifier then
+       env.select_conn = context.select_notifier:connect(function(ctx)
+           local cand = ctx:get_selected_candidate()
+           if cand then
+               -- Try to identify if it is a switcher candidate
+               local genuine = cand
+               if cand.get_genuine then genuine = cand:get_genuine() end
+               
+               if genuine.type:find("^schema_switch:") then
+                   env.selected_switcher_id = genuine.type:sub(15)
+               elseif cand.type:find("^schema_switch:") then
+                   env.selected_switcher_id = cand.type:sub(15)
+               else
+                   -- Fallback: check by name
+                   local text = cand.text:gsub(" 👈", "")
+                   if id_name_map[text] then
+                       env.selected_switcher_id = id_name_map[text]
+                   else
+                       env.selected_switcher_id = nil
+                   end
+               end
+           else
+               env.selected_switcher_id = nil
+           end
+       end)
+   end
+   
+   -- Handle commit event (for mouse clicks / touch input)
+   if context.commit_notifier then
+       env.commit_conn = context.commit_notifier:connect(function(ctx)
+           if ctx.input == "mode" and env.selected_switcher_id then
+               -- A commit happened in mode switching context, and we have a valid switcher target
+               local target_id = env.selected_switcher_id
+               local engine = env.engine
+               
+               -- Try to delete the committed text (best effort)
+               -- Note: delete_surrounding_text is not always supported or available in all contexts
+               if context.delete_surrounding_text then
+                   -- Assuming length of committed text matches candidate text length
+                   -- Since we can't easily know exact length here, we skip or try conservative delete
+                   -- context:delete_surrounding_text(2, 0) -- Example: delete 2 chars
+               end
+               
+               -- Logic duplicated from apply_switch
+               local final_target_id = target_id
+               local current_id = engine.schema.schema_id
+               
+               if target_id == current_id then
+                   if not schemas_cache then load_schemas(env) end
+                   if schemas_cache and #schemas_cache > 0 then
+                       local current_idx = 0
+                       for i, item in ipairs(schemas_cache) do
+                           if item.id == current_id then
+                               current_idx = i
+                               break
+                           end
+                       end
+                       if current_idx > 0 then
+                           local next_idx = (current_idx % #schemas_cache) + 1
+                           final_target_id = schemas_cache[next_idx].id
+                       elseif #schemas_cache > 0 then
+                           final_target_id = schemas_cache[1].id
+                       end
+                   end
+               end
+               
+               engine:apply_schema(Schema(final_target_id))
+               -- Context clear is usually automatic after commit, but apply_schema resets it anyway
+           end
+       end)
+   end
+end
+
+function M.fini(env)
+    if env.select_conn then env.select_conn:disconnect() end
+    if env.commit_conn then env.commit_conn:disconnect() end
 end
 
 function M.translator(input, seg, env)
