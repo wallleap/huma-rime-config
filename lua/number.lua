@@ -112,9 +112,12 @@ function number_translatorFunc(num)
 	return result
 end
 
-function translator(input, seg)
+function translator(input, seg, env)
 	local str,num,numberPart
+	local composition = env.engine.context.composition
+	local segment = composition:back()
 	if string.match(input,"^(S+%d+)(%.?)(%d*)$")~=nil then
+    segment.prompt = '数字转换'
 		str = string.gsub(input,"^(%a+)", "")  numberPart=number_translatorFunc(str)
 		if #numberPart>0 then
 			for i=1,#numberPart do

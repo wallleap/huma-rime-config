@@ -262,7 +262,10 @@ function M.translator(input, seg, env)
     local separator = get_config(env, "separator", "'")
     local dict_name = get_config(env, "dictionary", "tigress")
     local mark = get_config(env, "candidate_mark", "☯")
-    
+
+    local composition = env.engine.context.composition
+    local segment = composition:back()
+
     -- Ensure dict is loaded (in case translator runs first or independently)
     if not dict_loaded[dict_name] then load_dict(dict_name) end
     if not user_file_loaded then load_user_file(env) end
@@ -288,6 +291,8 @@ function M.translator(input, seg, env)
     if not input:find(separator, 1, true) then
         return
     end
+
+    segment.prompt = '造词...'
 
     -- Mode 2: Word Maker Logic
     local codes = {}
