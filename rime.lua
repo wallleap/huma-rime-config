@@ -9,4 +9,7 @@ maker = require("maker")
 maker_processor = maker.processor
 maker_translator = maker.translator
 maker_filter = maker.filter
-
+schema_switcher = require("schema_switcher")
+switcher_processor = schema_switcher.processor
+switcher_translator = schema_switcher.translator
+switcher_filter = schema_switcher.filter

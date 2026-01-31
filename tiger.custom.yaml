@@ -11,6 +11,12 @@ patch:
   #style/layout/border_width: 2 #边框宽度，默认是0
   #style/layout/border_height: 2 #边框高度，默认是0
 
+  engine/processors/@before 0: lua_processor@switcher_processor
+  engine/translators/@before 0: lua_translator@switcher_translator
+  engine/filters/+:
+    - lua_filter@switcher_filter
+
+
   engine/translators/+:
     - lua_translator@*uuid_translator # UUID 输入
     - lua_translator@*date_translator # 动态日期时间输入

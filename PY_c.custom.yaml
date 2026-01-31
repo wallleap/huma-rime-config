@@ -6,7 +6,11 @@ patch:
   schema/half_icon: "icons/half.ico"
   schema/icon: "icons/shuang.ico"
 
+  engine/processors/@before 0: lua_processor@switcher_processor
+  engine/translators/@before 0: lua_translator@switcher_translator
+  
   engine/filters/+:
+    - lua_filter@switcher_filter
     - lua_filter@*is_in_user_dict # 是否在用户词典中
 
   engine/translators/+:
