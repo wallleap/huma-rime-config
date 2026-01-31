@@ -1,375 +1,210 @@
-local M = {}
+-- 变量定义
+local rv_var = {
+   switch_schema = "mode",
+}
 
--- Try to load base library for path resolution
-local base
-pcall(function()
-    base = require("lib.base")
-end)
+-- 跨平台路径分隔符
+local path_sep = package.config:sub(1, 1)
 
--- Helper to read file content
-local function read_file(path)
-   local file = io.open(path, "r")
-   if not file then return nil end
-   local content = file:read("*a")
-   file:close()
-   return content
-end
+local kRejected = 0
+local kAccepted = 1
+local kNoop = 2
 
--- Helper to get schema name from ID
-local function get_schema_name(schema_id, rime_dir)
-   local name = nil
-
-   -- 1. Try to read from custom.yaml first (patch override)
-   if rime_dir then
-       local custom_file = rime_dir .. "/" .. schema_id .. ".custom.yaml"
-       local custom_content = read_file(custom_file)
-       if custom_content then
-           -- Try to find patch/schema/name
-           name = custom_content:match('schema/name:%s*"([^"]+)"') or custom_content:match('schema/name:%s*([^\n\r]+)')
-       end
-   end
-   
-   if name then return name end
-
-   -- 2. Try to use Config if available (most reliable for active config)
-   if Config then
-      pcall(function()
-          local config = Config(schema_id)
-          if config then
-             name = config:get_string("schema/name")
-          end
-      end)
-      if name then return name end
-   end
-
-   -- 3. Fallback: Read schema.yaml directly
-   local file_name = schema_id .. ".schema.yaml"
-   if rime_dir then
-       file_name = rime_dir .. "/" .. file_name
-   end
-   
-   local content = read_file(file_name)
-   if not content then return schema_id end
-   
-   name = content:match('name:%s*"([^"]+)"') or content:match('name:%s*([^\n\r]+)')
-   if not name then
-      name = content:match('schema/name:%s*"([^"]+)"') or content:match('schema/name:%s*([^\n\r]+)')
-   end
-   return name or schema_id
-end
-
--- Cache for schema list
-local schemas_cache = nil
-local id_name_map = {} -- Map name -> id for reverse lookup
-
-local function load_schemas(env)
-   if schemas_cache then return end
-   schemas_cache = {}
-   id_name_map = {}
-   
-   local rime_dir = "."
-   if base and base.get_rime_dir then
-       rime_dir = base.get_rime_dir()
-   end
-   
-   -- Read default.custom.yaml
-   local file_path = rime_dir .. "/default.custom.yaml"
-   local content = read_file(file_path)
-   
-   if not content then
-      -- Fallback: try default.yaml
-      file_path = rime_dir .. "/default.yaml"
-      content = read_file(file_path)
-   end
-   
-   if not content then
-       -- Last resort: try relative path if rime_dir failed
-       content = read_file("default.custom.yaml") or read_file("default.yaml")
-   end
-   
-   if not content then 
-       return 
-   end
-   
-   -- Extract schema_list
-   for schema_id in content:gmatch("- schema:%s*([%w_]+)") do
-      local name = get_schema_name(schema_id, rime_dir)
-      table.insert(schemas_cache, {id = schema_id, name = name})
-      id_name_map[name] = schema_id
-   end
-end
-
-local function apply_switch(engine, target_id, env)
-   local final_target_id = target_id
-   local current_id = engine.schema.schema_id
-
-   -- If selected schema is the current one, cycle to the next one in the list
-   if target_id == current_id then
-       if not schemas_cache then load_schemas(env) end
-       if schemas_cache and #schemas_cache > 0 then
-           local current_idx = 0
-           for i, item in ipairs(schemas_cache) do
-               if item.id == current_id then
-                   current_idx = i
-                   break
-               end
-           end
-           
-           if current_idx > 0 then
-               local next_idx = (current_idx % #schemas_cache) + 1
-               final_target_id = schemas_cache[next_idx].id
-           elseif #schemas_cache > 0 then
-               final_target_id = schemas_cache[1].id
-           end
-       end
-   end
-   
-   engine:apply_schema(Schema(final_target_id))
-   -- context:clear() will be called by caller if needed
-end
-
-function M.init(env)
-   load_schemas(env)
-   
-   local context = env.engine.context
-   
-   -- Handle commit event (for mouse clicks / touch input)
-   if context.commit_notifier then
-       env.commit_conn = context.commit_notifier:connect(function(ctx)
-           -- Check if the commit text matches a schema name
-           -- We do this check regardless of ctx.input because on some platforms input might be cleared before commit notification
-           -- But to be safe, we only check if the commit text looks like a schema name
-           
-           if not schemas_cache then load_schemas(env) end
-           
-           local commit_text = ctx:get_commit_text()
-           local text = commit_text:gsub(" 👈", "")
-           
-           -- If we are in 'mode' state (or just committed a known schema name)
-           -- Note: Checking ctx.input == "mode" might be unreliable on some mobile engines if input is cleared early
-           -- So we rely on the text content matching a known schema name.
-           -- To prevent accidental switches during normal typing, we could check if we have recently been in 'mode'
-           -- but simpliest is to check if input is 'mode' OR if we are very sure.
-           -- Let's stick to checking ctx.input == "mode" first, if that fails we might need another flag.
-           
-           if ctx.input == "mode" then
-               local target_id = id_name_map[text]
-               if target_id then
-                   local engine = env.engine
-                   
-                   -- Attempt to clear the committed text from the editor
-                   -- This is best-effort and depends on engine support
-                   if context.delete_surrounding_text then
-                       -- context:delete_surrounding_text(utf8.len(commit_text), 0) -- hypothetical
-                   end
-                   
-                   apply_switch(engine, target_id, env)
-                   context:clear()
-               end
-           end
-       end)
-   end
-end
-
-function M.fini(env)
-    if env.select_conn then env.select_conn:disconnect() end
-    if env.commit_conn then env.commit_conn:disconnect() end
-end
-
-function M.translator(input, seg, env)
-   if input ~= "mode" then return end
-   
-   load_schemas(env)
-   
-   if not schemas_cache or #schemas_cache == 0 then 
-       local cand = Candidate("schema_switch:error", seg.start, seg._end, "配置读取失败", "无法找到方案列表")
-       yield(cand)
-       return 
-   end
-   
-   local current_id = env.engine.schema.schema_id
-   
-   -- Reorder: current first
-   local sorted_list = {}
-   local current_item = nil
-   
-   for _, item in ipairs(schemas_cache) do
-      if item.id == current_id then
-         current_item = item
-      else
-         table.insert(sorted_list, item)
-      end
-   end
-   
-   if current_item then
-      table.insert(sorted_list, 1, current_item)
-   end
-   
-   -- Yield candidates
-   for i, item in ipairs(sorted_list) do
-      local text = item.name
-      local comment = "（切换方案）"
-      if item.id == current_id then
-         text = text .. " 👈"
-      end
-      
-      -- Use type to store ID: "schema_switch:ID"
-      local cand = Candidate("schema_switch:" .. item.id, seg.start, seg._end, text, comment)
-      cand.quality = 1000 -- High quality
-      yield(cand)
-   end
-end
-
--- Filter to clean up comments for schema switch candidates
-function M.filter(input, env)
-    -- If we are not in mode switch, just pass through
-    local context = env.engine.context
-    if context.input ~= "mode" then
-        for cand in input:iter() do
-            yield(cand)
+local function get_schema_name(schema_id)
+  local user_data_dir = rime_api.get_user_data_dir() -- 获取用户目录路径
+  
+  local function read_name(path)
+    local file = io.open(path, "rb")
+    if file then
+      for line in file:lines() do
+        local m, n = line:match("(%s*name%:%s)%s*%p*([^%c%s]+)%p*")
+        if m and n then
+          file:close()
+          return n:gsub("[']+$", ""):gsub('["]+$', '')
         end
-        return
+      end
+      file:close()
+    end
+    return nil
+  end
+
+  -- 先尝试 custom.yaml
+  local custom_name = read_name(user_data_dir .. path_sep .. schema_id .. ".custom.yaml")
+  if custom_name then return custom_name end
+
+  -- 再尝试 schema.yaml
+  local schema_name = read_name(user_data_dir .. path_sep .. schema_id .. ".schema.yaml")
+  if schema_name then return schema_name end
+
+  return ""
+end
+
+local function get_schema_list()
+  local user_data_dir = rime_api.get_user_data_dir()
+  user_data_dir = user_data_dir .. path_sep .. "build" .. path_sep .. "default.yaml"
+  local file = io.open(user_data_dir, "rb")
+  if file then
+    local schema_list = {}
+    for line in file:lines() do
+      local m, n = line:match("(%-%s*schema%:%s)([^%c%s]+)")
+      if m and n then
+        local name = get_schema_name(n)
+        if name ~= "" then table.insert(schema_list, { n, name }) end
+      end
+    end
+    file:close()
+    return schema_list
+  end
+end
+
+local enable_schema_list = get_schema_list()
+
+-- 帮助函数，返回被选中的候选的索引
+local function select_index(key, env)
+  local ch = key.keycode
+  local index = -1
+  local select_keys = env.engine.schema.select_keys
+
+  if select_keys ~= nil and select_keys ~= "" and not key.ctrl() and ch >= 0x20 and ch < 0x7f then
+    local pos = string.find(select_keys, string.char(ch))
+    if pos ~= nil then index = pos end
+  elseif ch >= 0x30 and ch <= 0x39 then
+    index = (ch - 0x30 + 9) % 10
+  elseif ch >= 0xffb0 and ch < 0xffb9 then
+    index = (ch - 0xffb0 + 9) % 10
+  elseif ch == 0x20 then
+    index = 0
+  end
+  return index
+end
+
+local function IsExistChar(obj, chars)
+  if type(obj) ~= "table" or chars == "" then return "" end
+  for i = 1, #obj do
+    if obj[i][2] == chars then return obj[i][1] end
+  end
+  return ""
+end
+
+local function selector(key, env)
+  if env.switcher == nil then return kNoop end
+  if key:release() or key:alt() then return kNoop end
+  local context = env.engine.context
+  if (context:is_composing()) then
+    local idx = select_index(key, env)
+    if idx < 0 then return kNoop end
+    local composition = context.composition
+    local segment = composition:back()
+    -- 新增：检查segment是否存在（避免segment为nil）
+    if not segment then return kNoop end
+
+    local codetext = env.engine.context.input
+    local schema_name = env.engine.schema.schema_name or ""
+    local candidate_count = segment.menu:candidate_count()
+    -- 修正1：将 `or ""` 改为 `or {}`（确保selected_candidate为表）
+    local selected_candidate = segment:get_selected_candidate() or {}
+    local page_pos = math.modf(segment.selected_index / page_size) + 1
+
+    -- 修正2：安全访问text字段（避免nil）
+    local last_candidate = selected_candidate.text or ""
+
+    if page_pos > 1 then
+      idx = (page_pos - 1) * page_size + idx
     end
 
-    if not schemas_cache then load_schemas(env) end
+    if candidate_count then
+      -- 原逻辑：若通过数字键选择候选，更新last_candidate
+      if key.keycode > 0x2f and key.keycode < 0x6a and idx > -1 then
+        -- 新增：检查候选是否存在（避免越界）
+        local candidate = segment:get_candidate_at(idx)
+        last_candidate = candidate and candidate.text or ""
+      end
 
+      -- 关键字切换逻辑（保持原逻辑，修正字段访问）
+      if context.input == rv_var.switch_schema and last_candidate then
+        local sc_id = IsExistChar(enable_schema_list, last_candidate)
+        if sc_id and sc_id:find("%a") then
+          env.engine:apply_schema(Schema(sc_id))
+          return kAccepted
+        end
+      end
+    end
+  end
+  return kNoop
+end
+
+-- 初始化
+local function init(env)
+  if Switcher == nil then return end
+  env.switcher = Switcher(env.engine)
+  page_size = env.engine.schema.page_size
+end
+
+local function set_switch_keywords(input, seg, env)
+  local schema_id = env.engine.schema.schema_id or ""
+  local composition = env.engine.context.composition
+  local segment = composition:back()
+
+  if input == rv_var.switch_schema and #enable_schema_list > 0 then
+    -- 修改 segment 的 tag，避免被拆分滤镜处理
+    if Set then
+      segment.tags = Set({rv_var.switch_schema})
+    end
+    
+    local select_index = 1
+    for i = 1, #enable_schema_list do
+      if enable_schema_list[i][2] then
+        local comment = "（切换方案）"
+        if enable_schema_list[i][1] == schema_id then
+          comment = "  👈"
+          select_index = i - 1
+        end
+        local candidate = Candidate(input, seg.start, seg._end, enable_schema_list[i][2], comment)
+        candidate.type = rv_var.switch_schema
+        segment.selected_index = select_index
+        candidate.quality = 100000000
+        yield(candidate)
+      end
+    end
+  end
+end
+
+-- Translator
+local function translator(input, seg, env)
+   set_switch_keywords(input, seg, env)
+end
+
+-- Filter: 清理注释
+local function filter(input, env)
+  local context = env.engine.context
+  local schema_id = env.engine.schema.schema_id
+  
+  if context.input == rv_var.switch_schema then
     for cand in input:iter() do
-        -- Check if it's our candidate or if it matches a schema name
-        local is_switcher = false
-        local genuine = cand
-        if cand.get_genuine then
-            genuine = cand:get_genuine()
+      -- 获取真实候选以检查类型
+      local genuine = cand:get_genuine()
+      
+      -- 仅处理 type 为 mode 的候选 (检查 genuine.type)
+      if genuine.type == rv_var.switch_schema then
+        -- 使用 genuine.text 匹配，避免 filter 修改了 text
+        local id = IsExistChar(enable_schema_list, genuine.text)
+        if id then
+          if id == schema_id then
+            cand.comment = "  👈"
+            genuine.comment = "  👈"
+          else
+            cand.comment = "（切换方案）"
+            genuine.comment = "（切换方案）"
+          end
         end
-        
-        if genuine.type:find("^schema_switch:") then
-            is_switcher = true
-        elseif cand.type:find("^schema_switch:") then
-            is_switcher = true
-        else
-            -- Fallback check by name
-            local text = cand.text:gsub(" 👈", "")
-            if id_name_map[text] then
-                is_switcher = true
-            end
-        end
-
-        if is_switcher then
-            -- Reset comment to remove any "chaifen" or other noise
-            -- Create a new candidate to strip away any attached shadow candidate properties
-            local type_str = genuine.type
-            if not type_str:find("^schema_switch:") then
-                -- Try to recover type from name if possible, or default to generic
-                local text = cand.text:gsub(" 👈", "")
-                if id_name_map[text] then
-                    type_str = "schema_switch:" .. id_name_map[text]
-                else
-                    type_str = "schema_switch:unknown"
-                end
-            end
-            
-            local comment = "（切换方案）"
-            if cand.text:find(" 👈") then
-                comment = ""
-            end
-            
-            local new_cand = Candidate(type_str, cand.start, cand._end, cand.text, comment)
-            new_cand.quality = cand.quality
-            new_cand.preedit = cand.preedit
-            yield(new_cand)
-        else
-            yield(cand)
-        end
+      end
+      yield(cand)
     end
+  else
+    for cand in input:iter() do
+      yield(cand)
+    end
+  end
 end
 
-function M.processor(key, env)
-   local engine = env.engine
-   local context = engine.context
-   
-   local function processor_apply_switch(target_id)
-       apply_switch(engine, target_id, env)
-       context:clear()
-   end
-   
-   if not context:has_menu() then return 2 end -- kNoop
-   
-   if context.input ~= "mode" then return 2 end
-   
-   local selected = context:get_selected_candidate()
-   local schema_id_to_switch = nil
-   
-   -- Strategy 1: Check candidate type (Ideal)
-   if selected then
-       local genuine = selected
-       if selected.get_genuine then
-           genuine = selected:get_genuine()
-       end
-       
-       if genuine.type:find("^schema_switch:") then
-           local id = genuine.type:sub(15)
-           if id ~= "error" then
-               schema_id_to_switch = id
-           end
-       elseif selected.type:find("^schema_switch:") then
-           local id = selected.type:sub(15)
-           if id ~= "error" then
-               schema_id_to_switch = id
-           end
-       end
-   end
-   
-   -- Strategy 2: Fallback - Check candidate text against known schema names
-   if not schema_id_to_switch and selected then
-       local text = selected.text:gsub(" 👈", "")
-       if id_name_map[text] then
-           schema_id_to_switch = id_name_map[text]
-       end
-   end
-   
-   local keycode = key.keycode
-   local is_confirm = (keycode == 32 or keycode == 65293 or keycode == 65421)
-   
-   if schema_id_to_switch and is_confirm then
-       processor_apply_switch(schema_id_to_switch)
-       return 1 -- kAccepted
-   end
-   
-   -- Handle number keys (1-9)
-   if keycode >= 49 and keycode <= 57 then
-       local idx = keycode - 49
-       local composition = context.composition
-       if not composition:empty() then
-           local seg = composition:back()
-           
-           local page_size = engine.schema.page_size or 5
-           if engine.schema.config then
-               page_size = engine.schema.config:get_int("menu/page_size") or 5
-           end
-           
-           local selected_index = seg.selected_index
-           local page_start = math.floor(selected_index / page_size) * page_size
-           local target_index = page_start + idx
-           
-           if not schemas_cache then load_schemas(env) end
-           if schemas_cache and #schemas_cache > 0 then
-               local current_id = engine.schema.schema_id
-               local sorted_list = {}
-               local current_item = nil
-               for _, item in ipairs(schemas_cache) do
-                  if item.id == current_id then current_item = item else table.insert(sorted_list, item) end
-               end
-               if current_item then table.insert(sorted_list, 1, current_item) end
-               
-               local item = sorted_list[target_index + 1]
-               if item then
-                   processor_apply_switch(item.id)
-                   return 1 -- kAccepted
-               end
-           end
-       end
-   end
-   
-   return 2 -- kNoop
-end
-
-return M
+return { init = init, processor = selector, translator = translator, filter = filter }

@@ -2,9 +2,10 @@
 
 patch:
   speller/max_code_length: 30
+  
   engine/processors/@before 0: lua_processor@switcher_processor
   engine/processors/@before 1: lua_processor@maker_processor
-  engine/translators/@before 0: lua_translator@switcher_translator
+
   engine/translators/@before 1: lua_translator@maker_translator
 
   schema/name: 虎词
@@ -23,6 +24,7 @@ patch:
     - lua_filter@switcher_filter
 
   engine/translators/+:
+    - lua_translator@switcher_translator
     - lua_translator@*uuid_translator # UUID 输入
     - lua_translator@*date_translator # 动态日期时间输入
     - table_translator@custom_phrase

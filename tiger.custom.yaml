@@ -12,13 +12,27 @@ patch:
   #style/layout/border_height: 2 #边框高度，默认是0
 
   engine/processors/@before 0: lua_processor@switcher_processor
-  engine/translators/@before 0: lua_translator@switcher_translator
-  engine/filters/+:
-    - lua_filter@switcher_filter
 
+  engine/filters:
+    - lua_filter@core2022 #自定义字集过滤lua；放在最上面完美解决简繁滤镜出错的问题
+    # - lua_filter@dz_ci  #过滤词组lua，单字模式
+    # - charset_filter@utf8
+    # - charset_filter@gbk
+    # - charset_filter@gb2312
+    - simplifier@simplification #简繁滤镜
+    # - reverse_lookup_filter@reverse_lookup #反查词典滤镜
+    # - simplifier@fanjian #繁简滤镜
+    - simplifier@pinyin #拼音滤镜
+    - simplifier@chaifen #拆分滤镜
+    - simplifier@emoji_cn #表情滤镜
+    - lua_filter@switcher_filter
+    - lua_filter@charset_comment_filter #Unicode分区提示滤镜
+    - lua_filter@lua_unicode_display_filter #Unicode编码显示
+    - uniquifier #过滤重复
 
   engine/translators/+:
-    - lua_translator@*uuid_translator # UUID 输入
+    - lua_translator@switcher_translator
+    - lua_translator@*uuid_translator
     - lua_translator@*date_translator # 动态日期时间输入
 
   # 反查
