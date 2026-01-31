@@ -31,6 +31,8 @@ patch:
     - table_translator@custom_phrase
 
   reverse_lookup/tips: "〔双拼〕"
+  recognizer/patterns/reverse_lookup: "^`[a-z]*'?$"
+  recognizer/patterns/punct: "^/[A-Za-z0-9_]*$"
 
   custom_phrase:
     dictionary: ""
@@ -68,7 +70,7 @@ patch:
   maker:
     separator: "'"
     candidate_mark: "☯"
-    excluded_prefixes: ["`"]      # 排除的前缀，支持多字符，例如 ["`", "rv"]
+    excluded_prefixes: ["`", "/"]      # 排除的前缀，支持多字符，例如 ["`", "rv"]
 
   #style/preedit_type: preview # 嵌入首选项内容(字词)。有4个选项可设：input 嵌入输入码 | composition 嵌入编码 | preview 嵌入首选项 | preview_all 嵌入全部内容
   #style/layout/margin_y : -1 # 启用后可隐藏候选框(盲打)，建议配合上面的嵌入首选项，一起使用

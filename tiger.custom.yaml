@@ -45,6 +45,7 @@ patch:
     - "xform/([nl])ue/$1üe/"
     - "xform/([jqxy])v/$1u/"
   recognizer/patterns/reverse_lookup: "^`[a-z]*'?$"
+  recognizer/patterns/punct: "^/[A-Za-z0-9_]*$"
   speller/alphabet: "[;'zyxwvutsrqponmlkjihgfedcba]`"
 
   menu/page_size: 9 # 自定义候选个数，可修改。若要改成5个，行首加上#号注释即可（Rime默认就是5个）
