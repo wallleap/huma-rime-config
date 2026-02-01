@@ -294,6 +294,11 @@ function M.translator(input, seg, env)
 
     segment.prompt = '造词...'
 
+    -- Tag Isolation: prevent filters from modifying comments
+    if Set then
+        segment.tags = Set({"word_maker"})
+    end
+
     -- Mode 2: Word Maker Logic
     local codes = {}
     -- Split by separator
