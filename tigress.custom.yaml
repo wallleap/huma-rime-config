@@ -2,7 +2,7 @@
 
 patch:
   speller/max_code_length: 30
-  
+
   engine/processors/@before 0: lua_processor@switcher_processor
   engine/processors/@before 1: lua_processor@maker_processor
 
@@ -42,7 +42,6 @@ patch:
     enable_sentence: false
     initial_quality: 100
 
-
   menu/page_size: 9 # 自定义候选个数，可修改。若要改成5个，行首加上#号注释即可（Rime默认就是5个）
   #style/horizontal: true # 默认是false竖排显示，删掉行首的#号，可横排显示（横排建议把上面这行注释掉）
   #style/layout/candidate_spacing: 17 #候选框改为横排后,增加 候选与候选 的间距
@@ -70,7 +69,7 @@ patch:
   maker:
     separator: "'"
     candidate_mark: "☯"
-    excluded_prefixes: ["`", "/"]      # 排除的前缀，支持多字符，例如 ["`", "rv"]
+    excluded_prefixes: ["`", "/", "="] # 排除的前缀，支持多字符，例如 ["`", "rv"]
 
   #style/preedit_type: preview # 嵌入首选项内容(字词)。有4个选项可设：input 嵌入输入码 | composition 嵌入编码 | preview 嵌入首选项 | preview_all 嵌入全部内容
   #style/layout/margin_y : -1 # 启用后可隐藏候选框(盲打)，建议配合上面的嵌入首选项，一起使用
