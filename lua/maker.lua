@@ -288,7 +288,8 @@ function M.translator(input, seg, env)
         end
     end
 
-    if not input:find(separator, 1, true) then
+    local sep_pos = input:find(separator, 1, true)
+    if not sep_pos or sep_pos == 1 then
         return
     end
 
