@@ -119,6 +119,6 @@
 - macOS 鼠须管
 - Windows 小狼豪
 
-![](https://cdn.wallleap.cn/img/pic/illustration/20260115111422545.png?imageSlim)
+![](https://cdn.wallleap.cn/img/pic/illustration/20260125143422338.png?imageSlim)
 
-![](https://cdn.wallleap.cn/img/pic/illustration/20260115111443166.jpg?imageSlim)
+![](https://cdn.wallleap.cn/img/pic/illustration/20260201203655267.png?imageSlim)
