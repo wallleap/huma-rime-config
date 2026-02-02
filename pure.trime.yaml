@@ -771,9 +771,9 @@ preset_keyboards:
           label_symbol: 1,
           # hint: 一,
           click: q,
-          long_click: Q,
-          swipe_up: "1",
-          swipe_down: "一",
+          popup: [Commit_Num_1, Commit_Upper_Q, Commit_Yi], # 顺序和实际显示好像不一样
+          swipe_up: Commit_Num_1,
+          swipe_down: Commit_Yi,
           key_back_color: bh1,
           key_text_color: th1,
         }
@@ -781,9 +781,9 @@ preset_keyboards:
           label: "W",
           label_symbol: 2,
           click: w,
-          long_click: W,
-          swipe_up: "2",
-          swipe_down: "二",
+          popup: [Commit_Upper_W, Commit_Er, Commit_Num_2],
+          swipe_up: Commit_Num_2,
+          swipe_down: Commit_Er,
           key_back_color: bh1,
           key_text_color: th1,
         }
@@ -791,9 +791,9 @@ preset_keyboards:
           label: "E",
           label_symbol: 3,
           click: e,
-          long_click: E,
-          swipe_up: "3",
-          swipe_down: "三",
+          popup: [Commit_Upper_E, Commit_San, Commit_Num_3],
+          swipe_up: Commit_Num_3,
+          swipe_down: Commit_San,
           key_back_color: bh1,
           key_text_color: th1,
         }
@@ -801,9 +801,9 @@ preset_keyboards:
           label: "R",
           label_symbol: 4,
           click: r,
-          long_click: R,
-          swipe_up: "4",
-          swipe_down: "四",
+          popup: [Commit_Upper_R, Commit_Si, Commit_Num_4],
+          swipe_up: Commit_Num_4,
+          swipe_down: Commit_Si,
           key_back_color: bh1,
           key_text_color: th1,
         }
@@ -811,9 +811,9 @@ preset_keyboards:
           label: "T",
           label_symbol: 5,
           click: t,
-          long_click: T,
-          swipe_up: "5",
-          swipe_down: "五",
+          popup: [Commit_Upper_T, Commit_Wu, Commit_Num_5],
+          swipe_up: Commit_Num_5,
+          swipe_down: Commit_Wu,
           key_back_color: bh1,
           key_text_color: th1,
         }
@@ -821,9 +821,9 @@ preset_keyboards:
           label: "Y",
           label_symbol: 6,
           click: y,
-          long_click: Y,
-          swipe_up: "6",
-          swipe_down: "六",
+          popup: [Commit_Upper_Y, Commit_Liu, Commit_Num_6],
+          swipe_up: Commit_Num_6,
+          swipe_down: Commit_Liu,
           key_back_color: bh1,
           key_text_color: th1,
         }
@@ -831,9 +831,9 @@ preset_keyboards:
           label: "U",
           label_symbol: 7,
           click: u,
-          long_click: U,
-          swipe_up: "7",
-          swipe_down: "七",
+          popup: [Commit_Upper_U, Commit_Qi, Commit_Num_7],
+          swipe_up: Commit_Num_7,
+          swipe_down: Commit_Qi,
           key_back_color: bh1,
           key_text_color: th1,
         }
@@ -841,9 +841,9 @@ preset_keyboards:
           label: "I",
           label_symbol: 8,
           click: i,
-          long_click: I,
-          swipe_up: "8",
-          swipe_down: "八",
+          popup: [Commit_Upper_I, Commit_Ba, Commit_Num_8],
+          swipe_up: Commit_Num_8,
+          swipe_down: Commit_Ba,
           key_back_color: bh1,
           key_text_color: th1,
         }
@@ -851,9 +851,9 @@ preset_keyboards:
           label: "O",
           label_symbol: 9,
           click: o,
-          long_click: O,
-          swipe_up: "9",
-          swipe_down: "九",
+          popup: [Commit_Upper_O, Commit_Jiu, Commit_Num_9],
+          swipe_up: Commit_Num_9,
+          swipe_down: Commit_Jiu,
           key_back_color: bh1,
           key_text_color: th1,
         }
@@ -861,9 +861,9 @@ preset_keyboards:
           label: "P",
           label_symbol: 0,
           click: p,
-          long_click: P,
-          swipe_up: "0",
-          swipe_down: "零",
+          popup: [Commit_Ling, Commit_Upper_P, Commit_Num_0],
+          swipe_up: Commit_Num_0,
+          swipe_down: Commit_Ling,
           key_back_color: bh1,
           key_text_color: th1,
         }
@@ -873,7 +873,7 @@ preset_keyboards:
           label: "A",
           label_symbol: "-",
           click: a,
-          long_click: A,
+          popup: ["-", Commit_Upper_A, "_"],
           swipe_up: "-",
           swipe_down: "_",
           key_back_color: bh2,
@@ -883,7 +883,7 @@ preset_keyboards:
           label: "S",
           label_symbol: "/",
           click: s,
-          long_click: S,
+          popup: [Commit_Upper_S, "/"],
           swipe_up: "/",
           swipe_down: "/",
           key_back_color: bh2,
@@ -893,7 +893,7 @@ preset_keyboards:
           label: "D",
           label_symbol: "：",
           click: d,
-          long_click: D,
+          popup: [Commit_Upper_D, "："],
           swipe_up: "：",
           swipe_down: "：",
           key_back_color: bh2,
@@ -903,7 +903,7 @@ preset_keyboards:
           label: "F",
           label_symbol: "；",
           click: f,
-          long_click: F,
+          popup: [Commit_Upper_F, "；"],
           swipe_up: "；",
           swipe_down: "；",
           key_back_color: bh2,
@@ -913,7 +913,7 @@ preset_keyboards:
           label: "G",
           label_symbol: "（）",
           click: g,
-          long_click: G,
+          popup: [Commit_Upper_G, "(){Left}", "（）{Left}"],
           swipe_up: "（）{Left}",
           swipe_down: "(){Left}",
           key_back_color: bh2,
@@ -923,7 +923,7 @@ preset_keyboards:
           label: "H",
           label_symbol: "～",
           click: h,
-          long_click: H,
+          popup: [Commit_Upper_H, "~", "～"],
           swipe_up: "～",
           swipe_down: "~",
           key_back_color: bh2,
@@ -933,7 +933,7 @@ preset_keyboards:
           label: "J",
           label_symbol: "@",
           click: j,
-          long_click: J,
+          popup: [Commit_Upper_J, "@"],
           swipe_up: "@",
           swipe_down: "@",
           key_back_color: bh2,
@@ -943,7 +943,7 @@ preset_keyboards:
           label: "K",
           label_symbol: "*",
           click: k,
-          long_click: K,
+          popup: [Commit_Upper_K, "*"],
           swipe_up: "*",
           swipe_down: "*",
           key_back_color: bh2,
@@ -953,7 +953,7 @@ preset_keyboards:
           label: "L",
           label_symbol: "“”",
           click: l,
-          long_click: L,
+          popup: [Commit_Upper_L, "“”{Left}"],
           swipe_up: "“”{Left}",
           swipe_down: "“”{Left}",
           key_back_color: bh2,
@@ -977,7 +977,7 @@ preset_keyboards:
           label: "Z",
           label_symbol: "`",
           click: z,
-          long_click: Z,
+          popup: [Commit_Upper_Z, "`", "‵"],
           swipe_up: "‵",
           swipe_down: "`",
           key_back_color: bh3,
@@ -987,7 +987,7 @@ preset_keyboards:
           label: "X",
           label_symbol: ".",
           click: x,
-          long_click: X,
+          popup: [Commit_Upper_X, "."],
           swipe_up: ".",
           swipe_down: ".",
           key_back_color: bh3,
@@ -997,7 +997,7 @@ preset_keyboards:
           label: "C",
           label_symbol: "#",
           click: c,
-          long_click: C,
+          popup: [Commit_Upper_C, "#"],
           swipe_up: "#",
           swipe_down: "#",
           key_back_color: bh3,
@@ -1007,7 +1007,7 @@ preset_keyboards:
           label: "V",
           label_symbol: "、",
           click: v,
-          long_click: V,
+          popup: [Commit_Upper_V, "、"],
           swipe_up: "、",
           swipe_down: "、",
           key_back_color: bh3,
@@ -1017,7 +1017,7 @@ preset_keyboards:
           label: "B",
           label_symbol: "？",
           click: b,
-          long_click: B,
+          popup: [Commit_Upper_B, "？"],
           swipe_up: "？",
           swipe_down: "？",
           key_back_color: bh3,
@@ -1027,7 +1027,7 @@ preset_keyboards:
           label: "N",
           label_symbol: "！",
           click: n,
-          long_click: N,
+          popup: [Commit_Upper_N, "!", "！"],
           swipe_up: "！",
           swipe_down: "!",
           key_back_color: bh3,
@@ -1037,7 +1037,7 @@ preset_keyboards:
           label: "M",
           label_symbol: "…",
           click: m,
-          long_click: M,
+          popup: [Commit_Upper_M, "…", "……"],
           swipe_up: "…",
           swipe_down: "……",
           key_back_color: bh3,
@@ -8324,8 +8324,9 @@ preset_keys:
       preview: "ic@backspace_outline",
       repeatable: true,
       functional: false,
-      slide_delete: true,
+      slide_delete: true, # 关闭滑动删除以解锁其他手势
       send: BackSpace,
+      swipe_up: Clear_All
     }
   space:
     {
@@ -8339,6 +8340,52 @@ preset_keys:
   space1: { repeatable: false, label: "空格", functional: false, send: space }
   Clear: { label: 全清, send: Clear }
   Clear_All: { label: 清除, text: "{Control+a}{BackSpace}" }
+  Commit_Yi: { label: 一, commit: 一 }
+  Commit_Er: { label: 二, commit: 二 }
+  Commit_San: { label: 三, commit: 三 }
+  Commit_Si: { label: 四, commit: 四 }
+  Commit_Wu: { label: 五, commit: 五 }
+  Commit_Liu: { label: 六, commit: 六 }
+  Commit_Qi: { label: 七, commit: 七 }
+  Commit_Ba: { label: 八, commit: 八 }
+  Commit_Jiu: { label: 九, commit: 九 }
+  Commit_Ling: { label: 零, commit: 零 }
+  Commit_Upper_A: { label: A, commit: A }
+  Commit_Upper_B: { label: B, commit: B }
+  Commit_Upper_C: { label: C, commit: C }
+  Commit_Upper_D: { label: D, commit: D }
+  Commit_Upper_E: { label: E, commit: E }
+  Commit_Upper_F: { label: F, commit: F }
+  Commit_Upper_G: { label: G, commit: G }
+  Commit_Upper_H: { label: H, commit: H }
+  Commit_Upper_I: { label: I, commit: I }
+  Commit_Upper_J: { label: J, commit: J }
+  Commit_Upper_K: { label: K, commit: K }
+  Commit_Upper_L: { label: L, commit: L }
+  Commit_Upper_M: { label: M, commit: M }
+  Commit_Upper_N: { label: N, commit: N }
+  Commit_Upper_O: { label: O, commit: O }
+  Commit_Upper_P: { label: P, commit: P }
+  Commit_Upper_Q: { label: Q, commit: Q }
+  Commit_Upper_R: { label: R, commit: R }
+  Commit_Upper_S: { label: S, commit: S }
+  Commit_Upper_T: { label: T, commit: T }
+  Commit_Upper_U: { label: U, commit: U }
+  Commit_Upper_V: { label: V, commit: V }
+  Commit_Upper_W: { label: W, commit: W }
+  Commit_Upper_X: { label: X, commit: X }
+  Commit_Upper_Y: { label: Y, commit: Y }
+  Commit_Upper_Z: { label: Z, commit: Z }
+  Commit_Num_1: { label: 1, commit: 1 }
+  Commit_Num_2: { label: 2, commit: 2 }
+  Commit_Num_3: { label: 3, commit: 3 }
+  Commit_Num_4: { label: 4, commit: 4 }
+  Commit_Num_5: { label: 5, commit: 5 }
+  Commit_Num_6: { label: 6, commit: 6 }
+  Commit_Num_7: { label: 7, commit: 7 }
+  Commit_Num_8: { label: 8, commit: 8 }
+  Commit_Num_9: { label: 9, commit: 9 }
+  Commit_Num_0: { label: 0, commit: 0 }
   Escape: { label: 取消, functional: false, send: Escape }
   Home: { label: 行首, send: Home, functional: false }
   Insert: { label: 插入, send: Insert }
