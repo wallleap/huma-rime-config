@@ -25,8 +25,8 @@ patch:
     # - reverse_lookup_filter@reverse_lookup #反查词典滤镜
     # - simplifier@fanjian #繁简滤镜
     - simplifier@pinyin #拼音滤镜
-    - simplifier@chaifen #拆分滤镜
     - simplifier@emoji_cn #表情滤镜
+    - lua_filter@chaifen_comment_filter
     - lua_filter@switcher_filter
     - lua_filter@charset_comment_filter #Unicode分区提示滤镜
     - lua_filter@lua_unicode_display_filter #Unicode编码显示

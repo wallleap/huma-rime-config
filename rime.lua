@@ -17,3 +17,6 @@ local schema_switcher = require("schema_switcher")
 switcher_processor = { init = schema_switcher.init, func = schema_switcher.processor }
 switcher_translator = schema_switcher.translator
 switcher_filter = schema_switcher.filter
+
+-- 拆分滤镜（追加模式）
+chaifen_comment_filter = require("chaifen_comment_filter")

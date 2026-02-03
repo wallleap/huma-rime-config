@@ -115,8 +115,9 @@ engine:
     - simplifier@simplification # 用字转换，简繁滤镜
     # - simplifier@fanjian #繁简滤镜
     - simplifier@pinyin #拼音滤镜
-    - simplifier@chaifen #拆分滤镜
+    # - simplifier@chaifen #拆分滤镜
     - simplifier@emoji_cn #表情滤镜
+    - lua_filter@chaifen_comment_filter #拆分滤镜(Lua追加模式)
     # - reverse_lookup_filter@reverse_lookup # 反查滤镜，以更灵活的方式反查，Rime1.0 后替代 reverse_lookup_translator，后接 @滤镜名
     - lua_filter@charset_comment_filter #Unicode分区提示滤镜
     - lua_filter@lua_unicode_display_filter #Unicode编码显示

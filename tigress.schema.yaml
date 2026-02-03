@@ -105,8 +105,8 @@ engine:
     # - simplifier@fanjian  #繁简滤镜
     # - reverse_lookup_filter@reverse_lookup #反查词典滤镜
     - simplifier@pinyin #拼音滤镜
-    - simplifier@chaifen #拆分滤镜
     - simplifier@emoji_cn #表情滤镜
+    - lua_filter@chaifen_comment_filter #拆分滤镜(Lua追加模式)
     - lua_filter@charset_comment_filter #Unicode分区提示滤镜
     - lua_filter@lua_unicode_display_filter #Unicode编码显示
     - uniquifier #过滤重复
