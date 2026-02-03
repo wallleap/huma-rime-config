@@ -20,3 +20,6 @@ switcher_filter = schema_switcher.filter
 
 -- 拆分滤镜（追加模式）
 chaifen_comment_filter = require("chaifen_comment_filter")
+
+-- 拼音滤镜（追加模式）
+pinyin_comment_filter = require("pinyin_comment_filter")

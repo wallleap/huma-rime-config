@@ -24,7 +24,8 @@ patch:
     - simplifier@simplification #简繁滤镜
     # - reverse_lookup_filter@reverse_lookup #反查词典滤镜
     # - simplifier@fanjian #繁简滤镜
-    - simplifier@pinyin #拼音滤镜
+    # - simplifier@pinyin #拼音滤镜（放弃这种，会覆盖备注）
+    - lua_filter@pinyin_comment_filter #拼音滤镜(Lua追加模式)
     - simplifier@emoji_cn #表情滤镜
     - lua_filter@chaifen_comment_filter
     - lua_filter@switcher_filter
