@@ -184,6 +184,33 @@ local function factorial( x )
 end
 calcPlugin['fact'] = factorial
 
+-- 帮助信息
+local help_map = {
+    { cmd = 'pi', demo = 'pi', desc = '圆周率 π' },
+    { cmd = 'e', demo = 'e', desc = '自然对数底 e' },
+    { cmd = 'sin', demo = 'sin(x)', desc = '正弦 (弧度)' },
+    { cmd = 'cos', demo = 'cos(x)', desc = '余弦 (弧度)' },
+    { cmd = 'tan', demo = 'tan(x)', desc = '正切 (弧度)' },
+    { cmd = 'asin', demo = 'asin(x)', desc = '反正弦' },
+    { cmd = 'acos', demo = 'acos(x)', desc = '反余弦' },
+    { cmd = 'atan', demo = 'atan(x)', desc = '反正切' },
+    { cmd = 'sinh', demo = 'sinh(x)', desc = '双曲正弦' },
+    { cmd = 'cosh', demo = 'cosh(x)', desc = '双曲余弦' },
+    { cmd = 'tanh', demo = 'tanh(x)', desc = '双曲正切' },
+    { cmd = 'sqrt', demo = 'sqrt(x)', desc = '平方根' },
+    { cmd = 'pow', demo = 'pow(x, y)', desc = 'x的y次幂 (x^y)' },
+    { cmd = 'log', demo = 'log(base, x)', desc = '对数' },
+    { cmd = 'log10', demo = 'log10(x)', desc = '以10为底对数' },
+    { cmd = 'loge', demo = 'loge(x)', desc = '自然对数' },
+    { cmd = 'exp', demo = 'exp(x)', desc = 'e的x次幂' },
+    { cmd = 'deg', demo = 'deg(rad)', desc = '弧度转角度' },
+    { cmd = 'rad', demo = 'rad(deg)', desc = '角度转弧度' },
+    { cmd = 'fact', demo = 'fact(n) or n!', desc = '阶乘' },
+    { cmd = 'random', demo = 'random(m, n)', desc = '随机数' },
+    { cmd = 'avg', demo = 'avg(1, 2, ...)', desc = '平均值' },
+    { cmd = 'var', demo = 'var(1, 2, ...)', desc = '方差' },
+}
+
 -- 实现阶乘计算(!)
 local function replaceToFactorial( str )
     -- 替换[0-9]!字符为fact([0-9])以实现阶乘
@@ -207,17 +234,34 @@ end
 -- 简单计算器
 function calculator_translator.func( input, seg, env )
     if not seg:has_tag( 'expression' ) or input == '' then return end
+    
+    local composition = env.engine.context.composition
+    local segment = composition:back()
+
     -- 提取算式
     local express = truncateFromStart( input, env.prefix )
-    if express == '' then return end -- 防止用户写错了正则表达式造成错误
+    if express == '' then
+        segment.prompt = '算式示例：1+1、sin(pi)'
+        return
+    end
+    
     local code = replacePercent( replaceToFactorial( express ) )
     local success, result = pcall( load( 'return ' .. code, 'calculate', 't', calcPlugin ) )
+    
     if success and result and (type( result ) == 'string' or type( result ) == 'number') and #tostring( result ) > 0 then
         yield_calc_cand( seg, result, '', express, env.show_prefix )
         yield_calc_cand( seg, express .. '=' .. result, '', express, env.show_prefix )
     else
-        yield_calc_cand( seg, express, '解析失败', express, env.show_prefix )
-        yield_calc_cand( seg, code, '入参', express, env.show_prefix )
+        -- 尝试匹配帮助信息
+        local lower_express = string.lower(express)
+        for _, info in ipairs(help_map) do
+            if string.find(string.lower(info.cmd), lower_express, 1, true) == 1 then
+                 segment.prompt = info.demo .. '  ' .. info.desc
+                 return
+            end
+        end
+        
+        segment.prompt = '解析失败'
     end
 end
 
