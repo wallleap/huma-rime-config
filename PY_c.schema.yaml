@@ -35,9 +35,9 @@ switches: # 0 默认关，1 默认开
   - name: simplification #简转繁滤镜
     reset: 0
     states: [简中, 繁中]
-  - options: [_keyboard_default, _keyboard_defaultbk, _keyboard_defaultwk]
-    reset: 0
-    states: [有刻, 半刻, 无刻]
+  # - options: [_keyboard_default, _keyboard_defaultbk, _keyboard_defaultwk]
+  #   reset: 0
+  #   states: [有刻, 半刻, 无刻]
   - name: charset_comment_filter #字符集提示
     reset: 0
     states: [U区关, U区开]
