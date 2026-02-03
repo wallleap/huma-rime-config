@@ -1,3 +1,17 @@
+# Rime default settings patch: default.custom.yaml Rime 默认设置补丁
+# encoding: utf-8
+# https://github.com/lotem/rimeime/blob/master/brise/default.yaml
+# https://github.com/rime/librime/blob/master/data/minimal/default.yaml
+# patch:
+#   "一级设置项/二级设置项/三级设置项": 新的设置值
+#   "另一个设置项": 新的设置值  
+#   "再一个设置项": 新的设置值
+#   "含列表的设置项/@0": 列表第一个元素新的设置值，0 可替换为其他数字
+#   "含列表的设置项/@last": 列表最后一个元素新的设置值
+#   "含列表的设置项/@before 0": 在列表第一个元素之前插入新的设置值（不建议在补丁中使用）
+#   "含列表的设置项/@after last": 在列表最后一个元素之后插入新的设置值（不建议在补丁中使用）
+#   "含列表的设置项/@next": 在列表最后一个元素之后插入新的设置值（不建议在补丁中使用）
+
 patch:
   # 方案列表
   schema_list:
@@ -21,7 +35,7 @@ patch:
     - zh_hant_tw
   "switcher/fold_options": true # 折叠方案切换选项
   "switcher/abbreviate_options": true # 方案切换选项简写
-  "switcher/option_list_separator": "／" # 方案切换选项分隔符
+  "switcher/option_list_separator": "|" # 方案切换选项分隔符
 
   # 候选项个数
   "menu/page_size": 9
@@ -43,14 +57,18 @@ patch:
       - key_bindings:/windows_compatible_mode_switch
 
   # 识别器配置
-  "recognizer/patterns":
+  "recognizer/patterns": # 方便输入英文字符或数字
     email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
     uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
     url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
 
-  # ascii 输入配置
+  # ascii 输入配置（英文切换）
   "ascii_composer/good_old_caps_lock": false
   "ascii_composer/switch_key":
+    # inline_ascii 临时输入英文，回车上屏后切换到中文状态
+    # commit_text 候选文字上屏并切换到英文状态
+    # commit_code 编码上屏并切换到英文状态
+    # noop 屏蔽该切换键
     Caps_Lock: noop
     Control_L: noop
     Control_R: noop

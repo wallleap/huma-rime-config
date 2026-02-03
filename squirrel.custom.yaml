@@ -1,9 +1,14 @@
+# Squirrel settings patch: squirrel.custom.yaml 鼠须管设置补丁
+# encoding: utf-8
+# https://github.com/rime/squirrel/blob/master/data/squirrel.yaml
 # https://github.com/rime/squirrel/wiki
+# https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/%E9%BC%A0%E9%AC%9A%E7%AE%A1%E4%BB%8B%E9%9D%A2%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97.md
+
 patch:
-  # keyboard_layout: zh-Hans-CN             # 键盘布局：last | default | 等
+  # keyboard_layout: zh-Hans-CN # 键盘布局：last | default | 等
   show_notifications_when: always # 显示切换方案或开关状态时的通知：always 总是，never 从不，appropriate 合适时
   show_notifications_via_notification_center: true # 使用系统通知中心显示通知
-  # chord_duration: 0.1                     # 连击时长，单位秒
+  # chord_duration: 0.1 # 连击时长，单位秒
   # 应用程序选项：ascii_mode 初始为西文模式，no_inline 不使用行内编辑
   #   inline 强制使用行内编辑，vim_mode 退出 Vim 插入模式自动切换输入法状态
   # app_options: {}
@@ -30,16 +35,16 @@ patch:
     color_scheme_dark: purity_of_form # 暗色预设配色方案名称
     translucency: true # 毛玻璃总开关：true 开启，false 关闭
     alpha: 0.95 # 透明度
-    # mutual_exclusion: true                  # 候选区各颜色是否独立
+    # mutual_exclusion: true # 候选区各颜色是否独立
     horizontal: true # 水平排列
     # 候选词格式 [label] 编号, [candidate] 候选词, [comment] 注释
     # candidate_format: "\u2005%c.\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
     candidate_format: "[label]. [candidate] [comment]"
-    # candidate_list_layout: linear           # 候选词列表布局：stack 堆叠，linear 平铺
-    # text_orientation: vertical              # 文本方向：horizontal 水平，vertical 垂直
-    # inline_preedit: true                    # 行内编辑：true 在文本框中显示预编码，false 在预编辑区显示编码
-    # inline_candidate: true                  # 行内显示第一候选：true 显示，false 不显示，和上面的 inline_preedit 搭配使用
-    # memorize_size: true                     # 让候选框不来回跳动
+    # candidate_list_layout: linear # 候选词列表布局：stack 堆叠，linear 平铺
+    # text_orientation: vertical # 文本方向：horizontal 水平，vertical 垂直
+    # inline_preedit: true # 行内编辑：true 在文本框中显示预编码，false 在预编辑区显示编码
+    # inline_candidate: true # 行内显示第一候选：true 显示，false 不显示，和上面的 inline_preedit 搭配使用
+    # memorize_size: true # 让候选框不来回跳动
     font_face: "-apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif" # 候选词字体
     font_point: 16 # 候选字词大小
     label_font_face: "-apple-system, 'Noto Sans', 'Helvetica Neue', Helvetica, 'Nimbus Sans L', Arial, 'Liberation Sans', 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans CJK SC', 'Source Han Sans SC', 'Source Han Sans CN', 'Microsoft YaHei', 'Wenquanyi Micro Hei', 'WenQuanYi Zen Hei', 'ST Heiti', SimHei, 'WenQuanYi Zen Hei Sharp', sans-serif" # 候选词编号字体
@@ -77,11 +82,11 @@ patch:
       color-space: display_p3
       back_color: "0x7FFFFFFF" # 整体背景色，可以包含透明度
       border_color: "0x03152079" # 边框颜色
-      # preedit_back_color: '0x7FFFFFFF'      # 预编辑区背景色
+      # preedit_back_color: '0x7FFFFFFF' # 预编辑区背景色
       text_color: "0x243ADC" # 编辑区非高亮编码颜色
-      # hilited_back_color: '0x0086FAED'      # 编辑区高亮背景色
+      # hilited_back_color: '0x0086FAED' # 编辑区高亮背景色
       hilited_text_color: "0x55669C" # 编辑区高亮编码颜色
-      # candidate_back_color: '0x7FFFFFFF'    # 候选词背景色
+      # candidate_back_color: '0x7FFFFFFF' # 候选词背景色
       candidate_text_color: "0xE4212A53" # 候选词颜色
       label_color: "0xA7263364" # 候选编号颜色
       comment_text_color: "0x69729B" # 候选词注释颜色

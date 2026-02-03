@@ -1,6 +1,11 @@
+# Rime schema: tigress.schema.yaml 虎码字词
+# encoding: utf-8
+# Schema 配置：https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md
+# 配置注释可以参考 tiger.schema.yaml
+
 schema:
   author:
-    - {}
+    - 虎码团队
   dependencies:
     - core2022 #自定义字集工具方案
     - PY_c # 拼音方案
@@ -59,6 +64,7 @@ switches: # 0 默认关，1 默认开
     reset: 0
     states: [半角, 全角]
 
+# 引擎配置
 engine:
   processors:
     - ascii_composer
@@ -88,7 +94,6 @@ engine:
     - history_translator@historySJ # 重复上屏 手机
     - lua_translator@number_translator # 数字转大写
     - lua_translator@calculator_translator # 简易计算器
-
   filters:
     - lua_filter@core2022 #自定义字集过滤lua；放在最上面完美解决简繁滤镜出错的问题
     # - lua_filter@dz_ci  #过滤词组lua，单字模式
@@ -106,6 +111,7 @@ engine:
     - lua_filter@lua_unicode_display_filter #Unicode编码显示
     - uniquifier #过滤重复
 
+# 拼写器配置
 speller:
   auto_clear: max_length # 3种选择， manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
   auto_select: true
@@ -115,6 +121,20 @@ speller:
   auto_select_pattern: ^;\w+ #自动上屏规则  对 [;] 引导的编码实行候选唯一自动上屏
   # 若要添加四码上屏功能，在  ^;\w+ 后面 加上  |^\w{4}$  即可
 
+# 反查配置
+reverse_lookup:
+  dictionary: PY_c
+  prefix: "`"
+  tips: "〔拼音〕"
+  preedit_format:
+    - "xform/([nl])v/$1ü/"
+    - "xform/([nl])ue/$1üe/"
+    - "xform/([jqxy])v/$1u/"
+  comment_format:
+    - "xform/^/ /"
+  # suffix: "'"
+
+# 翻译器配置
 translator:
   dictionary: tigress.extended
   enable_charset_filter: false
@@ -128,67 +148,19 @@ translator:
     - "xform/~/ /" #去掉编码提示前的~号
     # - "xform/^/ /" #提示前面 +间距
 
-reverse_lookup:
-  dictionary: PY_c
-  prefix: "`"
-  tips: "〔拼音〕"
+# 临时英文
+easy_english:
+  dictionary: easy_english
+  tag: easy_english
+  prefix: "'"
+  tips: 〔En〕
+  enable_completion: true
+  enable_sentence: false
+  initial_quality: -1
   preedit_format:
-    - "xform/([nl])v/$1ü/"
-    - "xform/([nl])ue/$1üe/"
-    - "xform/([jqxy])v/$1u/"
-  comment_format:
-    - "xform/^/ /"
-  # suffix: "'"
-
-key_binder:
-  #  import_preset: default
-  bindings:
-    #- { when: composing, accept: Return, send: Escape }
-    #- { accept: space, send: space, when: has_menu } #有候选时空格上屏首选
-    #- { accept: space, send: Escape, when: composing } #无候选时(空码)空格清屏
-    # - { accept: semicolon, send: 2, when: has_menu } # 分号次选
-    # - { when: has_menu, accept: apostrophe, send: 3 } # 引号三选
-    # - { when: composing, accept: Tab, send: Escape } # tab清屏
-    # - { when: has_menu, accept: minus, send: Page_Up } # - 向后翻页
-    # - { when: has_menu, accept: equal, send: Page_Down } # = 向前翻页
-    # - { when: composing, accept: bracketleft, send: Page_Up } # [ 后翻
-    # - { when: composing, accept: bracketright, send: Page_Down } # ] 前翻
-    - { accept: "Control+o", toggle: simplification, when: composing } # 简繁开关
-    # - { accept: "Control+Shift+O", toggle: fanjian, when: composing }  # 繁简开关
-    - { accept: "Control+p", toggle: pinyin, when: composing } # PC 拼音开关
-    - { accept: "Control+i", toggle: emoji_cn, when: composing } # PC emoji开关
-    - { accept: "Control+u", toggle: charset_comment_filter, when: composing } # PC Unicode分区开关
-    - { accept: "Control+y", toggle: udpf_switch, when: composing } #PC Unicode编码开关
-    - { accept: "Control+h", toggle: extended_char, when: composing } # PC 自定字集开关
-    - { accept: "Control+Shift+H", toggle: extended_char, when: composing } # PC 自定字集开关2
-    - { accept: "Control+j", toggle: chaifen, when: composing } # PC 拆分滤镜开关
-    # - { when: composing, accept: '&', toggle: emoji_cn } # 手机 emoji开关
-    # - { when: composing, accept: '*', toggle: simplification } # 手机 繁简开关
-    # - { when: composing, accept: '\', toggle: pinyin } # 手机 拼音开关
-    # - { when: composing, accept: '^', toggle: charset_comment_filter } # 手机 Unicode分区开关1
-    # - { when: composing, accept: '#', toggle: charset_comment_filter } # 手机 Unicode分区开关2
-    # - { accept: "%", toggle: udpf_switch, when: composing }  #手机 Unicode编码开关
-    # - { accept: "+", toggle: udpf_switch, when: composing }  #手机 Unicode编码开关
-    # - { when: composing, accept: '_', toggle: extended_char} # 手机 自定字集开关1
-    # - { when: composing, accept: ':', toggle: extended_char} # 手机 自定字集开关2
-    # - { when: composing, accept: '"', toggle: chaifen } # 手机 拆分滤镜开关
-    # - { when: has_menu, accept: Right, send: Down } # 右方向键 向后移动焦点
-    # - { when: has_menu, accept: Left, send: Up } # 左方向键 向前移动焦点
-    - { when: always, accept: "Control+period", toggle: ascii_punct } # 中英标点切换
-    #- { when: always, accept: "Shift+space" , toggle: full_shape } # 全半角切换
-
-recognizer:
-  import_preset: default
-  patterns:
-    punct: "^/([0-9]0?|[A-Za-z]+)$"
-    # uppercase: "" #中文状态大写锁定直接上屏
-    reverse_lookup: "^`[a-z]*'?$"
-    easy_english: "^'[A-Z|a-z]*`?$"
-    expression: "^=.*$"
-
-# menu:
-# page_size: 9 #候选数量
-# alternative_select_labels: [ ㊀, ㊁, ㊂, ㊃, ㊄, ㊅, ㊆, ㊇, ㊈ ]  #自定义候选序号显示符
+    - "xlit|_| |"
+  comment_format: #去掉编码提示前的~号
+    - "xform/~/ /"
 
 historySJ:
   input: z
@@ -245,20 +217,6 @@ emoji_cn:
   option_name: emoji_cn
   tips: all
 
-# 临时英文
-easy_english:
-  dictionary: easy_english
-  tag: easy_english
-  prefix: "'"
-  tips: 〔En〕
-  enable_completion: true
-  enable_sentence: false
-  initial_quality: -1
-  preedit_format:
-    - "xlit|_| |"
-  comment_format: #去掉编码提示前的~号
-    - "xform/~/ /"
-
 # 拆分滤镜
 chaifen:
   opencc_config: hu_cf.json
@@ -273,5 +231,53 @@ chaifen:
     - reverse_lookup
   tips: all #只给单字加滤镜，改为 char 。 词也显示，改为 all
 
+# 识别器配置
+recognizer:
+  import_preset: default
+  patterns:
+    punct: "^/([0-9]0?|[A-Za-z]+)$"
+    # uppercase: "" #中文状态大写锁定直接上屏
+    reverse_lookup: "^`[a-z]*'?$"
+    easy_english: "^'[A-Z|a-z]*`?$"
+    expression: "^=.*$"
+
+# 标点符号配置
 punctuator:
   import_preset: symbols
+
+# 按键绑定配置
+key_binder:
+  #  import_preset: default
+  bindings:
+    #- { when: composing, accept: Return, send: Escape }
+    #- { accept: space, send: space, when: has_menu } #有候选时空格上屏首选
+    #- { accept: space, send: Escape, when: composing } #无候选时(空码)空格清屏
+    # - { accept: semicolon, send: 2, when: has_menu } # 分号次选
+    # - { when: has_menu, accept: apostrophe, send: 3 } # 引号三选
+    # - { when: composing, accept: Tab, send: Escape } # tab清屏
+    # - { when: has_menu, accept: minus, send: Page_Up } # - 向后翻页
+    # - { when: has_menu, accept: equal, send: Page_Down } # = 向前翻页
+    # - { when: composing, accept: bracketleft, send: Page_Up } # [ 后翻
+    # - { when: composing, accept: bracketright, send: Page_Down } # ] 前翻
+    - { accept: "Control+Shift+O", toggle: simplification, when: composing } # 简繁开关
+    # - { accept: "Control+Shift+O", toggle: fanjian, when: composing }  # 繁简开关
+    - { accept: "Control+Shift+P", toggle: pinyin, when: composing } # PC 拼音开关
+    - { accept: "Control+Shift+I", toggle: emoji_cn, when: composing } # PC emoji开关
+    - { accept: "Control+Shift+U", toggle: charset_comment_filter, when: composing } # PC Unicode分区开关
+    - { accept: "Control+Shift+Y", toggle: udpf_switch, when: composing } #PC Unicode编码开关
+    - { accept: "Control+Shift+H", toggle: extended_char, when: composing } # PC 自定字集开关
+    - { accept: "Control+Shift+J", toggle: chaifen, when: composing } # PC 拆分滤镜开关
+    # - { when: composing, accept: '&', toggle: emoji_cn } # 手机 emoji开关
+    # - { when: composing, accept: '*', toggle: simplification } # 手机 繁简开关
+    # - { when: composing, accept: '\', toggle: pinyin } # 手机 拼音开关
+    # - { when: composing, accept: '^', toggle: charset_comment_filter } # 手机 Unicode分区开关1
+    # - { when: composing, accept: '#', toggle: charset_comment_filter } # 手机 Unicode分区开关2
+    # - { accept: "%", toggle: udpf_switch, when: composing }  #手机 Unicode编码开关
+    # - { accept: "+", toggle: udpf_switch, when: composing }  #手机 Unicode编码开关
+    # - { when: composing, accept: '_', toggle: extended_char} # 手机 自定字集开关1
+    # - { when: composing, accept: ':', toggle: extended_char} # 手机 自定字集开关2
+    # - { when: composing, accept: '"', toggle: chaifen } # 手机 拆分滤镜开关
+    # - { when: has_menu, accept: Right, send: Down } # 右方向键 向后移动焦点
+    # - { when: has_menu, accept: Left, send: Up } # 左方向键 向前移动焦点
+    # - { when: always, accept: "Control+period", toggle: ascii_punct } # 中英标点切换
+    #- { when: always, accept: "Shift+space" , toggle: full_shape } # 全半角切换

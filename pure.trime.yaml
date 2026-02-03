@@ -1,5 +1,9 @@
-# pure.trime.yaml
+# Trime theme settings: pure.trime.yaml 同文输入法主题
+# encoding: utf-8
+# https://github.com/osfans/trime/blob/develop/app/src/main/assets/shared/trime.yaml
+# https://github.com/osfans/trime/wiki
 # 修改自 tongwenfeng.trime.yaml
+
 name: 朴素 # 方案名称
 author: "vonnelu<vonnelu@163.com>" # 作者信息
 

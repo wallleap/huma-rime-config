@@ -5,11 +5,14 @@ number_translator = require("number")
 lua_unicode_display_filter = require("unicode_display")  --Unicode编码提示
 calculator_translator = require("calculator_translator") --简易计算器
 exe_processor = require("exe")                           -- 网页启动器
+
+-- 手动造词（默认分隔符为 '）
 maker = require("maker")
 maker_processor = maker.processor
 maker_translator = maker.translator
 maker_filter = maker.filter
 
+-- 自定义方案切换器（默认关键词为 mode）
 local schema_switcher = require("schema_switcher")
 switcher_processor = { init = schema_switcher.init, func = schema_switcher.processor }
 switcher_translator = schema_switcher.translator

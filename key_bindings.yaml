@@ -1,5 +1,7 @@
 # Rime key bindings
 # encoding: utf-8
+# 完整按键：https://github.com/rime/librime/blob/master/include/X11/keysymdef.h
+# 去掉 XK_ 前缀，只保留按键名称
 
 emacs_editing:
   __append:

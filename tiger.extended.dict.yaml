@@ -1,27 +1,36 @@
 # Rime dictionary: tiger.extended
 # encoding: utf-8
+# yaml 配置内容在 --- ... 之间
 
 ---
-name: tiger.extended
+name: tiger.extended # 字典名，一般和文件名相同，方便引用
 version: "2.0"
-sort: by_weight
-import_tables:
+sort: by_weight # 字典初始排序，by_weight 按字频排序，original 保持原码表中的顺序
+# use_preset_vocabulary: true # 是否引入「八股文」〔含字词频、词库〕，true 或 false
+# max_phrase_length: 20 # 配合use_preset_vocabulary:，设置导入词条最大词长
+# min_phrase_weight: 100 # 配合use_preset_vocabulary:，设置导入词条最小词频
+import_tables: # 加载其它外部码表
   - dicts/tiger
-  
-columns:
+columns: # 定义码表以 Tab 分隔出的各列，可设 text【文本】、code【码】、weight【权重】、stem【造词码】
   - text
   - code
   - weight
   - stem
-encoder:
+encoder: # 形码造词规则
   rules:
+    # 大写字母表示字序，小写字母表示其所跟随的大写字母所以表的字中的编码序
     - length_equal: 2
       formula: "AaAbBaBb"
     - length_equal: 3
       formula: "AaBaCaCb"
     - length_in_range: [4, 99]
       formula: "AaBaCaZa"
+  # tail_anchor: "'" # 造词码包含结构分割符〔仅用于仓颉〕
+  # exclude_patterns: # 排除某些字的造词，格式为：字1+字2+...
+  #   - '^z.*$'
 ...
+
+# 码表：以 Tab 分隔出的各列，各列依照 columns 定义排列
 
 #下面每行前面的#号是注释符，被注释的内容=不存在
 #若想采用下面被注释的举例，将前面的#号去掉，即可生效

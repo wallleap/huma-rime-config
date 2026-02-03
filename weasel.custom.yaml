@@ -1,4 +1,8 @@
+# Weasel settings patch: weasel.custom.yaml 小狼豪设置补丁
+# encoding: utf-8
+# https://github.com/rime/weasel/blob/master/output/data/weasel.yaml
 # https://github.com/rime/weasel/wiki
+
 patch:
   app_options:
     # 程序名称

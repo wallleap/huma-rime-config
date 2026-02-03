@@ -1,3 +1,6 @@
+# Rime schema info: info.yaml 方案信息（超越输入法下使用）
+# encoding: utf-8
+
 name: 虎码小鹤
 author: vonnelu
 version: 1.0.3

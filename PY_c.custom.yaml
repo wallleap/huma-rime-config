@@ -1,3 +1,7 @@
+# Rime schema patch: PY_c.custom.yaml 拼音++补丁→改成小鹤双拼
+# encoding: utf-8
+# Schema 配置：https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md
+
 patch:
   schema/name: 小鹤双拼
 
@@ -49,11 +53,10 @@ patch:
     - xform/ui$/V/
     - xform/in$/B/
     - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
-  #      - abbrev/^(.).+$/$1/  #词组在后
-  #      - derive/^(.).+$/$1/  #词组在前
+      #  - abbrev/^(.).+$/$1/  #词组在后
+      #  - derive/^(.).+$/$1/  #词组在前
 
   # 以下是双拼候选编码框的输入编码，自动转为全拼
-
   # translator/preedit_format:
   #   - xform/([bpmfdtnljqx])n/$1iao/
   #   - xform/(\w)g/$1eng/

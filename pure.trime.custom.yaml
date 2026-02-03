@@ -1,3 +1,6 @@
+# Trime theme settings patch: pure.trime.custom.yaml 同文输入法主题设置补丁
+# encoding: utf-8
+
 patch:
   # 全局字体设置
   "style/candidate_font":

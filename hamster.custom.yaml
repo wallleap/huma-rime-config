@@ -1,3 +1,6 @@
+# Hamster settings path: hamster.custom.yaml 仓输入法设置补丁
+# encoding: utf-8
+
 patch:
   # 下面兩行是導入自定義配色方案文件
   # keyboard/colorSchemas:
