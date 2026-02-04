@@ -109,6 +109,10 @@ calcPlugin['exp'] = exp
 local function sqrt( x ) return math.sqrt( x ) end
 calcPlugin['sqrt'] = sqrt
 
+-- 返回x的y次幂 e.g. pow(x, y) = x^y
+local function pow( x, y ) return x ^ y end
+calcPlugin['pow'] = pow
+
 -- y为底x的对数, 使用换底公式实现
 local function log( y, x )
     -- 不能为负数或0
