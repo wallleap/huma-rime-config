@@ -53,8 +53,19 @@ patch:
     - xform/ui$/V/
     - xform/in$/B/
     - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
-      #  - abbrev/^(.).+$/$1/  #词组在后
-      #  - derive/^(.).+$/$1/  #词组在前
+    # 纯韵母补全（如 a → aa，o → oo，e → ee）
+    - derive/^([aoe])$/$1$1/
+    # 零声母韵母补全（如 i → ii，u → uu，v → vv，ü → vv）
+    - derive/^([iuv])$/$1$1/
+    # 纯声母补全（匹配以该声母开头的常用字，Rime自动补全韵母）
+    - derive/^([bpmfdtnlgkhjqxzcsrwy])$/$1/
+    # - abbrev/^(.).+$/$1/  #词组在后
+    # - derive/^(.).+$/$1/  #词组在前
+
+  translator/enable_completion: true
+  translator/enable_sentence: true
+  translator/prism: flypy
+  translator/user_dict: flypy
 
   # 以下是双拼候选编码框的输入编码，自动转为全拼
   # translator/preedit_format:
