@@ -170,8 +170,6 @@ tiger:
   enable_sentence: false
   enable_user_dict: false
   initial_quality: 10
-  preedit_format:
-    - preserve/^[a-z]{1,4}$/ # 保留原始编码
   comment_format:
     - "xform/~/ /"
 
