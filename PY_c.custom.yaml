@@ -62,6 +62,7 @@ patch:
     # - abbrev/^(.).+$/$1/  #词组在后
     # - derive/^(.).+$/$1/  #词组在前
 
+  translator/dictionary: flypy.extended
   translator/enable_completion: true
   translator/enable_sentence: true
   translator/prism: flypy
