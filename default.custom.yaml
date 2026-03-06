@@ -16,6 +16,7 @@ patch:
   # 方案列表
   schema_list:
     - schema: tiger
+    - schema: tiger_flypy_mix
     - schema: tigress
     - schema: PY_c
 
