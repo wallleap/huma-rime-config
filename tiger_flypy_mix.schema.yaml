@@ -51,6 +51,7 @@ switches:
 
 engine:
   processors:
+    - lua_processor@switcher_processor
     - key_binder
     - ascii_composer
     - recognizer
