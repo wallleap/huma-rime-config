@@ -1,5 +1,7 @@
 # 虎码 + 小鹤双拼 Rime 配置
 
+项目地址：<https://github.com/wallleap/huma-rime-config>
+
 本项目是基于虎码官方秃码方案进行深度定制的 Rime 配置集合，旨在提供高效、智能的输入体验。适用全平台。
 
 如何学习虎码：直接到官网（<https://www.tiger-code.com/docs/introduction>）按照顺序练习
@@ -45,6 +47,8 @@
 	- 鸿蒙端超越输入法目前还不支持修改字体（需要解压之后重命名 `Rime` 目录为 `huma_rime_config` 之后压缩整个文件夹，即压缩包中内容最外层为这个目录，之后传到手机上使用超越输入法导入）
 4. 把本仓库所有文件复制到 Rime 配置目录下（如 `~/Library/Rime`、`%APPDATA%\Rime` 等），手机上可以通过压缩包导入或局域网上传等方式导入到对应的目录下
 5. 点击重新部署
+
+> 注：虽然仓库中有大模型文件，但是文件太大，正常无法下载（下载之后显示只有几 KB），可以点击 [wanxiang-lts-zh-hans.gram](https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram) 下载并替换文件夹中的 `wanxiang-lts-zh-hans.gram` 文件
 
 通用功能：
 
