@@ -77,6 +77,7 @@ engine:
     - history_translator@historyDM2
     - history_translator@historyDM3
     - history_translator@historySJ
+    - reverse_lookup_translator # 反查翻译器
     - lua_translator@number_translator
     - lua_translator@calculator_translator
     - lua_translator@switcher_translator
