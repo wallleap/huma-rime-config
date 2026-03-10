@@ -24,6 +24,13 @@ patch:
 
   speller/algebra:
     - erase/^xx$/
+    # 万象词库转换
+    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
+    - xform/^ng$/eng/
+    - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/ 
+    - xform/ḿ/m/ 
+    # 小鹤双拼转换规则
     - derive/^([jqxy])u$/$1v/
     - derive/^([aoe])([ioun])$/$1$1$2/
     - xform/^([aoe])(ng)?$/$1$1$2/
@@ -62,11 +69,20 @@ patch:
     # - abbrev/^(.).+$/$1/  #词组在后
     # - derive/^(.).+$/$1/  #词组在前
 
+  # 语言模型
+  "grammar/language": wanxiang-lts-zh-hans
+  "grammar/collocation_max_length": 5
+  "grammar/collocation_min_length": 2
+
   translator/dictionary: flypy.extended
   translator/enable_completion: true
   translator/enable_sentence: true
   translator/prism: flypy
   translator/user_dict: flypy
+  # 上下文建议
+  translator/contextual_suggestions: true
+  translator/max_homophones: 7
+  translator/max_homographs: 7
 
   # 以下是双拼候选编码框的输入编码，自动转为全拼
   # translator/preedit_format:

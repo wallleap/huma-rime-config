@@ -76,11 +76,3 @@ patch:
     Eisu_toggle: clear
     Shift_L: commit_code
     Shift_R: commit_code
-
-# 全局启用 Octagram 框架
-__include: octagram
-octagram:
-  __patch:
-    grammar:
-      language: wanxiang-lts-zh-hans
-      collocation_max_length: 6

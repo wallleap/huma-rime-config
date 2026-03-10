@@ -1,0 +1,8 @@
+# Rime schema patch
+# encoding: utf-8
+
+patch:
+  # 语言模型
+  "grammar/language": wanxiang-lts-zh-hans
+  "grammar/collocation_max_length": 5
+  "grammar/collocation_min_length": 2

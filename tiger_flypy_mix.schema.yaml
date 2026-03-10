@@ -101,6 +101,12 @@ speller:
   delimiter: " '"
   algebra:
     - erase/^xx$/
+    # 万象词库转换
+    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
+    - xform/^ng$/eng/
+    - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/
+    - xform/ḿ/m/
     # 小鹤双拼转换规则
     - derive/^([jqxy])u$/$1v/
     - derive/^([aoe])([ioun])$/$1$1$2/
