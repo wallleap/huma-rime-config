@@ -16,8 +16,20 @@ patch:
     - lua_filter@*in_user_dict # 在用户词典中
     - lua_filter@switcher_filter
 
-  engine/translators/+:
-    - lua_translator@switcher_translator
+  engine/translators:
+    - punct_translator # 转换标点符号
+    - script_translator # 脚本表转换
+    - lua_translator@switcher_translator # 切换翻译器
+    - table_translator@custom_phrase
+    - table_translator
+    - table_translator@easy_english # 临时英文
+    - reverse_lookup_translator # 反查翻译器
+    - history_translator@historyDM # 历史上屏 电脑
+    - history_translator@historyDM2 # 历史上屏 电脑2
+    - history_translator@historyDM3 # 历史上屏 电脑3
+    - history_translator@historySJ # 历史上屏 手机
+    - lua_translator@number_translator # 数字转大写
+    - lua_translator@calculator_translator # 简易计算器
     - lua_translator@*helper # 帮助
     - lua_translator@*uuid_translator # UUID 输入
     - lua_translator@*date_translator # 动态日期时间输入
@@ -118,6 +130,14 @@ patch:
   #   - "xform/(^|[ '])u/$1sh/"
   #   - xform/([jqxy])v/$1u/
   #   - xform/([nl])v/$1ü/
+
+  custom_phrase:
+    dictionary: ""
+    user_dict: flypy_phrase
+    db_class: stabledb
+    enable_completion: false
+    enable_sentence: false
+    initial_quality: 100
 
   # lua 配置：在用户词典中
   in_user_dict:

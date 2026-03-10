@@ -77,6 +77,7 @@ engine:
     - history_translator@historyDM2
     - history_translator@historyDM3
     - history_translator@historySJ
+    - table_translator@custom_phrase
     - reverse_lookup_translator # 反查翻译器
     - lua_translator@number_translator
     - lua_translator@calculator_translator
@@ -204,6 +205,14 @@ easy_english:
     - "xlit|_| |"
   comment_format:
     - "xform/~/ /"
+
+custom_phrase:
+  dictionary: ""
+  user_dict: flypy_phrase
+  db_class: stabledb
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: 100
 
 historySJ:
   input: "z"
