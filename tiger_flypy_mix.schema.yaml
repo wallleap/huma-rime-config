@@ -92,7 +92,7 @@ engine:
     - lua_filter@charset_comment_filter
     - lua_filter@lua_unicode_display_filter
     - uniquifier
-    - lua_filter@*is_in_user_dict # 是否在用户词典中
+    - lua_filter@*in_user_dict # 在用户词典中
     - lua_filter@switcher_filter # 切换方案
 
 speller:
@@ -289,6 +289,3 @@ style:
   comment_font_face: "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, TumanPUA, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
   font_face: "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
   label_font_face: "LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-
-# lua 配置 -- 是否在用户词典中
-is_in_user_dict: true

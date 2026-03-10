@@ -22,7 +22,7 @@ patch:
 
   engine/filters/+:
     - lua_filter@maker_filter # 过滤掉系统词库中已存在的用户造词
-    - lua_filter@*is_in_user_dict # 是否在用户词典中
+    - lua_filter@*in_user_dict # 在用户词典中
     - lua_filter@switcher_filter
 
   engine/translators/+:
@@ -63,9 +63,6 @@ patch:
   # menu/alternative_select_labels: [ ⅰ,ⅱ,ⅲ,ⅳ,ⅴ,ⅵ,ⅶ,ⅷ,ⅸ,ⅹ ]
   # menu/alternative_select_labels: [ Ⓐ,Ⓑ,Ⓒ,Ⓓ,Ⓔ,Ⓕ,Ⓖ,Ⓗ,Ⓘ,Ⓙ ]
   # menu/alternative_select_labels: [ ⓐ,ⓑ,ⓒ,ⓓ,ⓔ,ⓕ,ⓖ,ⓗ,ⓘ,ⓙ ]
-
-  # lua 配置 -- 是否在用户词典中
-  is_in_user_dict: true
 
   # lua 配置：造词功能
   maker:

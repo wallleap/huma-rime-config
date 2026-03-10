@@ -13,7 +13,7 @@ patch:
   engine/processors/@before 0: lua_processor@switcher_processor
   
   engine/filters/+:
-    - lua_filter@*is_in_user_dict # 是否在用户词典中
+    - lua_filter@*in_user_dict # 在用户词典中
     - lua_filter@switcher_filter
 
   engine/translators/+:
@@ -119,8 +119,11 @@ patch:
   #   - xform/([jqxy])v/$1u/
   #   - xform/([nl])v/$1ü/
 
-  # lua 配置 -- 是否在用户词典中
-  is_in_user_dict: true
+  # lua 配置：在用户词典中
+  in_user_dict:
+    user_phrase_symbol: "✴️"
+    user_table_symbol: "⚡️"
+    sentence_symbol: "♾️"
 
   "style/horizontal": true
   "style/candidate_list_layout": linear
