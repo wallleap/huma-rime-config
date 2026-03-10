@@ -1,5 +1,5 @@
 -- 1. 根据是否在用户词典，在 comment 上加上一个星号 ✴️
--- 2. 用户置顶词，加上 ⚡️ 符号
+-- 2. 用户置顶词，加上 ✨ 符号
 -- 3. 整句联想，加上无穷符号 ♾️
 -- 在 engine/filters 增加 - lua_filter@*is_in_user_dict # 是否在用户词典中
 
@@ -18,7 +18,7 @@ local CONFIG_KEYS = {
 -- 默认符号（配置未定义时使用）
 local DEFAULT_SYMBOLS = {
     user_phrase = "✴️",  -- 自定义短语默认符号
-    user_table = "⚡️",   -- 用户词表默认符号
+    user_table = "✨",   -- 用户词表默认符号
     sentence = "♾️",      -- 句子默认符号
 }
 

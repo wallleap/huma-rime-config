@@ -10,5 +10,5 @@ patch:
   # lua 配置：在用户词典中
   in_user_dict:
     user_phrase_symbol: "✴️"
-    user_table_symbol: "📌"
+    user_table_symbol: "✨"
     sentence_symbol: "♾️"

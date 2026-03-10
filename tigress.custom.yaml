@@ -73,7 +73,7 @@ patch:
   # lua 配置：在用户词典中
   in_user_dict:
     user_phrase_symbol: "✴️"
-    user_table_symbol: "📌"
+    user_table_symbol: "✨"
     sentence_symbol: "♾️"
 
   # style/preedit_type: preview # 嵌入首选项内容(字词)。有4个选项可设：input 嵌入输入码 | composition 嵌入编码 | preview 嵌入首选项 | preview_all 嵌入全部内容
