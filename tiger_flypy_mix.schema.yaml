@@ -69,6 +69,7 @@ engine:
     - punct_segmentor
     - fallback_segmentor
   translators:
+    - echo_translator
     - punct_translator
     - table_translator@tiger
     - script_translator

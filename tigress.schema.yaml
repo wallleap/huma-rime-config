@@ -84,6 +84,7 @@ engine:
     - punct_segmentor
     - fallback_segmentor
   translators:
+    - echo_translator
     - punct_translator
     - reverse_lookup_translator #拼音反查
     - table_translator
