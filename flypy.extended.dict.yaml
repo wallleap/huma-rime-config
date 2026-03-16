@@ -7,7 +7,7 @@ version: "2026-03-10"
 sort: by_weight
 use_preset_vocabulary: false # 是否启用预设的“八股文”模型
 import_tables:
-  - PY_c
+  # - PY_c
   # 万象词库
   - dicts/zi # 字表，包含了所有带拼音的汉字
   - dicts/jichu # 基础词库，2-3字词汇
