@@ -31,6 +31,9 @@ patch:
     - lua_translator@*uuid_translator # UUID 输入
     - lua_translator@*date_translator # 动态日期时间输入
     - table_translator@custom_phrase
+    - lua_translator@*input_statistics # 统计不同方案不同维度下输入信息
+
+  recognizer/patterns/stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
 
   reverse_lookup/tips: "〔双拼〕"
   recognizer/patterns/reverse_lookup: "^`[a-z]*'?$"

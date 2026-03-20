@@ -21,3 +21,5 @@ trash/
 PY_c.txt
 flypy.txt
 tigress*.txt
+
+lua/input_stats.lua
