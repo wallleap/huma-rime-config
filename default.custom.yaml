@@ -18,7 +18,7 @@ patch:
     - schema: tiger
     - schema: tiger_flypy_mix
     - schema: tigress
-    - schema: PY_c
+    - schema: fly_double_pinyin
 
   # 切换器配置
   "switcher/caption": "〔方案菜单〕" # 方案切换菜单标题

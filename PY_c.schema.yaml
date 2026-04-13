@@ -13,13 +13,13 @@ switches: # 0 默认关，1 默认开
   - name: ascii_mode
     reset: 0
     states: [中文, 西文]
-  # - name: extended_char  #自定义字集
+  # - name: extended_char  # 自定义字集
   #   reset: 1
   #   states: [ 全字集 , 常用字 ]
-  - name: pinyin #拼音滤镜
+  - name: pinyin # 拼音滤镜
     reset: 0
     states: [拼, pīn]
-  - name: emoji_cn #emoji滤镜
+  - name: emoji_cn # emoji滤镜
     reset: 0
     states: [🈚, 🈶]
   # - name: chaifen
@@ -32,7 +32,7 @@ switches: # 0 默认关，1 默认开
   #     - GBK
   #     - GB2312
   #     - BIG5
-  - name: simplification #简转繁滤镜
+  - name: simplification # 简转繁滤镜
     reset: 0
     states: [简中, 繁中]
   # - options: [_keyboard_default, _keyboard_defaultbk, _keyboard_defaultwk]
@@ -75,7 +75,7 @@ engine:
   segmentors:
     - ascii_segmentor
     - matcher
-    - affix_segmentor@easy_english #英文相关
+    - affix_segmentor@easy_english # 英文相关
     - abc_segmentor # 标记输入码的类型
     - punct_segmentor # 割界，与前后方的其他编码区分开
     - fallback_segmentor
@@ -85,7 +85,7 @@ engine:
     - script_translator # 脚本表转换
     # - table_translator@custom_phrase
     - table_translator
-    - table_translator@easy_english #临时英文
+    - table_translator@easy_english # 临时英文
     - reverse_lookup_translator # 反查翻译器
     - history_translator@historyDM # 历史上屏 电脑
     - history_translator@historyDM2 # 历史上屏 电脑2
@@ -101,12 +101,12 @@ engine:
     # - charset_filter@gbk
     # - charset_filter@gb2312
     # - charset_filter@big5
-    - simplifier@simplification #简繁滤镜
-    # - simplifier@fanjian  #繁简滤镜
-    - simplifier@pinyin #拼音滤镜
-    - simplifier@emoji_cn #表情滤镜
-    - lua_filter@charset_comment_filter #Unicode分区提示滤镜
-    - lua_filter@lua_unicode_display_filter #Unicode编码显示
+    - simplifier@simplification # 简繁滤镜
+    # - simplifier@fanjian # 繁简滤镜
+    - simplifier@pinyin # 拼音滤镜
+    - simplifier@emoji_cn # 表情滤镜
+    - lua_filter@charset_comment_filter # Unicode分区提示滤镜
+    - lua_filter@lua_unicode_display_filter # Unicode编码显示
     - uniquifier # 过滤重复的候选字，可能来自简繁转换
 
 speller:
@@ -257,7 +257,7 @@ simplification: #⇩四选一
 pinyin:
   opencc_config: pinyin.json
   option_name: pinyin
-  show_in_comment: true #作为注解在后面显示
+  show_in_comment: true # 作为注解在后面显示
   comment_format:
     - "xform/&nbsp;/ /"
     - "xform/^/ /"
@@ -287,20 +287,20 @@ easy_english:
     - "xform/~/ /"
 
 menu:
-  page_size: 5 #候选数量
+  page_size: 5 # 候选数量
   # alternative_select_labels: [ ㊀, ㊁, ㊂, ㊃, ㊄, ㊅, ㊆, ㊇, ㊈ ]  #自定义候选序号显示符
   # 以下是备选样式（自行删除#号生效，只能生效一种）
   # menu/alternative_select_labels: [ 1,2,3,4,5,6,7,8,9,0 ]
-  #menu/alternative_select_labels: [ ①,②,③,④,⑤,⑥,⑦,⑧,⑨,⑩ ]
-  #menu/alternative_select_labels: [ ❶,❷,❸,❹,❺,❻,❼,❽,❾,❿ ]
-  #menu/alternative_select_labels: [ ⓵,⓶,⓷,⓸,⓹,⓺,⓻,⓼,⓽,⓾ ]
-  #menu/alternative_select_labels: [ ㊀,㊁,㊂,㊃,㊄,㊅,㊆,㊇,㊈,㊉ ]
-  #menu/alternative_select_labels: [ ㈠,㈡,㈢,㈣,㈤,㈥,㈦,㈧,㈨,㈩ ]
-  #menu/alternative_select_labels: [ 🀇,🀈,🀉,🀊,🀋,🀌,🀍,🀎,🀏,🀄 ]
-  #menu/alternative_select_labels: [ Ⅰ,Ⅱ,Ⅲ,Ⅳ,Ⅴ,Ⅵ,Ⅶ,Ⅷ,Ⅸ,Ⅹ ]
-  #menu/alternative_select_labels: [ ⅰ,ⅱ,ⅲ,ⅳ,ⅴ,ⅵ,ⅶ,ⅷ,ⅸ,ⅹ ]
-  #menu/alternative_select_labels: [ Ⓐ,Ⓑ,Ⓒ,Ⓓ,Ⓔ,Ⓕ,Ⓖ,Ⓗ,Ⓘ,Ⓙ ]
-  #menu/alternative_select_labels: [ ⓐ,ⓑ,ⓒ,ⓓ,ⓔ,ⓕ,ⓖ,ⓗ,ⓘ,ⓙ ]
+  # menu/alternative_select_labels: [ ①,②,③,④,⑤,⑥,⑦,⑧,⑨,⑩ ]
+  # menu/alternative_select_labels: [ ❶,❷,❸,❹,❺,❻,❼,❽,❾,❿ ]
+  # menu/alternative_select_labels: [ ⓵,⓶,⓷,⓸,⓹,⓺,⓻,⓼,⓽,⓾ ]
+  # menu/alternative_select_labels: [ ㊀,㊁,㊂,㊃,㊄,㊅,㊆,㊇,㊈,㊉ ]
+  # menu/alternative_select_labels: [ ㈠,㈡,㈢,㈣,㈤,㈥,㈦,㈧,㈨,㈩ ]
+  # menu/alternative_select_labels: [ 🀇,🀈,🀉,🀊,🀋,🀌,🀍,🀎,🀏,🀄 ]
+  # menu/alternative_select_labels: [ Ⅰ,Ⅱ,Ⅲ,Ⅳ,Ⅴ,Ⅵ,Ⅶ,Ⅷ,Ⅸ,Ⅹ ]
+  # menu/alternative_select_labels: [ ⅰ,ⅱ,ⅲ,ⅳ,ⅴ,ⅵ,ⅶ,ⅷ,ⅸ,ⅹ ]
+  # menu/alternative_select_labels: [ Ⓐ,Ⓑ,Ⓒ,Ⓓ,Ⓔ,Ⓕ,Ⓖ,Ⓗ,Ⓘ,Ⓙ ]
+  # menu/alternative_select_labels: [ ⓐ,ⓑ,ⓒ,ⓓ,ⓔ,ⓕ,ⓖ,ⓗ,ⓘ,ⓙ ]
 
 style:
   horizontal: false # 默认false竖排显示,改为true可横排显示

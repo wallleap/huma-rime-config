@@ -13,6 +13,9 @@ patch:
   # style/layout/border_width: 2 #边框宽度，默认是0
   # style/layout/border_height: 2 #边框高度，默认是0
 
+  engine/segmentors/+:
+    - affix_segmentor@flypy_reverse_lookup
+
   engine/processors/@before 0: lua_processor@switcher_processor
 
   engine/filters:
@@ -34,6 +37,7 @@ patch:
     - uniquifier #过滤重复
 
   engine/translators/+:
+    - reverse_lookup_translator@flypy_reverse_lookup
     - lua_translator@switcher_translator
     - lua_translator@*helper # 帮助
     - lua_translator@*uuid_translator
@@ -43,14 +47,23 @@ patch:
   recognizer/patterns/stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
 
   # 反查
-  reverse_lookup/prefix: "`"
-  reverse_lookup/tips: "〔双拼〕"
-  reverse_lookup/preedit_format:
-    - "xform/^`//"
-    - "xform/([nl])v/$1ü/"
-    - "xform/([nl])ue/$1üe/"
-    - "xform/([jqxy])v/$1u/"
-  recognizer/patterns/reverse_lookup: "^`[a-z]*'?$"
+  flypy_reverse_lookup:
+    tag: flypy_lookup
+    dictionary: PY_c
+    prefix: "`"
+    tips: 〔小鹤双拼〕
+  reverse_lookup:
+    tags: [flypy_lookup]
+    overwrite_comment: true
+  # reverse_lookup/prefix: "`"
+  # reverse_lookup/tips: "〔双拼〕"
+  # reverse_lookup/preedit_format:
+  #   - "xform/^`//"
+  #   - "xform/([nl])v/$1ü/"
+  #   - "xform/([nl])ue/$1üe/"
+  #   - "xform/([jqxy])v/$1u/"
+  # recognizer/patterns/reverse_lookup: "^`[a-z]*'?$"
+  recognizer/patterns/flypy_lookup: "^`[a-z]*'?$"
   recognizer/patterns/punct: "^/[A-Za-z0-9_]*$"
   speller/alphabet: "[;'zyxwvutsrqponmlkjihgfedcba]`"
 

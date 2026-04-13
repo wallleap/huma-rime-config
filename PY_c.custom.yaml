@@ -1,51 +1,6 @@
-# Rime schema patch: PY_c.custom.yaml 拼音++补丁→改成小鹤双拼
-# encoding: utf-8
-# Schema 配置：https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md
-
-patch:
-  schema/name: 小鹤双拼
-
-  schema/ascii_icon: "icons/en.ico"
-  schema/full_icon: "icons/full.ico"
-  schema/half_icon: "icons/half.ico"
-  schema/icon: "icons/shuang.ico"
-
-  engine/processors/@before 0: lua_processor@switcher_processor
-  
-  engine/filters/+:
-    - lua_filter@*in_user_dict # 在用户词典中
-    - lua_filter@switcher_filter
-
-  engine/translators:
-    - punct_translator # 转换标点符号
-    - script_translator # 脚本表转换
-    - lua_translator@switcher_translator # 切换翻译器
-    - table_translator@custom_phrase
-    - table_translator
-    - table_translator@easy_english # 临时英文
-    - reverse_lookup_translator # 反查翻译器
-    - history_translator@historyDM # 历史上屏 电脑
-    - history_translator@historyDM2 # 历史上屏 电脑2
-    - history_translator@historyDM3 # 历史上屏 电脑3
-    - history_translator@historySJ # 历史上屏 手机
-    - lua_translator@number_translator # 数字转大写
-    - lua_translator@calculator_translator # 简易计算器
-    - lua_translator@*helper # 帮助
-    - lua_translator@*uuid_translator # UUID 输入
-    - lua_translator@*date_translator # 动态日期时间输入
-    - lua_translator@*input_statistics # 统计不同方案不同维度下输入信息
-
-  recognizer/patterns/stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
-
+patch: 
   speller/algebra:
     - erase/^xx$/
-    # 万象词库转换
-    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
-    - xform/^ng$/eng/
-    - xform/ńg|ňg|ǹg/eng/
-    - xform/ń|ň|ǹ/en/ 
-    - xform/ḿ/m/ 
-    # 小鹤双拼转换规则
     - derive/^([jqxy])u$/$1v/
     - derive/^([aoe])([ioun])$/$1$1$2/
     - xform/^([aoe])(ng)?$/$1$1$2/
@@ -75,31 +30,11 @@ patch:
     - xform/ui$/V/
     - xform/in$/B/
     - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
-    # 纯韵母补全（如 a → aa，o → oo，e → ee）
-    - derive/^([aoe])$/$1$1/
-    # 零声母韵母补全（如 i → ii，u → uu，v → vv，ü → vv）
-    - derive/^([iuv])$/$1$1/
-    # 纯声母补全（匹配以该声母开头的常用字，Rime自动补全韵母）
-    - derive/^([bpmfdtnlgkhjqxzcsrwy])$/$1/
-    # - abbrev/^(.).+$/$1/  #词组在后
-    # - derive/^(.).+$/$1/  #词组在前
+    # - abbrev/^(.).+$/$1/ # 词组在后
+    # - derive/^(.).+$/$1/ # 词组在前
 
-  # 语言模型
-  "grammar/language": wanxiang-lts-zh-hans
-  "grammar/collocation_max_length": 5
-  "grammar/collocation_min_length": 2
+# 以下是双拼候选编码框的输入编码，自动转为全拼
 
-  translator/dictionary: flypy.extended
-  translator/enable_completion: true
-  translator/enable_sentence: true
-  translator/prism: flypy
-  translator/user_dict: flypy
-  # 上下文建议
-  translator/contextual_suggestions: true
-  translator/max_homophones: 7
-  translator/max_homographs: 7
-
-  # 以下是双拼候选编码框的输入编码，自动转为全拼
   # translator/preedit_format:
   #   - xform/([bpmfdtnljqx])n/$1iao/
   #   - xform/(\w)g/$1eng/
@@ -133,20 +68,3 @@ patch:
   #   - "xform/(^|[ '])u/$1sh/"
   #   - xform/([jqxy])v/$1u/
   #   - xform/([nl])v/$1ü/
-
-  custom_phrase:
-    dictionary: ""
-    user_dict: flypy_phrase
-    db_class: stabledb
-    enable_completion: false
-    enable_sentence: false
-    initial_quality: 100
-
-  # lua 配置：在用户词典中
-  in_user_dict:
-    user_phrase_symbol: "✴️"
-    user_table_symbol: "✨"
-    sentence_symbol: "♾️"
-
-  "style/horizontal": true
-  "style/candidate_list_layout": linear
