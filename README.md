@@ -137,3 +137,44 @@
 ![](https://cdn.wallleap.cn/img/pic/illustration/20260125143422338.png?imageSlim)
 
 ![](https://cdn.wallleap.cn/img/pic/illustration/20260201203655267.png?imageSlim)
+
+## 7. 脚本
+
+`bin` 目录下放置了一些辅助脚本
+
+### 7.1 sync_dicts.sh 同步字典文件
+
+该脚本用于同步官方字典文件到本地仓库
+
+如果有其他字典文件需要同步，可以在 `SYNC_LIST` 中添加
+
+```sh
+# ===================== 同步列表 =====================
+SYNC_LIST=(
+  "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/PY_c.dict.yaml|${REPO_ROOT}"
+  "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/core2022.dict.yaml|${REPO_ROOT}"
+  "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/easy_english.dict.yaml|${REPO_ROOT}"
+  "https://github.com/zhhmn/huma-rime/raw/master/tiger.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/zhhmn/huma-rime/raw/master/tigress_ci.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/zhhmn/huma-rime/raw/master/tigress_simp_ci.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/zhhmn/huma-rime/raw/master/tigress.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/amzxyz/rime_wanxiang/raw/refs/heads/wanxiang/dicts/cuoyin.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/amzxyz/rime_wanxiang/raw/refs/heads/wanxiang/dicts/diming.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/amzxyz/rime_wanxiang/raw/refs/heads/wanxiang/dicts/duoyin.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/amzxyz/rime_wanxiang/raw/refs/heads/wanxiang/dicts/jichu.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/amzxyz/rime_wanxiang/raw/refs/heads/wanxiang/dicts/lianxiang.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/amzxyz/rime_wanxiang/raw/refs/heads/wanxiang/dicts/renming.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/amzxyz/rime_wanxiang/raw/refs/heads/wanxiang/dicts/shici.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/amzxyz/rime_wanxiang/raw/refs/heads/wanxiang/dicts/wuzhong.dict.yaml|${REPO_ROOT}/dicts"
+  "https://github.com/amzxyz/rime_wanxiang/raw/refs/heads/wanxiang/dicts/zi.dict.yaml|${REPO_ROOT}/dicts"
+)
+```
+
+格式为：`文件链接|本地保存路径`
+
+给脚本添加执行权限，然后运行
+
+```sh
+chmod +x ./bin/sync_dicts.sh
+./bin/sync_dicts.sh
+```
