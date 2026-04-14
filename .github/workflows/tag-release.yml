@@ -23,6 +23,12 @@ jobs:
           pwd
           ls -lh
 
+      # 下载 wanxiang-lts-zh-hans.gram 语法文件
+      - name: Download wanxiang grammar file
+        run: |
+          curl -L -o ./wanxiang-lts-zh-hans.gram \
+          https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram
+
       # 重命名示例文件
       - name: Rename custom_phrase.example.txt to custom_phrase.txt
         run: |
@@ -41,8 +47,7 @@ jobs:
           echo "PACKAGE=huma-config-${{ github.ref_name }}" >> $GITHUB_OUTPUT
           echo "FOLDER=huma_rime_config" >> $GITHUB_OUTPUT
 
-      # 1. 创建目录 + 移动所有文件到 huma_rime_config 文件夹
-      # 2. 同时打包成 tar.gz 和 zip 两种格式
+      # 打包：创建目录 + 移动文件（支持排除）+ 打包 tar.gz + zip
       - name: Package into folder + create tar.gz + zip
         run: |
           TAG=${{ steps.vars.outputs.TAG }}
@@ -51,19 +56,28 @@ jobs:
           mkdir -p dist
           mkdir -p "$FOLDER"
 
-          # 移动所有文件到打包目录（排除需要忽略的 + 排除自身目录）
           shopt -s extglob
-          mv !(dist|$FOLDER) "$FOLDER"/
+          
+          # ====================== 排除规则 ======================
+          # 在这里添加你不想打包的文件/文件夹
+          # 格式：｜ 文件1｜文件2｜目录/｜等等
+          # =======================================================
+          mv \
+            !(dist|$FOLDER|.git|.github|.gitignore|.gitattributes|*.example.*|bin/|README.md|chagelog.txt|crawler.py|huma.recipe.yaml|wanxiang-lts-zh-hans.gram|flypy_phrase.txt|LICENSE) \
+            "$FOLDER"/
+
+          # 创建 flypy_phrase.txt 文件到目录下
+          echo -e "Rime 输入法\trime\t100" > "$FOLDER"/flypy_phrase.txt
 
           # 打包 tar.gz
           tar -zcvf "dist/${PACKAGE}.tar.gz" "$FOLDER"
 
-          # 打包 zip（Ubuntu 自带 zip 工具）
+          # 打包 zip
           zip -r9 "dist/${PACKAGE}.zip" "$FOLDER"
 
           ls -lh dist/
 
-      # 校验压缩包是否有效（防止空包）
+      # 校验压缩包
       - name: Validate packages
         run: |
           PACKAGE=${{ steps.vars.outputs.PACKAGE }}
@@ -77,7 +91,7 @@ jobs:
             fi
           done
 
-      # 创建 Release + 上传两个压缩包 + 自动生成更新日志
+      # 创建 Release + 自动生成日志
       - name: Create Release and upload packages
         uses: softprops/action-gh-release@v2
         with:
