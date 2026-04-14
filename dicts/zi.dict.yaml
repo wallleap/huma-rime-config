@@ -89,6 +89,7 @@ sort: by_weight
 伌	ài	38
 塧	ài	23
 濭	ǎi	23
+諰	āi	6
 鴱	ài	1
 𫘤	ái	1
 㤅	ài	1
@@ -105,7 +106,6 @@ sort: by_weight
 焥	ài	1
 磑	ái	1
 絠	ǎi	1
-諰	āi	1
 賹	ài	1
 隑	ái	1
 㑸	ǎi	1
@@ -1252,9 +1252,9 @@ sort: by_weight
 镚	bèng	334
 甏	bèng	270
 祊	bēng	244
-繃	běng	238
+绷	běng	238
 琫	běng	234
-绷	běng	175
+綳	běng	175
 絣	bēng	164
 埄	běng	159
 琣	běng	154
@@ -1269,6 +1269,7 @@ sort: by_weight
 閍	bēng	68
 鏰	bèng	60
 嵭	bēng	38
+繃	běng	30
 痭	bēng	23
 䨻	bèng	1
 鞛	běng	1
@@ -1279,7 +1280,6 @@ sort: by_weight
 揼	bèng	1
 甮	béng	1
 綳	bèng	1
-綳	běng	1
 繃	bèng	1
 繃	bēng	1
 跰	bèng	1
@@ -10627,9 +10627,9 @@ sort: by_weight
 嗝	gé	474
 膈	gé	447
 镉	gé	431
-韐	gé	430
+舸	gě	430
 个	gě	411
-舸	gě	407
+韐	gé	408
 嗰	gě	387
 硌	gè	386
 箇	gè	373
@@ -14330,7 +14330,7 @@ sort: by_weight
 洃	huī	171
 溃	huì	164
 佪	huí	157
-撝	huī	157
+㧑	huī	157
 僡	huì	150
 楎	huī	150
 詼	huī	150
@@ -14392,6 +14392,7 @@ sort: by_weight
 褘	huī	23
 媈	huī	23
 獩	huì	23
+撝	huī	15
 屷	huì	1
 檅	huì	1
 蘳	huī	1
@@ -14578,7 +14579,6 @@ sort: by_weight
 𫖐	huī	1
 𫝨	huī	1
 𬭬	huì	1
-㧑	huī	1
 婚	hūn	734
 混	hùn	700
 魂	hún	640
@@ -14930,6 +14930,7 @@ sort: by_weight
 機	jī	485
 伎	jì	484
 荠	jì	480
+讥	jī	477
 期	jī	476
 畿	jī	474
 蓟	jì	471
@@ -14938,7 +14939,6 @@ sort: by_weight
 計	jì	461
 雞	jī	457
 骥	jì	457
-讥	jī	457
 稷	jì	455
 岌	jí	453
 箕	jī	452
@@ -20843,6 +20843,7 @@ sort: by_weight
 貍	lí	306
 暦	lì	305
 詈	lì	304
+蜊	lì	295
 疬	lì	287
 呖	lì	286
 黧	lí	285
@@ -20982,6 +20983,7 @@ sort: by_weight
 鯬	lí	23
 孋	lí	23
 爄	lì	23
+蜊	lí	17
 廲	lí	1
 糲	lì	1
 𫁡	lì	1
@@ -21032,7 +21034,6 @@ sort: by_weight
 砬	lì	1
 纅	lì	1
 纚	lǐ	1
-蜊	lì	1
 蟸	lí	1
 迣	lì	1
 銐	lì	1
@@ -21383,7 +21384,6 @@ sort: by_weight
 𫟫	lì	1
 𫵷	lì	1
 𭀖	lí	1
-蜊	lí	1
 蠡	lí	1
 𢃇	lǐ	1
 𥅈	lì	1
@@ -23009,7 +23009,6 @@ sort: by_weight
 觻	lù	1
 賁	lù	1
 輅	lù	1
-馿	lú	1
 鴼	lù	1
 㓐	lù	1
 㔪	lǔ	1
@@ -23531,6 +23530,7 @@ sort: by_weight
 穭	lǚ	23
 繂	lǜ	23
 膢	lǘ	23
+馿	lǘ	11
 焒	lǚ	1
 䕡	lǘ	1
 僂	lǚ	1
@@ -23628,9 +23628,9 @@ sort: by_weight
 𧑀	lüè	1
 𧕌	lüè	1
 𪅅	lüè	1
-# 呣	m̀	1
-# 呒	ḿ	1
-# 呣	ḿ	1
+呣	m̀	1
+呒	ḿ	1
+呣	ḿ	1
 吗	ma	866
 马	mǎ	769
 码	mǎ	744
@@ -33225,7 +33225,6 @@ sort: by_weight
 驶	shǐ	701
 湿	shī	672
 氏	shì	670
-似	shì	652
 尸	shī	621
 狮	shī	619
 逝	shì	616
@@ -33249,6 +33248,7 @@ sort: by_weight
 師	shī	458
 適	shì	457
 恃	shì	453
+似	shì	452
 虱	shī	451
 弑	shì	444
 識	shí	443
@@ -49898,6 +49898,7 @@ sort: by_weight
 篹	zhuàn	82
 灷	zhuàn	82
 腞	zhuàn	75
+傳	zhuàn	70
 蒃	zhuàn	68
 瑼	zhuān	68
 䏝	zhuān	1
@@ -49906,7 +49907,6 @@ sort: by_weight
 諯	zhuān	1
 鄟	zhuān	1
 𫍱	zhuān	1
-傳	zhuàn	1
 僝	zhuàn	1
 剸	zhuàn	1
 剸	zhuān	1
