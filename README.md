@@ -165,7 +165,7 @@
 
 ## 2. 如何使用
 
-1. 安装 Rime 输入法发行版/前端（如「鼠须管」、「中州韵」、「小狼豪」、「同文输入法」、「仓输入法」、「超越输入法」等）
+1. 安装 Rime 输入法发行版/前端（如「[鼠须管](https://github.com/rime/squirrel/releases)」、「[中州韵](https://github.com/rime/home/wiki/RimeWithIBus)」、「[小狼豪](https://github.com/rime/weasel/releases)」、「[同文输入法](https://github.com/osfans/trime/releases)」、「[仓输入法](https://apps.apple.com/hk/app/%E4%BB%93%E8%BE%93%E5%85%A5%E6%B3%95/id6446617683)」/「[元书输入法](https://apps.apple.com/us/app/%E5%85%83%E4%B9%A6%E8%BE%93%E5%85%A5%E6%B3%95/id6744464701)」、「[超越输入法](https://appgallery.huawei.com/app/detail?id=app.flytype.hmos.bim&channelId=SHARE&source=appshare)」等）
 2. 到 [Release](https://github.com/wallleap/huma-rime-config/releases) 中下载压缩包，并解压到本地
 3. 安装字体包
 	- macOS 全选 `fonts` 目录下的所有字体文件，右击，点击安装/打开
