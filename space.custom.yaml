@@ -1,0 +1,27 @@
+# space.custom.yaml
+# 用户自定义配置，使用librime patch语法覆盖space.yaml中的配置
+
+patch:
+  schema_id: tiger_flypy_mix
+  schema: huma_rime_config
+  schema_dir: schemas/
+  theme: t26_pure
+  theme_dir: schemas/huma_rime_config/themes/
+  font: tumapua
+  font_dir: schemas/huma_rime_config/fonts/
+  symbol: default
+  symbol_dir: symbols/
+  emoticon: default
+  emoticon_dir: emoticons/
+  speech: volcengine
+  speech_dir: speeches/
+  sound_on: false
+  sound_volume: 0
+  sound_effect: default
+  haptics_on: true
+  haptics_volume: 1
+  haptic: precise
+  haptic_dir: haptics/
+  schema_use_theme:
+    custom:
+      tiger_flypy_mix: schemas/huma_rime_config/themes/t26_pure
