@@ -91,13 +91,33 @@ jobs:
             fi
           done
 
-      # 创建 Release + 自动生成日志
+      # ✅ 只生成 feat & fix 的变更日志（干净版）
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          TAG="${{ github.ref_name }}"
+          REPO="${{ github.repository }}"
+
+          echo "notes<<EOF" >> $GITHUB_OUTPUT
+          echo "# 🎉 $TAG 已发布" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "## 🚀 功能 & 修复" >> $GITHUB_OUTPUT
+          git log --pretty="- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD \
+            | grep -E "^- (feat|fix):" \
+          >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "## 📥 下载" >> $GITHUB_OUTPUT
+          echo "- [huma-config.zip](https://ghfast.top/https://github.com/$REPO/releases/download/$TAG/huma-config-${TAG}.zip)" >> $GITHUB_OUTPUT
+          echo "- [huma-config.tar.gz](https://ghfast.top/https://github.com/$REPO/releases/download/$TAG/huma-config-${TAG}.tar.gz)" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      # ✅ 创建 Release（使用上面生成的变更日志）
       - name: Create Release and upload packages
         uses: softprops/action-gh-release@v2
         with:
           name: Release ${{ github.ref_name }}
+          body: ${{ steps.release_notes.outputs.notes }}
           files: dist/*
-          generate_release_notes: true
           draft: false
           prerelease: false
         env:
