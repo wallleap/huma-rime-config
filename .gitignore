@@ -19,7 +19,7 @@ trash/
 *_phrase.txt
 
 PY_c.txt
-fly_double_pinyin.txt
+flypy.txt
 tigress*.txt
 
 lua/input_stats.lua

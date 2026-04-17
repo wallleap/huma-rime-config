@@ -143,8 +143,8 @@ speller:
 
 # 小鹤双拼主翻译器
 translator:
-  dictionary: fly_double_pinyin # 字典文件
-  prism: fly_double_pinyin
+  dictionary: flypy # 字典文件
+  prism: flypy
   initial_quality: 0 # 该翻译器出字优先级别
   spelling_hints: 1
   enable_user_dict: true # 开启用户词典〔用户词典记录动态字词频、用户词〕
@@ -157,7 +157,7 @@ translator:
   contextual_suggestions: true # 开启上下文建议
   max_homophones: 7 # 最大候选数
   max_homographs: 7 # 最大同音字数
-  user_dict: fly_double_pinyin # 在本地生成的用户词典名称
+  user_dict: flypy # 在本地生成的用户词典名称
   db_class: tabledb # 用户词典格式，tabledb（文本） 或 userdb （二进制）
   # disable_user_dict_for_patterns:
   # #  - "^z.*$"  # 这是原始默认设置
