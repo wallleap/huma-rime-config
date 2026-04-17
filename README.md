@@ -10,6 +10,127 @@
 
 > 虎码网盘：<http://huma.ysepan.com/> | 原始仓库：<https://github.com/zhhmn/huma-rime>
 
+配置目录及主要文件说明：
+
+- 全局默认配置 `default.yaml`
+
+- 输入方案 `*.schema.yaml`
+- 词库 `*.dict.yaml`
+- 前端配置文件
+  - macOS 鼠须管配置 `squirrel.yaml`
+  - Windows 小狼毫配置 `weasel.yaml`
+  - 安卓同文输入法配置 `trime.yaml`、`*.trime.yaml`
+  - iOS 仓输入法配置 `hamster.yaml`
+- 同名方案、配置补丁 `*.custom.yaml`
+
+```bash
+.
+├── PY_c.custom.yaml			# 拼音++ 补丁，主要添加小鹤双拼拼写运算规则
+├── PY_c.dict.yaml				# 拼音++ 词库
+├── PY_c.schema.yaml			# 拼音++ 方案
+├── README.md					# README 文档
+├── aux_code/					# [目录]存放拼音辅助码表文件
+│   └── flypy_full.txt			# 小鹤双拼辅助码表
+├── backgrounds/				# [目录]存放同文输入法背景图
+│   ├── keyboard-dark.png		# 同文输入法 暖黄渐变 配色背景
+│   ├── keyboard-light.png		# 同文输入法 深棕暗调 配色背景
+│   └── keys/					# [目录]存放按键背景图
+├── bin/						# [目录]存放辅助脚本
+│   └── sync_dicts.sh			# 同步虎码、万象词库 bash 脚本
+├── core2022.dict.yaml			# 字符集过滤辅助方案词库
+├── core2022.schema.yaml		# 字符集过滤辅助方案
+├── default.custom.yaml			# 全局默认配置补丁
+├── dicts/						# [目录]存放所有扩展词库
+│   ├── cuoyin.dict.yaml		# 万象 错音错字
+│   ├── diming.dict.yaml		# 万象 地名
+│   ├── duoyin.dict.yaml		# 万象 多音字
+│   ├── jichu.dict.yaml			# 万象 基础字词
+│   ├── lianxiang.dict.yaml		# 万象 联想词
+│   ├── renming.dict.yaml		# 万象 人名
+│   ├── shici.dict.yaml			# 万象 诗词
+│   ├── tiger.dict.yaml			# 虎单
+│   ├── tigress.dict.yaml		# 虎词 单字
+│   ├── tigress_ci.dict.yaml	# 虎词 词
+│   ├── tigress_simp_ci.dict.yaml	# 虎词 简词
+│   ├── wuzhong.dict.yaml		# 万象 物种
+│   └── zi.dict.yaml			# 万象 单字
+├── easy_english.dict.yaml		# 英文字库
+├── easy_english.schema.yaml	# 英文方案
+├── flypy.custom.yaml			# 小鹤双拼补丁
+├── flypy.dict.yaml				# 小鹤双拼词库
+├── flypy.schema.yaml			# 小鹤双拼方案
+├── flypy.txt					# 自动生成的小鹤双拼用户词典
+├── flypy_phrase.txt			# 自定义短语文件
+├── fonts/						# [目录]存放字体文件，可以直接给同文输入法使用
+│   └── tumapua/				# [目录]存放鸿蒙超越输入法字体配置（一个字体一个目录）
+│       ├── TumanPUA.ttf		# 字体文件
+│       └── info.yaml			# 说明配置
+├── hamster.custom.yaml			# iOS 仓输入法配置补丁
+├── icons/						# [目录]存放 Windows 小狼毫输入法图标
+│   ├── en.ico					# 英文状态
+│   ├── full.ico				# 全角状态
+│   ├── half.ico				# 半角状态
+│   ├── mix.ico					# 混输
+│   ├── pin.ico					# 全拼
+│   ├── shuang.ico				# 双拼
+│   ├── tiger.ico				# 虎码
+│   ├── wubi.ico				# 五笔
+│   └── zh.ico					# 中文状态
+├── info.yaml					# 鸿蒙超越输入法方案整体说明
+├── key_bindings.custom.yaml	# 按键绑定补丁
+├── key_bindings.yaml			# 按键绑定
+├── lua/						# [目录]存放 lua 脚本
+│   ├── aux_code.lua			# 辅助码拆分
+│   ├── calculator_translator.lua	# 计算器
+│   ├── chaifen_comment_filter.lua	# 拆分提示/注释
+│   ├── charset_comment_filter.lua	# 字符集提示
+│   ├── core2022_filter.lua		# 字集过滤
+│   ├── date_translator.lua		# 日期时间
+│   ├── helper.lua				# 输入 help 获取简要说明
+│   ├── in_user_dict.lua		# 在用户词库添加 emoji
+│   ├── input_statistics.lua	# 自动生成输入统计
+│   ├── input_stats.lua			# 输入统计
+│   ├── lib/					# [目录]存放工具库
+│   │   └── base.lua
+│   ├── maker.lua				# 虎词自动造词
+│   ├── number.lua				# 数字转换
+│   ├── pinyin_comment_filter.lua	# 拼音注释
+│   ├── schema_switcher.lua		# 输入 mode 选择切换方案
+│   ├── unicode_display.lua		# Unicode 显示
+│   └── uuid_translator.lua		# 输入 uuid 生成
+├── opencc/						# [目录]存放滤镜文件（拼音、拆分、繁简转换、emoji）
+├── punctuation.yaml			# 标点符号配置
+├── pure.trime.custom.yaml		# 安卓同文输入法补丁
+├── pure.trime.yaml				# 安卓同文输入法朴素主题
+├── rime.lua					# lua 总入口
+├── space.custom.yaml			# 鸿蒙超越输入法目录配置
+├── squirrel.custom.yaml		# macOS 鼠须管配置补丁
+├── stroke.dict.yaml			# 笔画输入方案词库
+├── symbols.yaml				# 符号
+├── themes/						# [目录]存放鸿蒙输入法主题
+│   └── t26_pure/				# [目录]26键朴素主题
+│       ├── info.yaml			# 主题信息
+│       ├── preset_keyboards.yaml	# 按键配置
+│       ├── preset_keys.yaml	# 按键配置
+│       ├── res/				# [目录]存放主题使用到的图标
+│       └── theme.yaml			# 主题具体配置
+├── tiger.custom.yaml			# 虎单方案补丁
+├── tiger.extended.dict.yaml	# 虎单方案词库
+├── tiger.schema.yaml			# 虎单方案
+├── tiger_flypy_mix.custom.yaml	# 虎单小鹤双拼混输方案补丁
+├── tiger_flypy_mix.schema.yaml	# 虎单小鹤双拼混输方案
+├── tigress.custom.yaml			# 虎词方案补丁
+├── tigress.extended.dict.yaml	# 虎词方案词库
+├── tigress.schema.yaml			# 虎词方案
+├── tigress_phrase.txt			# 自动生成的虎词造词词库
+├── trash/						# [目录]回收站
+│   └── stroke.schema.yaml		# 笔画输入方案，前端自带会自动删除，做个备份
+├── wanxiang-lts-zh-hans.gram	# 万象模型
+└── weasel.custom.yaml			# Windows 小狼毫配置补丁
+```
+
+如何列出文件：WSL、mac、Linux 下执行 `tree -I '.git|build|sync|*.userdb'`
+
 ## 1. 方案介绍
 
 本项目包含四个核心方案，分别针对不同的使用场景：
@@ -35,6 +156,8 @@
 
 - **定位**：临时需要简易输入双拼的场景
 - **特色**：在万象词库基础上，整合了小鹤双拼的输入规则
+
+小鹤双拼辅助码：输入双拼后加 `;`（个人习惯两个键输入双拼，辅助码仅用于难以选词时使用）
 
 双拼和混熟自定义短语文件：`flypy_phrase.txt`
 
