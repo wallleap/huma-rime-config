@@ -130,7 +130,7 @@ translator:
   dictionary: flypy
   prism: flypy
   user_dict: flypy # 在本地生成的用户词典名称
-  db_class: tabledb # 用户词典格式，tabledb（文本） 或 userdb （二进制）
+  db_class: userdb # 用户词典格式，tabledb（文本） 或 userdb （二进制）
   initial_quality: 1 #该翻译器出字优先级别
   enable_user_dict: true # 开启用户词典〔用户词典记录动态字词频、用户词〕
   enable_encoder: true # 开启自动造词

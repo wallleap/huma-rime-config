@@ -158,7 +158,7 @@ translator:
   max_homophones: 7 # 最大候选数
   max_homographs: 7 # 最大同音字数
   user_dict: flypy # 在本地生成的用户词典名称
-  db_class: tabledb # 用户词典格式，tabledb（文本） 或 userdb （二进制）
+  db_class: userdb # 用户词典格式，tabledb（文本） 或 userdb （二进制）
   # disable_user_dict_for_patterns:
   # #  - "^z.*$"  # 这是原始默认设置
   #   - "^[a-y]{1,2}$"  # 2码及以下不使用自动调频、不自动造词
