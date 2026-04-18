@@ -1,0 +1,8 @@
+# 🎉 {TAG} 已发布
+
+## 🚀 更新内容
+{CONTENTS}
+
+## 📥 高速下载
+- [huma-config.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-config-{TAG}.zip)
+- [huma-config.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-config-{TAG}.tar.gz)
