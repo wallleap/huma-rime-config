@@ -42,8 +42,8 @@ patch:
 
   # 上下文建议
   translator/contextual_suggestions: true
-  translator/min_homophones: 2
-  translator/max_homographs: 7
+  translator/max_homophones: 7 # 最大同音字数
+  translator/max_homographs: 7 # 最大同形字数
 
   # 上屏码自定义
   # translator/preedit_format:
