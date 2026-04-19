@@ -69,6 +69,18 @@ for ITEM in "${SYNC_LIST[@]}"; do
     echo "✅ 镜像下载成功"
   fi
 
+  # 处理 zi.dict.yaml 文件，在包含 ḿ 和 m̀ 的行前添加 # 空格
+  if [ "${FILE_NAME}" = "zi.dict.yaml" ]; then
+    echo "🔧 处理 zi.dict.yaml 文件..."
+    # 创建临时处理文件
+    TMP_PROCESSED="${TMP_DIR}/${FILE_NAME}.processed"
+    # 使用 awk 处理包含 ḿ 或 m̀ 的行
+    awk '{if ($0 ~ /ḿ/ || $0 ~ /m̀/) print "# " $0; else print $0}' "${TMP_FILE}" > "${TMP_PROCESSED}"
+    # 替换原始临时文件
+    mv "${TMP_PROCESSED}" "${TMP_FILE}"
+    echo "✅ 处理完成"
+  fi
+
   # 本地不存在
   if [ ! -f "${LOCAL_FILE}" ]; then
     echo "🆕 创建新文件..."
