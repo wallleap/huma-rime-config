@@ -7474,6 +7474,7 @@ sort: by_weight
 侧臣位通气	cè chén wèi tōng qì	1
 测地线旋进	cè dì xiàn xuán jìn	1
 测地坐标系	cè dì zuò biāo xì	1
+测度与概率	cè duó yǔ gài lǜ	1
 测辐射热计	cè fú shè rè jì	1
 策划和组织	cè huà hé zǔ zhī	1
 侧滑全键盘	cè huá quán jiàn pán	1
@@ -11999,7 +12000,7 @@ sort: by_weight
 打个稀巴烂	dǎ gè xī bā làn	1
 打个小盹儿	dǎ gè xiǎo dǔn er	1
 打个预防针	dǎ gè yù fáng zhēn	1
-打个招呼吧	dǎ gè zhāo hū ba	1
+打个招呼吧	dǎ gè zhāo hu ba	1
 大根香叶烷	dà gēn xiāng yè wán	5
 大功率电机	dà gōng lǜ diàn jī	1
 打狗看主人	dǎ gǒu kàn zhǔ rén	1
@@ -12017,7 +12018,7 @@ sort: by_weight
 打过的电话	dǎ guò de diàn huà	1
 打过电话来	dǎ guò diàn huà lái	1
 大过滤理论	dà guò lǜ lǐ lùn	1
-打过招呼后	dǎ guò zhāo hū hòu	1
+打过招呼后	dǎ guò zhāo hu hòu	1
 大海的波浪	dà hǎi de bō làng	1
 大海的波涛	dà hǎi de bō tāo	1
 大海的潮汐	dà hǎi de cháo xī	1
@@ -12190,7 +12191,7 @@ sort: by_weight
 打了个手势	dǎ le gè shǒu shì	1
 打了个死结	dǎ le gè sǐ jié	1
 打了个响指	dǎ le gè xiǎng zhǐ	1
-打了声招呼	dǎ le shēng zhāo hū	1
+打了声招呼	dǎ le shēng zhāo hu	1
 搭了顺风车	dā le shùn fēng chē	1
 打雷的时候	dǎ léi de shí hou	1
 打雷要下雨	dǎ léi yào xià yǔ	1
@@ -14785,6 +14786,7 @@ sort: by_weight
 第三者介入	dì sān zhě jiè rù	1
 第三枕神经	dì sān zhěn shén jīng	1
 第三指缝线	dì sān zhǐ féng xiàn	1
+第三只眼看	dì sān zhī yǎn kàn	1
 第三种绝色	dì sān zhǒng jué sè	1
 蒂森克虏伯	dì sēn kè lǔ bó	1
 地上的血迹	dì shàng de xuè jì	1
@@ -15381,6 +15383,7 @@ sort: by_weight
 点击进入后	diǎn jī jìn rù hòu	1
 电机控制器	diàn jī kòng zhì qì	1
 电机驱动器	diàn jī qū dòng qì	1
+点击任意处	diǎn jī rèn yì chù	1
 点集拓扑学	diǎn jí tuò pū xué	1
 电机与电器	diàn jī yǔ diàn qì	1
 奠基者效应	diàn jī zhě xiào yìng	1
@@ -20447,18 +20450,17 @@ sort: by_weight
 仿真棕榈树	fǎng zhēn zōng lǘ shù	1
 方正兰亭黑	fāng zhèng lán tíng hēi	1
 方正小标宋	fāng zhèng xiǎo biāo sòng	1
-防治艾滋病	fáng zhì ài zī bìng	1
+防治艾滋病	fáng zhì ài zī bìng	2
 防止艾滋病	fáng zhǐ ài zī bìng	1
 防芷鼻炎片	fáng zhǐ bí yán piàn	1
 防治病虫害	fáng zhì bìng chóng hài	1
 防止病虫害	fáng zhǐ bìng chóng hài	1
+防止并发症	fáng zhǐ bìng fā zhèng	2
 防治并发症	fáng zhì bìng fā zhèng	1
-防止并发症	fáng zhǐ bìng fā zhèng	1
 纺织博物馆	fǎng zhī bó wù guǎn	1
 纺织产业链	fǎng zhī chǎn yè liàn	1
 纺织产业园	fǎng zhī chǎn yè yuán	1
 方志出版社	fāng zhì chū bǎn shè	1
-方智出版社	fāng zhì chū bǎn shè	1
 纺织出版社	fǎng zhī chū bǎn shè	1
 防治传染病	fáng zhì chuán rǎn bìng	1
 放置的位置	fàng zhì de wèi zhì	1
@@ -23974,7 +23976,7 @@ sort: by_weight
 干涸的土地	gān hé de tǔ dì	1
 干涸的心田	gān hé de xīn tián	1
 甘河林业局	gān hé lín yè jú	1
-干河子林场	gàn hé zǐ lín chǎng	1
+干河子林场	gān hé zǐ lín chǎng	1
 疳后天柱倒	gān hòu tiān zhù dào	1
 干骺续连症	gàn hóu xù lián zhèng	1
 感化节度使	gǎn huà jié dù shǐ	1
@@ -24069,9 +24071,9 @@ sort: by_weight
 橄榄晶冲剂	gǎn lǎn jīng chōng jì	1
 橄榄晶颗粒	gǎn lǎn jīng kē lì	1
 橄榄球协会	gǎn lǎn qiú xié huì	1
-干阑式建筑	gàn lán shì jiàn zhù	1
-干栏式建筑	gàn lán shì jiàn zhù	1
-干栏式民居	gàn lán shì mín jū	1
+干阑式建筑	gān lán shì jiàn zhù	1
+干栏式建筑	gān lán shì jiàn zhù	1
+干栏式民居	gān lán shì mín jū	1
 橄榄透辉岩	gǎn lǎn tòu huī yán	1
 甘蓝型油菜	gān lán xíng yóu cài	1
 橄榄玄粗岩	gǎn lǎn xuán cū yán	1
@@ -24286,16 +24288,16 @@ sort: by_weight
 感性的一面	gǎn xìng de yí miàn	1
 感性和理性	gǎn xìng hé lǐ xìng	1
 肝性脊髓病	gān xìng jǐ suǐ bìng	1
-干性脚气病	gàn xìng jiǎo qì bìng	1
+干性脚气病	gān xìng jiǎo qì bìng	1
 肝性脑病变	gān xìng nǎo bìng biàn	1
-干性皮膜油	gàn xìng pí mó yóu	1
-干性皮脂溢	gàn xìng pí zhī yì	1
+干性皮膜油	gān xìng pí mó yóu	1
+干性皮脂溢	gān xìng pí zhī yì	1
 感兴趣程度	gǎn xìng qù chéng dù	1
 感兴趣的点	gǎn xìng qù de diǎn	1
 感兴趣的是	gǎn xìng qù de shì	1
 感兴趣的事	gǎn xìng qù de shì	1
 肝性糖尿病	gān xìng táng niào bìng	1
-干性胸膜炎	gàn xìng xiōng mó yán	1
+干性胸膜炎	gān xìng xiōng mó yán	1
 感性与理性	gǎn xìng yǔ lǐ xìng	1
 肝血不足证	gān xuè bù zú zhèng	1
 肝血池显像	gān xuè chí xiǎn xiàng	1
@@ -24370,10 +24372,10 @@ sort: by_weight
 感知并回应	gǎn zhī bìng huí yìng	1
 苷脂沉积病	gān zhī chén jī bìng	1
 苷脂沉积症	gān zhī chén jī zhèng	1
-干支纪年法	gàn zhī jì nián fǎ	1
-干支纪日法	gàn zhī jì rì fǎ	1
-干支纪元法	gàn zhī jì yuán fǎ	1
-干支纪月法	gàn zhī jì yuè fǎ	1
+干支纪年法	gān zhī jì nián fǎ	1
+干支纪日法	gān zhī jì rì fǎ	1
+干支纪元法	gān zhī jì yuán fǎ	1
+干支纪月法	gān zhī jì yuè fǎ	1
 肝中间静脉	gān zhōng jiān jìng mài	1
 甘州回鹘国	gān zhōu huí hú guó	1
 甘珠尔扎布	gān zhū ěr zhā bù	1
@@ -33857,7 +33859,7 @@ sort: by_weight
 会是什么样	huì shì shén me yàng	1
 惠氏营养品	huì shì yíng yǎng pǐn	1
 会是怎么样	huì shì zěn me yàng	1
-挥手打招呼	huī shǒu dǎ zhāo hū	1
+挥手打招呼	huī shǒu dǎ zhāo hu	1
 回收的材料	huí shōu de cái liào	1
 回首来时路	huí shǒu lái shí lù	1
 挥手说再见	huī shǒu shuō zài jiàn	1
@@ -52951,7 +52953,7 @@ sort: by_weight
 磨灭的记忆	mó miè de jì yì	1
 默默地承受	mò mò de chéng shòu	1
 默默地等待	mò mò de děng dài	1
-嬷嬷的法法	mó mó de fǎ fǎ	1
+嬷嬷的法法	mó mo de fǎ fǎ	1
 默默地付出	mò mò de fù chū	1
 默默的关注	mò mò de guān zhù	1
 默默地关注	mò mò de guān zhù	1
@@ -53398,6 +53400,7 @@ sort: by_weight
 那打素医院	nà dǎ sù yī yuàn	1
 那档子事儿	nà dàng zi shì er	1
 那倒不一定	nà dào bù yí dìng	1
+那倒不至于	nà dào bù zhì yú	1
 拿到驾照后	ná dào jià zhào hòu	1
 拿到试卷后	ná dào shì juàn hòu	1
 拿到手机后	ná dào shǒu jī hòu	1
@@ -58281,7 +58284,7 @@ sort: by_weight
 企业及个人	qǐ yè jí gè rén	1
 企业界人士	qǐ yè jiè rén shì	1
 气液两相流	qì yè liǎng xiāng liú	1
-企业内连网	qǐ yè nèi lián wǎng	1
+企业内联网	qǐ yè nèi lián wǎng	1
 气液色谱法	qì yè sè pǔ fǎ	1
 企业商业展	qǐ yè shāng yè zhǎn	1
 七叶神安片	qī yè shén ān piàn	1
@@ -61570,7 +61573,6 @@ sort: by_weight
 全球的视野	quán qiú de shì yě	1
 全球的疫情	quán qiú de yì qíng	1
 全球第一台	quán qiú dì yī tái	1
-全球互连网	quán qiú hù lián wǎng	1
 全球互联网	quán qiú hù lián wǎng	1
 全球化程度	quán qiú huà chéng dù	1
 全球化视野	quán qiú huà shì yě	1
@@ -62079,8 +62081,8 @@ sort: by_weight
 热膨胀系数	rè péng zhàng xì shù	1
 热迫膀胱证	rè pò páng guāng zhèng	1
 热气腾腾的	rè qì téng téng de	1
-热情的招呼	rè qíng de zhāo hū	1
-热情地招呼	rè qíng de zhāo hū	1
+热情的招呼	rè qíng de zhāo hu	1
+热情地招呼	rè qíng de zhāo hu	1
 热情和友好	rè qíng hé yǒu hǎo	1
 热缺血时间	rè quē xuè shí jiān	1
 热扰心神证	rè rǎo xīn shén zhèng	1
@@ -65626,7 +65628,7 @@ sort: by_weight
 邵氏硬度计	shào shì yìng dù jì	1
 少数民族村	shǎo shù mín zú cūn	1
 少数人权利	shǎo shù rén quán lì	1
-少帅张学良	shǎo shuài zhāng xué liáng	1
+少帅张学良	shào shuài zhāng xué liáng	1
 少说多做的	shǎo shuō duō zuò de	1
 少谈些主义	shǎo tán xiē zhǔ yì	1
 烧烫烫的爱	shāo tàng tàng de ài	1
@@ -66133,7 +66135,7 @@ sort: by_weight
 神产巢日神	shén chǎn cháo rì shén	1
 肾充盈缺损	shèn chōng yíng quē sǔn	1
 伸出大拇指	shēn chū dà mǔ zhǐ	1
-身处的环境	shēn chù de huán jìng	1
+身处的环境	shēn chǔ de huán jìng	1
 深处的秘密	shēn chù de mì mì	1
 伸出橄榄枝	shēn chū gǎn lǎn zhī	1
 伸出了援手	shēn chū le yuán shǒu	1
@@ -77260,7 +77262,7 @@ sort: by_weight
 兔大满科技	tù dà mǎn kē jì	1
 土旦小克兄	tǔ dàn xiǎo kè xiōng	1
 菟道稚郎子	tú dào zhì láng zǐ	1
-土的干密度	tǔ de gàn mì dù	1
+土的干密度	tǔ de gān mì dù	1
 钍的同位素	tǔ de tóng wèi sù	1
 凸等价关系	tū děng jià guān xì	1
 土地的变迁	tǔ dì de biàn qiān	1
@@ -81380,6 +81382,7 @@ sort: by_weight
 无穷小演算	wú qióng xiǎo yǎn suàn	1
 无穷性公理	wú qióng xìng gōng lǐ	1
 无球粒陨石	wú qiú lì yǔn shí	1
+无求所谓了	wú qiú suǒ wèi le	1
 无趣的生活	wú qù de shēng huó	1
 吾去脱他衣	wú qù tuō tā yī	1
 无取向硅钢	wú qǔ xiàng guī gāng	1
@@ -83620,6 +83623,7 @@ sort: by_weight
 现实和未来	xiàn shí hé wèi lái	1
 现实和虚拟	xiàn shí hé xū nǐ	1
 显示和隐藏	xiǎn shì hé yǐn cáng	1
+现实很骨感	xiàn shí hěn gǔ gǎn	1
 现时汇率法	xiàn shí huì lǜ fǎ	1
 现实紧迫性	xiàn shí jǐn pò xìng	1
 现实可能性	xiàn shí kě néng xìng	1
@@ -88584,6 +88588,7 @@ sort: by_weight
 学生的情况	xué shēng de qíng kuàng	1
 学生的权利	xué shēng de quán lì	1
 学生的人格	xué shēng de rén gé	1
+学生的任务	xué shēng de rèn wù	1
 学生的日子	xué shēng de rì zi	1
 学生的数量	xué shēng de shù liàng	1
 学生的思维	xué shēng de sī wéi	1
@@ -99387,7 +99392,7 @@ sort: by_weight
 赵国平原君	zhào guó píng yuán jūn	1
 赵邯郸故城	zhào hán dān gù chéng	1
 找好了下家	zhǎo hǎo le xià jiā	1
-招呼都不打	zhāo hū dōu bù dǎ	1
+招呼都不打	zhāo hu dōu bù dǎ	1
 照葫芦画瓢	zhào hú lu huà piáo	1
 照花前后镜	zhào huā qián hòu jìng	1
 召唤师奖杯	zhào huàn shī jiǎng bēi	1
@@ -113776,7 +113781,7 @@ sort: by_weight
 从此一蹶不振	cóng cǐ yì jué bú zhèn	1
 从此与众不同	cóng cǐ yǔ zhòng bù tóng	1
 从大海到大海	cóng dà hǎi dào dà hǎi	1
-从打招呼开始	cóng dǎ zhāo hū kāi shǐ	1
+从打招呼开始	cóng dǎ zhāo hu kāi shǐ	1
 丛的分裂映射	cóng de fēn liè yìng shè	1
 从低端到高端	cóng dī duān dào gāo duān	1
 从地球到月球	cóng dì qiú dào yuè qiú	1
@@ -114673,8 +114678,8 @@ sort: by_weight
 打造智慧物流	dǎ zào zhì huì wù liú	1
 打造智能工厂	dǎ zào zhì néng gōng chǎng	1
 大张皮移植术	dà zhāng pí yí zhí shù	1
-打招呼的方式	dǎ zhāo hū de fāng shì	1
-打招呼的关系	dǎ zhāo hū de guān xì	1
+打招呼的方式	dǎ zhāo hu de fāng shì	1
+打招呼的关系	dǎ zhāo hu de guān xì	1
 打着爱的旗号	dǎ zhe ài de qí hào	1
 打着你的旗号	dǎ zhe nǐ de qí hào	1
 打着我的名义	dǎ zhe wǒ de míng yì	1
@@ -116343,6 +116348,7 @@ sort: by_weight
 电机控制系统	diàn jī kòng zhì xì tǒng	1
 典籍里的中国	diǎn jí lǐ de zhōng guó	1
 电机驱动系统	diàn jī qū dòng xì tǒng	1
+点击任意位置	diǎn jī rèn yì wèi zhì	1
 点击鼠标右键	diǎn jī shǔ biāo yòu jiàn	1
 电机输出功率	diàn jī shū chū gōng lǜ	1
 电击小说大奖	diàn jī xiǎo shuō dà jiǎng	1
@@ -122253,7 +122259,7 @@ sort: by_weight
 干出这种事儿	gàn chū zhè zhǒng shì er	1
 肝穿刺活检术	gān chuān cì huó jiǎn shù	1
 甘醇酸淀粉钠	gān chún suān diàn fěn nà	1
-干打雷不下雨	gàn dǎ léi bú xià yǔ	1
+干打雷不下雨	gān dǎ léi bú xià yǔ	1
 干大事而惜身	gàn dà shì ér xī shēn	1
 肝胆动态显像	gān dǎn dòng tài xiǎn xiàng	1
 肝胆管切除术	gān dǎn guǎn qiē chú shù	1
@@ -141395,7 +141401,7 @@ sort: by_weight
 面部表浅异物	miàn bù biǎo qiǎn yì wù	1
 面部单纯糠疹	miàn bù dān chún kāng zhěn	1
 面部蜂窝织炎	miàn bù fēng wō zhī yán	1
-面部干性糠疹	miàn bù gàn xìng kāng zhěn	1
+面部干性糠疹	miàn bù gān xìng kāng zhěn	1
 面部假体耳部	miàn bù jiǎ tǐ ěr bù	1
 面部假体下额	miàn bù jiǎ tǐ xià é	1
 面部模型制备	miàn bù mó xíng zhì bèi	1
@@ -151710,7 +151716,7 @@ sort: by_weight
 式毫米加农炮	shì háo mǐ jiā nóng pào	1
 式毫米迫击炮	shì háo mǐ pǎi jī pào	1
 适合大多数人	shì hé dà duō shù rén	1
-适合干性皮肤	shì hé gàn xìng pí fū	1
+适合干性皮肤	shì hé gān xìng pí fū	1
 适合各种肤质	shì hé gè zhǒng fū zhì	1
 是合理合法的	shì hé lǐ hé fǎ de	1
 适合全年龄段	shì hé quán nián líng duàn	1
@@ -155430,7 +155436,7 @@ sort: by_weight
 塔里木河流域	tǎ lǐ mù hé liú yù	1
 塔罗斯的法则	tǎ luó sī de fǎ zé	1
 她妈妈的公主	tā mā ma de gōng zhǔ	1
-他们打个招呼	tā men dǎ gè zhāo hū	1
+他们打个招呼	tā men dǎ gè zhāo hu	1
 它们或多或少	tā men huò duō huò shǎo	1
 她们家的故事	tā men jiā de gù shi	1
 他们行色匆匆	tā men xíng sè cōng cōng	1
@@ -159497,7 +159503,7 @@ sort: by_weight
 无论哪个季节	wú lùn nǎ ge jì jié	1
 无论哪种方式	wú lùn nǎ zhǒng fāng shì	1
 无论男女老幼	wú lùn nán nǚ lǎo yòu	1
-无论身处何地	wú lùn shēn chù hé dì	1
+无论身处何地	wú lùn shēn chǔ hé dì	1
 无论是好是坏	wú lùn shì hǎo shì huài	1
 无论做什么事	wú lùn zuò shén me shì	1
 武珞路丁字桥	wǔ luò lù dīng zì qiáo	1
@@ -163567,7 +163573,7 @@ sort: by_weight
 溴代异十六烷	xiù dài yì shí liù wán	3
 溴代异十三烷	xiù dài yì shí sān wán	3
 修道院的秘密	xiū dào yuàn de mì mì	1
-修道院的嬷嬷	xiū dào yuàn de mó mó	1
+修道院的嬷嬷	xiū dào yuàn de mó mo	1
 秀逗妈妈月美	xiù dòu mā ma yuè měi	1
 秀恩爱的方式	xiù ēn ài de fāng shì	1
 秀恩爱死的快	xiù ēn ài sǐ de kuài	1
@@ -182284,7 +182290,6 @@ sort: by_weight
 第三十六个故事	dì sān shí liù gè gù shi	1
 第三实验幼儿园	dì sān shí yàn yòu ér yuán	1
 第三者的第三者	dì sān zhě de dì sān zhě	1
-第三只眼看零售	dì sān zhī yǎn kàn líng shòu	1
 第三中标候选人	dì sān zhòng biāo hòu xuǎn rén	1
 第三周可吃普食	dì sān zhōu kě chī pǔ shí	1
 蒂森克虏伯电梯	dì sēn kè lǔ bó diàn tī	1
@@ -186437,7 +186442,7 @@ sort: by_weight
 肝血管瘤切除术	gān xuè guǎn liú qiē chú shù	1
 感烟火灾探测器	gǎn yān huǒ zāi tàn cè qì	1
 肝炎相关性肾病	gān yán xiāng guān xìng shèn bìng	1
-干眼性角膜瘢痕	gàn yǎn xìng jiǎo mó bān hén	1
+干眼性角膜瘢痕	gān yǎn xìng jiǎo mó bān hén	1
 肝胰壶腹括约肌	gān yí hú fù kuò yuē jī	1
 感音神经性耳聋	gǎn yīn shén jīng xìng ěr lóng	1
 感应电磁勘探法	gǎn yīng diàn cí kān tàn fǎ	1
@@ -190668,7 +190673,9 @@ sort: by_weight
 君子不夺人所好	jūn zǐ bù duó rén suǒ hào	1
 君子不立于危墙	jūn zǐ bú lì yú wēi qiáng	1
 君子以反身修德	jūn zǐ yǐ fǎn shēn xiū dé	1
+君子以厚德载物	jūn zǐ yǐ hòu dé zài wù	1
 君子以立不易方	jūn zǐ yǐ lì bú yì fāng	1
+君子以自强不息	jūn zǐ yǐ zì qiáng bù xī	1
 君子以作事谋始	jūn zǐ yǐ zuò shì móu shǐ	1
 君子忧道不忧贫	jūn zǐ yōu dào bù yōu pín	1
 卡爱二氏缝合环	kǎ ài èr shì féng hé huán	1
