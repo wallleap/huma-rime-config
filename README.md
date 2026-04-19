@@ -317,6 +317,6 @@ chmod +x ./bin/sync_dicts.sh
 - mac 上：`sync_dir: '/Users/luwang/Library/Mobile Documents/iCloud~~dev~~fuxiao~~app~~hamsterapp/Documents/sync'` 指定 iCloud 下的 仓输入法目录，下载 [FolderSync](https://foldersync.io/desktop/#download)，在账户中登陆 OneDrive，双向同步这个目录和 OneDrive 下的 `sync` 目录
 - win 上：`sync_dir: 'C:/Users/luwang/OneDrive/sync'` 指定 OneDrive 下的目录
 - 安卓上：保持默认，将会同步到 `rime/sync`，下载 [FolderSync](https://foldersync.io/android)，在账户中登陆 OneDrive，双向同步这个目录和 OneDrive 下的 `sync` 目录
-- iOS 上：`sync_dir: '/Users/luwang/Library/Mobile Documents/iCloud~dev~fuxiao~app~hamsterapp/Documents/rime/sync'` 指定 iCloud 下的 仓输入法目录
+- iOS 上：`sync_dir: '/private/var/mobile/Library/Mobile Documents/iCloud~dev~fuxiao~app~hamsterapp/Documents/sync'` 指定 iCloud 下的 仓输入法目录（最好手动选择）
 
 之后有空的时候点击 Rime 的 `同步` 按钮，即可同步用户数据
