@@ -35,6 +35,15 @@ patch:
 
   recognizer/patterns/stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
 
+  punctuator/half_shape:
+    "/": "/"
+    "\\": "、"
+    ";": { commit: "；" }
+    "<": "《"
+    ">": "》"
+
+  speller/alphabet: "['zyxwvutsrqponmlkjihgfedcba]`"
+
   reverse_lookup/tips: "〔双拼〕"
   recognizer/patterns/reverse_lookup: "^`[a-z]*'?$"
   recognizer/patterns/punct: "^/[A-Za-z0-9_]*$"

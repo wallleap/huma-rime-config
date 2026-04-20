@@ -7,6 +7,15 @@ patch:
 
   recognizer/patterns/stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
 
+  speller/alphabet: "zyxwvutsrqponmlkjihgfedcba'"
+
+  punctuator/half_shape:
+    "/": "/"
+    "\\": "、"
+    ";": { commit: "；" }
+    "<": "《"
+    ">": "》"
+
   # 语言模型
   "grammar/language": wanxiang-lts-zh-hans
   "grammar/collocation_max_length": 5

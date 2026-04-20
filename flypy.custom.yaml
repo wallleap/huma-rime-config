@@ -32,6 +32,12 @@ patch:
 
   recognizer/patterns/stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
 
+  punctuator/half_shape:
+    "/": "/"
+    "\\": "、"
+    ";": { commit: "；" }
+    "<": "《"
+    ">": "》"
 
   speller/alphabet: "['zyxwvutsrqponmlkjihgfedcba;]" # ;辅助码分割
 
