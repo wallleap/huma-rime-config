@@ -44,7 +44,7 @@ jobs:
         id: vars
         run: |
           echo "TAG=${{ github.ref_name }}" >> $GITHUB_OUTPUT
-          echo "PACKAGE=huma-config-${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          echo "PACKAGE=huma-rime-config" >> $GITHUB_OUTPUT
           echo "FOLDER=huma_rime_config" >> $GITHUB_OUTPUT
 
       # 打包：创建目录 + 移动文件（支持排除）+ 打包 tar.gz + zip

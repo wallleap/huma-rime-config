@@ -4,5 +4,5 @@
 {CONTENTS}
 
 ## 📥 高速下载
-- [huma-config.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-config-{TAG}.zip)
-- [huma-config.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-config-{TAG}.tar.gz)
+- [huma-rime-config.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-rime-config.zip)
+- [huma-rime-config.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-rime-config.tar.gz)
