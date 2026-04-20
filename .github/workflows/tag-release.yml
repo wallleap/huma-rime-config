@@ -99,7 +99,7 @@ jobs:
           REPO="${{ github.repository }}"
 
           # 生成变更日志内容
-          CONTENTS=$(git log --pretty="- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD 2>/dev/null | grep -E "^- (feat|fix|feat\(|fix\()" || true)
+          CONTENTS=$(git log --pretty="- %s" $(git describe --tags --abbrev=0 HEAD^)..HEAD 2>/dev/null | grep -E "^- (feat|fix|perf|feat\(|fix\(|perf\()" || true)
 
           # 使用 sed 替换模板中的占位符（使用 | 作为分隔符避免 URL 中的斜杠冲突）
           sed -e "s|{TAG}|$TAG|g" \
