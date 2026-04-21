@@ -658,7 +658,9 @@ local function translator(input, seg, env)
     end
 
     if summary ~= "" then
-        yield(Candidate("stat", seg.start, seg._end, summary, "〈统计输入信息〉"))
+        cand = Candidate("stat", seg.start, seg._end, summary, "〈统计输入信息〉")
+        cand.quality = 999
+        yield(cand)
     end
 end
 
