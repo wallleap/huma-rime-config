@@ -63,7 +63,7 @@ jobs:
           # 格式：｜ 文件1｜文件2｜目录/｜等等
           # =======================================================
           mv \
-            !(dist|$FOLDER|.git|.github|.gitignore|.gitattributes|*.example.*|bin|README.md|changelog.txt|crawler.py|huma.recipe.yaml|wanxiang-lts-zh-hans.gram|flypy_phrase.txt|LICENSE) \
+            !(dist|$FOLDER|.git|.github|.gitignore|.gitattributes|*.example.*|bin|README.md|changelog.txt|crawler.py|huma.recipe.yaml|flypy_phrase.txt|LICENSE) \
             "$FOLDER"/
 
           # 创建 flypy_phrase.txt 文件到目录下
