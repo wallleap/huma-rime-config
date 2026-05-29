@@ -38,6 +38,7 @@
 │   └── sync_dicts.sh			# 同步虎码、万象词库 bash 脚本
 ├── core2022.dict.yaml			# 字符集过滤辅助方案词库
 ├── core2022.schema.yaml		# 字符集过滤辅助方案
+├── custom_phrase.txt			# 自定义短语文件
 ├── default.custom.yaml			# 全局默认配置补丁
 ├── dicts/						# [目录]存放所有扩展词库
 │   ├── cuoyin.dict.yaml		# 万象 错音错字
@@ -59,7 +60,6 @@
 ├── flypy.dict.yaml				# 小鹤双拼词库
 ├── flypy.schema.yaml			# 小鹤双拼方案
 ├── flypy.txt					# 自动生成的小鹤双拼用户词典
-├── flypy_phrase.txt			# 自定义短语文件
 ├── fonts/						# [目录]存放字体文件，可以直接给同文输入法使用
 │   └── tumapua/				# [目录]存放鸿蒙超越输入法字体配置（一个字体一个目录）
 │       ├── TumanPUA.ttf		# 字体文件
@@ -158,7 +158,7 @@
 
 小鹤双拼辅助码：输入双拼后加 `;`（个人习惯两个键输入双拼，辅助码仅用于难以选词时使用）
 
-双拼和混熟自定义短语文件：`flypy_phrase.txt`
+双拼和混熟自定义短语文件：`custom_phrase.txt`
 
 > PY\_c.schema.yaml 是基于拼音 ++ 改造的小鹤双拼方案，整合了小鹤双拼的输入规则，暂时不直接用于输入方案，而是作为虎码反查使用
 

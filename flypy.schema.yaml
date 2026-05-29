@@ -161,7 +161,7 @@ reverse_lookup:
 
 custom_phrase:
   dictionary: ""
-  user_dict: flypy_phrase
+  user_dict: custom_phrase
   db_class: stabledb
   enable_completion: false
   enable_sentence: false

@@ -63,11 +63,11 @@ jobs:
           # 格式：｜ 文件1｜文件2｜目录/｜等等
           # =======================================================
           mv \
-            !(dist|$FOLDER|.git|.github|.gitignore|.gitattributes|*.example.*|bin|README.md|changelog.txt|crawler.py|huma.recipe.yaml|flypy_phrase.txt|LICENSE) \
+            !(dist|$FOLDER|.git|.github|.gitignore|.gitattributes|*.example.*|bin|README.md|changelog.txt|crawler.py|huma.recipe.yaml|custom_phrase.txt|LICENSE) \
             "$FOLDER"/
 
-          # 创建 flypy_phrase.txt 文件到目录下
-          echo -e "Rime 输入法\trime\t100" > "$FOLDER"/flypy_phrase.txt
+          # 创建 custom_phrase.txt 文件到目录下
+          echo -e "Rime 输入法\trime\t100" > "$FOLDER"/custom_phrase.txt
 
           # 打包 tar.gz
           tar -zcvf "dist/${PACKAGE}.tar.gz" "$FOLDER"
