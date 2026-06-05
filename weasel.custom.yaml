@@ -4,11 +4,30 @@
 # https://github.com/rime/weasel/wiki
 
 patch:
+  # 应用设置
   app_options:
-    # 程序名称
+    # 程序名称（进程名）
     code.exe:
-      vim_mode: true
+      ascii_mode: true
+      vim_mode: false
       # ascii_mode 英文模式 | inline_preedit 行内显示预编辑区域 | vim_mode vim 模式
+    # 终端相关
+    cmd.exe:
+      ascii_mode: true
+    conhost.exe:
+      ascii_mode: true
+    # Zed
+    zed.exe:
+      ascii_mode: true
+      vim_mode: true
+    # 浏览器
+    firefox.exe:
+      inline_preedit: true
+    chrome.exe:
+      inline_preedit: true
+  # 全局 ascii 模式
+  global_ascii: true # 切换 ascii 模式影响所有窗口（所有应用保持一致）
+  # 样式
   style/+:
     color_scheme: purity_of_essence # 切换主题
     color_scheme_dark: purity_of_form # 暗黑模式下主题
@@ -46,6 +65,7 @@ patch:
       shadow_offset_y: 4
       linespacing: 0 # percentage of font point, 0 to disable
       baseline: 0
+  # 预定义配色方案
   preset_color_schemes/purity_of_essence:
     name: 純粹的本質／Purity of Essence
     author: vonnelu
