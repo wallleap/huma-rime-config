@@ -23,3 +23,5 @@ flypy.txt
 tigress*.txt
 
 lua/input_stats.lua
+
+*.gram
