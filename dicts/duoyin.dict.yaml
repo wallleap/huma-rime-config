@@ -17,7 +17,12 @@ sort: by_weight
 可得劲儿	kě dé jìn er	178
 同行的	tóng háng de	198
 调到了	diào dào le	614
+那天	nèi tiān	1053
+乐和	yuè hé	766
+一来	yī lái	30368
+呦呵	yō hē	1930
 不落	bú là	1258
+并着手	bìng zhe shǒu	98
 一战	yī zhàn	1241
 一战前	yī zhàn qián	714
 一战中	yī zhàn zhōng	858
@@ -84,10 +89,10 @@ sort: by_weight
 降了吧	xiáng le ba	253
 降了没	xiáng le méi	194
 对不了	duì bu liǎo	704
-玉米糁粥	yù mǐ sá zhōu
-玉米糁汤	yù mǐ sá tāng
-玉米糁面	yù mǐ sá miàn
-玉米糁饼	yù mǐ sá bǐng
+玉米糁粥	yù mǐ sá zhōu	322
+玉米糁汤	yù mǐ sá tāng	298
+玉米糁面	yù mǐ sá miàn	97
+玉米糁饼	yù mǐ sá bǐng	182
 落子无悔	lào zǐ wú huǐ	37
 落子不悔	lào zǐ bù huǐ	426
 落子布局	lào zǐ bù jú	32
@@ -310,8 +315,8 @@ sort: by_weight
 攒个	zǎn gè	739
 背着	bēi zhe	1632
 外传	wài chuán	3753
-长点儿	cháng diǎn ér	290
-长点儿	zhǎng diǎn ér	264
+长点儿	cháng diǎn er	290
+长点儿	zhǎng diǎn er	264
 有的行	yǒu de háng	230
 就得到	jiù děi dào	1204
 就得到	jiù dé dào	500
@@ -350,8 +355,8 @@ sort: by_weight
 不了了	bù liǎo le	1081
 爿字旁	chuáng zì páng
 爿字旁	pán zì páng
-肚子	dù zi	1002
-肚子	dǔ zi	972
+肚子	dù zi	13420
+肚子	dǔ zi	3972
 落了	là le	6074
 落了	luò le	4731
 迫降	pò xiáng	290
@@ -419,7 +424,8 @@ sort: by_weight
 还都	huán dū	95
 还都	hái dōu	2580
 重载	zhòng zài	1086
-重载	chóng zǎi	808
+重载	chóng zài	808
+把子	bǎ zi	2454
 罢了	bà le	1236
 总长	zǒng cháng	3710
 总长	zǒng zhǎng	450
@@ -639,7 +645,7 @@ sort: by_weight
 这顿	zhèi dùn	550
 这多	zhèi duō	470
 这朵	zhèi duǒ	440
-这儿	zhèi ér	650
+这儿	zhèi er	650
 这番	zhèi fān	540
 这饭	zhèi fàn	430
 这方	zhèi fāng	440
@@ -2317,7 +2323,7 @@ sort: by_weight
 这一颗	zhèi yì kē	350
 这一块	zhèi yí kuài	630
 这一款	zhèi yì kuǎn	580
-这一来	zhèi yí lái	350
+这一来	zhèi yì lái	350
 这一类	zhèi yí lèi	620
 这一路	zhèi yí lù	540
 这一轮	zhèi yì lún	590
@@ -4250,8 +4256,8 @@ sort: by_weight
 谁临晚眺	shéi lín wǎn tiào	1
 谁领风骚	shéi lǐng fēng sāo	27
 谁骂你了	shéi mà nǐ le	4
-谁没点儿	shéi méi diǎn ér	20
-谁没事儿	shéi méi shì ér	33
+谁没点儿	shéi méi diǎn er	20
+谁没事儿	shéi méi shì er	33
 谁没有爱	shéi méi yǒu ài	6
 谁没有爹	shéi méi yǒu diē	1
 谁没有娘	shéi méi yǒu niáng	1

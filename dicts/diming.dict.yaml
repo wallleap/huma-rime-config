@@ -63,7 +63,8 @@ sort: by_weight
 高县	gāo xiàn	593
 高镇	gāo zhèn	89
 珙县	gǒng xiàn	951
-古县	gǔ xiàn	496
+古县	gǔ xiàn	1496
+故县	gù xiàn	598
 古乡	gǔ xiāng	905
 冠县	guān xiàn	1262
 郭镇	guō zhèn	888
@@ -468,8 +469,8 @@ sort: by_weight
 安仁乡	ān rén xiāng	1
 安仁镇	ān rén zhèn	324
 安荣乡	ān róng xiāng	1
-安塞区	ān sāi qū	154
-安塞县	ān sāi xiàn	174
+安塞区	ān sài qū	154
+安塞县	ān sài xiàn	174
 安砂镇	ān shā zhèn	1
 安沙镇	ān shā zhèn	1
 安山乡	ān shān xiāng	1
@@ -883,6 +884,7 @@ sort: by_weight
 百省乡	bǎi shěng xiāng	1
 百胜镇	bǎi shèng zhèn	1
 白石村	bái shí cūn	341
+百石角	bǎi shí jiǎo	99
 白石乡	bái shí xiāng	215
 白什乡	bái shí xiāng	1
 白石镇	bái shí zhèn	325
@@ -5186,7 +5188,7 @@ sort: by_weight
 高增乡	gāo zēng xiāng	1
 高闸镇	gāo zhá zhèn	1
 高寨镇	gāo zhài zhèn	1
-高知县	gāo zhì xiàn	235
+高知县	gāo zhī xiàn	235
 高州市	gāo zhōu shì	664
 高州县	gāo zhōu xiàn	82
 高洲乡	gāo zhōu xiāng	1
@@ -9685,7 +9687,7 @@ sort: by_weight
 礼安镇	lǐ ān zhèn	1
 李岙村	lǐ ào cūn	185
 李坝村	lǐ bà cūn	133
-篱笆镇	lí bā zhèn	1
+篱笆镇	lí ba zhèn	1
 里坝镇	lǐ bà zhèn	1
 黎坝镇	lí bà zhèn	1
 李堡村	lǐ bǎo cūn	145
@@ -10684,6 +10686,7 @@ sort: by_weight
 留山镇	liú shān zhèn	1
 流山镇	liú shān zhèn	1
 六哨乡	liù shào xiāng	1
+留神峪	liú shén yù	112
 刘升镇	liú shēng zhèn	1
 六市乡	liù shì xiāng	1
 留史镇	liú shǐ zhèn	1
@@ -13060,7 +13063,7 @@ sort: by_weight
 能仁乡	néng rén xiāng	1
 尼傲乡	ní ào xiāng	1
 尼巴村	ní bā cūn	113
-泥巴乡	ní bā xiāng	1
+泥巴乡	ní ba xiāng	1
 坭坝乡	ní bà xiāng	1
 尼巴镇	ní bā zhèn	1
 坭陂镇	ní bēi zhèn	1
@@ -17743,7 +17746,6 @@ sort: by_weight
 万春镇	wàn chūn zhèn	100
 万村乡	wàn cūn xiāng	1
 万丹乡	wàn dān xiāng	1
-万石镇	wàn dàn zhèn	1
 万德镇	wàn dé zhèn	470
 万堤镇	wàn dī zhèn	1
 万第镇	wàn dì zhèn	1
@@ -17802,6 +17804,7 @@ sort: by_weight
 万山镇	wàn shān zhèn	1
 万善镇	wàn shàn zhèn	1
 万胜镇	wàn shèng zhèn	1
+万石镇	wàn shí zhèn	1
 万市镇	wàn shì zhèn	1
 万寿村	wàn shòu cūn	100
 万寿镇	wàn shòu zhèn	1
@@ -29093,7 +29096,6 @@ sort: by_weight
 丹东街道	dān dōng jiē dào	1
 丹都街道	dān dōu jiē dào	1
 丹凤街道	dān fèng jiē dào	1
-石谷寺村	dàn gǔ sì cūn	1
 丹桂街道	dān guì jiē dào	1
 丹河街道	dān hé jiē dào	1
 淡家沟村	dàn jiā gōu cūn	1
@@ -33182,9 +33184,6 @@ sort: by_weight
 阁老峪村	gé lǎo yù cūn	1
 革勒车乡	gé lè chē xiāng	1
 革勒车镇	gé lè chē zhèn	1
-歌乐山村	gē lè shān cūn	1
-歌乐山镇	gē lè shān zhèn	1
-歌乐沱乡	gē lè tuó xiāng	1
 格里坪镇	gé lǐ píng zhèn	1
 葛礼瓦镇	gé lǐ wǎ zhèn	1
 格林街道	gé lín jiē dào	1
@@ -33238,6 +33237,9 @@ sort: by_weight
 隔洋塘村	gé yáng táng cūn	1
 葛崾岘乡	gé yǎo xiàn xiāng	1
 葛渔城镇	gé yú chéng zhèn	1
+歌乐山村	gē yuè shān cūn	1
+歌乐山镇	gē yuè shān zhèn	1
+歌乐沱乡	gē yuè tuó xiāng	1
 革镇堡镇	gé zhèn bǎo zhèn	1
 圪针梁村	gē zhēn liáng cūn	1
 格针庙村	gé zhēn miào cūn	1
@@ -34255,8 +34257,8 @@ sort: by_weight
 哈拉哈村	hā la hā cūn	1
 哈拉海乡	hā la hǎi xiāng	1
 哈拉海镇	hā la hǎi zhèn	1
-哈喇河乡	hā lǎ hé xiāng	1
-哈喇河镇	hā lǎ hé zhèn	1
+哈喇河乡	hā la hé xiāng	1
+哈喇河镇	hā la hé zhèn	1
 哈拉黑村	hā la hēi cūn	1
 哈拉黑镇	hā la hēi zhèn	1
 哈拉峻乡	hā la jùn xiāng	1
@@ -34270,11 +34272,11 @@ sort: by_weight
 哈里斯堡	hā lǐ sī bǎo	1
 哈里斯县	hā lǐ sī xiàn	74
 哈鲁纳镇	hā lǔ nà zhèn	1
-蛤蟆沟村	há má gōu cūn	1
+蛤蟆沟村	há ma gōu cūn	1
 蛤蚂河村	há mǎ hé cūn	1
-蛤蟆口村	há má kǒu cūn	1
-蛤蟆沁村	há má qìn cūn	1
-蛤蟆塘乡	há má táng xiāng	1
+蛤蟆口村	há ma kǒu cūn	1
+蛤蟆沁村	há ma qìn cūn	1
+蛤蟆塘乡	há ma táng xiāng	1
 哈马者村	hā mǎ zhě cūn	1
 哈莫尼镇	hā mò ní zhèn	1
 哈木尔村	hā mù ěr cūn	1
@@ -41636,7 +41638,7 @@ sort: by_weight
 龙宝山村	lóng bǎo shān cūn	1
 龙宝峪村	lóng bǎo yù cūn	1
 龙背街道	lóng bèi jiē dào	1
-龙背头村	lóng bèi tóu cūn	1
+龙背头村	lóng bēi tóu cūn	1
 龙苍沟乡	lóng cāng gōu xiāng	1
 龙苍沟镇	lóng cāng gōu zhèn	1
 龙草坪村	lóng cǎo píng cūn	1
@@ -49706,6 +49708,7 @@ sort: by_weight
 石鼓沟村	shí gǔ gōu cūn	1
 石鼓河村	shí gǔ hé cūn	1
 尸骨还乡	shī gǔ huán xiāng	1
+石谷寺村	shí gǔ sì cūn	1
 石牯塘镇	shí gǔ táng zhèn	1
 石鼓西村	shí gǔ xī cūn	1
 石崮新村	shí gù xīn cūn	1
@@ -53381,7 +53384,6 @@ sort: by_weight
 万昌店村	wàn chāng diàn cūn	1
 万春街道	wàn chūn jiē dào	1
 万村千乡	wàn cūn qiān xiāng	1
-万石坑村	wàn dàn kēng cūn	1
 万德号村	wàn dé hào cūn	1
 万德街道	wàn dé jiē dào	1
 万德新村	wàn dé xīn cūn	1
@@ -53493,6 +53495,7 @@ sort: by_weight
 万盛街道	wàn shèng jiē dào	1
 万盛山庄	wàn shèng shān zhuāng	1
 万胜永乡	wàn shèng yǒng xiāng	1
+万石坑村	wàn shí kēng cūn	1
 万仕桥村	wàn shì qiáo cūn	1
 万寿街道	wàn shòu jiē dào	1
 万寿桥村	wàn shòu qiáo cūn	1
@@ -58651,7 +58654,6 @@ sort: by_weight
 兴凯湖乡	xīng kǎi hú xiāng	1
 兴开街道	xīng kāi jiē dào	1
 兴开岭村	xīng kāi lǐng cūn	1
-兴乐坊村	xīng lè fāng cūn	1
 杏林街道	xìng lín jiē dào	1
 杏岭子乡	xìng lǐng zi xiāng	1
 兴隆堡村	xīng lóng bǎo cūn	1
@@ -58771,6 +58773,7 @@ sort: by_weight
 杏园街道	xìng yuán jiē dào	1
 星园街道	xīng yuán jiē dào	1
 兴园街道	xīng yuán jiē dào	1
+兴乐坊村	xīng yuè fāng cūn	1
 星云街道	xīng yún jiē dào	1
 兴云山庄	xīng yún shān zhuāng	1
 行者街道	xíng zhě jiē dào	1
@@ -60514,8 +60517,6 @@ sort: by_weight
 一间房村	yì jiān fáng cūn	1
 一建新村	yī jiàn xīn cūn	1
 一街新村	yī jiē xīn cūn	1
-衣锦过乡	yì jǐn guò xiāng	1
-衣锦还乡	yì jǐn huán xiāng	1
 以金佐镇	yǐ jīn zuǒ zhèn	1
 义井街道	yì jǐng jiē dào	1
 怡景新村	yí jǐng xīn cūn	1
@@ -65261,13 +65262,13 @@ sort: by_weight
 高寨子街道	gāo zhài zi jiē dào	1
 葛店开发区	gé diàn kāi fā qū	1
 葛家满族乡	gé jiā mǎn zú xiāng	1
-歌乐山街道	gē lè shān jiē dào	1
 格球山农场	gé qiú shān nóng chǎng	1
 格日僧苏木	gé rì sēng sū mù
 各苏木乡镇	gè sū mù xiāng zhèn	1
 各塔埠街道	gè tǎ bù jiē dào	1
 各乡镇街道	gè xiāng zhèn jiē dào	1
 革新街街道	gé xīn jiē jiē dào	1
+歌乐山街道	gē yuè shān jiē dào	1
 革镇堡街道	gé zhèn bǎo jiē dào	1
 葛洲坝街道	gé zhōu bà jiē dào	1
 根德营子乡	gēn dé yíng zi xiāng	1
@@ -67339,7 +67340,6 @@ sort: by_weight
 武山垦殖场	wǔ shān kěn zhí chǎng	1
 乌史大桥镇	wū shǐ dà qiáo zhèn	1
 五十家子镇	wǔ shí jiā zǐ zhèn	1
-兀术街街道	wù shù jiē jiē dào	1
 五四路街道	wǔ sì lù jiē dào	1
 吴淞镇街道	wú sōng zhèn jiē dào	1
 乌素图街道	wū sù tú jiē dào	1
@@ -67359,6 +67359,7 @@ sort: by_weight
 无影山街道	wú yǐng shān jiē dào	1
 五指峰林场	wǔ zhǐ fēng lín chǎng	1
 吴中区林场	wú zhōng qū lín chǎng	1
+兀术街街道	wù zhú jiē jiē dào	1
 西安路街道	xī ān lù jiē dào	1
 西安市街道	xī ān shì jiē dào	1
 西北街街道	xī běi jiē jiē dào	1
@@ -70662,7 +70663,7 @@ sort: by_weight
 音河达斡尔鄂温克民族乡	yīn hé dá wò ěr è wēn kè mín zú xiāng	1
 永吉经济开发区特殊乡镇	yǒng jí jīng jì kāi fā qū tè shū xiāng zhèn	1
 豫东综合物流产业聚集区	yù dōng zōng hé wù liú chǎn yè jù jí qū	1
-原平市石豹沟煤矿工矿区	yuán píng shì dàn bào gōu méi kuàng gōng kuàng qū	1
+原平市石豹沟煤矿工矿区	yuán píng shì shí bào gōu méi kuàng gōng kuàng qū	1
 月亮河彝族布依族苗族乡	yuè liàng hé yí zú bù yī zú miáo zú xiāng	1
 云南省嵩明职业教育基地	yún nán shěng sōng míng zhí yè jiào yù jī dì	1
 湛江市坡头区官渡工业园	zhàn jiāng shì pō tóu qū guān dù gōng yè yuán	1
