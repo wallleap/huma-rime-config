@@ -3274,7 +3274,8 @@ sort: by_weight
 忏	chàn	431
 潺	chán	388
 蟾	chán	349
-產	chǎn	314
+産	chǎn	322
+產	chǎn	304
 搀	chān	283
 婵	chán	255
 单	chán	242
@@ -3283,7 +3284,6 @@ sort: by_weight
 孱	chán	167
 浐	chǎn	150
 澶	chán	135
-産	chǎn	122
 禪	chán	110
 觇	chān	99
 瀍	chán	89
@@ -17310,6 +17310,7 @@ sort: by_weight
 迳	jìng	20
 儆	jǐng	19
 肼	jǐng	18
+䴖	jīng	17
 鏡	jìng	14
 靚	jìng	13
 競	jìng	12
@@ -17402,7 +17403,6 @@ sort: by_weight
 䜘	jǐng	1
 䡖	jìng	1
 䲔	jīng	1
-䴖	jīng	1
 䵞	jìng	1
 𠑱	jǐng	1
 𠓆	jīng	1
@@ -37774,6 +37774,7 @@ sort: by_weight
 桅	wéi	14
 偎	wēi	13
 诿	wěi	12
+闱	wéi	12
 維	wéi	10
 謂	wèi	9
 梶	wěi	8
@@ -37785,7 +37786,6 @@ sort: by_weight
 衞	wèi	2
 囗	wéi	1
 嵬	wéi	1
-闱	wéi	1
 艉	wěi	1
 逶	wēi	1
 涠	wéi	1
