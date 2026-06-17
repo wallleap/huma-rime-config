@@ -11,7 +11,8 @@ TMP_DIR="${REPO_ROOT}/.tmp_sync"
 mkdir -p "$TMP_DIR"
 
 # ===================== 远程地址 =====================
-FALLBACK_BASE="https://ghfast.top/"
+# FALLBACK_BASE="https://ghfast.top/"
+FALLBACK_BASE="https://gh-proxy.com/"
 
 # ===================== 同步列表 =====================
 SYNC_LIST=(
@@ -55,18 +56,17 @@ for ITEM in "${SYNC_LIST[@]}"; do
   echo "保存到：${LOCAL_FILE}"
 
   # 下载
-  echo "尝试下载原始地址... ${RAW_URL}"
-  if download "${RAW_URL}" "${TMP_FILE}"; then
-    echo "✅ 下载成功"
+  echo "尝试下载镜像地址... ${FALLBACK_BASE}${RAW_URL}"
+  if download "${FALLBACK_BASE}${RAW_URL}" "${TMP_FILE}"; then
+    echo "✅ 镜像下载成功"
   else
-    echo "⚠️ 下载失败，尝试镜像... ${FALLBACK_BASE}${RAW_URL}"
-    MIRROR_URL="${FALLBACK_BASE}${RAW_URL}"
-    if ! download "${MIRROR_URL}" "${TMP_FILE}"; then
-      echo "❌ 下载失败，跳过"
+    echo "⚠️ 镜像下载失败，尝试原始地址... ${RAW_URL}"
+    if ! download "${RAW_URL}" "${TMP_FILE}"; then
+      echo "❌ 原始地址下载失败，跳过"
       rm -f "${TMP_FILE}"
       continue
     fi
-    echo "✅ 镜像下载成功"
+    echo "✅ 原始地址下载成功"
   fi
 
   # 处理 zi.dict.yaml 文件，在包含 ḿ 和 m̀ 的行前添加 # 空格
