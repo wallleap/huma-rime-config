@@ -4,7 +4,7 @@
 # https://github.com/rime/librime/blob/master/data/minimal/default.yaml
 # patch:
 #   "一级设置项/二级设置项/三级设置项": 新的设置值
-#   "另一个设置项": 新的设置值  
+#   "另一个设置项": 新的设置值
 #   "再一个设置项": 新的设置值
 #   "含列表的设置项/@0": 列表第一个元素新的设置值，0 可替换为其他数字
 #   "含列表的设置项/@last": 列表最后一个元素新的设置值
@@ -16,7 +16,6 @@ patch:
   # 方案列表
   schema_list:
     - schema: tiger
-    - schema: tiger_flypy_mix
     - schema: tigress
     - schema: flypy
 
