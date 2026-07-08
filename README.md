@@ -116,8 +116,6 @@
 ├── tiger.custom.yaml			# 虎单方案补丁
 ├── tiger.extended.dict.yaml	# 虎单方案词库
 ├── tiger.schema.yaml			# 虎单方案
-├── tiger_flypy_mix.custom.yaml	# 虎单小鹤双拼混输方案补丁
-├── tiger_flypy_mix.schema.yaml	# 虎单小鹤双拼混输方案
 ├── tigress.custom.yaml			# 虎词方案补丁
 ├── tigress.extended.dict.yaml	# 虎词方案词库
 ├── tigress.schema.yaml			# 虎词方案
@@ -140,11 +138,6 @@
 - **特色**：纯净无词组干扰，专注于单字击打。
 - **辅助**：支持开启**拆分滤镜**（Switch: `chaifen`），显示字根拆分辅助记忆。
 
-### 🐯🦩 虎码小鹤双拼混输 (Tiger Flypy Mix) - `tiger_flypy_mix.schema.yaml`
-
-- **定位**：适合小鹤双拼转虎码的用户，支持打虎单以及使用小鹤双拼打词或句子。
-- **特色**：整合了虎码单字版和小鹤双拼的输入规则，匹配到虎码单字将位于第一候选。
-
 ### 🐯 虎码词库版 (Tigress) - `tigress.schema.yaml`
 
 - **定位**：适合日常整句、词组输入（仍是四码）。
@@ -158,7 +151,7 @@
 
 小鹤双拼辅助码：输入双拼后加 `;`（个人习惯两个键输入双拼，辅助码仅用于难以选词时使用）
 
-双拼和混熟自定义短语文件：`custom_phrase.txt`
+双拼自定义短语文件：`custom_phrase.txt`
 
 > PY\_c.schema.yaml 是基于拼音 ++ 改造的小鹤双拼方案，整合了小鹤双拼的输入规则，暂时不直接用于输入方案，而是作为虎码反查使用
 
