@@ -2,7 +2,7 @@
 # 用户自定义配置，使用librime patch语法覆盖space.yaml中的配置
 
 patch:
-  schema_id: tiger_flypy_mix
+  schema_id: tiger
   schema: huma_rime_config
   schema_dir: schemas/
   theme: t26_pure
