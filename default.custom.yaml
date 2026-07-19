@@ -35,7 +35,7 @@ patch:
     - zh_hant_tw
   "switcher/fold_options": true # 折叠方案切换选项
   "switcher/abbreviate_options": true # 方案切换选项简写
-  "switcher/option_list_separator": "|" # 方案切换选项分隔符
+  "switcher/option_list_separator": "/" # 方案切换选项分隔符
 
   # 候选项个数
   "menu/page_size": 9
