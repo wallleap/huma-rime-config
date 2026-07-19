@@ -39,7 +39,7 @@ patch:
     "<": "《"
     ">": "》"
 
-  speller/alphabet: "['zyxwvutsrqponmlkjihgfedcba;]" # ;辅助码分割
+  speller/alphabet: "['zyxwvutsrqponmlkjihgfedcba;]/" # ;辅助码分割
 
   # 语言模型
   "grammar/language": wanxiang-lts-zh-hans
