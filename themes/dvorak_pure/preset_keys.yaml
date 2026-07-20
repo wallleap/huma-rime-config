@@ -1,0 +1,134 @@
+# custom settings
+# encoding: utf-8
+
+# 自定义按键
+custom:
+  __include: ./../public/preset_keys/default:/preset_keys
+  function_keyboard_my_selectAll: { icon: "smart_selection_area.svg", label: "全选", send: function, command: keyboard.selectAll, option: "" }
+  function_keyboard_my_cut: { icon: "cut.svg", label: "剪切", send: function, command: keyboard.cut, option: "" }
+  function_keyboard_my_copy: { icon: "doc_plaintext_2.svg", label: "复制", send: function, command: keyboard.copy, option: "" }
+  function_keyboard_my_paste: { icon: "text_clipboard.svg", label: "粘贴", send: function, command: keyboard.paste, option: "" }
+  eisu_toggle_edit_setting:
+    {
+      icon: "rename.svg",
+      label: "快捷编辑",
+      send: Eisu_toggle,
+      select: _setting_board,
+      option:
+        [
+          function_keyboard_my_selectAll,
+          function_keyboard_my_cut,
+          function_keyboard_my_copy,
+          function_keyboard_my_paste,
+          function_keyboard_newline,
+          function_keyboard_clearAll,
+          function_keyboard_clearLeft,
+          function_keyboard_clearRight,
+          function_keyboard_undo,
+          function_keyboard_redo,
+          function_keyboard_deleteLeft,
+          function_keyboard_deleteRight,
+        ],
+    }
+  eisu_toggle_schema_english:
+    {
+      icon: "textformat.svg",
+      label: "中文",
+      send: Eisu_toggle,
+      select: easy_english,
+      option: schema,
+    }
+  eisu_toggle_schema_default:
+    {
+      icon: "textformat.svg",
+      label: "英文",
+      send: Eisu_toggle,
+      select: .default,
+      option: schema,
+    }
+  eisu_toggle_keyboard_english:
+    {
+      icon: "keyboard_zh.svg",
+      label: "中/英",
+      send: Eisu_toggle,
+      select: english,
+    }
+  eisu_toggle_keyboard_english_sm_md:
+    {
+      icon: "keyboard_zh.svg",
+      label: "中/英",
+      send: Eisu_toggle,
+      select: english_sm_md,
+    }
+  eisu_toggle_keyboard_english_schema_easy_english:
+    {
+      icon: "keyboard_badge_globe.svg",
+      label: "中/英",
+      text: "{eisu_toggle_keyboard_english}{eisu_toggle_schema_english}",
+    }
+  eisu_toggle_keyboard_english_sm_md_schema_easy_english:
+    {
+      icon: "keyboard_badge_globe.svg",
+      label: "中/英",
+      text: "{eisu_toggle_keyboard_english_sm_md}{eisu_toggle_schema_english}",
+    }
+  eisu_toggle_keyboard_default:
+    {
+      icon: "keyboard_en.svg",
+      label: "英/中",
+      send: Eisu_toggle,
+      select: default,
+    }
+  eisu_toggle_keyboard_default_sm_md:
+    {
+      icon: "keyboard_en.svg",
+      label: "英/中",
+      send: Eisu_toggle,
+      select: default_sm_md,
+    }
+  commit_grave: { label: "`", commit: grave }
+  commit_doublequote: { label: "\"", commit: "\"" }
+  commit_apostrophe: { label: "'", commit: "'" }
+  commit_slash: { label: "/", commit: "/" }
+  commit_comma: { label: ",", commit: "," }
+  commit_period: { label: ".", commit: "." }
+  commit_semicolon: { label: ";", commit: ";" }
+  text_halfbracket: { label: "()", text: "(){Left}" } # 先上屏()光标往左移动一格
+  text_fullbracket: { label: "（）", text: "（）{Left}" }
+  text_halfsquarebracket: { label: "[]", text: "[]{Left}" }
+  text_fullsquarebracket: { label: "【】", text: "【】{Left}" }
+  text_halfchineseguillemet: { label: "<>", text: "<>{Left}" }
+  text_fullchineseguillemet: { label: "《》", text: "《》{Left}" }
+  send_grave: { label: "`", send: grave }
+  send_equal: { label: "=", send: equal }
+  text_grave_default_no_functional: { label: "`", text: "{send_grave}{eisu_toggle_keyboard_default}", functional: false } #先上屏`再跳转到default键盘
+
+  # 【全局强制锁定】从这里开始到# END LOCK AREA之间的所有代码
+  # 【START LOCKED SECTION - READ ONLY - NO EDIT】
+  tiger_P: { label: "长镸刀〢刂リ\n儿戈黑弋臼米\n鼠足⻊行走", text: "{function_rime_clear}", functional: false }
+  tiger_Y: { label: "爪爫卜⺊车車瓜至曲\n四罒小⺌𡭔酉", text: "{function_rime_clear}", functional: false }
+  tiger_F: { label: "㡀辰骨冎一㇀\n且示礻亡亾", text: "{function_rime_clear}", functional: false }
+  tiger_G: { label: "歹歺高句丨亅\n士土韦羊⺷⺶芈", text: "{function_rime_clear}", functional: false }
+  tiger_C: { label: "不虫飞古火灬\n支及尸业", text: "{function_rime_clear}", functional: false }
+  tiger_R: { label: "非之巾囗(框)了皮七\n殳竹⺮瓦又ス", text: "{function_rime_clear}", functional: false }
+  tiger_L: { label: "艹廾丌艸齿而方廿龷\n千生卅夕卌牙", text: "{function_rime_clear}", functional: false }
+  tiger_A: { label: "疒丁㇆乛⺄㇗乚ヿㄋㄅ\n丰龶缶鬼乙六耒\n门皿片爿丬舌未", text: "{function_rime_clear}", functional: false }
+  tiger_O: { label: "贝川巛巜自几⺇\n日曰⺜矢尤尢", text: "{function_rime_clear}", functional: false }
+  tiger_E: { label: "干见木朩欠彡𠂉穴也", text: "{function_rime_clear}", functional: false }
+  tiger_U: { label: "雨⻗用白辶工隹手廴", text: "{function_rime_clear}", functional: false }
+  tiger_I: { label: "册丶㇏艮丩立\n舟糸纟予乡幺", text: "{function_rime_clear}", functional: false }
+  tiger_D: { label: "口〇里民黾无旡由", text: "{function_rime_clear}", functional: false }
+  tiger_H: { label: "八丷䒑癶夫谷\n子夂夊攵攴壴\n心忄⺗", text: "{function_rime_clear}", functional: false }
+  tiger_T: { label: "阝弗𢎨𠂔革衣衤\n斤龙丿㇒疋𤴓⺪三", text: "{function_rime_clear}", functional: false }
+  tiger_N: { label: "甫鬲黄勹匚コ马\n十𠂇戊戉王辛", text: "{function_rime_clear}", functional: false }
+  tiger_S: { label: "屮各止龰\n甲力尚龸言讠", text: "{function_rime_clear}", functional: false }
+  tiger_Q: { label: "臣耳井老耂目\n牛牜⺧齐食饣田", text: "{function_rime_clear}", functional: false }
+  tiger_J: { label: "斗亼亽仑侖人亻豕入", text: "{function_rime_clear}", functional: false }
+  tiger_K: { label: "寸亥㠯九母水氵⺍氺\n厶龴毋毌", text: "{function_rime_clear}", functional: false }
+  tiger_X: { label: "厂⺁⺈广\n禾鹿鸟束乌音", text: "{function_rime_clear}", functional: false }
+  tiger_B: { label: "弓乂㐅彐彑\n卵卯面女氏\n聿肀云", text: "{function_rime_clear}", functional: false }
+  tiger_M: { label: "巴大二光户\n豸冂凵⺆两犬犭石", text: "{function_rime_clear}", functional: false }
+  tiger_W: { label: "乍冫⺀彳亍宀冖龟兔\n五鱼𩵋象页頁　", text: "{function_rime_clear}", functional: false }
+  tiger_V: { label: "匕已己㐄毛\n乃气禸⽱山巳文\n西覀月⺝", text: "{function_rime_clear}", functional: false }
+  tiger_Z: { label: "豆甘虎虍金钅卩ㄗ⺋\n可麻身㐆亠羽习", text: "{function_rime_clear}", functional: false }
+  # 【END LOCK AREA】

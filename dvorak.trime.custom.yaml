@@ -1,0 +1,171 @@
+# Trime theme settings patch: dvorak.trime.custom.yaml 同文输入法主题设置补丁
+# encoding: utf-8
+
+patch:
+  # 全局字体设置
+  "style/candidate_font":
+    [
+      Consolas.ttf,
+      SegoeUIEmoji.ttf,
+      NotoColorEmoji-Regular.ttf,
+      wwyhei.ttf,
+      TumanPUA.ttf,
+      TH-Times.ttc,
+      TH-Tshyn-P0.ttf,
+      TH-Tshyn-P1.ttf,
+      TH-Tshyn-P2.ttf,
+      TH-Tshyn-P16.ttf,
+      simsun.ttc,
+      simsunb.ttf,
+      simsung.ttf,
+    ]
+  "style/comment_font":
+    [
+      Consolas.ttf,
+      SegoeUIEmoji.ttf,
+      NotoColorEmoji-Regular.ttf,
+      wwyhei.ttf,
+      TumanPUA.ttf,
+      TH-Times.ttc,
+      TH-Tshyn-P0.ttf,
+      TH-Tshyn-P1.ttf,
+      TH-Tshyn-P2.ttf,
+      TH-Tshyn-P16.ttf,
+      simsun.ttc,
+      simsunb.ttf,
+      simsung.ttf,
+    ]
+
+  # 自定义配色方案
+  "preset_color_schemes/a_yellow_gradient":
+    name: 暖黄渐变 / Yellow Gradient
+    author: vonnelu
+    dark_scheme: a_dark_brown_tone # 对应暗色颜色
+    # ▼悬浮窗口
+    border_color: 0xfff0e8d0 # 悬浮窗边框
+    label_color: 0xff333333 # 悬浮窗候选序号
+    hilited_text_color: 0xff333333 # 高亮编码
+    text_color: 0xff333333 # 编码
+    hilited_back_color: 0xfffdd866 # 高亮编码背景
+    text_back_color: 0xfff5f5f5 # 编码区背景 ☆支持图片
+    # ▼输入面板
+    root_background: 0xfff5f5f5 # 键盘和候选区整体背景 ☆
+    # ▼候选项
+    back_color: 0xfff5f5f5 # 候选区背景
+    candidate_backgroud: 0xfff5f5f5 # 候选区整体背景 ☆
+    hilited_candidate_back_color: 0xfffdd866 # 高亮候选背景
+    candidate_separator_color: 0xfff0e8d0 # 候选分割线
+    candidate_text_color: 0xff333333 # 候选文本
+    hilited_candidate_text_color: 0xff333333 # 高亮候选文本
+    comment_text_color: 0xff999999 # 候选项注释
+    hilited_comment_text_color: 0xff333333 # 高亮候选项注释
+    # ▼键盘
+    key_back_color: 0x7fffffff # 按键背景 ☆
+    hilited_key_back_color: 0xfffdd866 # 高亮按键背景 ☆
+    key_text_color: 0xff333333 # 按键文本
+    hilited_key_text_color: 0xff333333 # 高亮按键文本
+    key_symbol_color: 0xff999999 # 按键符号
+    hilited_key_symbol_color: 0xff333333 # 高亮按键符号
+    popup_back_color: 0xccfdd866 # 按键提示背景
+    popup_text_color: 0xff333333 # 按键提示文本
+    hilited_popup_text_color: 0xff333333 # 高亮按键提示文本
+    shadow_color: 0x20ffe0b0 # 按键文字阴影
+    keyboard_back_color: keyboard-light.png # 键盘背景（使用下面这个） ☆
+    # keyboard_backgroud: keyboard-light.png # 键盘背景，铺满候选栏和导航栏 ☆
+    liquid_keyboard_backgroud: 0xfff5f5f5 # liquidKeyBoard 键盘背景 ☆
+    long_text_back_color: 0xfff5f5f5 # 长文本的按键背景（比如剪贴板） ☆
+    key_border_color: 0xfff0e8d0 # 按键边框
+    # ▼功能键
+    off_key_back_color: 0xcce7e6e4 # 功能键背景 ☆
+    hilited_off_key_back_color: 0xfffdd866 # 功能键高亮背景（按下时） ☆
+    off_key_text_color: 0xff333333 # 功能键文本
+    hilited_off_key_text_color: 0xff333333 # 功能键高亮文本
+    on_key_back_color: 0xfffdd866 # Shift 键锁定时背景 ☆
+    hilited_on_key_back_color: 0xfffdd866 # Shift 键锁定时背景（按下时） ☆
+    on_key_text_color: 0xff333333 # Shift 键锁定时文本
+    hilited_on_key_text_color: 0xff333333 # Shift 键锁定时高亮文本
+    # ▼后面使用
+    bkg: 0x7fffffff # 空格键背景色
+    tkg: 0xff333333 # 空格键文字颜色
+    benter: 0xfffdd866 # 回车键背景色
+    tenter: 0xff333333 # 回车键文字颜色
+    bgn: 0xcce7e6e4 # 功能键背景色
+    tgn: 0xff333333 # 功能键文字颜色
+    bbs: 0xcce7e6e4 # 退格键背景色
+    tbs: 0xff333333 # 退格键文字颜色
+    baoe: 0xcce7e6e4 # aoeiu背景色
+    taoe: 0xff333333 # aoeiu文字颜色
+    bh1: 0x7fffffff # 第一行背景色
+    th1: 0xff333333 # 第一行文字颜色
+    bh2: 0x7fffffff # 第二行背景色
+    th2: 0xff333333 # 第二行文字颜色
+    bh3: 0x7fffffff # 第三行背景色
+    th3: 0xff333333 # 第三行文字颜色
+    bh4: 0x7fffffff # 第四行背景色
+    th4: 0xff333333 # 第四行文字颜色
+  "preset_color_schemes/a_dark_brown_tone":
+    name: 深棕暗调 / Dark Brown Tone
+    author: vonnelu
+    light_schema: a_yellow_gradient
+    # ▼悬浮窗口
+    border_color: 0xff4a3c32 # 悬浮窗边框
+    label_color: 0xffffffff # 悬浮窗候选序号
+    hilited_text_color: 0xffffffff # 高亮编码
+    text_color: 0xffffffff # 编码
+    hilited_back_color: 0xff995a3e # 高亮编码背景
+    text_back_color: 0xff2d231d # 编码区背景 ☆支持图片
+    # ▼输入面板
+    root_background: 0xff2d231d # 键盘和候选区整体背景 ☆
+    # ▼候选项
+    back_color: 0xff2d231d # 候选区背景
+    candidate_backgroud: 0xff2d231d # 候选区整体背景 ☆
+    hilited_candidate_back_color: 0xff995a3e # 高亮候选背景
+    candidate_separator_color: 0xff4a3c32 # 候选分割线
+    candidate_text_color: 0xffffffff # 候选文本
+    hilited_candidate_text_color: 0xffffffff # 高亮候选文本
+    comment_text_color: 0xffcccccc # 候选项注释
+    hilited_comment_text_color: 0xffffffff # 高亮候选项注释
+    # ▼键盘
+    key_back_color: 0x7f4a3c32 # 按键背景 ☆
+    hilited_key_back_color: 0xff995a3e # 高亮按键背景 ☆
+    key_text_color: 0xffffffff # 按键文本
+    hilited_key_text_color: 0xffffffff # 高亮按键文本
+    key_symbol_color: 0xffcccccc # 按键符号
+    hilited_key_symbol_color: 0xffffffff # 高亮按键符号
+    popup_back_color: 0xcc995a3e # 按键提示背景
+    popup_text_color: 0xffffffff # 按键提示文本
+    hilited_popup_text_color: 0xffffffff # 高亮按键提示文本
+    shadow_color: 0x30000000 # 按键文字阴影
+    keyboard_back_color: keyboard-dark.png # 键盘背景（使用下面这个） ☆
+    # keyboard_backgroud: keyboard-dark.png # 键盘背景，铺满候选栏和导航栏 ☆
+    liquid_keyboard_backgroud: 0xff2d231d # liquidKeyBoard 键盘背景 ☆
+    long_text_back_color: 0xff2d231d # 长文本的按键背景（比如剪贴板） ☆
+    key_border_color: 0xff5a483c # 按键边框
+    # ▼功能键
+    off_key_back_color: 0xcc4a3c32 # 功能键背景 ☆
+    hilited_off_key_back_color: 0xff995a3e # 功能键高亮背景（按下时） ☆
+    off_key_text_color: 0xffffffff # 功能键文本
+    hilited_off_key_text_color: 0xffffffff # 功能键高亮文本
+    on_key_back_color: 0xff995a3e # Shift 键锁定时背景 ☆
+    hilited_on_key_back_color: 0xff995a3e # Shift 键锁定时背景（按下时） ☆
+    on_key_text_color: 0xffffffff # Shift 键锁定时文本
+    hilited_on_key_text_color: 0xffffffff # Shift 键锁定时高亮文本
+    # ▼后面使用
+    bkg: 0x7f4a3c32 # 空格键背景色
+    tkg: 0xffffffff # 空格键文字颜色
+    benter: 0xff995a3e # 回车键背景色
+    tenter: 0xffffffff # 回车键文字颜色
+    bgn: 0xcc4a3c32 # 功能键背景色
+    tgn: 0xffffffff # 功能键文字颜色
+    bbs: 0xcc4a3c32 # 退格键背景色
+    tbs: 0xffffffff # 退格键文字颜色
+    baoe: 0xcc4a3c32 # aoeiu背景色
+    taoe: 0xffffffff # aoeiu文字颜色
+    bh1: 0x7f4a3c32 # 第一行背景色
+    th1: 0xffffffff # 第一行文字颜色
+    bh2: 0x7f4a3c32 # 第二行背景色
+    th2: 0xffffffff # 第二行文字颜色
+    bh3: 0x7f4a3c32 # 第三行背景色
+    th3: 0xffffffff # 第三行文字颜色
+    bh4: 0x7f4a3c32 # 第四行背景色
+    th4: 0xffffffff # 第四行文字颜色

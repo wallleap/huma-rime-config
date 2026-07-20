@@ -1,0 +1,5 @@
+# encoding: utf-8
+__include: ./../public/info/default:/
+name: Dvorak 朴素
+author: vonnelu
+version: 1.0.0
