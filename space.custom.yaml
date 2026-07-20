@@ -7,7 +7,7 @@ patch:
   schema_dir: schemas/
   theme: t26_pure
   theme_dir: schemas/huma_rime_config/themes/
-  font: tumapua
+  font: wwyhei
   font_dir: schemas/huma_rime_config/fonts/
   symbol: default
   symbol_dir: symbols/
@@ -24,4 +24,4 @@ patch:
   haptic_dir: haptics/
   schema_use_theme:
     custom:
-      tiger_flypy_mix: schemas/huma_rime_config/themes/t26_pure
+      tiger: schemas/huma_rime_config/themes/t26_pure
