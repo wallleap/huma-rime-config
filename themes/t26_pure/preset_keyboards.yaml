@@ -45,137 +45,137 @@ custom:
       - {
           click: q,
           label: Q,
-          swipe_up: commit_1,
-          swipe_down: "一",
-          long_click: [commit_q, commit_1, commit_Q],
+          swipe_up: send_1,
+          swipe_down: tiger_Q,
+          long_click: [commit_q, commit_1, "一", commit_Q],
         }
       - {
           click: w,
           label: W,
-          swipe_up: commit_2,
-          swipe_down: "二",
-          long_click: [commit_w, commit_2, commit_W],
+          swipe_up: send_2,
+          swipe_down: tiger_W,
+          long_click: [commit_w, commit_2, "二", commit_W],
         }
       - {
           click: e,
           label: E,
-          swipe_up: commit_3,
-          swipe_down: "三",
-          long_click: [commit_e, commit_3, commit_E],
+          swipe_up: send_3,
+          swipe_down: tiger_E,
+          long_click: [commit_e, commit_3, "三", commit_E],
         }
       - {
           click: r,
           label: R,
-          swipe_up: commit_4,
-          swipe_down: "四",
-          long_click: [commit_r, commit_4, commit_R],
+          swipe_up: send_4,
+          swipe_down: tiger_R,
+          long_click: [commit_r, commit_4, "四", commit_R],
         }
       - {
           click: t,
           label: T,
-          swipe_up: commit_5,
-          swipe_down: "五",
-          long_click: [commit_t, commit_5, commit_T],
+          swipe_up: send_5,
+          swipe_down: tiger_T,
+          long_click: [commit_t, commit_5, "五", commit_T],
         }
       - {
           click: y,
           label: Y,
-          swipe_up: commit_6,
-          swipe_down: "六",
-          long_click: [commit_y, commit_6, commit_Y],
+          swipe_up: send_6,
+          swipe_down: tiger_Y,
+          long_click: [commit_y, commit_6, "六", commit_Y],
         }
       - {
           click: u,
           label: U,
-          swipe_up: commit_7,
-          swipe_down: "七",
-          long_click: [commit_u, commit_7, commit_U],
+          swipe_up: send_7,
+          swipe_down: tiger_U,
+          long_click: [commit_u, commit_7, "七", commit_U],
         }
       - {
           click: i,
           label: I,
-          swipe_up: commit_8,
-          swipe_down: "八",
-          long_click: [commit_i, commit_8, commit_I],
+          swipe_up: send_8,
+          swipe_down: tiger_I,
+          long_click: [commit_i, commit_8, "八", commit_I],
         }
       - {
           click: o,
           label: O,
-          swipe_up: commit_9,
-          swipe_down: "九",
-          long_click: [commit_o, commit_9, commit_O],
+          swipe_up: send_9,
+          swipe_down: tiger_O,
+          long_click: [commit_o, commit_9, "九", commit_O],
         }
       - {
           click: p,
           label: P,
-          swipe_up: commit_0,
-          swipe_down: "〇",
-          long_click: [commit_p, commit_0, commit_P],
+          swipe_up: send_0,
+          swipe_down: tiger_P,
+          long_click: [commit_p, commit_0, "零", "〇", commit_P],
         }
-      - { width: 5 }
       #2
+      - { width: 5 }
       - {
           click: a,
           label: A,
-          swipe_up: commit_halfminus,
-          swipe_down: "-",
-          long_click: [commit_a, commit_halfminus, commit_A],
+          swipe_up: "~",
+          swipe_down: tiger_A,
+          long_click: [commit_a, commit_tilde, commit_A],
         }
       - {
           click: s,
           label: S,
-          swipe_up: commit_halfslash,
-          swipe_down: "/",
+          swipe_up: "/",
+          swipe_down: tiger_S,
           long_click: [commit_s, commit_halfslash, commit_S],
         }
       - {
           click: d,
           label: D,
-          swipe_up: commit_fullcolon,
-          swipe_down: ":",
+          swipe_up: ":",
+          swipe_down: tiger_D,
           long_click: [commit_d, commit_fullcolon, commit_D],
         }
       - {
           click: f,
           label: F,
-          swipe_up: commit_fullsemicolon,
-          swipe_down: ";",
+          swipe_up: ";",
+          swipe_down: tiger_F,
           long_click: [commit_f, commit_fullsemicolon, commit_F],
         }
       - {
           click: g,
           label: G,
-          swipe_up: text_halfbracket_left,
-          swipe_down: "(",
-          long_click: [commit_g, text_halfbracket_left, commit_G],
+          swipe_up: text_half_bracket,
+          swipe_down: tiger_G,
+          long_click: [commit_g, text_half_bracket, commit_G],
         }
       - {
           click: h,
           label: H,
-          swipe_up: commit_half_rightparen,
-          swipe_down: ")",
-          long_click: [commit_h, commit_half_rightparen, commit_H],
+          swipe_up: "——",
+          swipe_down: tiger_H,
+          long_click: [commit_h, "_", commit_H],
         }
       - {
           click: j,
           label: J,
-          swipe_up: commit_halfat,
-          swipe_down: "@",
+          swipe_up: "@",
+          swipe_down: tiger_J,
           long_click: [commit_j, commit_halfat, commit_J],
         }
       - {
           click: k,
           label: K,
-          swipe_up: text_fullquotationmark_left,
-          swipe_down: '"',
-          long_click: [commit_k, text_fullquotationmark_left, commit_K],
+          swipe_up: text_quote,
+          swipe_down: tiger_K,
+          long_click: [commit_k, text_quote, commit_K],
         }
       - {
           click: l,
           label: L,
-          swipe_up: commit_halfquote,
-          swipe_down: "'",
-          long_click: [commit_l, commit_halfquote, commit_L],
+          swipe_up: "=",
+          swipe_down: tiger_L,
+          long_click: [commit_l, commit_equal, commit_L],
         }
       - { width: 5 }
       #3
@@ -190,50 +190,50 @@ custom:
       - {
           click: z,
           label: Z,
-          swipe_up: "~",
-          swipe_down: "`",
-          long_click: [commit_z, "~", commit_Z],
+          swipe_up: send_grave,
+          swipe_down: tiger_Z,
+          long_click: [commit_z, commit_grave, commit_Z],
         }
       - {
           click: x,
           label: X,
-          swipe_up: commit_halfunderline,
-          swipe_down: "_",
-          long_click: [commit_x, commit_halfunderline, commit_X],
+          swipe_up: "*",
+          swipe_down: tiger_X,
+          long_click: [commit_x, commit_half_asterisk, commit_X],
         }
       - {
           click: c,
           label: C,
-          swipe_up: commit_halfpoundsign,
-          swipe_down: "#",
+          swipe_up: "#",
+          swipe_down: tiger_C,
           long_click: [commit_c, commit_halfpoundsign, commit_C],
         }
       - {
           click: v,
           label: V,
-          swipe_up: commit_fullquestionmark,
-          swipe_down: "?",
+          swipe_up: "?",
+          swipe_down: tiger_V,
           long_click: [commit_v, commit_fullquestionmark, commit_V],
         }
       - {
           click: b,
           label: B,
-          swipe_up: commit_fullexclamationpoint,
-          swipe_down: "!",
+          swipe_up: "!",
+          swipe_down: tiger_B,
           long_click: [commit_b, commit_fullexclamationpoint, commit_B],
         }
       - {
           click: n,
           label: N,
           swipe_up: "，",
-          swipe_down: commit_half_comma,
+          swipe_down: tiger_N,
           long_click: [commit_n, commit_half_comma, commit_N],
         }
       - {
           click: m,
           label: M,
           swipe_up: "。",
-          swipe_down: commit_halfperiod,
+          swipe_down: tiger_M,
           long_click: [commit_m, commit_halfperiod, commit_M],
         }
       - { width: 2 }
@@ -321,144 +321,143 @@ custom:
       - {
           click: q,
           label: Q,
-          swipe_up: commit_1,
-          swipe_down: "一",
-          long_click: [commit_q, commit_1, commit_Q],
+          swipe_up: send_1,
+          swipe_down: tiger_Q,
+          long_click: [commit_q, commit_1, "一", commit_Q],
         }
       - {
           click: w,
           label: W,
-          swipe_up: commit_2,
-          swipe_down: "二",
-          long_click: [commit_w, commit_2, commit_W],
+          swipe_up: send_2,
+          swipe_down: tiger_W,
+          long_click: [commit_w, commit_2, "二", commit_W],
         }
       - {
           click: e,
           label: E,
-          swipe_up: commit_3,
-          swipe_down: "三",
-          long_click: [commit_e, commit_3, commit_E],
+          swipe_up: send_3,
+          swipe_down: tiger_E,
+          long_click: [commit_e, commit_3, "三", commit_E],
         }
       - {
           click: r,
           label: R,
-          swipe_up: commit_4,
-          swipe_down: "四",
-          long_click: [commit_r, commit_4, commit_R],
+          swipe_up: send_4,
+          swipe_down: tiger_R,
+          long_click: [commit_r, commit_4, "四", commit_R],
         }
       - {
           click: t,
           label: T,
-          swipe_up: commit_5,
-          swipe_down: "五",
-          long_click: [commit_t, commit_5, commit_T],
+          swipe_up: send_5,
+          swipe_down: tiger_T,
+          long_click: [commit_t, commit_5, "五", commit_T],
         }
       - {
           click: y,
           label: Y,
-          swipe_up: commit_6,
-          swipe_down: "六",
-          long_click: [commit_y, commit_6, commit_Y],
+          swipe_up: send_6,
+          swipe_down: tiger_Y,
+          long_click: [commit_y, commit_6, "六", commit_Y],
         }
       - {
           click: u,
           label: U,
-          swipe_up: commit_7,
-          swipe_down: "七",
-          long_click: [commit_u, commit_7, commit_U],
+          swipe_up: send_7,
+          swipe_down: tiger_U,
+          long_click: [commit_u, commit_7, "七", commit_U],
         }
       - {
           click: i,
           label: I,
-          swipe_up: commit_8,
-          swipe_down: "八",
-          long_click: [commit_i, commit_8, commit_I],
+          swipe_up: send_8,
+          swipe_down: tiger_I,
+          long_click: [commit_i, commit_8, "八", commit_I],
         }
       - {
           click: o,
           label: O,
-          swipe_up: commit_9,
-          swipe_down: "九",
-          long_click: [commit_o, commit_9, commit_O],
+          swipe_up: send_9,
+          swipe_down: tiger_O,
+          long_click: [commit_o, commit_9, "九", commit_O],
         }
       - {
           click: p,
           label: P,
-          swipe_up: commit_0,
-          swipe_down: "〇",
-          long_click: [commit_p, commit_0, commit_P],
+          swipe_up: send_0,
+          swipe_down: tiger_P,
+          long_click: [commit_p, commit_0, "零", "〇", commit_P],
         }
-      - { width: 5 }
       #2
+      - { width: 5 }
       - {
           click: a,
           label: A,
-          swipe_up: commit_halfminus,
-          swipe_down: "-",
-          long_click: [commit_a, commit_halfminus, commit_A],
+          swipe_up: "~",
+          swipe_down: tiger_A,
+          long_click: [commit_a, commit_tilde, commit_A],
         }
       - {
           click: s,
           label: S,
-          swipe_up: commit_halfslash,
-          swipe_down: "/",
+          swipe_up: "/",
+          swipe_down: tiger_S,
           long_click: [commit_s, commit_halfslash, commit_S],
         }
       - {
           click: d,
           label: D,
-          swipe_up: commit_fullcolon,
-          swipe_down: ":",
+          swipe_up: ":",
+          swipe_down: tiger_D,
           long_click: [commit_d, commit_fullcolon, commit_D],
         }
       - {
           click: f,
           label: F,
-          swipe_up: commit_fullsemicolon,
-          swipe_down: ";",
+          swipe_up: ";",
+          swipe_down: tiger_F,
           long_click: [commit_f, commit_fullsemicolon, commit_F],
         }
       - {
           click: g,
           label: G,
-          swipe_up: text_halfbracket_left,
-          swipe_down: "(",
-          long_click: [commit_g, text_halfbracket_left, commit_G],
+          swipe_up: text_half_bracket,
+          swipe_down: tiger_G,
+          long_click: [commit_g, text_half_bracket, commit_G],
         }
       - {
           click: h,
           label: H,
-          swipe_up: commit_half_rightparen,
-          swipe_down: ")",
-          long_click: [commit_h, commit_half_rightparen, commit_H],
+          swipe_up: "——",
+          swipe_down: tiger_H,
+          long_click: [commit_h, "_", commit_H],
         }
       - {
           click: j,
           label: J,
-          swipe_up: commit_halfat,
-          swipe_down: "@",
+          swipe_up: "@",
+          swipe_down: tiger_J,
           long_click: [commit_j, commit_halfat, commit_J],
         }
       - {
           click: k,
           label: K,
-          swipe_up: text_fullquotationmark_left,
-          swipe_down: '"',
-          long_click: [commit_k, text_fullquotationmark_left, commit_K],
+          swipe_up: text_quote,
+          swipe_down: tiger_K,
+          long_click: [commit_k, text_quote, commit_K],
         }
       - {
           click: l,
           label: L,
-          swipe_up: commit_halfquote,
-          swipe_down: "'",
-          long_click: [commit_l, commit_halfquote, commit_L],
+          swipe_up: "=",
+          swipe_down: tiger_L,
+          long_click: [commit_l, commit_equal, commit_L],
         }
       - { width: 5 }
       #3
       - {
           click: shift,
           has_menu: text_delimiter,
-          composing: text_delimiter,
           width: 13,
           name: shift,
           preview: false,
@@ -467,50 +466,50 @@ custom:
       - {
           click: z,
           label: Z,
-          swipe_up: "~",
-          swipe_down: "`",
-          long_click: [commit_z, "~", commit_Z],
+          swipe_up: send_grave,
+          swipe_down: tiger_Z,
+          long_click: [commit_z, commit_grave, commit_Z],
         }
       - {
           click: x,
           label: X,
-          swipe_up: commit_halfunderline,
-          swipe_down: "_",
-          long_click: [commit_x, commit_halfunderline, commit_X],
+          swipe_up: "*",
+          swipe_down: tiger_X,
+          long_click: [commit_x, commit_half_asterisk, commit_X],
         }
       - {
           click: c,
           label: C,
-          swipe_up: commit_halfpoundsign,
-          swipe_down: "#",
+          swipe_up: "#",
+          swipe_down: tiger_C,
           long_click: [commit_c, commit_halfpoundsign, commit_C],
         }
       - {
           click: v,
           label: V,
-          swipe_up: commit_fullquestionmark,
-          swipe_down: "?",
+          swipe_up: "?",
+          swipe_down: tiger_V,
           long_click: [commit_v, commit_fullquestionmark, commit_V],
         }
       - {
           click: b,
           label: B,
-          swipe_up: commit_fullexclamationpoint,
-          swipe_down: "!",
+          swipe_up: "!",
+          swipe_down: tiger_B,
           long_click: [commit_b, commit_fullexclamationpoint, commit_B],
         }
       - {
           click: n,
           label: N,
           swipe_up: "，",
-          swipe_down: commit_half_comma,
+          swipe_down: tiger_N,
           long_click: [commit_n, commit_half_comma, commit_N],
         }
       - {
           click: m,
           label: M,
           swipe_up: "。",
-          swipe_down: commit_halfperiod,
+          swipe_down: tiger_M,
           long_click: [commit_m, commit_halfperiod, commit_M],
         }
       - { width: 2 }
@@ -734,7 +733,7 @@ custom:
   number:
     #。？！…（））；、～:[]ï`#：+*/×
     __include: ./../public/preset_menu/default:/preset_menu/symbol_menu
-    ascii_mode: 1
+    ascii_mode: 0
     name: number
     preview: false
     height: 46
@@ -744,7 +743,7 @@ custom:
       # - {width: 1}
       - {
           collection:
-            ["+", "-", "×", "/", "%", "=", ",", "#", "?", ".", ":", "*"],
+            ["+", "-", "*", "/", "%", "(", ")", "#", ":", "×"],
           width: 17,
           height: 162,
           height_land: 110,
@@ -787,7 +786,7 @@ custom:
           name: default,
         }
       - { click: eisu_toggle_返回_default, width: 22, height: 46 }
-      - { click: commit_0, height: 46 }
+      - { click: 0, height: 46 }
       - { click: space, name: space, swipe_down: Tab, height: 46 }
       - {
           click: return,
@@ -808,7 +807,7 @@ custom:
   number_sm_md:
     #。？！…（））；、～:[]ï`#：+*/×
     __include: ./../public/preset_menu/default:/preset_menu/symbol_menu
-    ascii_mode: 1
+    ascii_mode: 0
     name: number
     preview: false
     vertical_gap: 4
@@ -819,7 +818,7 @@ custom:
       # - {width: 1}
       - {
           collection:
-            ["+", "-", "×", "/", "%", "=", ",", "#", "?", ".", ":", "*"],
+            ["+", "-", "*", "/", "%", "(", ")", "#", ":", "×"],
           width: 17,
           height: 101,
           height_land: 111,
@@ -856,7 +855,7 @@ custom:
       # - {width: 1}
       - { click: eisu_toggle_符_dotsymbols, width: 17, name: default }
       - { click: eisu_toggle_返回_default_sm_md, width: 22 }
-      - { click: commit_0 }
+      - { click: 0 }
       - { click: space, name: space, swipe_down: Tab }
       - {
           click: return,

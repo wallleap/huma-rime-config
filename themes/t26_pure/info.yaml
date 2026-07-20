@@ -1,4 +1,7 @@
 # encoding: utf-8
 __include: ./../public/info/default:/
 name: 中文26键朴素
-version: 1.0.0
+version: 1.0.1
+create_date: 2025-12-27
+update_date: 2026-07-20
+url: https://github.com/wallleap/huma-rime-config/themes/t26_pure
