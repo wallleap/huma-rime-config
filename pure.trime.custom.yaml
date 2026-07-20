@@ -8,15 +8,15 @@ patch:
       Consolas.ttf,
       SegoeUIEmoji.ttf,
       NotoColorEmoji-Regular.ttf,
-      LXGWWenKaiGBScreen.ttf,
-      simsun.ttc,
-      simsunb.ttf,
-      simsung.ttf,
+      wwyhei.ttf,
+      TH-Times.ttc,
       TH-Tshyn-P0.ttf,
       TH-Tshyn-P1.ttf,
       TH-Tshyn-P2.ttf,
       TH-Tshyn-P16.ttf,
-      TH-Times.ttc,
+      simsun.ttc,
+      simsunb.ttf,
+      simsung.ttf,
     ]
   "style/comment_font":
     [
@@ -24,17 +24,15 @@ patch:
       NotoColorEmoji-Regular.ttf,
       SegoeUIEmoji.ttf,
       TumanPUA.ttf,
-      LXGWWenKaiGBScreen.ttf,
-      simsun.ttc,
-      simsunb.ttf,
-      simsung.ttf,
+      wwyhei.ttf,
+      TH-Times.ttc,
       TH-Tshyn-P0.ttf,
       TH-Tshyn-P1.ttf,
       TH-Tshyn-P2.ttf,
       TH-Tshyn-P16.ttf,
-      TH-Times.ttc,
-      NotoColorEmoji-Regular.ttf,
-      SegoeUIEmoji.ttf,
+      simsun.ttc,
+      simsunb.ttf,
+      simsung.ttf,
     ]
 
   # 自定义配色方案

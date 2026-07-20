@@ -109,9 +109,9 @@ patch:
   "style/horizontal": false
   "style/candidate_list_layout": stack
 
-  style/comment_font_face: "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, TumanPUA, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-  style/font_face: "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
-  style/label_font_face: "LXGW WenKai GB Screen, SimSun, SimSun-ExtB, SimSun-ExtG, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
+  style/comment_font_face: "wwyhei, Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, SimSun-ExtB, SimSun-ExtG"
+  style/font_face: "wwyhei, Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, SimSun, SimSun-ExtB, SimSun-ExtG"
+  style/label_font_face: "wwyhei, Consolas, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
 
   schema/ascii_icon: "icons/en.ico"
   schema/full_icon: "icons/full.ico"
