@@ -9,9 +9,9 @@ custom:
     ascii_mode: 0
     height: 46
     height_land: 34
-    horizontal_gap: 6
-    vertical_gap: 10
-    vertical_gap_land: 4
+    horizontal_gap: 4
+    vertical_gap: 6
+    vertical_gap_land: 3
     round_corner: 6
     key_text_offset_x: 0
     key_text_offset_y: 4
@@ -24,13 +24,13 @@ custom:
     key_down_text_offset_x: 0
     key_down_text_offset_y: -1
     key_down_press_text_offset_x: 0
-    key_down_press_text_offset_y: 0
+    key_down_press_text_offset_y: 1
     preview_round_corner: 9
     long_preview_round_corner: 9
     long_preview_padding: 0
     long_preview_margin: 4
     preview: true
-    shadow: { radius: 0.1, offsetX: 0, offsetY: 1.2, color: "#90949C" }
+    shadow: { radius: 0, offsetX: 0, offsetY: 0, color: "#90949C" }
     menu: { events: [
             eisu_toggle_emoji, # 显示emoji表情选择器
             function_common_speech_recognition, # 点击语音输入
@@ -147,7 +147,8 @@ custom:
           label: G,
           swipe_up: text_half_bracket,
           swipe_down: tiger_G,
-          long_click: [commit_g, text_half_bracket, commit_G],
+          long_click:
+            [commit_g, send_left_bracket, send_right_bracket, commit_G],
         }
       - {
           click: h,
@@ -168,7 +169,7 @@ custom:
           label: K,
           swipe_up: text_quote,
           swipe_down: tiger_K,
-          long_click: [commit_k, text_quote, commit_K],
+          long_click: [commit_k, "“", "”", commit_K],
         }
       - {
           click: l,
@@ -182,11 +183,10 @@ custom:
       - {
           click: shift,
           has_menu: text_delimiter,
-          width: 13,
+          width: 15,
           name: shift,
           preview: false,
         }
-      - { width: 2 }
       - {
           click: z,
           label: Z,
@@ -236,10 +236,9 @@ custom:
           swipe_down: tiger_M,
           long_click: [commit_m, commit_halfperiod, commit_M],
         }
-      - { width: 2 }
       - {
           click: backspace,
-          width: 13,
+          width: 15,
           name: backspace,
           preview: false,
           swipe_up: function_keyboard_clearAll,
@@ -248,20 +247,20 @@ custom:
       #4
       - {
           click: eisu_toggle_符_symbols,
-          width: 14,
+          width: 15,
           name: symbol,
           preview: false,
         }
       - {
           click: eisu_toggle_123_number,
           has_menu: text_halfperiod,
-          width: 13,
+          width: 15,
           name: number,
           preview: false,
         }
       - {
           click: space,
-          width: 38,
+          width: 36,
           name: space,
           swipe_up: select_second,
           swipe_down: Tab,
@@ -270,13 +269,13 @@ custom:
       - {
           click: eisu_toggle_keyboard_english_schema_easy_english,
           has_menu: text_halfcomma,
-          width: 11,
+          width: 12,
           name: english,
           preview: false,
         }
       - {
           click: return,
-          width: 24,
+          width: 22,
           name: return,
           swipe_up: select_third,
           composing: confirm,
@@ -294,7 +293,7 @@ custom:
         }
     width: 10
   default_sm_md:
-    vertical_gap: 4
+    vertical_gap: 3
     height: 31
     key_text_offset_x: 0
     key_text_offset_y: 3
@@ -423,7 +422,8 @@ custom:
           label: G,
           swipe_up: text_half_bracket,
           swipe_down: tiger_G,
-          long_click: [commit_g, text_half_bracket, commit_G],
+          long_click:
+            [commit_g, send_left_bracket, send_right_bracket, commit_G],
         }
       - {
           click: h,
@@ -444,7 +444,7 @@ custom:
           label: K,
           swipe_up: text_quote,
           swipe_down: tiger_K,
-          long_click: [commit_k, text_quote, commit_K],
+          long_click: [commit_k, "“", "”", commit_K],
         }
       - {
           click: l,
@@ -458,11 +458,10 @@ custom:
       - {
           click: shift,
           has_menu: text_delimiter,
-          width: 13,
+          width: 15,
           name: shift,
           preview: false,
         }
-      - { width: 2 }
       - {
           click: z,
           label: Z,
@@ -512,10 +511,9 @@ custom:
           swipe_down: tiger_M,
           long_click: [commit_m, commit_halfperiod, commit_M],
         }
-      - { width: 2 }
       - {
           click: backspace,
-          width: 13,
+          width: 15,
           name: backspace,
           preview: false,
           swipe_up: function_keyboard_clearAll,
@@ -524,20 +522,20 @@ custom:
       #4
       - {
           click: eisu_toggle_符_symbols_sm_md,
-          width: 14,
+          width: 15,
           name: symbol,
           preview: false,
         }
       - {
           click: eisu_toggle_123_number_sm_md,
           has_menu: text_halfperiod,
-          width: 13,
+          width: 15,
           name: number,
           preview: false,
         }
       - {
           click: space,
-          width: 38,
+          width: 36,
           name: space,
           swipe_up: select_second,
           swipe_down: Tab,
@@ -546,13 +544,13 @@ custom:
       - {
           click: eisu_toggle_keyboard_english_sm_md_schema_easy_english,
           has_menu: text_halfcomma,
-          width: 11,
+          width: 12,
           name: english,
           preview: false,
         }
       - {
           click: return,
-          width: 24,
+          width: 22,
           name: return,
           swipe_up: select_third,
           composing: confirm,
@@ -592,8 +590,8 @@ custom:
       - { click: i, swipe_up: commit_8, long_click: [i, 8, I] }
       - { click: o, swipe_up: commit_9, long_click: [o, 9, O] }
       - { click: p, swipe_up: commit_0, long_click: [p, 0, P] }
-      - { width: 5 }
       #2
+      - { width: 5 }
       - { click: a, swipe_up: "~", long_click: [a, "~", A] }
       - { click: s, swipe_up: "/", long_click: [s, "/", S] }
       - { click: d, swipe_up: ":", long_click: [d, ":", D] }
@@ -605,8 +603,7 @@ custom:
       - { click: l, swipe_up: "”", long_click: [l, "”", L] }
       - { width: 5 }
       #3
-      - { click: shift, width: 13, name: shift }
-      - { width: 2 }
+      - { click: shift, width: 15, name: shift }
       - { click: z, swipe_up: "-", long_click: [z, "-", Z] }
       - { click: x, swipe_up: "_", long_click: [x, "_", X] }
       - { click: c, swipe_up: "#", long_click: [c, "#", C] }
@@ -614,28 +611,26 @@ custom:
       - { click: b, swipe_up: "!", long_click: [b, "!", B] }
       - { click: n, swipe_up: ",", long_click: [n, ",", N] }
       - { click: m, swipe_up: ".", long_click: [m, ".", M] }
-      - { width: 2 }
       - {
           click: backspace,
-          width: 13,
+          width: 15,
           name: backspace,
           swipe_up: function_keyboard_clearAll,
           swipe_down: function_keyboard_undo,
         }
       #4
-      - { click: eisu_toggle_符_symbols, width: 14, name: symbol }
-      - { click: eisu_toggle_123_number, width: 10, name: number }
-      - { click: send_dot, width: 10 }
-      - { click: space, width: 31, name: space, swipe_down: Tab }
+      - { click: eisu_toggle_符_symbols, width: 15, name: symbol }
+      - { click: eisu_toggle_123_number, width: 15, name: number }
+      - { click: space, width: 36, name: space, swipe_down: Tab }
       - {
           click: eisu_toggle_en_zh_default_schema_default,
-          width: 11,
+          width: 12,
           name: english,
           preview: false,
         }
       - {
           click: return,
-          width: 24,
+          width: 22,
           name: return,
           composing: confirm,
           long_click:
@@ -674,8 +669,8 @@ custom:
       - { click: i, swipe_up: commit_8, long_click: [i, 9, I] }
       - { click: o, swipe_up: commit_9, long_click: [o, 9, O] }
       - { click: p, swipe_up: commit_0, long_click: [p, 0, P] }
-      - { width: 5 }
       #2
+      - { width: 5 }
       - { click: a, swipe_up: "~", long_click: [a, "~", A] }
       - { click: s, swipe_up: "/", long_click: [s, "/", S] }
       - { click: d, swipe_up: ":", long_click: [d, ":", D] }
@@ -687,8 +682,7 @@ custom:
       - { click: l, swipe_up: "”", long_click: [l, "”", L] }
       - { width: 5 }
       #3
-      - { click: shift, width: 13, name: shift }
-      - { width: 2 }
+      - { click: shift, width: 15, name: shift }
       - { click: z, swipe_up: "-", long_click: [z, "-", Z] }
       - { click: x, swipe_up: "_", long_click: [x, "_", X] }
       - { click: c, swipe_up: "#", long_click: [c, "#", C] }
@@ -696,28 +690,26 @@ custom:
       - { click: b, swipe_up: "!", long_click: [b, "!", B] }
       - { click: n, swipe_up: ",", long_click: [n, ",", N] }
       - { click: m, swipe_up: ".", long_click: [m, ".", M] }
-      - { width: 2 }
       - {
           click: backspace,
-          width: 13,
+          width: 15,
           name: backspace,
           swipe_up: function_keyboard_clearAll,
           swipe_down: function_keyboard_undo,
         }
       #4
-      - { click: eisu_toggle_符_symbols_sm_md, width: 14, name: symbol }
-      - { click: eisu_toggle_123_number_sm_md, width: 10, name: number }
-      - { click: send_dot, width: 10 }
-      - { click: space, width: 31, name: space, swipe_down: Tab }
+      - { click: eisu_toggle_符_symbols_sm_md, width: 15, name: symbol }
+      - { click: eisu_toggle_123_number_sm_md, width: 15, name: number }
+      - { click: space, width: 36, name: space, swipe_down: Tab }
       - {
           click: eisu_toggle_en_zh_default_sm_md_schema_default,
-          width: 11,
+          width: 12,
           name: english,
           preview: false,
         }
       - {
           click: return,
-          width: 24,
+          width: 22,
           name: return,
           composing: confirm,
           long_click:
@@ -736,30 +728,31 @@ custom:
     ascii_mode: 0
     name: number
     preview: false
+    horizontal_gap: 3
+    vertical_gap: 3
+    vertical_gap_land: 3
     height: 46
     width: 22
     keys:
       #1
       # - {width: 1}
       - {
-          collection:
-            ["+", "-", "*", "/", "%", "(", ")", "#", ":", "×"],
+          collection: ["+", "-", "*", "/", "%", "(", ")", "#", ":", "×"],
           width: 17,
-          height: 162,
+          height: 144,
           height_land: 110,
-          row_height: 39,
+          row_height: 36,
           row_height_land: 35,
           row_vertical_gap: 3,
           show_row_back_image: false,
           name: table,
         }
-      - { click: 1, height: 50 }
-      - { click: 2, height: 50 }
-      - { click: 3, height: 50 }
+      - { click: 1 }
+      - { click: 2 }
+      - { click: 3 }
       - {
           click: backspace,
           width: 17,
-          height: 50,
           name: backspace,
           swipe_up: function_keyboard_clearAll,
           swipe_down: function_keyboard_undo,
@@ -767,32 +760,26 @@ custom:
 
       # # #2
       - { width: 17 }
-      - { click: 4, height: 50 }
-      - { click: 5, height: 50 }
-      - { click: 6, height: 50 }
-      - { click: send_dot, width: 17, height: 50, name: dot }
+      - { click: 4 }
+      - { click: 5 }
+      - { click: 6 }
+      - { click: send_dot, width: 17, name: dot }
 
       - { width: 17 }
-      - { click: 7, height: 50 }
-      - { click: 8, height: 50 }
-      - { click: 9, height: 50 }
-      - { click: send_equal, width: 17, height: 50, name: send_equal }
+      - { click: 7 }
+      - { click: 8 }
+      - { click: 9 }
+      - { click: send_equal, width: 17, name: send_equal }
 
       # - {width: 1}
-      - {
-          click: eisu_toggle_符_dotsymbols,
-          width: 17,
-          height: 46,
-          name: default,
-        }
-      - { click: eisu_toggle_返回_default, width: 22, height: 46 }
-      - { click: 0, height: 46 }
-      - { click: space, name: space, swipe_down: Tab, height: 46 }
+      - { click: eisu_toggle_符_dotsymbols, width: 17, name: default }
+      - { click: eisu_toggle_返回_default, width: 22 }
+      - { click: 0 }
+      - { click: space, name: space, swipe_down: Tab }
       - {
           click: return,
           name: return,
           width: 17,
-          height: 46,
           composing: confirm,
           long_click:
             [
@@ -810,17 +797,18 @@ custom:
     ascii_mode: 0
     name: number
     preview: false
-    vertical_gap: 4
+    horizontal_gap: 3
+    vertical_gap: 3
+    vertical_gap_land: 3
     height: 31
     width: 22
     keys:
       #1
       # - {width: 1}
       - {
-          collection:
-            ["+", "-", "*", "/", "%", "(", ")", "#", ":", "×"],
+          collection: ["+", "-", "*", "/", "%", "(", ")", "#", ":", "×"],
           width: 17,
-          height: 101,
+          height: 88,
           height_land: 111,
           row_height: 31,
           row_height_land: 35,
