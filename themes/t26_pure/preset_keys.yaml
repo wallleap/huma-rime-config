@@ -160,160 +160,30 @@ custom:
 
   # 【全局强制锁定】从这里开始到# END LOCK AREA之间的所有代码
   # 【START LOCKED SECTION - READ ONLY - NO EDIT】
-  tiger_P:
-    {
-      label: "长镸刀〢刂リ儿\n戈黑弋臼米鼠足⻊行走",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_Y:
-    {
-      label: "爪爫卜⺊车車瓜至曲\n四罒小⺌𡭔酉",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_F:
-    {
-      label: "㡀辰骨冎一㇀\n且示礻亡亾",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_G:
-    {
-      label: "歹歺高句丨亅\n士土韦羊⺷⺶芈",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_C:
-    {
-      label: "不虫飞古火灬\n支及尸业",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_R:
-    {
-      label: "非之巾囗(框)了皮七\n殳竹⺮瓦又ス",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_L:
-    {
-      label: "艹廾丌艸齿而方廿龷\n千生卅夕卌牙",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_A:
-    {
-      label: "疒丁㇆乛⺄㇗乚ヿㄋㄅ丰龶缶\n鬼乙六耒门皿片爿丬舌未",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_O:
-    {
-      label: "贝川巛巜自几⺇\n日曰⺜矢尤尢",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_E:
-    {
-      label: "干见木朩欠彡𠂉穴也",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_U:
-    {
-      label: "雨⻗用白辶工隹手廴",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_I:
-    {
-      label: "册丶㇏艮丩立\n舟糸纟予乡幺",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_D:
-    {
-      label: "口〇里民黾无旡由",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_H:
-    {
-      label: "八丷䒑癶夫谷子\n夂夊攵攴壴心忄⺗",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_T:
-    {
-      label: "阝弗𢎨𠂔革衣衤\n斤龙丿㇒疋𤴓⺪三",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_N:
-    {
-      label: "甫鬲黄勹匚コ马\n十𠂇戊戉王辛",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_S:
-    {
-      label: "屮各止龰\n甲力尚龸言讠",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_Q:
-    {
-      label: "臣耳井老耂目\n牛牜⺧齐食饣田",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_J:
-    {
-      label: "斗亼亽仑侖人亻豕入",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_K:
-    {
-      label: "寸亥㠯九母水氵⺍氺\n厶龴毋毌",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_X:
-    {
-      label: "厂⺁⺈广\n禾鹿鸟束乌音",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_B:
-    {
-      label: "弓乂㐅彐彑卵卯\n面女氏聿肀云",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_M:
-    {
-      label: "巴大二光户\n豸冂凵⺆两犬犭石",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_W:
-    {
-      label: "乍冫⺀彳亍宀冖龟兔\n五鱼𩵋象页頁　",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_V:
-    {
-      label: "匕已己㐄毛乃气\n禸⽱山巳文西覀月⺝",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
-  tiger_Z:
-    {
-      label: "豆甘虎虍金钅卩ㄗ⺋\n可麻身㐆亠羽习",
-      text: "{function_rime_clear}",
-      functional: false,
-    }
+  tiger_A: { label: "疒丁㇆乛⺄㇗乚ヿㄋㄅ丰龶缶\n鬼乙六耒门皿片爿丬舌未", text: "{function_rime_clear}", functional: false }
+  tiger_B: { label: "弓乂㐅yì彐彑jì卵\n卯面女氏聿肀yù云", text: "{function_rime_clear}", functional: false }
+  tiger_C: { label: "不虫飞古火灬\n支及尸业", text: "{function_rime_clear}", functional: false }
+  tiger_D: { label: "口〇里民黾无旡由", text: "{function_rime_clear}", functional: false }
+  tiger_E: { label: "干见木朩欠\n彡shān𠂉穴也", text: "{function_rime_clear}", functional: false }
+  tiger_F: { label: "㡀bì辰骨冎一㇀\n且示礻亡亾", text: "{function_rime_clear}", functional: false }
+  tiger_G: { label: "歹歺高句丨亅\n士土韦羊⺷⺶芈", text: "{function_rime_clear}", functional: false }
+  tiger_H: { label: "八丷䒑癶夫谷子\n夂夊zhǐ攵攴pū壴zhù心忄⺗", text: "{function_rime_clear}", functional: false }
+  tiger_I: { label: "册丶㇏艮gěn丩jiū\n立舟糸纟sī予yǔ乡幺yāo", text: "{function_rime_clear}", functional: false }
+  tiger_J: { label: "斗亼亽jí仑侖人亻豕shǐ入", text: "{function_rime_clear}", functional: false }
+  tiger_K: { label: "寸亥㠯yǐ九母水氵⺍氺\n厶龴sī毋毌wú", text: "{function_rime_clear}", functional: false }
+  tiger_L: { label: "艹廾丌艸齿而方廿龷niàn\n千生卅sà夕卌xì牙", text: "{function_rime_clear}", functional: false }
+  tiger_M: { label: "巴大二光户豸zhì\n冂凵⺆两犬犭石", text: "{function_rime_clear}", functional: false }
+  tiger_N: { label: "甫鬲黄勹匚コ马\n十𠂇戊戉wù王辛", text: "{function_rime_clear}", functional: false }
+  tiger_O: { label: "贝川巛巜自几⺇\n日曰⺜矢尤尢", text: "{function_rime_clear}", functional: false }
+  tiger_P: { label: "长镸刀〢刂リ儿戈\n黑弋yì臼jiù米鼠足⻊行走", text: "{function_rime_clear}", functional: false }
+  tiger_Q: { label: "臣耳井老耂目\n牛牜⺧齐食饣田", text: "{function_rime_clear}", functional: false }
+  tiger_R: { label: "非之巾囗(框)了皮七\n殳shū竹⺮瓦又ス", text: "{function_rime_clear}", functional: false }
+  tiger_S: { label: "屮cǎo各止龰\n甲力尚龸言讠", text: "{function_rime_clear}", functional: false }
+  tiger_T: { label: "阝弗𢎨𠂔fú革衣衤斤\n龙丿㇒疋𤴓⺪shū三雨⻗用", text: "{function_rime_clear}", functional: false }
+  tiger_U: { label: "白辶chuò工隹zhuī\n手扌龵廴yǐn", text: "{function_rime_clear}", functional: false }
+  tiger_V: { label: "匕已己㐄kuà毛乃\n气禸⽱róu山巳文西覀月⺝", text: "{function_rime_clear}", functional: false }
+  tiger_W: { label: "乍zhà冫⺀bīng彳亍宀冖龟\n兔五鱼𩵋象页頁", text: "{function_rime_clear}", functional: false }
+  tiger_X: { label: "厂⺁⺈广禾\n鹿鸟束乌音", text: "{function_rime_clear}", functional: false }
+  tiger_Y: { label: "爪爫卜⺊bǔ车車瓜至\n曲四罒小⺌𡭔酉yǒu", text: "{function_rime_clear}", functional: false }
+  tiger_Z: { label: "豆甘虎虍金钅\n卩ㄗ⺋jié可麻身㐆亠羽习", text: "{function_rime_clear}", functional: false }
   # 【END LOCK AREA】

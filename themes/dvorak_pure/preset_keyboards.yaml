@@ -811,7 +811,10 @@ custom:
     ascii_mode: 0
     name: number
     preview: false
-    height: 46
+    horizontal_gap: 3
+    vertical_gap: 4
+    vertical_gap_land: 3
+    # height: 44
     width: 22
     keys:
       - {
@@ -826,41 +829,38 @@ custom:
           show_row_back_image: false,
           name: table,
         }
-      - { click: 1, height: 50 }
-      - { click: 2, height: 50 }
-      - { click: 3, height: 50 }
+      - { click: 1 }
+      - { click: 2 }
+      - { click: 3 }
       - {
           click: backspace,
           width: 17,
-          height: 50,
           name: backspace,
           swipe_up: function_keyboard_clearAll,
           swipe_down: function_keyboard_undo,
         }
       - { width: 17 }
-      - { click: 4, height: 50 }
-      - { click: 5, height: 50 }
-      - { click: 6, height: 50 }
-      - { click: send_dot, width: 17, height: 50, name: dot }
+      - { click: 4 }
+      - { click: 5 }
+      - { click: 6 }
+      - { click: send_dot, width: 17, name: dot }
       - { width: 17 }
-      - { click: 7, height: 50 }
-      - { click: 8, height: 50 }
-      - { click: 9, height: 50 }
-      - { click: send_equal, width: 17, height: 50, name: send_equal }
+      - { click: 7 }
+      - { click: 8 }
+      - { click: 9 }
+      - { click: send_equal, width: 17, name: send_equal }
       - {
           click: eisu_toggle_符_dotsymbols,
           width: 17,
-          height: 46,
           name: default,
         }
-      - { click: eisu_toggle_返回_default, width: 22, height: 46 }
-      - { click: commit_0, height: 46 }
-      - { click: space, name: space, swipe_down: Tab, height: 46 }
+      - { click: eisu_toggle_返回_default, width: 22 }
+      - { click: 0 }
+      - { click: space, name: space, swipe_down: Tab }
       - {
           click: return,
           name: return,
           width: 17,
-          height: 46,
           composing: confirm,
           long_click:
             [
@@ -877,7 +877,9 @@ custom:
     ascii_mode: 0
     name: number
     preview: false
+    horizontal_gap: 3
     vertical_gap: 4
+    vertical_gap_land: 3
     height: 31
     width: 22
     keys:
@@ -915,7 +917,7 @@ custom:
       - { click: commit_halfat, width: 17, name: halfat }
       - { click: eisu_toggle_符_dotsymbols, width: 17, name: default }
       - { click: eisu_toggle_返回_default_sm_md, width: 22 }
-      - { click: commit_0 }
+      - { click: 0 }
       - { click: space, name: space, swipe_down: Tab }
       - {
           click: return,
