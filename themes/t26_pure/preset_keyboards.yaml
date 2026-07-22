@@ -145,7 +145,7 @@ custom:
       - {
           click: g,
           label: G,
-          swipe_up: text_half_bracket,
+          swipe_up: text_bracket,
           swipe_down: tiger_G,
           long_click:
             [commit_g, send_left_bracket, send_right_bracket, commit_G],
@@ -420,7 +420,7 @@ custom:
       - {
           click: g,
           label: G,
-          swipe_up: text_half_bracket,
+          swipe_up: text_bracket,
           swipe_down: tiger_G,
           long_click:
             [commit_g, send_left_bracket, send_right_bracket, commit_G],

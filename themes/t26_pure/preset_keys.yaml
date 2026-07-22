@@ -15,6 +15,7 @@ custom:
   commit_half_asterisk: { label: "*", commit: "*" }
   # ()
   text_half_bracket: { label: "()", text: "(){Left}" }
+  text_bracket: { label: "（）", text: "（）{Left}" }
   send_left_bracket: { label: "(", send: "(" }
   send_right_bracket: { label: ")", send: ")" }
   # ""
