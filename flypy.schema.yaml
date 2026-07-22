@@ -171,7 +171,18 @@ punctuator:
   import_preset: symbols
 
 key_binder:
-  import_preset: default
+  # import_preset: default
+  bindings: # 设置功能性快捷键
+    __patch:
+      - key_bindings:/emacs_editing
+      - key_bindings:/select_candidate
+      - key_bindings:/move_by_word_with_tab
+      - key_bindings:/paging_with_minus_equal
+      - key_bindings:/paging_with_comma_period
+      - key_bindings:/paging_with_brackets
+      - key_bindings:/windows_compatible_mode_switch
+      - key_bindings:/tiger_pc_options
+      # - key_bindings:/tiger_mobile_options
 
 recognizer:
   import_preset: default

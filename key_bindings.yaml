@@ -5,6 +5,19 @@
 
 emacs_editing:
   __append:
+    # accept 实际所按之键、send 输出效果、toggle 切换开关和 when 作用范围〔send 和 toggle 二选一〕
+    # toggle 可用字段包含各开关名
+    # when 可用字段包含：always〔总是有效〕、composing〔正在输入中〕、has_menu〔有候选〕、paging〔翻页中〕
+    # accept 和 send 可用字段除 A-Za-z0-9 外，还包含以下键板上实际有的键：
+    # BackSpace 退格、Tab 水平定位符、Linefeed 换行、Clear 清除、Return 回车、Pause 暂停、Sys_Req 印屏、Escape 退出、Delete 删除、Home 原位、Left 左箭头、Up 上箭头、Right 右箭头、Down 下箭头
+    # Prior 上翻、Page_Up 上翻、Next 下翻、Page_Down 下翻、End 末位、Begin 始位、Shift_L 左Shift、Shift_R 右Shift、Control_L 左Ctrl、Control_R 右Ctrl、Meta_L 左Meta、Meta_R 右Meta、Alt_L 左Alt、Alt_R 右Alt、Super_L 左Super、Super_R 右Super、Hyper_L 左Hyper、Hyper_R 右Hyper、Caps_Lock 大写锁、Shift_Lock 上档锁、Scroll_Lock 滚动锁、Num_Lock 小键板锁
+    # Select 选定、Print 打印、Execute 执行、Insert 插入、Undo 还原、Redo 重做、Menu 菜单、Find 蒐寻、Cancel 取消、Help 帮助、Break 中断、space 空格
+    # exclam !、quotedbl "、numbersign #、dollar $、percent %、ampersand &、apostrophe '、parenleft (、parenright )、asterisk *、plus +、comma ,、minus -、period .、slash /、colon :、semicolon ;、less <、equal =、greater >、question ?、at @、bracketleft [、backslash 反斜杠、bracketright ]、asciicircum ^、underscore _、grave `、braceleft {、bar |、braceright }、asciitilde ~
+    # KP_Space 小键板空格、KP_Tab 小键板水平定位符、KP_Enter 小键板回车、KP_Delete 小键板删除、KP_Home 小键板原位、KP_Left 小键板左箭头、KP_Up 小键板上箭头、KP_Right 小键板右箭头、KP_Down 小键板下箭头、KP_Prior 小键板上翻、KP_Page_Up 小键板上翻、KP_Next 小键板下翻、KP_Page_Down 小键板下翻、KP_End 小键板末位、KP_Begin 小键板始位、KP_Insert 小键板插入、KP_Equal 小键板等于、KP_Multiply 小键板乘号、KP_Add 小键板加号、KP_Subtract 小键板减号、KP_Divide 小键板除号、KP_Decimal 小键板小数点、KP_0 小键板0、KP_1 小键板1、KP_2 小键板2、KP_3 小键板3、KP_4 小键板4、KP_5 小键板5、KP_6 小键板6、KP_7 小键板7、KP_8 小键板8、KP_9 小键板9
+    # - { accept: space, send: space, when: has_menu } # 有候选时空格上屏首选
+    # - { accept: space, send: Escape, when: composing } # 无候选(空码）时空格清屏编码
+    # - { when: composing, accept: Tab, send: Escape } # tab清屏
+    # - { when: composing, accept: Return, send: Escape } # 回车清屏编码
     - { when: composing, accept: Control+p, send: Up }
     - { when: composing, accept: Control+n, send: Down }
     - { when: composing, accept: Control+b, send: Left }
@@ -19,6 +32,11 @@ emacs_editing:
     - { when: composing, accept: Alt+v, send: Page_Up }
     - { when: composing, accept: Control+v, send: Page_Down }
 
+select_candidate:
+  __append:
+    - { when: has_menu, accept: semicolon, send: 2 } # 分号次选
+    - { when: has_menu, accept: apostrophe, send: 3 } # 引号三选
+
 move_by_word_with_tab:
   __append:
     - { when: composing, accept: ISO_Left_Tab, send: Shift+Left }
@@ -27,8 +45,8 @@ move_by_word_with_tab:
 
 paging_with_minus_equal:
   __append:
-    - { when: has_menu, accept: minus, send: Page_Up }
-    - { when: has_menu, accept: equal, send: Page_Down }
+    - { when: has_menu, accept: minus, send: Page_Up } # - 向后翻页
+    - { when: has_menu, accept: equal, send: Page_Down } # = 向前翻页
 
 paging_with_comma_period:
   __append:
@@ -37,8 +55,8 @@ paging_with_comma_period:
 
 paging_with_brackets:
   __append:
-    - { when: paging, accept: bracketleft, send: Page_Up }
-    - { when: has_menu, accept: bracketright, send: Page_Down }
+    - { when: composing, accept: bracketleft, send: Page_Up } # [ 后翻
+    - { when: composing, accept: bracketright, send: Page_Down } # ] 前翻
 
 numbered_mode_switch:
   __append:
@@ -61,8 +79,42 @@ windows_compatible_mode_switch:
 optimized_mode_switch:
   __append:
     - { when: always, accept: Control+Shift+space, select: .next }
-    - { when: always, accept: Shift+space, toggle: ascii_mode }
+    - { when: always, accept: Shift+space, toggle: ascii_mode } # 全半角切换
     - { when: always, accept: Control+comma, toggle: full_shape }
     - { when: always, accept: Control+period, toggle: ascii_punct }
     - { when: always, accept: Control+slash, toggle: simplification }
     - { when: always, accept: Control+backslash, toggle: extended_charset }
+
+tiger_pc_options:
+  __append:
+    - { accept: "Control+Shift+O", toggle: simplification, when: composing } # 简繁开关
+    # - { accept: "Control+Shift+O", toggle: fanjian, when: composing }  # 繁简开关
+    - { accept: "Control+Shift+P", toggle: pinyin, when: composing } # PC 拼音开关
+    - { accept: "Control+Shift+I", toggle: emoji_cn, when: composing } # PC emoji开关
+    - {
+        accept: "Control+Shift+U",
+        toggle: charset_comment_filter,
+        when: composing,
+      } # PC Unicode分区开关
+    - { accept: "Control+Shift+Y", toggle: udpf_switch, when: composing } #PC Unicode编码开关
+    - { accept: "Control+Shift+H", toggle: extended_char, when: composing } # PC 自定字集开关
+    - { accept: "Control+Shift+J", toggle: chaifen, when: composing } # PC 拆分滤镜开关
+
+tiger_mobile_options:
+  __append:
+    - { when: composing, accept: "&", toggle: emoji_cn } # 手机 emoji开关
+    - { when: composing, accept: "*", toggle: simplification } # 手机 繁简开关
+    - { when: composing, accept: '\', toggle: pinyin } # 手机 拼音开关
+    - { when: composing, accept: "^", toggle: charset_comment_filter } # 手机 Unicode分区开关1
+    - { when: composing, accept: "#", toggle: charset_comment_filter } # 手机 Unicode分区开关2
+    - { accept: "%", toggle: udpf_switch, when: composing } #手机 Unicode编码开关
+    - { accept: "+", toggle: udpf_switch, when: composing } #手机 Unicode编码开关
+    - { when: composing, accept: "_", toggle: extended_char } # 手机 自定字集开关1
+    - { when: composing, accept: ":", toggle: extended_char } # 手机 自定字集开关2
+    - { when: composing, accept: '"', toggle: chaifen } # 手机 拆分滤镜开关
+
+
+    # - { when: has_menu, accept: Right, send: Down } # 右方向键 向后移动焦点
+    # - { when: has_menu, accept: Left, send: Up } # 左方向键 向前移动焦点
+    # - { when: always, accept: "Control+period", toggle: ascii_punct } # 中英标点切换
+    # - { when: always, accept: "Shift+space" , toggle: full_shape }
