@@ -8,20 +8,20 @@ patch:
   # 下面兩行是導入自定義鍵盤佈局文件, 如果使用倉UI導入則不需要這兩行
   # keyboards:
   #   __include: custom_keyboards:/keyboards
-  keyboard:
-    style:
-      # 需要把 fonts 中的字体上传到仓输入法的 /Fonts 中
-      fontFace:
-        - url: "Consolas.ttf"
-        - url: "SegoeUIEmoji.ttf"
-        - url: "NotoColorEmoji-Regular.ttf"
-        - url: "TumanPUA.ttf"
-        - url: "LXGWWenKaiGBScreen.ttf"
-        - url: "simsun.ttc"
-        - url: "simsunb.ttf"
-        - url: "simsung.ttf"
-        - url: "TH-Tshyn-P0.ttf"
-        - url: "TH-Tshyn-P1.ttf"
-        - url: "TH-Tshyn-P2.ttf"
-        - url: "TH-Tshyn-P16.ttf"
-        - url: "TH-Times.ttc"
+  # 需要把 fonts 中的字体上传到仓输入法的 /Fonts 中
+  keyboard/style/fontFace:
+    - url: "Consolas.ttf"
+    - url: "AppleColorEmoji.ttf"
+    - url: "SegoeUIEmoji.ttf"
+    - url: "NotoColorEmoji-Regular.ttf"
+    - url: "PingFang-Mod.otf"
+    - url: "TumanPUA.ttf"
+    - url: "simsun.ttc"
+    - url: "simsunb.ttf"
+    - url: "simsung.ttf"
+    - url: "TH-Times.ttc"
+    - url: "TH-Tshyn-P0.ttf"
+    - url: "TH-Tshyn-P1.ttf"
+    - url: "TH-Tshyn-P2.ttf"
+    - url: "TH-Tshyn-P16.ttf"
+    - url: "LXGWWenKaiGBScreen.ttf"
