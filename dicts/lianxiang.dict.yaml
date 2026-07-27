@@ -5634,6 +5634,7 @@ sort: by_weight
 不锈钢冲压	bú xiù gāng chòng yā	10
 不锈钢橱柜	bú xiù gāng chú guì	10
 不锈钢厨具	bú xiù gāng chú jù	10
+不锈钢导环	bú xiù gāng dǎo huán	1
 不锈钢刀具	bú xiù gāng dāo jù	10
 不锈钢法兰	bú xiù gāng fǎ lán	10
 不锈钢封头	bú xiù gāng fēng tóu	10
@@ -6902,6 +6903,7 @@ sort: by_weight
 长距粉蝶兰	cháng jù fěn dié lán	10
 长距根节兰	cháng jù gēn jié lán	10
 长距离输电	cháng jù lí shū diàn	10
+长距离拖拽	cháng jù lí tuō zhuài	1
 长距离行驶	cháng jù lí xíng shǐ	10
 长距美冠兰	cháng jù měi guān lán	10
 长距舌唇兰	cháng jù shé chún lán	10
@@ -7784,6 +7786,7 @@ sort: by_weight
 沉睡的心灵	chén shuì de xīn líng	10
 沉睡的凶猛	chén shuì de xiōng měng	10
 沉睡的雄狮	chén shuì de xióng shī	10
+沉水助投器	chén shuǐ zhù tóu qì	1
 陈思诚监制	chén sī chéng jiān zhì	10
 辰巳奈都子	chén sì nài dōu zǐ	10
 陈塘庄铁路	chén táng zhuāng tiě lù	10
@@ -9298,6 +9301,8 @@ sort: by_weight
 创建和编辑	chuàng jiàn hé biān jí	10
 创近年新高	chuàng jìn nián xīn gāo	10
 窗口程序集	chuāng kǒu chéng xù jí	10
+窗口期缩短	chuāng kǒu qī suō duǎn	1
+窗口期延长	chuāng kǒu qī yán cháng	1
 窗口式空调	chuāng kǒu shì kōng tiáo	10
 窗里的女人	chuāng lǐ de nǚ rén	10
 创历史新低	chuàng lì shǐ xīn dī	10
@@ -10530,7 +10535,9 @@ sort: by_weight
 达尔文结节	dá ěr wén jié jié	10
 达尔文主义	dá ěr wén zhǔ yì	10
 打翻醋坛子	dǎ fān cù tán zi	10
+大范围覆盖	dà fàn wéi fù gài	1
 大范围降雨	dà fàn wéi jiàng yǔ	10
+大范围搜索	dà fàn wéi sōu suǒ	1
 打防守反击	dǎ fáng shǒu fǎn jī	10
 大飞机项目	dà fēi jī xiàng mù	10
 达芬奇家居	dá fēn qí jiā jū	10
@@ -15255,6 +15262,8 @@ sort: by_weight
 短间期假象	duǎn jiān qī jiǎ xiàng	10
 断脚的小鸟	duàn jiǎo de xiǎo niǎo	10
 短进程优先	duǎn jìn chéng yōu xiān	10
+短距离冲刺	duǎn jù lí chōng cì	1
+短距离拖拽	duǎn jù lí tuō zhuài	1
 短距离无线	duǎn jù lí wú xiàn	10
 短距起落机	duǎn jù qǐ luò jī	10
 短孔甲螨股	duǎn kǒng jiǎ mǎn gǔ	10
@@ -15350,6 +15359,7 @@ sort: by_weight
 短翼岩黄耆	duǎn yì yán huáng qí	10
 短翼岩黄芪	duǎn yì yán huáng qí	10
 段誉和虚竹	duàn yù hé xū zhú	10
+短暂窗口期	duǎn zàn chuāng kǒu qī	1
 短暂的爱情	duǎn zàn de ài qíng	10
 短暂的春天	duǎn zàn de chūn tiān	10
 短暂的分别	duǎn zàn de fēn bié	10
@@ -15572,7 +15582,7 @@ sort: by_weight
 盾构机始发	dùn gòu jī shǐ fā	10
 敦化林业局	dūn huà lín yè jú	10
 敦煌变文集	dūn huáng biàn wén jí	10
-敦煌琵琶谱	dūn huáng pí pá pǔ	10
+敦煌琵琶谱	dūn huáng pí pa pǔ	10
 敦煌学辑刊	dūn huáng xué jí kān	10
 敦煌研究院	dūn huáng yán jiū yuàn	10
 吨级巡防舰	dūn jí xún fáng jiàn	10
@@ -16369,6 +16379,7 @@ sort: by_weight
 二里头遗址	èr lǐ tou yí zhǐ	10
 饵料的味型	ěr liào de wèi xíng	10
 饵料的状态	ěr liào de zhuàng tài	10
+饵料富集区	ěr liào fù jí qū	1
 二裂委陵菜	èr liè wěi líng cài	10
 二裂银杏叶	èr liè yín xìng yè	10
 二磷甘油醛	èr lín gān yóu quán	10
@@ -17474,6 +17485,8 @@ sort: by_weight
 方差比检定	fāng chā bǐ jiǎn dìng	10
 方差的分量	fāng chā de fèn liàng	10
 房产空置税	fáng chǎn kōng zhì shuì	10
+防缠绕导环	fáng chán rào dǎo huán	1
+防缠绕套管	fáng chán rào tào guǎn	1
 房产税开征	fáng chǎn shuì kāi zhēng	10
 房产税试点	fáng chǎn shuì shì diǎn	10
 房产信息网	fáng chǎn xìn xī wǎng	10
@@ -19642,6 +19655,7 @@ sort: by_weight
 复几何定理	fù jǐ hé dìng lǐ	10
 弗吉尼亚州	fú jí ní yà zhōu	10
 富基瓦里纳	fù jī wǎ lǐ nà	10
+伏击型鱼种	fú jī xíng yú zhǒng	1
 伏季休渔期	fú jì xiū yú qī	10
 富基亚沙列	fù jī yà shā liè	10
 富家大小姐	fù jiā dà xiǎo jiě	10
@@ -20015,6 +20029,7 @@ sort: by_weight
 附属消化腺	fù shǔ xiāo huà xiàn	10
 复数选区制	fù shù xuǎn qū zhì	10
 腐熟有机肥	fǔ shú yǒu jī féi	10
+浮水助投器	fú shuǐ zhù tóu qì	1
 福斯二氏法	fú sī èr shì fǎ	10
 副司令长官	fù sī lìng zhǎng guān	10
 福斯罗公司	fú sī luó gōng sī	10
@@ -20143,6 +20158,7 @@ sort: by_weight
 复相关系数	fù xiāng guān xì shù	10
 复向量空间	fù xiàng liàng kōng jiān	10
 蝠翔似黑潮	fú xiáng sì hēi cháo	10
+拂晓窗口期	fú xiǎo chuāng kǒu qī	1
 拂晓的尤娜	fú xiǎo de yóu nà	10
 复消色差的	fù xiāo sè chā de	10
 复消色差镜	fù xiāo sè chā jìng	10
@@ -20207,6 +20223,7 @@ sort: by_weight
 妇幼保健所	fù yòu bǎo jiàn suǒ	10
 妇幼保健院	fù yòu bǎo jiàn yuàn	10
 妇幼保健站	fù yòu bǎo jiàn zhàn	10
+浮游生物带	fú yóu shēng wù dài	1
 浮游生物学	fú yóu shēng wù xué	10
 富于表现力	fù yú biǎo xiàn lì	10
 复与不愈者	fù yǔ bú yù zhě	10
@@ -23316,6 +23333,7 @@ sort: by_weight
 古典相容的	gǔ diǎn xiāng róng de	10
 古典学学者	gǔ diǎn xué xué zhě	10
 古典与时尚	gǔ diǎn yǔ shí shàng	10
+固定窗口期	gù dìng chuāng kǒu qī	1
 固定候选项	gù dìng hòu xuǎn xiàng	10
 固定汇率制	gù dìng huì lǜ zhì	10
 固定价合同	gù dìng jià hé tong	10
@@ -28555,6 +28573,7 @@ sort: by_weight
 幻彩蓝砂岩	huàn cǎi lán shā yán	10
 幻彩咏香江	huàn cǎi yǒng xiāng jiāng	10
 环巢湖大道	huán cháo hú dà dào	10
+缓沉助投器	huǎn chén zhù tóu qì	1
 环城北路口	huán chéng běi lù kǒu	10
 环城北路站	huán chéng běi lù zhàn	10
 换乘层换乘	huàn chéng céng huàn chéng	10
@@ -28979,6 +28998,7 @@ sort: by_weight
 煌华新纪元	huáng huá xīn jì yuán	10
 黄花岩报春	huáng huā yán bào chūn	10
 慌慌张张地	huāng huāng zhāng zhāng de	10
+黄昏窗口期	huáng hūn chuāng kǒu qī	1
 黄昏的广场	huáng hūn de guǎng chǎng	10
 黄昏的角落	huáng hūn de jiǎo luò	10
 黄昏黎糜觉	huáng hūn lí mí jué	10
@@ -29478,7 +29498,7 @@ sort: by_weight
 秽土转生后	huì tǔ zhuǎn shēng hòu	10
 会玩的玩家	huì wán de wán jiā	10
 灰湾子岩画	huī wān zi yán huà	10
-喙尾琵琶甲	huì wěi pí pá jiǎ	10
+喙尾琵琶甲	huì wěi pí pa jiǎ	10
 回文自动机	huí wén zì dòng jī	10
 回文字符串	huí wén zì fú chuàn	10
 回五大连池	huí wǔ dà lián chí	10
@@ -30000,7 +30020,6 @@ sort: by_weight
 火星快车号	huǒ xīng kuài chē hào	10
 火星人花花	huǒ xīng rén huā huā	10
 活性炭滤网	huó xìng tàn lǜ wǎng	10
-活性炭吸附	huó xìng tàn xī fù	10
 活性炭吸附	huó xìng tàn xī fù	10
 活性污泥法	huó xìng wū ní fǎ	10
 活性稀释剂	huó xìng xī shì jì	10
@@ -34079,6 +34098,7 @@ sort: by_weight
 解题的思路	jiě tí de sī lù	10
 阶梯金字塔	jiē tī jīn zì tǎ	10
 阶梯式递进	jiē tī shì dì jìn	10
+阶梯式搜寻	jiē tī shì sōu xún	1
 洁体西施露	jié tǐ xī shī lù	10
 阶梯形基础	jiē tī xíng jī chǔ	10
 阶梯形矩阵	jiē tī xíng jǔ zhèn	10
@@ -34244,6 +34264,7 @@ sort: by_weight
 金道贵金属	jīn dào guì jīn shǔ	10
 金德尔伯格	jīn dé ěr bó gé	10
 金灯寺石窟	jīn dēng sì shí kū	10
+近底层活动	jìn dǐ céng huó dòng	1
 近地球轨道	jìn dì qiú guǐ dào	10
 近地小行星	jìn dì xiǎo xíng xīng	10
 尽地主之谊	jìn dì zhǔ zhī yì	10
@@ -38986,7 +39007,6 @@ sort: by_weight
 喹诺里西啶	kuí nuò lǐ xī dìng	10
 岿然不动的	kuī rán bú dòng de	10
 蝰蛇毒时间	kuí shé dú shí jiān	10
-奎宿增十五	kuí sù zēng shí wǔ	10
 亏损的风险	kuī sǔn de fēng xiǎn	10
 亏损的交易	kuī sǔn de jiāo yì	10
 亏损的原因	kuī sǔn de yuán yīn	10
@@ -38994,6 +39014,7 @@ sort: by_weight
 魁梧的身材	kuí wu de shēn cái	10
 魁梧的身躯	kuí wu de shēn qū	10
 魁星园小学	kuí xīng yuán xiǎo xué	10
+奎宿增十五	kuí xiù zēng shí wǔ	10
 溃疡伴出血	kuì yáng bàn chū xiě	10
 溃疡性内痔	kuì yáng xìng nèi zhì	10
 溃疡性外痔	kuì yáng xìng wài zhì	10
@@ -39850,6 +39871,7 @@ sort: by_weight
 冷漠与温柔	lěng mò yǔ wēn róu	10
 冷凝集试验	lěng níng jí shì yàn	10
 冷凝泄水器	lěng níng xiè shuǐ qì	10
+冷暖流交汇	lěng nuǎn liú jiāo huì	1
 冷却时间短	lěng què shí jiān duǎn	10
 冷却脱水法	lěng què tuō shuǐ fǎ	10
 冷缺血时间	lěng quē xuè shí jiān	10
@@ -43674,8 +43696,6 @@ sort: by_weight
 毛石混凝土	máo shí hùn níng tǔ	10
 毛氏汲古阁	máo shì jí gǔ gé	10
 锚式搅拌器	máo shì jiǎo bàn qì	10
-昴宿射线星	mǎo sù shè xiàn xīng	10
-昴宿增十二	mǎo sù zēng shí èr	10
 茅台成龙酒	máo tái chéng lóng jiǔ	10
 毛坦厂中学	máo tǎn chǎng zhōng xué	10
 帽天窗虫戚	mào tiān chuāng chóng qī	10
@@ -43702,6 +43722,8 @@ sort: by_weight
 冒险者丁丁	mào xiǎn zhě dīng dīng	10
 猫型机器人	māo xíng jī qì rén	10
 毛形线虫目	máo xíng xiàn chóng mù	10
+昴宿射线星	mǎo xiù shè xiàn xīng	10
+昴宿增十二	mǎo xiù zēng shí èr	10
 毛垭大草原	máo yā dà cǎo yuán	10
 猫妖的诱惑	māo yāo de yòu huò	10
 毛叶草血竭	máo yè cǎo xuè jié	10
@@ -48605,13 +48627,13 @@ sort: by_weight
 匹莫范色林	pǐ mò fàn sè lín	10
 毗尼多流支	pí ní duō liú zhī	10
 匹诺曹蜥蜴	pǐ nuò cáo xī yì	10
-琵琶半遮面	pí pá bàn zhē miàn	10
+琵琶半遮面	pí pa bàn zhē miàn	10
 皮帕德方程	pí pà dé fāng chéng	10
-琵琶独奏曲	pí pá dú zòu qǔ	10
-琵琶湖疏水	pí pá hú shū shuǐ	10
+琵琶独奏曲	pí pa dú zòu qǔ	10
+琵琶湖疏水	pí pa hú shū shuǐ	10
 枇杷清肺饮	pí pá qīng fèi yǐn	10
 枇杷山正街	pí pá shān zhèng jiē	10
-琵琶演奏家	pí pá yǎn zòu jiā	10
+琵琶演奏家	pí pa yǎn zòu jiā	10
 批判的眼光	pī pàn de yǎn guāng	10
 批判式思维	pī pàn shì sī wéi	10
 批判主义者	pī pàn zhǔ yì zhě	10
@@ -50748,6 +50770,7 @@ sort: by_weight
 炝炒圆白菜	qiàng chǎo yuán bái cài	10
 墙承重结构	qiáng chéng zhòng jié gòu	10
 强词夺理的	qiǎng cí duó lǐ de	10
+强磁拉饵盘	qiáng cí lā ěr pán	1
 强大的背景	qiáng dà de bèi jǐng	10
 强大的攻势	qiáng dà de gōng shì	10
 强大的国力	qiáng dà de guó lì	10
@@ -52015,6 +52038,7 @@ sort: by_weight
 清新绿茶的	qīng xīn lǜ chá de	10
 青心乌龙茶	qīng xīn wū lóng chá	10
 轻型冲锋枪	qīng xíng chōng fēng qiāng	10
+轻型大物竿	qīng xíng dà wù gān	1
 轻型电动车	qīng xíng diàn dòng chē	10
 轻型钢结构	qīng xíng gāng jié gòu	10
 轻型攻击机	qīng xíng gōng jī jī	10
@@ -63700,6 +63724,7 @@ sort: by_weight
 太昊伏羲氏	tài hào fú xī shì	10
 太和城遗址	tài hé chéng yí zhǐ	10
 太和宫金殿	tài hé gōng jīn diàn	10
+钛合金竿稍	tài hé jīn gān shāo	1
 太合立志传	tài hé lì zhì zhuàn	10
 太和岩牌楼	tài hé yán pái lóu	10
 太后老佛爷	tài hòu lǎo fó yé	10
@@ -65417,6 +65442,7 @@ sort: by_weight
 铁甲小骑士	tiě jiǎ xiǎo qí shì	10
 铁脚蜈蚣根	tiě jiǎo wú gōng gēn	10
 铁叫子乐和	tiě jiào zi lè he	10
+贴结构游走	tiē jié gòu yóu zǒu	1
 铁结合蛋白	tiě jié hé dàn bái	10
 铁矿石贸易	tiě kuàng shí mào yì	10
 铁矿石品位	tiě kuàng shí pǐn wèi	10
@@ -69668,6 +69694,7 @@ sort: by_weight
 五桂山山脉	wǔ guì shān shān mài	10
 五桂山主峰	wǔ guì shān zhǔ fēng	10
 无硅洗发水	wú guī xǐ fà shuǐ	10
+无规则飘落	wú guī zé piāo luò	1
 舞棍俱乐部	wǔ gùn jù lè bù	10
 无国籍人士	wú guó jí rén shì	10
 无国界医师	wú guó jiè yī shī	10
@@ -73270,6 +73297,7 @@ sort: by_weight
 萧尔演算法	xiāo ěr yǎn suàn fǎ	10
 小反刍兽疫	xiǎo fǎn chú shòu yì	10
 小贩疏导区	xiǎo fàn shū dǎo qū	10
+小范围搜鱼	xiǎo fàn wéi sōu yú	1
 小方格表法	xiǎo fāng gé biǎo fǎ	10
 小方格网法	xiǎo fāng gé wǎng fǎ	10
 消防救援局	xiāo fáng jiù yuán jú	10
@@ -73938,6 +73966,7 @@ sort: by_weight
 小游戏合集	xiǎo yóu xì hé jí	10
 小油栉虫区	xiǎo yóu zhì chóng qū	10
 小油栉虫统	xiǎo yóu zhì chóng tǒng	10
+小鱼避难区	xiǎo yú bì nàn qū	1
 小鱼吃大虾	xiǎo yú chī dà xiā	10
 小尉迟孙新	xiǎo yù chí sūn xīn	10
 小鱼吃虾米	xiǎo yú chī xiā mǐ	10
@@ -76563,6 +76592,7 @@ sort: by_weight
 寻医问药网	xún yī wèn yào wǎng	10
 迅游加速器	xùn yóu jiā sù qì	10
 巡游型病人	xún yóu xíng bìng rén	10
+巡游型鱼种	xún yóu xíng yú zhǒng	1
 鲟鱼级潜艇	xún yú jí qián tǐng	10
 寻找的答案	xún zhǎo de dá àn	10
 寻找的东西	xún zhǎo de dōng xi	10
@@ -77077,6 +77107,7 @@ sort: by_weight
 眼角膜移植	yǎn jiǎo mó yí zhí	10
 眼界的开阔	yǎn jiè de kāi kuò	10
 眼洁滴眼露	yǎn jié dī yǎn lù	10
+沿结构搜索	yán jié gòu sōu suǒ	1
 眼界和格局	yǎn jiè hé gé jú	10
 严谨的工艺	yán jǐn de gōng yì	10
 岩津松平氏	yán jīn sōng píng shì	10
@@ -83145,7 +83176,7 @@ sort: by_weight
 预示校正法	yù shì jiào zhèng fǎ	10
 玉氏南征记	yù shì nán zhēng jì	10
 玉氏南政基	yù shì nán zhèng jī	10
-玉石琵琶精	yù shí pí pá jīng	10
+玉石琵琶精	yù shí pí pa jīng	10
 欲使其灭亡	yù shǐ qí miè wáng	10
 与时尚同居	yǔ shí shàng tóng jū	10
 与事实不符	yǔ shì shí bù fú	10
@@ -88480,6 +88511,7 @@ sort: by_weight
 终身的事业	zhōng shēn de shì yè	10
 终身雇用制	zhōng shēn gù yòng zhì	10
 终身雇佣制	zhōng shēn gù yōng zhì	10
+中深海作钓	zhōng shēn hǎi zuò diào	1
 众神与国王	zhòng shén yǔ guó wáng	10
 众神与将军	zhòng shén yǔ jiāng jūn	10
 众神与野兽	zhòng shén yǔ yě shòu	10
@@ -89767,6 +89799,7 @@ sort: by_weight
 锥花丝石竹	zhuī huā sī shí zhú	10
 坠毁的飞机	zhuì huǐ de fēi jī	10
 追及和相遇	zhuī jí hé xiāng yù	10
+追击型鱼种	zhuī jī xíng yú zhǒng	1
 椎间盘变性	zhuī jiān pán biàn xìng	10
 椎间盘疾患	zhuī jiān pán jí huàn	10
 椎间盘膨出	zhuī jiān pán péng chū	10
@@ -96743,6 +96776,7 @@ sort: by_weight
 尘归尘土归土	chén guī chén tǔ guī tǔ	10
 宸鸿光电科技	chén hóng guāng diàn kē jì	10
 陈化成纪念馆	chén huà chéng jì niàn guǎn	10
+晨昏活跃鱼种	chén hūn huó yuè yú zhǒng	1
 沉火山角砾岩	chén huǒ shān jiǎo lì yán	10
 沉火山碎屑岩	chén huǒ shān suì xiè yán	10
 沉积变质矿床	chén jī biàn zhì kuàng chuáng	10
@@ -114602,6 +114636,7 @@ sort: by_weight
 卡林顿子午圈	kǎ lín dùn zǐ wǔ quān	10
 卡鲁查克莱因	kǎ lǔ chá kè lái yīn	10
 卡络磺钠冻干	kǎ luò huáng nà dòng gān	10
+卡罗莱纳钓组	kǎ luó lái nà diào zǔ	1
 喀罗尼亚战役	kā luó ní yà zhàn yì	10
 卡罗瑟斯方程	kǎ luó sè sī fāng chéng	10
 卡洛维茨条约	kǎ luò wéi cí tiáo yuē	10
@@ -147636,7 +147671,7 @@ sort: by_weight
 八山一水一分田	bā shān yì shuǐ yì fēn tián	10
 八十个人抬轿子	bā shí gè rén tái jiào zi	10
 把时间当作朋友	bǎ shí jiān dàng zuò péng you	10
-八十老翁练琵琶	bā shí lǎo wēng liàn pí pá	10
+八十老翁练琵琶	bā shí lǎo wēng liàn pí pa	10
 八十老翁学打拳	bā shí lǎo wēng xué dǎ quán	10
 八十老翁学手艺	bā shí lǎo wēng xué shǒu yì	10
 巴士奇遇结良缘	bā shì qí yù jié liáng yuán	10
@@ -149168,7 +149203,6 @@ sort: by_weight
 不见兔子不撒鹰	bú jiàn tù zǐ bù sā yīng	10
 不见硝烟的战争	bú jiàn xiāo yān de zhàn zhēng	10
 不建议大家购买	bú jiàn yì dà jiā gòu mǎi	10
-不见真佛不烧香	bú jiàn zhēn fó bù shāo xiāng	10
 不见真佛不烧香	bú jiàn zhēn fó bù shāo xiāng	10
 不降落的滑翔翼	bú jiàng luò de huá xiáng yì	10
 补交土地出让金	bǔ jiāo tǔ dì chū ràng jīn	10
@@ -156403,7 +156437,6 @@ sort: by_weight
 行业数字化转型	háng yè shù zì huà zhuǎn xíng	10
 杭州互联网法院	háng zhōu hù lián wǎng fǎ yuàn	10
 好钢用在刀刃上	hǎo gāng yòng zài dāo rèn shàng	10
-好钢用在刀刃上	hǎo gāng yòng zài dāo rèn shàng	10
 好汉不吃眼前亏	hǎo hàn bù chī yǎn qián kuī	10
 好莱坞星光大道	hǎo lái wù xīng guāng dà dào	10
 好马不吃回头草	hǎo mǎ bù chī huí tóu cǎo	10
@@ -157266,7 +157299,6 @@ sort: by_weight
 酒不醉人人自醉	jiǔ bú zuì rén rén zì zuì	10
 灸刺诸药不能治	jiǔ cì zhū yào bù néng zhì	10
 九二式重装甲车	jiǔ èr shì zhòng zhuāng jiǎ chē	10
-酒逢知己千杯少	jiǔ féng zhī jǐ qiān bēi shǎo	10
 酒逢知己千杯少	jiǔ féng zhī jǐ qiān bēi shǎo	10
 酒精滥用家族史	jiǔ jīng làn yòng jiā zú shǐ	10
 酒精糖度对照表	jiǔ jīng táng dù duì zhào biǎo	10
@@ -159387,7 +159419,6 @@ sort: by_weight
 实验者期望效应	shí yàn zhě qī wàng xiào yìng	10
 湿阳化饮又健脾	shī yáng huà yǐn yòu jiàn pí	10
 师夷长技以制夷	shī yí cháng jì yǐ zhì yí	10
-师夷长技以制夷	shī yí cháng jì yǐ zhì yí	10
 是以陈涉不用汤	shì yǐ chén shè bú yòng tāng	10
 嗜异性凝集试验	shì yì xìng níng jí shì yàn	10
 市隐庐医学杂著	shì yǐn lú yī xué zá zhù	10
@@ -159781,7 +159812,6 @@ sort: by_weight
 透过作风看队伍	tòu guò zuò fēng kàn duì wǔ	10
 头和颈度腐蚀伤	tóu hé jǐng dù fǔ shí shāng	10
 偷鸡不成蚀把米	tōu jī bù chéng shí bǎ mǐ	10
-偷鸡不着蚀把米	tōu jī bù zháo shí bǎ mǐ	10
 偷鸡不着蚀把米	tōu jī bù zháo shí bǎ mǐ	10
 头肩肘手胯膝足	tóu jiān zhǒu shǒu kuà xī zú	10
 头颅计算机扫描	tóu lú jì suàn jī sǎo miáo	10
