@@ -24,113 +24,124 @@
 
 ```bash
 .
-├── PY_c.custom.yaml			# 拼音++ 补丁，主要添加小鹤双拼拼写运算规则
-├── PY_c.dict.yaml				# 拼音++ 词库
-├── PY_c.schema.yaml			# 拼音++ 方案
-├── README.md					# README 文档
-├── aux_code/					# [目录]存放拼音辅助码表文件
-│   └── flypy_full.txt			# 小鹤双拼辅助码表
-├── backgrounds/				# [目录]存放同文输入法背景图
-│   ├── keyboard-dark.png		# 同文输入法 暖黄渐变 配色背景
-│   ├── keyboard-light.png		# 同文输入法 深棕暗调 配色背景
-│   └── keys/					# [目录]存放按键背景图
-├── bin/						# [目录]存放辅助脚本
-│   └── sync_dicts.sh			# 同步虎码、万象词库 bash 脚本
-├── core2022.dict.yaml			# 字符集过滤辅助方案词库
-├── core2022.schema.yaml		# 字符集过滤辅助方案
-├── custom_phrase.txt			# 自定义短语文件
-├── default.custom.yaml			# 全局默认配置补丁
-├── dicts/						# [目录]存放所有扩展词库
-│   ├── cuoyin.dict.yaml		# 万象 错音错字
-│   ├── diming.dict.yaml		# 万象 地名
-│   ├── duoyin.dict.yaml		# 万象 多音字
-│   ├── jichu.dict.yaml			# 万象 基础字词
-│   ├── lianxiang.dict.yaml		# 万象 联想词
-│   ├── renming.dict.yaml		# 万象 人名
-│   ├── shici.dict.yaml			# 万象 诗词
-│   ├── tiger.dict.yaml			# 虎单
-│   ├── tigress.dict.yaml		# 虎词 单字
-│   ├── tigress_ci.dict.yaml	# 虎词 词
-│   ├── tigress_simp_ci.dict.yaml	# 虎词 简词
-│   ├── wuzhong.dict.yaml		# 万象 物种
-│   └── zi.dict.yaml			# 万象 单字
-├── easy_english.dict.yaml		# 英文字库
-├── easy_english.schema.yaml	# 英文方案
-├── flypy.custom.yaml			# 小鹤双拼补丁
-├── flypy.dict.yaml				# 小鹤双拼词库
-├── flypy.schema.yaml			# 小鹤双拼方案
-├── flypy.txt					# 自动生成的小鹤双拼用户词典
-├── fonts/						# [目录]存放字体文件，可以直接给同文输入法使用
-│   └── tumapua/				# [目录]存放鸿蒙超越输入法字体配置（一个字体一个目录）
-│       ├── TumanPUA.ttf		# 字体文件
-│       └── info.yaml			# 说明配置
-├── hamster.custom.yaml			# iOS 仓输入法配置补丁
-├── icons/						# [目录]存放 Windows 小狼毫输入法图标
-│   ├── en.ico					# 英文状态
-│   ├── full.ico				# 全角状态
-│   ├── half.ico				# 半角状态
-│   ├── mix.ico					# 混输
-│   ├── pin.ico					# 全拼
-│   ├── shuang.ico				# 双拼
-│   ├── tiger.ico				# 虎码
-│   ├── wubi.ico				# 五笔
-│   └── zh.ico					# 中文状态
-├── info.yaml					# 鸿蒙超越输入法方案整体说明
-├── key_bindings.custom.yaml	# 按键绑定补丁
-├── key_bindings.yaml			# 按键绑定
-├── lua/						# [目录]存放 lua 脚本
-│   ├── aux_code.lua			# 辅助码拆分
-│   ├── calculator_translator.lua	# 计算器
-│   ├── chaifen_comment_filter.lua	# 拆分提示/注释
-│   ├── charset_comment_filter.lua	# 字符集提示
-│   ├── core2022_filter.lua		# 字集过滤
-│   ├── date_translator.lua		# 日期时间
-│   ├── helper.lua				# 输入 help 获取简要说明
-│   ├── in_user_dict.lua		# 在用户词库添加 emoji
-│   ├── input_statistics.lua	# 自动生成输入统计
-│   ├── input_stats.lua			# 输入统计
-│   ├── lib/					# [目录]存放工具库
-│   │   └── base.lua
-│   ├── maker.lua				# 虎词自动造词
-│   ├── number.lua				# 数字转换
-│   ├── pinyin_comment_filter.lua	# 拼音注释
-│   ├── schema_switcher.lua		# 输入 mode 选择切换方案
-│   ├── unicode_display.lua		# Unicode 显示
-│   └── uuid_translator.lua		# 输入 uuid 生成
-├── opencc/						# [目录]存放滤镜文件（拼音、拆分、繁简转换、emoji）
-├── punctuation.yaml			# 标点符号配置
-├── pure.trime.custom.yaml		# 安卓同文输入法补丁
-├── pure.trime.yaml				# 安卓同文输入法朴素主题
-├── rime.lua					# lua 总入口
-├── space.custom.yaml			# 鸿蒙超越输入法目录配置
-├── squirrel.custom.yaml		# macOS 鼠须管配置补丁
-├── stroke.dict.yaml			# 笔画输入方案词库
-├── symbols.yaml				# 符号
-├── themes/						# [目录]存放鸿蒙输入法主题
-│   └── t26_pure/				# [目录]26键朴素主题
-│       ├── info.yaml			# 主题信息
-│       ├── preset_keyboards.yaml	# 按键配置
-│       ├── preset_keys.yaml	# 按键配置
-│       ├── res/				# [目录]存放主题使用到的图标
-│       └── theme.yaml			# 主题具体配置
-├── tiger.custom.yaml			# 虎单方案补丁
-├── tiger.extended.dict.yaml	# 虎单方案词库
-├── tiger.schema.yaml			# 虎单方案
-├── tigress.custom.yaml			# 虎词方案补丁
-├── tigress.extended.dict.yaml	# 虎词方案词库
-├── tigress.schema.yaml			# 虎词方案
-├── tigress_phrase.txt			# 自动生成的虎词造词词库
-├── trash/						# [目录]回收站
-│   └── stroke.schema.yaml		# 笔画输入方案，前端自带会自动删除，做个备份
-├── wanxiang-lts-zh-hans.gram	# 万象模型
-└── weasel.custom.yaml			# Windows 小狼毫配置补丁
+├── aux_code                               # [目录]存放拼音辅助码码表文件
+│   └── flypy_full.txt                     # 小鹤音形辅助码码表
+├── backgrounds                            # [目录]存放同文输入法键盘背景图
+│   ├── keyboard-dark.png                  # 同文输入法 深棕暗调 配色背景
+│   └── keyboard-light.png                 # 同文输入法 暖黄渐变 配色背景
+├── bin                                    # [目录]存放辅助脚本
+│   ├── download_gram.sh                   # 本地下载模型文件
+│   └── sync_dicts.sh                      # 本地同步虎码、万象词库
+├── core2022.dict.yaml                     # 字符集过滤辅助方案词库
+├── core2022.schema.yaml                   # 字符集过滤辅助方案
+├── custom_phrase.txt                      # 用户自定义短语
+├── default.custom.yaml                    # 全局默认配置补丁
+├── dicts                                  # [目录]存放所有扩展词库
+│   ├── cuoyin.dict.yaml                   # 万象 错音错字
+│   ├── diming.dict.yaml                   # 万象 地名
+│   ├── duoyin.dict.yaml                   # 万象 多音字
+│   ├── jichu.dict.yaml                    # 万象 基础字词
+│   ├── lianxiang.dict.yaml                # 万象 联想词
+│   ├── renming.dict.yaml                  # 万象 人名
+│   ├── shici.dict.yaml                    # 万象 诗词
+│   ├── tiger.dict.yaml                    # 虎单
+│   ├── tigress_ci.dict.yaml               # 虎词
+│   ├── tigress_simp_ci.dict.yaml          # 虎词 简码
+│   ├── tigress.dict.yaml                  # 虎词 单字
+│   ├── wuzhong.dict.yaml                  # 万象 物种
+│   └── zi.dict.yaml                       # 万象 单字
+├── dvorak.trime.custom.yaml               # 同文输入法 主题补丁
+├── dvorak.trime.yaml                      # 同文输入法 Dvorak 主题
+├── easy_english.dict.yaml                 # 英文字库
+├── easy_english.schema.yaml               # 英文方案
+├── flypy.custom.yaml                      # 小鹤双拼补丁
+├── flypy.dict.yaml                        # 小鹤双拼词库
+├── flypy.schema.yaml                      # 小鹤双拼方案
+├── fonts                                  # [目录]存放字体文件
+│   ├── AppleColorEmoji.ttf                # Apple Emoji
+│   ├── Consolas.ttf                       # 英文字体
+│   ├── LXGWWenKaiGBScreen.ttf             # 霞鹭文楷GB屏幕阅读版
+│   ├── NotoColorEmoji-Regular.ttf         # Emoji
+│   ├── PingFang-Mod.otf                   # 苹方字体
+│   ├── pingfangmod                        # [目录]超越输入法 苹方字体
+│   │   ├── info.yaml                      # 字体描述
+│   │   └── PingFangMod.ttf                # 集成虎码字根苹方字体
+│   ├── SegoeUIEmoji.ttf                   # Emoji
+│   ├── simsun.ttc                         # 宋体系列
+│   ├── simsunb.ttf
+│   ├── simsung.ttf
+│   ├── TH-Times.ttc                       # 天珩系列
+│   ├── TH-Tshyn-P0.ttf
+│   ├── TH-Tshyn-P1.ttf
+│   ├── TH-Tshyn-P16.ttf
+│   ├── TH-Tshyn-P2.ttf
+│   ├── TumanPUA.ttf                       # 虎码字根字体
+│   └── tumapua                            # [目录]超越输入法 虎码字体
+│       ├── info.yaml                      # 字体描述
+│       └── TumanPUA.ttf                   # 集成虎码字根、emoji 等字体
+├── hamster.custom.yaml                    # 仓输入法配置补丁
+├── icons/                                 # [目录] 小狼毫图标
+├── info.yaml                              # 超越输入法 方案描述
+├── key_bindings.custom.yaml               # 按键绑定补丁
+├── key_bindings.yaml                      # 按键绑定
+├── lua                                    # [目录] 存放 Lua 脚本
+│   ├── aux_code.lua                       # 辅助码拆分
+│   ├── calculator_translator.lua          # 计算器
+│   ├── chaifen_comment_filter.lua         # 拆分提示/注释
+│   ├── charset_comment_filter.lua         # 字符集提示
+│   ├── core2022_filter.lua                # 字集过滤
+│   ├── date_translator.lua                # 日期时间
+│   ├── helper.lua                         # 输入 help 获取简要说明
+│   ├── in_user_dict.lua                   # 在用户词库添加 emoji
+│   ├── input_statistics.lua               # 自动生成输入统计
+│   ├── input_stats.lua                    # 输入统计
+│   ├── lib/                               # [目录]存放工具库
+│   ├── maker.lua                          # 虎词自动造词
+│   ├── number.lua                         # 数字转换
+│   ├── pinyin_comment_filter.lua          # 拼音注释
+│   ├── schema_switcher.lua                # 输入 mode 选择切换方案
+│   ├── unicode_display.lua                # Unicode 显示
+│   └── uuid_translator.lua                # 输入 uuid 生成
+├── opencc/                                # [目录]存放滤镜文件（拼音、拆分、繁简转换、emoji）
+├── punctuation.yaml                       # 标点符号配置
+├── pure.trime.custom.yaml                 # 安卓同文输入法补丁
+├── pure.trime.yaml                        # 安卓同文输入法朴素主题
+├── PY_c.custom.yaml                       # 拼音++ 补丁，主要添加小鹤双拼拼写运算规则
+├── PY_c.dict.yaml                         # 拼音++ 词库
+├── PY_c.schema.yaml                       # 拼音++ 方案
+├── README.md                              # README 文档
+├── rime.lua                               # lua 总入口
+├── space.custom.yaml                      # 鸿蒙超越输入法目录配置
+├── squirrel.custom.yaml                   # 鼠须管配置补丁
+├── stroke.dict.yaml                       # 笔画输入方案词库
+├── symbols.yaml                           # 符号
+├── themes                                 # [目录]存放鸿蒙输入法主题
+│   ├── dvorak_pure                        # [目录]Dvorak 朴素主题
+│   │   ├── info.yaml                      # 主题信息
+│   │   ├── preset_fonts.yaml              # 文字样式
+│   │   ├── preset_keyboards.yaml          # 键盘配置
+│   │   ├── preset_keys.yaml               # 按键配置
+│   │   ├── res/                           # [目录]资源目录，存放图标等
+│   │   └── theme.yaml                     # 主题具体配置
+│   └── t26_pure/                          # [目录]26键朴素主题
+├── tiger.custom.yaml                      # 虎单方案补丁
+├── tiger.extended.dict.yaml               # 虎单方案词库
+├── tiger.schema.yaml                      # 虎单方案
+├── tigress_phrase.txt                     # 自动生成的虎词造词词库
+├── tigress.custom.yaml                    # 虎词方案补丁
+├── tigress.extended.dict.yaml             # 虎词方案词库
+├── tigress.schema.yaml                    # 虎词方案
+├── trash                                  # [目录]回收站
+│   └── stroke.schema.yaml                 # 笔画输入方案，前端自带会自动删除，做个备份
+├── wanxiang-lts-zh-hans.gram              # 万象模型
+└── weasel.custom.yaml                     # 小狼毫配置补丁
 ```
 
 如何列出文件：WSL、mac、Linux 下执行 `tree -I '.git|build|sync|*.userdb'`
 
 ## 1. 方案介绍
 
-本项目包含四个核心方案，分别针对不同的使用场景：
+本项目包含三个核心方案，分别针对不同的使用场景：
 
 ### 🐯 虎码单字版 (Tiger) - `tiger.schema.yaml`
 
@@ -153,7 +164,7 @@
 
 双拼自定义短语文件：`custom_phrase.txt`
 
-> PY\_c.schema.yaml 是基于拼音 ++ 改造的小鹤双拼方案，整合了小鹤双拼的输入规则，暂时不直接用于输入方案，而是作为虎码反查使用
+> `PY_c.schema.yaml` 是基于拼音 ++ 改造的小鹤双拼方案，整合了小鹤双拼的输入规则，暂时不直接用于输入方案，而是作为虎码反查使用
 
 ## 2. 如何使用
 
@@ -164,7 +175,7 @@
    - Windows 全选 `fonts` 目录下的所有字体文件，右击，选择为【所有用户安装】（如果没有看到，可能在更多里面）
    - iOS 端使用仓输入法，可以选择【输入方案上传】，然后在电脑浏览器输入显示的 IP 地址（同一局域网），在根目录新建 `Fonts` 文件夹，把 `fonts` 目录下的所有字体文件上传到 `Fonts` 文件夹中
    - 安卓端同文输入法无需操作
-   - 鸿蒙端超越输入法需要导入方案之后在菜单栏中找到字体，选择 「虎码秃码字体」，切换其他输入法然后切换回超越输入法
+   - 鸿蒙端超越输入法需要导入方案之后在菜单栏中找到字体，选择「虎码秃码字体」，切换其他输入法然后切换回超越输入法
 4. 把本仓库所有文件复制到 Rime 配置目录下（如 `~/Library/Rime`、`%APPDATA%\Rime` 等），手机上可以通过**压缩包导入**或局域网上传等方式导入到对应的目录下
 5. 点击重新部署
 
@@ -193,7 +204,7 @@
    - 此时编码显示：`zhh'mn`
 4. 候选栏会出现带有 **☯** 标记的造词选项：`虎码 ☯ 造词: zhmn`
 5. 按 **空格** 上屏，该词即刻存入词库，并且能够在不部署的情况下直接使用（目前输入新造词不是读取的词库中的新词，而是直接从内存中读取的）。
-6. \[可忽略] 重新部署之后，再输入造的词是从词库中读取的，如果开了 `is_in_user_dict` lua 插件，会在后面显示 `*` 号
+6. \[可忽略\] 重新部署之后，再输入造的词是从词库中读取的，如果开了 `in_user_dict` lua 插件，会在后面显示 `*` 号
 
 ![](https://cdn.wallleap.cn/img/pic/illustration/20260201204718853.png?imageSlim)
 
@@ -201,15 +212,15 @@
 
 ### 3.2 智能规则与限制
 
-- **4 码自动清理**：为保持输入节奏，若未输入分隔符 `'`，输入超过 4 码时会自动清空前序编码（排除前缀如 `` ` `` 除外）。
+- **4 码自动清理**：为保持输入节奏，若未输入分隔符 `'`，输入超过 4 码时会自动清空前序编码（排除前缀如 `` ` ``）。
 - **去重机制**：
-  - **系统词库显示时退让**：如果虎码原生词库中已有该词，仍可以进行造词，保存到用户词库，如果开启了 `is_in_user_dict` 重新部署后就能够在这些词后看到 `*` 号，并且显示的时候只显示用户词库中的词。
+  - **系统词库显示时退让**：如果虎码原生词库中已有该词，仍可以进行造词，保存到用户词库，如果开启了 `in_user_dict` 重新部署后就能够在这些词后看到 `*` 号，并且显示的时候只显示用户词库中的词。
   - **用户词库去重**：如果已造过该词，选项会显示 `⚡ 已在词库`，重复选择不会重复写入文件。
 
 ### 3.3 数据存储
 
 - 新造词语默认保存在 `tigress.txt` 文件中，可以通过配置修改，目前配置为 `tigress_phrase.txt`。
-- 格式为：`词语 <Tab> 编码 <Tab> 权重`。
+- 格式为：`词语<Tab>编码<Tab>权重`。
 
 ## 4. 通用辅助功能
 
@@ -237,7 +248,7 @@
 
 ## 5. 快捷开关 (Switches)
 
-可以通过快捷键（通常是 `F4` 或 `Ctrl+`）呼出方案选单，调整以下设置：
+可以通过快捷键（通常是 `F4` 或 <kbd>Ctrl</kbd> + <kbd>`</kbd>）呼出方案选单，调整以下设置：
 
 - **中文 / 西文**：切换中英文输入。
 - **全集 / 常用**：过滤非常用生僻字。
@@ -301,6 +312,17 @@ chmod +x ./bin/sync_dicts.sh
 ./bin/sync_dicts.sh
 ```
 
+### 7.2 download\_gram.sh 下载模型文件
+
+该脚本用于下载模型文件到本地仓库
+
+给脚本添加执行权限，然后运行
+
+```sh
+chmod +x ./bin/download_gram.sh
+./bin/download_gram.sh
+```
+
 ## 8. 同步用户数据
 
 主要用于小鹤双拼词库同步合并，需要在每台设备 `installation.yaml` 设置 `sync_dir`
@@ -308,7 +330,7 @@ chmod +x ./bin/sync_dicts.sh
 并且借助云盘 + Folder Sync 进行同步
 
 - mac 上：`sync_dir: '/Users/luwang/Library/Mobile Documents/iCloud~~dev~~fuxiao~~app~~hamsterapp/Documents/sync'` 指定 iCloud 下的 仓输入法目录，下载 [FolderSync](https://foldersync.io/desktop/#download)，在账户中登陆 OneDrive，双向同步这个目录和 OneDrive 下的 `sync` 目录
-- win 上：`sync_dir: 'C:/Users/luwang/OneDrive/sync'` 指定 OneDrive 下的目录
+- win 上：`sync_dir: 'C:/Users/username/OneDrive/sync'` 指定 OneDrive 下的目录
 - 安卓上：保持默认，将会同步到 `rime/sync`，下载 [FolderSync](https://foldersync.io/android)，在账户中登陆 OneDrive，双向同步这个目录和 OneDrive 下的 `sync` 目录
 - iOS 上：`sync_dir: '/private/var/mobile/Library/Mobile Documents/iCloud~dev~fuxiao~app~hamsterapp/Documents/sync'` 指定 iCloud 下的 仓输入法目录（最好手动选择）
 
