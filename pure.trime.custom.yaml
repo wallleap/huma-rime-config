@@ -6,9 +6,11 @@ patch:
   "style/candidate_font":
     [
       Consolas.ttf,
+      AppleColorEmoji.ttf,
       SegoeUIEmoji.ttf,
       NotoColorEmoji-Regular.ttf,
-      wwyhei.ttf,
+      PingFang-Mod.otf,
+      TumanPUA.ttf,
       TH-Times.ttc,
       TH-Tshyn-P0.ttf,
       TH-Tshyn-P1.ttf,
@@ -17,14 +19,16 @@ patch:
       simsun.ttc,
       simsunb.ttf,
       simsung.ttf,
+      LXGWWenKaiGBScreen.ttf,
     ]
   "style/comment_font":
     [
       Consolas.ttf,
+      AppleColorEmoji.ttf,
       NotoColorEmoji-Regular.ttf,
       SegoeUIEmoji.ttf,
+      PingFang-Mod.otf,
       TumanPUA.ttf,
-      wwyhei.ttf,
       TH-Times.ttc,
       TH-Tshyn-P0.ttf,
       TH-Tshyn-P1.ttf,
@@ -33,6 +37,7 @@ patch:
       simsun.ttc,
       simsunb.ttf,
       simsung.ttf,
+      LXGWWenKaiGBScreen.ttf,
     ]
 
   # 自定义配色方案

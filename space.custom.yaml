@@ -7,7 +7,7 @@ patch:
   schema_dir: schemas/
   theme: t26_pure
   theme_dir: schemas/huma_rime_config/themes/
-  font: wwyhei
+  font: pingfangmod
   font_dir: schemas/huma_rime_config/fonts/
   symbol: default
   symbol_dir: symbols/

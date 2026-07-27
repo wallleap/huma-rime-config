@@ -103,9 +103,9 @@ patch:
   "style/horizontal": false
   "style/candidate_list_layout": stack
 
-  style/comment_font_face: "wwyhei, Consolas, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, SimSun-ExtB, SimSun-ExtG"
-  style/font_face: "wwyhei, Consolas, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, SimSun, SimSun-ExtB, SimSun-ExtG"
-  style/label_font_face: "wwyhei, Consolas, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16"
+  style/comment_font_face: "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen"
+  style/font_face: "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen"
+  style/label_font_face: "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen"
 
   schema/ascii_icon: "icons/en.ico"
   schema/full_icon: "icons/full.ico"
