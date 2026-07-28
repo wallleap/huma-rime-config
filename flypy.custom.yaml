@@ -7,9 +7,9 @@ patch:
   engine/processors/@before 0: lua_processor@switcher_processor
 
   # 这样写确保 uniquifier 在最后
-  'engine/filters/@before 0': lua_filter@switcher_filter # 切换方案
-  'engine/filters/@before 1': lua_filter@*in_user_dict # 在用户词典中
-  'engine/filters/@before last': lua_filter@*aux_code@flypy_full # 辅码码表
+  "engine/filters/@before 0": lua_filter@switcher_filter # 切换方案
+  "engine/filters/@before 1": lua_filter@*in_user_dict # 在用户词典中
+  "engine/filters/@before last": lua_filter@*aux_code@flypy_full # 辅码码表
 
   engine/translators:
     - punct_translator # 转换标点符号
@@ -39,7 +39,7 @@ patch:
     "<": "《"
     ">": "》"
 
-  speller/alphabet: "['zyxwvutsrqponmlkjihgfedcba;]/" # ;辅助码分割
+  speller/alphabet: "['zyxwvutsrqponmlkjihgfedcba;]/`" # ;辅助码分割
 
   # 语言模型
   "grammar/language": wanxiang-lts-zh-hans
@@ -95,7 +95,7 @@ patch:
   "style/horizontal": true
   "style/candidate_list_layout": linear
 
-  keybinder/+:
-    aux_code_learn_trigger: ";"
-    aux_code_no_learn_trigger: ";;"
+  aux_code:
+    learn_trigger: "`"
+    no_learn_trigger: "``"
     show_aux_notice: true
