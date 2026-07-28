@@ -38,7 +38,19 @@ patch:
   "switcher/option_list_separator": "/" # 方案切换选项分隔符
 
   # 候选项个数
-  "menu/page_size": 9
+  "menu/page_size": 9 # 自定义候选个数，可修改（Rime默认就是5个）
+  # menu/alternative_select_labels: [ ㊀, ㊁, ㊂, ㊃, ㊄, ㊅, ㊆, ㊇, ㊈ ]  # 自定义候选序号显示符，可自定修改，如要显示阿拉伯数字，直接注释掉这行（在前面加#号）
+  # 以下是备选样式（自行删除#号即可生效，只能生效一种）
+  # menu/alternative_select_labels: [ ①,②,③,④,⑤,⑥,⑦,⑧,⑨,⑩ ]
+  # menu/alternative_select_labels: [ ❶,❷,❸,❹,❺,❻,❼,❽,❾,❿ ]
+  # menu/alternative_select_labels: [ ⓵,⓶,⓷,⓸,⓹,⓺,⓻,⓼,⓽,⓾ ]
+  # menu/alternative_select_labels: [ ㊀,㊁,㊂,㊃,㊄,㊅,㊆,㊇,㊈,㊉ ]
+  # menu/alternative_select_labels: [ ㈠,㈡,㈢,㈣,㈤,㈥,㈦,㈧,㈨,㈩ ]
+  # menu/alternative_select_labels: [ 🀇,🀈,🀉,🀊,🀋,🀌,🀍,🀎,🀏,🀄 ]
+  # menu/alternative_select_labels: [ Ⅰ,Ⅱ,Ⅲ,Ⅳ,Ⅴ,Ⅵ,Ⅶ,Ⅷ,Ⅸ,Ⅹ ]
+  # menu/alternative_select_labels: [ ⅰ,ⅱ,ⅲ,ⅳ,ⅴ,ⅵ,ⅶ,ⅷ,ⅸ,ⅹ ]
+  # menu/alternative_select_labels: [ Ⓐ,Ⓑ,Ⓒ,Ⓓ,Ⓔ,Ⓕ,Ⓖ,Ⓗ,Ⓘ,Ⓙ ]
+  # menu/alternative_select_labels: [ ⓐ,ⓑ,ⓒ,ⓓ,ⓔ,ⓕ,ⓖ,ⓗ,ⓘ,ⓙ ]
 
   # 全角半角标点符号配置
   "punctuator/full_shape":
