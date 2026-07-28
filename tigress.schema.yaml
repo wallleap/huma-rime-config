@@ -8,7 +8,7 @@ schema:
     - 虎码团队
   dependencies:
     - core2022 #自定义字集工具方案
-    - PY_c # 拼音方案
+    - flypy # 小鹤双拼方案
     - easy_english # 英文
   description: |
     虎码官方词库
@@ -125,7 +125,7 @@ speller:
 
 # 反查配置
 reverse_lookup:
-  dictionary: PY_c
+  dictionary: flypy
   prefix: "`"
   tips: "〔拼音〕"
   preedit_format:

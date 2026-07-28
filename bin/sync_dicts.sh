@@ -16,7 +16,6 @@ FALLBACK_BASE="https://gh-proxy.com/"
 
 # ===================== 同步列表 =====================
 SYNC_LIST=(
-  "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/PY_c.dict.yaml|${REPO_ROOT}"
   "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/core2022.dict.yaml|${REPO_ROOT}"
   "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/easy_english.dict.yaml|${REPO_ROOT}"
   "https://github.com/zhhmn/huma-rime/raw/master/tiger.dict.yaml|${REPO_ROOT}/dicts"

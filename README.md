@@ -106,9 +106,6 @@
 ├── punctuation.yaml                       # 标点符号配置
 ├── pure.trime.custom.yaml                 # 安卓同文输入法补丁
 ├── pure.trime.yaml                        # 安卓同文输入法朴素主题
-├── PY_c.custom.yaml                       # 拼音++ 补丁，主要添加小鹤双拼拼写运算规则
-├── PY_c.dict.yaml                         # 拼音++ 词库
-├── PY_c.schema.yaml                       # 拼音++ 方案
 ├── README.md                              # README 文档
 ├── rime.lua                               # lua 总入口
 ├── space.custom.yaml                      # 鸿蒙超越输入法目录配置
@@ -163,8 +160,6 @@
 小鹤双拼辅助码：输入双拼后加 `` ` ``（个人习惯两个键输入双拼，辅助码仅用于难以选词时使用）
 
 双拼自定义短语文件：`custom_phrase.txt`
-
-> `PY_c.schema.yaml` 是基于拼音 ++ 改造的小鹤双拼方案，整合了小鹤双拼的输入规则，暂时不直接用于输入方案，而是作为虎码反查使用
 
 ## 2. 如何使用
 
@@ -284,7 +279,6 @@
 ```sh
 # ===================== 同步列表 =====================
 SYNC_LIST=(
-  "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/PY_c.dict.yaml|${REPO_ROOT}"
   "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/core2022.dict.yaml|${REPO_ROOT}"
   "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/easy_english.dict.yaml|${REPO_ROOT}"
   "https://github.com/zhhmn/huma-rime/raw/master/tiger.dict.yaml|${REPO_ROOT}/dicts"
