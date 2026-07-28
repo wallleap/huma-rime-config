@@ -1,6 +1,6 @@
 -- 辅助码与音形分离插件
 -- https://github.com/HowcanoeWang/rime-lua-aux-code/blob/main/lua/aux_code.lua
--- 辅码码表文件放到 aux_code 目录下
+-- 辅码码表文件放到 lua/data/aux_code/ 目录下
 -- engine/filters/+:
 --   - lua_filter@*aux_code@码表文件名 # 注意不带 .txt 后缀
 
@@ -15,7 +15,7 @@ local function normalize_trigger(token, fallback)
 end
 
 local function build_missing_dict_message(filename)
-  return "(⚠️config/rime/aux_code/ 中未找到辅码文件 " .. filename .. ")"
+  return "(⚠️config/rime/lua/data/aux_code/ 中未找到辅码文件 " .. filename .. ")"
 end
 
 local function merge_comment(origin, message)
@@ -55,8 +55,8 @@ end
 
 function AuxFilter.init(env)
   -- log.info("** AuxCode filter", env.name_space)
-  local shared_data_dir = rime_api.get_shared_data_dir() .. "/aux_code/"
-  local user_data_dir = rime_api.get_user_data_dir() .. "/aux_code/"
+  local shared_data_dir = rime_api.get_shared_data_dir() .. "/lua/data/aux_code/"
+  local user_data_dir = rime_api.get_user_data_dir() .. "/lua/data/aux_code/"
   local aux_code, missing_path, missing_file = AuxFilter.readAuxTxt(user_data_dir, env.name_space) -- 程序目录和用户目录都找一下，用户目录优先
   if not aux_code then
     aux_code, missing_path, missing_file = AuxFilter.readAuxTxt(shared_data_dir, env.name_space)

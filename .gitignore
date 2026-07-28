@@ -13,6 +13,7 @@ sync/
 --rebuild/
 backup_*/
 data/
+!lua/data
 trash/
 
 # 用户自定义短语文件
@@ -22,6 +23,6 @@ PY_c.txt
 flypy.txt
 tigress*.txt
 
-lua/input_stats.lua
+lua/data/input_stats/data.lua
 
 *.gram
