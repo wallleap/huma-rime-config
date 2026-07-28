@@ -24,8 +24,9 @@ local function filter(input, env)
           -- Remove &nbsp; as per original comment_format
           converted = converted:gsub("&nbsp;", " ")
           converted = converted:gsub("〔", "[")
-          converted = converted:gsub("〕", "]")
-          converted = converted:gsub(" · ", " ")
+          converted = converted:gsub("〕", ")")
+          converted = converted:gsub(" · ", "](")
+          -- [字根](编码)
 
           local current_comment = cand.comment
           if current_comment and current_comment ~= "" then
