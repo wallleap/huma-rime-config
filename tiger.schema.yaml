@@ -152,7 +152,7 @@ speller:
   auto_clear: max_length # 3种选择， manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
   auto_select: true # 自动上屛〔true 或 false〕
   max_code_length: 4 # 形码最大码长，超过则顶字上屛〔number〕
-  alphabet: "['zyxwvutsrqponmlkjihgfedcba]`" # 定义本方案输入键 "[;'zyxwvutsrqponmlkjihgfedcba]`"
+  alphabet: "['zyxwvutsrqponmlkjihgfedcba]`/=S" # 定义本方案输入键 "[;'zyxwvutsrqponmlkjihgfedcba]`"
   # initials: "abcdefghijklmnopqrstuvwxyz;'" # 定义仅作始码之键
   # finals: "[a-z;']" # 定义仅作末码之键
   # delimiter: " '" # 上屛时的音节间分音符
@@ -330,6 +330,7 @@ recognizer:
     flypy_lookup: "^`[a-z]*'?$"
     easy_english: "^'[A-Z|a-z]*`?$"
     expression: "^=.*$"
+    number: "^S[0-9]*$"
     stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
 
 # 标点符号，用于将输入的标点符号转换为对应的码点
