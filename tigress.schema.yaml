@@ -169,7 +169,7 @@ translator:
 # 自定义短语
 custom_phrase:
   dictionary: ""
-  user_dict: tigress_phrase
+  user_dict: custom_phrase
   db_class: stabledb
   enable_completion: false
   enable_sentence: false
