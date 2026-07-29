@@ -13,21 +13,25 @@ schema:
   description: |
     虎码官方词库
     敲 ` 鍵進入拼音反查
-  name: "虎码官方词库"
+  name: "虎码·含词"
   schema_id: tigress
+  ascii_icon: "icons/en.ico"
+  full_icon: "icons/full.ico"
+  half_icon: "icons/half.ico"
+  icon: "icons/tiger.ico"
   version: 0.9
 
 switches: # 0 默认关，1 默认开
   - name: ascii_mode
     reset: 0
-    states: [中文, 西文] #中英文状态
-  - name: extended_char #自定义字集
+    states: [中文, 西文] # 中英文状态
+  - name: extended_char # 自定义字集
     reset: 1
     states: [全集, 常用]
-  - name: pinyin #拼音滤镜
+  - name: pinyin # 拼音滤镜
     reset: 0
     states: [拼, pīn]
-  - name: emoji_cn #emoji滤镜
+  - name: emoji_cn # emoji滤镜
     reset: 0
     states: [🈚, 🈶]
   - name: chaifen
@@ -36,13 +40,13 @@ switches: # 0 默认关，1 默认开
   # - options: [ gb2312, gbk, utf8 ]
   #   states: [ gb2312, GBK, UTF-8 ]
   #   reset: 0
-  - name: simplification #简转繁滤镜
+  - name: simplification # 简转繁滤镜
     reset: 0
     states: [简中, 繁中]
   # - options: [_keyboard_default, _keyboard_defaultbk, _keyboard_defaultwk]
   #   reset: 0
   #   states: [有刻, 半刻, 无刻]
-  - name: charset_comment_filter #字符集提示
+  - name: charset_comment_filter # 字符集提示
     reset: 0
     states: [U区关, U区开]
   - name: udpf_switch
@@ -51,13 +55,13 @@ switches: # 0 默认关，1 默认开
   - name: ascii_punct
     reset: 0
     states: [。，, ．，]
-  # - name: dz_ci  #过滤词组
+  # - name: dz_ci  # 过滤词组
   #   reset: 0
   #   states: [ 词组, 单字 ]
   # - options: [_keyboard_default, _keyboard_defaultzj]
   #   reset: 0
   #   states: [助记关, 助记开]
-  # - name: fanjian  #繁转简滤镜
+  # - name: fanjian  # 繁转简滤镜
   #   reset: 0
   #   states: [ 反繁, 反简 ]
   - name: full_shape
@@ -67,67 +71,79 @@ switches: # 0 默认关，1 默认开
 # 引擎配置
 engine:
   processors:
+    - lua_processor@switcher_processor # mode 切换方案
+    - lua_processor@maker_processor # ' 造词
     - ascii_composer
     - recognizer
     - key_binder
     - speller
     - punctuator
-    - lua_processor@exe_processor #exe启动器
+    - lua_processor@exe_processor # exe启动器
     - selector
     - navigator
-    - express_editor #计算
+    - express_editor # 计算
   segmentors: # 分段
     - ascii_segmentor
     - matcher
-    - affix_segmentor@easy_english #英文相关
+    - affix_segmentor@easy_english # 英文相关
     - abc_segmentor
     - punct_segmentor
     - fallback_segmentor
   translators:
     - echo_translator
     - punct_translator
-    - reverse_lookup_translator #拼音反查
+    - reverse_lookup_translator # 拼音反查
     - table_translator
-    - table_translator@easy_english #临时英文
+    - table_translator@custom_phrase
+    - table_translator@easy_english # 临时英文
     - history_translator@historyDM # 重复上屏 电脑
     - history_translator@historyDM2 # 重复上屏 电脑2
     - history_translator@historyDM3 # 重复上屏 电脑3
     - history_translator@historySJ # 重复上屏 手机
+    - lua_translator@switcher_translator # mode 切换方案
+    - lua_translator@maker_translator # ' 造词
     - lua_translator@number_translator # 数字转大写
     - lua_translator@calculator_translator # 简易计算器
+    - lua_translator@*helper # 帮助
+    - lua_translator@*uuid_translator # UUID 输入
+    - lua_translator@*date_translator # 动态日期时间输入
+    - lua_translator@*input_statistics # 统计不同方案不同维度下输入信息
   filters:
-    - lua_filter@core2022 #自定义字集过滤lua；放在最上面完美解决简繁滤镜出错的问题
-    # - lua_filter@dz_ci  #过滤词组lua，单字模式
+    - lua_filter@core2022 # 自定义字集过滤lua；放在最上面完美解决简繁滤镜出错的问题
+    # - lua_filter@dz_ci  # 过滤词组lua，单字模式
     # - charset_filter@utf8
     # - charset_filter@gbk
     # - charset_filter@gb2312
     # - charset_filter@big5
-    - simplifier@simplification #简繁滤镜
-    # - simplifier@fanjian  #繁简滤镜
-    # - reverse_lookup_filter@reverse_lookup #反查词典滤镜
-    # - simplifier@pinyin #拼音滤镜（放弃这种，会覆盖备注）
-    - lua_filter@pinyin_comment_filter #拼音滤镜(Lua追加模式)
-    - simplifier@emoji_cn #表情滤镜
-    - lua_filter@chaifen_comment_filter #拆分滤镜(Lua追加模式)
-    - lua_filter@charset_comment_filter #Unicode分区提示滤镜
-    - lua_filter@lua_unicode_display_filter #Unicode编码显示
-    - uniquifier #过滤重复
+    - simplifier@simplification # 简繁滤镜
+    # - simplifier@fanjian  # 繁简滤镜
+    # - reverse_lookup_filter@reverse_lookup # 反查词典滤镜
+    # - simplifier@pinyin # 拼音滤镜（放弃这种，会覆盖备注）
+    - lua_filter@pinyin_comment_filter # 拼音滤镜(Lua追加模式)
+    - simplifier@emoji_cn # 表情滤镜
+    - lua_filter@chaifen_comment_filter # 拆分滤镜(Lua追加模式)
+    - lua_filter@charset_comment_filter # Unicode分区提示滤镜
+    - lua_filter@lua_unicode_display_filter # Unicode编码显示
+    - lua_filter@maker_filter # 过滤掉系统词库中已存在的用户造词
+    - lua_filter@*in_user_dict # 在用户词典中
+    - lua_filter@switcher_filter # mode 切换方案
+    - uniquifier # 过滤重复
 
 # 拼写器配置
 speller:
   auto_clear: max_length # 3种选择， manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
   auto_select: true
-  max_code_length: 4
-  alphabet: "[;'zyxwvutsrqponmlkjihgfedcba]"
+  # max_code_length: 4
+  max_code_length: 30
+  alphabet: "['zyxwvutsrqponmlkjihgfedcbaS=]`" # "[;'zyxwvutsrqponmlkjihgfedcba]"
   # initials: "abcdefghijklmnopqrstuvwxyz;'"
-  auto_select_pattern: ^;\w+ #自动上屏规则  对 [;] 引导的编码实行候选唯一自动上屏
-  # 若要添加四码上屏功能，在  ^;\w+ 后面 加上  |^\w{4}$  即可
+  auto_select_pattern: ^;\w+ # 自动上屏规则  对 [;] 引导的编码实行候选唯一自动上屏  ^;\w+|^\w{4}$ 四码上屏功能
 
 # 反查配置
 reverse_lookup:
   dictionary: flypy
   prefix: "`"
-  tips: "〔拼音〕"
+  tips: "〔小鹤双拼〕"
   preedit_format:
     - "xform/([nl])v/$1ü/"
     - "xform/([nl])ue/$1üe/"
@@ -146,9 +162,18 @@ translator:
   # max_phrase_length: 4
   enable_user_dict: false
   enable_completion: false # 编码提示 true 开启  false 关闭
-  comment_format: #提示码自定义
-    - "xform/~/ /" #去掉编码提示前的~号
-    # - "xform/^/ /" #提示前面 +间距
+  comment_format: # 提示码自定义
+    - "xform/~/ /" # 去掉编码提示前的~号
+    # - "xform/^/ /" # 提示前面 +间距
+
+# 自定义短语
+custom_phrase:
+  dictionary: ""
+  user_dict: tigress_phrase
+  db_class: stabledb
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: 100
 
 # 临时英文
 easy_english:
@@ -161,8 +186,8 @@ easy_english:
   initial_quality: -1
   preedit_format:
     - "xlit|_| |"
-  comment_format: #去掉编码提示前的~号
-    - "xform/~/ /"
+  comment_format:
+    - "xform/~/ /" # 去掉编码提示前的~号
 
 historySJ:
   input: z
@@ -185,27 +210,32 @@ historyDM3:
   initial_quality: 999
 
 # ↓简繁(+部分异体)滤镜
-simplification: #⇩四选一
+simplification: # ⇩四选一
   opencc_config: st_tu.json # 简 ➡ 繁·异（秃版标准）
-  # opencc_config: s2tw.json    # 简 ➡ 台湾正体
-  # opencc_config: s2hk.json    # 简 ➡ 香港繁体
-  # opencc_config: s2twp.json  # 简 ➡ 台湾正体（含常用词汇如：软体→軟體、鼠标→滑鼠）
+  # opencc_config: s2tw.json # 简 ➡ 台湾正体
+  # opencc_config: s2hk.json # 简 ➡ 香港繁体
+  # opencc_config: s2twp.json # 简 ➡ 台湾正体（含常用词汇如：软体→軟體、鼠标→滑鼠）
   option_name: simplification
-  tips: all #all字词|char字
+  tips: all # all字词|char字
 
 # ↓繁简滤镜
 # fanjian:
-#   opencc_config: t2s.json   # 繁 ➡ 简（OpenCC标准）
+#   opencc_config: t2s.json # 繁 ➡ 简（OpenCC标准）
 #   option_name: fanjian
 
 # ↓拼音滤镜
 pinyin:
   opencc_config: pinyin.json
   option_name: pinyin
-  show_in_comment: true #作为注解在后面显示
+  show_in_comment: true # 作为注解在后面显示
   comment_format:
     - "xform/&nbsp;/ /"
-    # - "xform/^/ /"
+    # 去除拼音滤镜的括号
+    # - 'xform/&nbsp;/ /'
+    # - 'xform/^/ /'
+    # - 'xform/（//'
+    # - 'xform/）//'
+    # 也可自己把 （ 替换成别的，比如 'xform/（/〔/'
   tips: char
   tags:
     - abc
@@ -231,17 +261,18 @@ chaifen:
     - tiger
     - tigress
     - reverse_lookup
-  tips: all #只给单字加滤镜，改为 char 。 词也显示，改为 all
+  tips: all # 只给单字加滤镜，改为 char 。 词也显示，改为 all
 
 # 识别器配置
 recognizer:
   import_preset: default
   patterns:
-    punct: "^/([0-9]0?|[A-Za-z]+)$"
-    # uppercase: "" #中文状态大写锁定直接上屏
-    reverse_lookup: "^`[a-z]*'?$"
+    punct: "^/([0-9]0?|[A-Za-z]+)$" # "^/[A-Za-z0-9_]*$"
+    # uppercase: "" # 中文状态大写锁定直接上屏
+    reverse_lookup: "^`[a-z]*'?$" # "^`[a-z]*'?$"
     easy_english: "^'[A-Z|a-z]*`?$"
     expression: "^=.*$"
+    stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
 
 # 标点符号配置
 punctuator:
@@ -249,7 +280,7 @@ punctuator:
 
 # 按键绑定配置
 key_binder:
-  #  import_preset: default
+  # import_preset: default
   bindings: # 设置功能性快捷键
     __patch:
       - key_bindings:/emacs_editing
@@ -261,3 +292,15 @@ key_binder:
       - key_bindings:/windows_compatible_mode_switch
       - key_bindings:/tiger_pc_options
       # - key_bindings:/tiger_mobile_options
+
+# lua 配置：造词功能
+maker:
+  separator: "`"
+  candidate_mark: "☯"
+  excluded_prefixes: ["`", "/", "="] # 排除的前缀，支持多字符，例如 ["`", "rv"]
+
+# lua 配置：在用户词典中
+in_user_dict:
+  user_phrase_symbol: "✴️"
+  user_table_symbol: "✨"
+  sentence_symbol: "♾️"
