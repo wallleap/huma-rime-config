@@ -20,12 +20,11 @@
   - Windows 小狼毫配置 `weasel.yaml`
   - 安卓同文输入法配置 `trime.yaml`、`*.trime.yaml`
   - iOS 仓输入法配置 `hamster.yaml`
+  - 鸿蒙超越输入法 `info.yam`、`space.yaml` 及主题目录 themes 等
 - 同名方案、配置补丁 `*.custom.yaml`
 
 ```bash
 .
-├── aux_code                               # [目录]存放拼音辅助码码表文件
-│   └── flypy_full.txt                     # 小鹤音形辅助码码表
 ├── backgrounds                            # [目录]存放同文输入法键盘背景图
 │   ├── keyboard-dark.png                  # 同文输入法 深棕暗调 配色背景
 │   └── keyboard-light.png                 # 同文输入法 暖黄渐变 配色背景
@@ -90,11 +89,15 @@
 │   ├── chaifen_comment_filter.lua         # 拆分提示/注释
 │   ├── charset_comment_filter.lua         # 字符集提示
 │   ├── core2022_filter.lua                # 字集过滤
+│   ├── data/                              # [目录] 存放 Lua 使用数据文件
+│   │   ├── aux_code/                      # [目录]存放拼音辅助码码表文件
+│   │   │   └── flypy_full.txt             # 小鹤音形辅助码码表
+│   │   └── input_stats/                   # [目录]存放输入统计数据
+│   │       └── data.lua                   # 自动生成输入统计
 │   ├── date_translator.lua                # 日期时间
 │   ├── helper.lua                         # 输入 help 获取简要说明
 │   ├── in_user_dict.lua                   # 在用户词库添加 emoji
-│   ├── input_statistics.lua               # 自动生成输入统计
-│   ├── input_stats.lua                    # 输入统计
+│   ├── input_statistics.lua               # 输入统计
 │   ├── lib/                               # [目录]存放工具库
 │   ├── maker.lua                          # 虎词自动造词
 │   ├── number.lua                         # 数字转换
@@ -164,15 +167,19 @@
 ## 2. 如何使用
 
 1. 安装 Rime 输入法发行版/前端（如「[鼠须管](https://github.com/rime/squirrel/releases)」、「[中州韵](https://github.com/rime/home/wiki/RimeWithIBus)」、「[小狼豪](https://github.com/rime/weasel/releases)」、「[同文输入法](https://github.com/osfans/trime/releases)」、「[仓输入法](https://apps.apple.com/hk/app/%E4%BB%93%E8%BE%93%E5%85%A5%E6%B3%95/id6446617683)」/「[元书输入法](https://apps.apple.com/us/app/%E5%85%83%E4%B9%A6%E8%BE%93%E5%85%A5%E6%B3%95/id6744464701)」、「[超越输入法](https://appgallery.huawei.com/app/detail?id=app.flytype.hmos.bim&channelId=SHARE&source=appshare)」等）
-2. 到 [Release](https://github.com/wallleap/huma-rime-config/releases) 中下载压缩包，并解压到本地
+2. 到 [Release](https://github.com/wallleap/huma-rime-config/releases) 中下载压缩包（第一次选择 full 版本）
+   - macOS 鼠须管，解压后移动目录中所有文件到 `~/Library/Rime`
+   - Windows 小狼毫，解压后移动目录中所有文件到 `%APPDATA%\Rime`（右击任务栏小狼毫图标-用户文件夹）
+   - iOS 仓输入法，解压后重命名目录为 `Rime`，之后在手机端打开 Wi-Fi 上传整个 Rime 目录
+   - Android 同文输入法，解压后复制目录中所有文件到 `/sdcard/rime`
+   - HarmonyOS 超越输入法，发送压缩包到鸿蒙设备，打开超越输入法，导入这个压缩包，选择键盘-虎码小鹤-全量部署-虎单
 3. 安装字体包
    - macOS 全选 `fonts` 目录下的所有字体文件，右击，点击安装/打开
    - Windows 全选 `fonts` 目录下的所有字体文件，右击，选择为【所有用户安装】（如果没有看到，可能在更多里面）
    - iOS 端使用仓输入法，可以选择【输入方案上传】，然后在电脑浏览器输入显示的 IP 地址（同一局域网），在根目录新建 `Fonts` 文件夹，把 `fonts` 目录下的所有字体文件上传到 `Fonts` 文件夹中
    - 安卓端同文输入法无需操作
    - 鸿蒙端超越输入法需要导入方案之后在菜单栏中找到字体，选择「虎码秃码字体」，切换其他输入法然后切换回超越输入法
-4. 把本仓库所有文件复制到 Rime 配置目录下（如 `~/Library/Rime`、`%APPDATA%\Rime` 等），手机上可以通过**压缩包导入**或局域网上传等方式导入到对应的目录下
-5. 点击重新部署
+4. 点击重新部署
 
 > 词库文件和万象模型都挺大的，需要等待一段时间才能下载完成，可以复制下载链接，在前面添加 `https://ghfast.top/` 加速下载；部署时，需要等待一段时间才能部署完成；小内存设备输入时，可能会有延迟，建议在输入时保持等待（或者选择其他适合自己的方案）。
 
@@ -319,7 +326,7 @@ chmod +x ./bin/download_gram.sh
 
 ## 8. 同步用户数据
 
-主要用于小鹤双拼词库同步合并，需要在每台设备 `installation.yaml` 设置 `sync_dir`
+主要用于小鹤双拼词库同步合并，需要在每台设备 `installation.yaml` 设置 `sync_dir`
 
 并且借助云盘 + Folder Sync 进行同步
 
