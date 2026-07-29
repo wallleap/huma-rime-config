@@ -9,6 +9,7 @@ import_tables:
   - dicts/tigress
   - dicts/tigress_ci
   - dicts/tigress_simp_ci  # 在-前面加上#号，即可关闭简词
+  - lua/data/user_dicts/tigress_user # 用户自定义字典
 columns:
   - text
   - code

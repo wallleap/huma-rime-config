@@ -6,6 +6,8 @@ local dict_loaded = {}     -- Map<dict_name, boolean>
 local session_words = {}   -- Store words added in this session
 local user_file_words = {} -- Store words loaded from output file (text -> true)
 local user_file_loaded = false
+local output_file_initialized = false
+local cached_output_file = nil
 
 -- Helper to get config
 local function get_config(env, key, default)
@@ -35,22 +37,94 @@ local function get_string_list(env, key, default_list)
   return default_list
 end
 
--- Helper to get output file
+-- Helper to check file existence (full path)
+local function file_exists(path)
+  local f = io.open(path, "r")
+  if f then f:close() return true end
+  return false
+end
+
+-- Helper to ensure directory exists
+local function ensure_dir(path)
+  local cmd
+  local separator = package.config:sub(1, 1)
+  if separator == "\\" then
+    cmd = "if not exist \"" .. path .. "\" mkdir \"" .. path .. "\""
+  else
+    cmd = "mkdir -p \"" .. path .. "\""
+  end
+  os.execute(cmd)
+end
+
+-- Helper to create default dict file with YAML header
+local function create_dict_header(path, create_date)
+  local dir = path:match("^(.*[/\\])")
+  if dir then ensure_dir(dir) end
+  local f = io.open(path, "w")
+  if not f then return false end
+  f:write(string.format([[name: tigress_user
+version: "%s"
+sort: by_weight
+use_preset_vocabulary: false
+columns:
+  - text
+  - weight
+  - code
+  - stem
+encoder:
+  rules:
+    - length_equal: 2
+      formula: "AaAbBaBb"
+    - length_equal: 3
+      formula: "AaBaCaCb"
+    - length_in_range: [4, 99]
+      formula: "AaBaCaZa"
+
+...]], create_date))
+  f:close()
+  return true
+end
+
+-- Helper to get output file (with initialization)
 local function get_output_file(env)
-  if env and env.engine and env.engine.schema and env.engine.schema.config then
-    local config = env.engine.schema.config
-
-    -- 1. Try maker/output_file
-    local val = config:get_string("maker/output_file")
-    if val then return val end
-
-    -- 2. Try custom_phrase/user_dict
-    val = config:get_string("custom_phrase/user_dict")
-    if val then return val .. ".txt" end
+  if output_file_initialized then
+    return cached_output_file
   end
 
-  -- 3. Default
-  return "tigress.txt"
+  local default_file = "lua/data/user_dicts/tigress_user.dict.yaml"
+  local output_file = default_file
+
+  -- Check maker/output_file config
+  local custom_file = nil
+  if env and env.engine and env.engine.schema and env.engine.schema.config then
+    local val = env.engine.schema.config:get_string("maker/output_file")
+    if val and val ~= "" then
+      custom_file = val
+    end
+  end
+
+  if custom_file then
+    -- maker/output_file is set: create if not exists, skip if exists
+    local custom_path = rime_dir .. "/" .. custom_file
+    if not file_exists(custom_path) then
+      local dir = custom_path:match("^(.*[/\\])")
+      if dir then ensure_dir(dir) end
+      local f = io.open(custom_path, "w")
+      if f then f:close() end
+    end
+    output_file = custom_file
+  else
+    -- maker/output_file is NOT set: create default file with header
+    local target_path = rime_dir .. "/" .. default_file
+    if not file_exists(target_path) then
+      local today = os.date("%Y.%m.%d")
+      create_dict_header(target_path, today)
+    end
+  end
+
+  cached_output_file = output_file
+  output_file_initialized = true
+  return output_file
 end
 
 local function load_dict(dict_name)
@@ -113,10 +187,14 @@ local function load_user_file(env)
   local file = io.open(file_path, "r")
   if file then
     for line in file:lines() do
-      -- Format: text \t code \t weight
-      local text = line:match("([^\t]+)")
-      if text then
-        user_file_words[text] = true
+      -- Format: text \t weight \t code
+      -- Skip YAML headers, comments, and lines without a tab
+      line = line:gsub("[\r\n]+$", "")
+      if not line:match("^#") and not line:match("^%-%-") and not line:match("^%.%.%.") then
+        local text = line:match("([^\t]+)\t")
+        if text then
+          user_file_words[text] = true
+        end
       end
     end
     file:close()
@@ -144,10 +222,11 @@ function M.processor(key, env)
   local kNoop = 2
 
   -- Configs
-  local separator = get_config(env, "separator", "'")
+  local separator = get_config(env, "separator", "`")
   local output_file = get_output_file(env)
   local dict_name = get_config(env, "dictionary", "tigress")
   local mark = get_config(env, "candidate_mark", "☯")
+  local initial_weight = get_config(env, "initial_weight", "100")
   local excluded_prefixes = get_string_list(env, "excluded_prefixes", { "`" })
 
   -- Load dictionary if needed
@@ -208,9 +287,22 @@ function M.processor(key, env)
             check:close()
           end
 
-          local f = io.open(file_path, "a")
+          -- Read file content to check if trailing newline exists
+          local f = io.open(file_path, "r")
+          local content = ""
           if f then
-            f:write(cand.text .. "\t" .. code .. "\t100\n")
+            content = f:read("*a") or ""
+            f:close()
+          end
+
+          local needs_newline = (#content > 0 and content:sub(-1) ~= "\n")
+
+          f = io.open(file_path, "a")
+          if f then
+            if needs_newline then
+              f:write("\n")
+            end
+            f:write(cand.text .. "\t" .. initial_weight .. "\t" .. code .. "\n")
             f:flush()
             f:close()
           elseif log and log.error then
@@ -262,7 +354,7 @@ end
 
 function M.translator(input, seg, env)
   -- Configs
-  local separator = get_config(env, "separator", "'")
+  local separator = get_config(env, "separator", "`")
   local dict_name = get_config(env, "dictionary", "tigress")
   local mark = get_config(env, "candidate_mark", "☯")
 
