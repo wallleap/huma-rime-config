@@ -11,8 +11,8 @@ local PLUGIN_KEY = "in_user_dict"
 -- 配置键名
 local CONFIG_KEYS = {
   user_phrase_symbol = "user_phrase_symbol", -- 自定义短语符号配置键
-  user_table_symbol = "user_table_symbol", -- 用户词表符号配置键
-  sentence_symbol = "sentence_symbol", -- 句子符号配置键
+  user_table_symbol = "user_table_symbol",   -- 用户词表符号配置键
+  sentence_symbol = "sentence_symbol",       -- 句子符号配置键
 }
 
 -- 默认符号（配置未定义时使用）
@@ -25,7 +25,8 @@ local DEFAULT_SYMBOLS = {
 function M.init(env)
   -- 遍历 CONFIG_KEYS 表，为每个键赋值
   for key, config_key in pairs(CONFIG_KEYS) do
-    M[key] = env.engine.schema.config:get_string(PLUGIN_KEY .. "/" .. config_key) or DEFAULT_SYMBOLS[key:gsub("_symbol", "")]
+    M[key] = env.engine.schema.config:get_string(PLUGIN_KEY .. "/" .. config_key) or
+    DEFAULT_SYMBOLS[key:gsub("_symbol", "")]
   end
 end
 
@@ -38,7 +39,7 @@ function M.func(input)
 
     -- 先拿到原始文本（只读）
     local original_text = cand.text
-    
+
     -- 处理换行符
     if (original_text:match("\\n")) then
       local replaced_text = string.gsub(original_text, "\\n", "\n")
@@ -49,9 +50,9 @@ function M.func(input)
         cand.start,
         cand._end,
         replaced_text, -- 你想要的文字
-        cand.comment -- 你想要的注释
+        cand.comment   -- 你想要的注释
       )
-      
+
       -- 保留原权重（不影响排序）
       new_cand.quality = cand.quality
 

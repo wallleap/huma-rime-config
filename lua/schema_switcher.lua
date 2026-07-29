@@ -1,6 +1,6 @@
 -- 变量定义
 local rv_var = {
-   switch_schema = "mode",
+  switch_schema = "mode",
 }
 
 -- 跨平台路径分隔符
@@ -12,7 +12,7 @@ local kNoop = 2
 
 local function get_schema_name(schema_id)
   local user_data_dir = rime_api.get_user_data_dir() -- 获取用户目录路径
-  
+
   local function read_name(path)
     local file = io.open(path, "rb")
     if file then
@@ -148,9 +148,9 @@ local function set_switch_keywords(input, seg, env)
   if input == rv_var.switch_schema and #enable_schema_list > 0 then
     -- 修改 segment 的 tag，避免被拆分滤镜处理
     if Set then
-      segment.tags = Set({rv_var.switch_schema})
+      segment.tags = Set({ rv_var.switch_schema })
     end
-    
+
     local select_index = 1
     for i = 1, #enable_schema_list do
       if enable_schema_list[i][2] then
@@ -171,19 +171,19 @@ end
 
 -- Translator
 local function translator(input, seg, env)
-   set_switch_keywords(input, seg, env)
+  set_switch_keywords(input, seg, env)
 end
 
 -- Filter: 清理注释
 local function filter(input, env)
   local context = env.engine.context
   local schema_id = env.engine.schema.schema_id
-  
+
   if context.input == rv_var.switch_schema then
     for cand in input:iter() do
       -- 获取真实候选以检查类型
       local genuine = cand:get_genuine()
-      
+
       -- 仅处理 type 为 mode 的候选 (检查 genuine.type)
       if genuine.type == rv_var.switch_schema then
         -- 使用 genuine.text 匹配，避免 filter 修改了 text

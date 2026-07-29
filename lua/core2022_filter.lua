@@ -1,24 +1,24 @@
 local charsets = {
-  { first = 0x4e00, last = 0x9fff }, -- 基本区
-  { first = 0x3400, last = 0x4dbf }, -- 扩A
-  { first = 0x20000, last = 0x2a6df }, -- 扩B
-  { first = 0x2a700, last = 0x2b73f }, -- 扩C
-  { first = 0x2b740, last = 0x2b81f }, -- 扩D
-  { first = 0x2b820, last = 0x2ceaf }, -- 扩E
-  { first = 0x2ceb0, last = 0x2ebef }, -- 扩F
-  { first = 0x30000, last = 0x3134f }, -- 扩G
-  { first = 0x31350, last = 0x323af }, -- 扩H
-  { first = 0x2EBF0, last = 0x2EE5D }, -- 扩I
-  { first = 0x31c0, last = 0x31ef }, -- 笔画
-  { first = 0x2e80, last = 0x2eff }, -- 部首扩展
-  { first = 0x2f00, last = 0x2fdf }, -- 康熙部首
-  { first = 0xf900, last = 0xfadf }, -- 兼容
-  { first = 0x2f800, last = 0x2fa1f }, -- 兼补
-  { first = 0x2ff0, last = 0x2fff }, -- 汉字结构
-  { first = 0x3100, last = 0x312f }, -- 注音
-  { first = 0x31a0, last = 0x31bf }, -- 注音扩展
+  { first = 0x4e00,   last = 0x9fff }, -- 基本区
+  { first = 0x3400,   last = 0x4dbf }, -- 扩A
+  { first = 0x20000,  last = 0x2a6df }, -- 扩B
+  { first = 0x2a700,  last = 0x2b73f }, -- 扩C
+  { first = 0x2b740,  last = 0x2b81f }, -- 扩D
+  { first = 0x2b820,  last = 0x2ceaf }, -- 扩E
+  { first = 0x2ceb0,  last = 0x2ebef }, -- 扩F
+  { first = 0x30000,  last = 0x3134f }, -- 扩G
+  { first = 0x31350,  last = 0x323af }, -- 扩H
+  { first = 0x2EBF0,  last = 0x2EE5D }, -- 扩I
+  { first = 0x31c0,   last = 0x31ef }, -- 笔画
+  { first = 0x2e80,   last = 0x2eff }, -- 部首扩展
+  { first = 0x2f00,   last = 0x2fdf }, -- 康熙部首
+  { first = 0xf900,   last = 0xfadf }, -- 兼容
+  { first = 0x2f800,  last = 0x2fa1f }, -- 兼补
+  { first = 0x2ff0,   last = 0x2fff }, -- 汉字结构
+  { first = 0x3100,   last = 0x312f }, -- 注音
+  { first = 0x31a0,   last = 0x31bf }, -- 注音扩展
   -- -- 以上为汉字部分
-  -- { first = 0x3040, last = 0x309f }, -- 平假名 
+  -- { first = 0x3040, last = 0x309f }, -- 平假名
   -- { first = 0x30a0, last = 0x30ff }, -- 片假名
   -- { first = 0x31f0, last = 0x31ff }, -- 假名扩展
   -- { first = 0x1b000, last = 0x1b0ff }, -- 假名补充
@@ -35,8 +35,8 @@ local charsets = {
   -- { first = 0x3200, last = 0x32ff }, -- 中日韩弧圈字符
   -- { first = 0x3000, last = 0x303f }, -- 中日韩符号和标点
   -- 私用区
-  { first = 0xe000, last = 0xf8ff }, -- 私用区
-  { first = 0xf0000, last = 0xffff }, -- 私用区补充A
+  { first = 0xe000,   last = 0xf8ff },   -- 私用区
+  { first = 0xf0000,  last = 0xffff },   -- 私用区补充A
   { first = 0x100000, last = 0x10ffff }, -- 私用区补充B
 }
 

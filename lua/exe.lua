@@ -6,7 +6,8 @@ Source:https://github.com/hchunhui/librime-lua/issues/35
 ※rime.lua中 增加"exe_processor = require("exe")"
 
 
---]] local function generic_open(dest)
+--]]
+local function generic_open(dest)
   if os.execute('start "" ' .. dest) then
     return true
   elseif os.execute('open ' .. dest) then
@@ -33,7 +34,7 @@ local function exe(key, env)
   elseif (context.input == "/wangpan" or context.input == "/whpj" or context.input == "/mbia") then
     generic_open("http://huma.ysepan.com")
     context:clear()
-  elseif (context.input == "/genda" or context.input == "/gfda" or context.input == "/piua" or context.input == "/muyi" or context.input == "/emon" ) then
+  elseif (context.input == "/genda" or context.input == "/gfda" or context.input == "/piua" or context.input == "/muyi" or context.input == "/emon") then
     generic_open("https://typer.owenyang.top")
     context:clear()
   elseif (context.input == "/zitong" or context.input == "/zits" or context.input == "/whib") then

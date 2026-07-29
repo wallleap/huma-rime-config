@@ -18,7 +18,7 @@ lua_unicode_display_filter = require("unicode_display")  -- unicode显示滤镜
       reset: 1
       states: [ 無, U]
 其中,reset指定是否默认开启,1是默认开启,0默认关闭,若常用可以默认开启
-]]--
+]] --
 
 --TEST
 --[[
@@ -31,32 +31,32 @@ lua_unicode_display_filter = require("unicode_display")  -- unicode显示滤镜
         io.close(f)
     end
 ]]
-    
+
 local function C2U(char)
-    local unicode_d = utf8.codepoint(char)
-    local unicode_h = string.format('%x', unicode_d)
-    --DEBUG
---    sm("C2U char="..char)
---    sm("C2U d="..unicode_d)
---    sm("C2U h="..unicode_h)
-    return unicode_h
+  local unicode_d = utf8.codepoint(char)
+  local unicode_h = string.format('%x', unicode_d)
+  --DEBUG
+  --    sm("C2U char="..char)
+  --    sm("C2U d="..unicode_d)
+  --    sm("C2U h="..unicode_h)
+  return unicode_h
 end
 
 local function unicode_display_filter(input, env)
-    local context = env.engine.context
-    local input_text = context.input
-    local udpf_switch = context:get_option("udpf_switch")
-    for cand in input:iter() do
-        if #input_text >= 1 and udpf_switch then
-            local char = cand.text
-            if utf8.len(char) == 1 then
-                local unicode_h = C2U(char)
-                --yield(Candidate(input_text, cand.start, cand._end, cand.text, cand.comment.."["..unicode_h.."]"))    --DEL
-                cand:get_genuine().comment = cand.comment.."[U+"..unicode_h.."]"
-            end  --if
-        end  --if
-        yield(cand)
-    end  --for
+  local context = env.engine.context
+  local input_text = context.input
+  local udpf_switch = context:get_option("udpf_switch")
+  for cand in input:iter() do
+    if #input_text >= 1 and udpf_switch then
+      local char = cand.text
+      if utf8.len(char) == 1 then
+        local unicode_h = C2U(char)
+        --yield(Candidate(input_text, cand.start, cand._end, cand.text, cand.comment.."["..unicode_h.."]"))    --DEL
+        cand:get_genuine().comment = cand.comment .. "[U+" .. unicode_h .. "]"
+      end       --if
+    end         --if
+    yield(cand)
+  end           --for
 end
 
 return unicode_display_filter

@@ -750,13 +750,13 @@ tool_bar:
 
   # 右侧按钮列表（从右向左排列）
   buttons: [
-    *hide_button,
-    *emoji_button,
-    *clipboard_button,
-    *edit_button,
-    # *ascii_mode_button,
-    *full_shape_button,
-  ]
+      *hide_button,
+      *emoji_button,
+      *clipboard_button,
+      *edit_button,
+      # *ascii_mode_button,
+      *full_shape_button,
+    ]
 
 # 键盘布局
 preset_keyboards:
@@ -778,7 +778,7 @@ preset_keyboards:
           label_symbol: 1,
           # hint: 一,
           click: apostrophe,
-          popup: ["''{Left}", "\"\"{Left}", Commit_Yi, Commit_Num_1], # 顺序和实际显示好像不一样
+          popup: ["''{Left}", '""{Left}', Commit_Yi, Commit_Num_1], # 顺序和实际显示好像不一样
           swipe_up: Commit_Num_1,
           # swipe_down: Commit_Yi,
           key_back_color: bh1,
@@ -985,7 +985,15 @@ preset_keyboards:
           label: "S",
           label_symbol: "[]",
           click: s,
-          popup: [commit_s, Commit_Upper_S, "[]{Left}", "{}{Left}", "【】{Right}", "『』{Right}"],
+          popup:
+            [
+              commit_s,
+              Commit_Upper_S,
+              "[]{Left}",
+              "{}{Left}",
+              "【】{Right}",
+              "『』{Right}",
+            ],
           swipe_up: "[]{Left}",
           swipe_down: tiger_S,
           key_back_color: bh2,
@@ -1191,7 +1199,7 @@ preset_keyboards:
           # hint: 一,
           click: apostrophe,
           # popup: ["''{Left}", "\"\"{Left}", Commit_Yi, Commit_Num_1], # 顺序和实际显示好像不一样
-          long_click: "\"\"{Left}",
+          long_click: '""{Left}',
           swipe_up: Commit_Num_1,
           # swipe_down: Commit_Yi,
           key_back_color: bh1,
@@ -1268,7 +1276,7 @@ preset_keyboards:
           key_text_color: th1,
         }
       - {
-          # label: "C", 
+          # label: "C",
           label_symbol: 8,
           click: c,
           # popup: [commit_c, Commit_Upper_C, Commit_Ba, Commit_Num_8],
@@ -1636,7 +1644,12 @@ preset_keyboards:
       - { click: 1 }
       - { click: 2 }
       - { click: 3 }
-      - { click: BackSpace, swipe_up: ClearAll, key_back_color: bbs, key_text_color: tbs }
+      - {
+          click: BackSpace,
+          swipe_up: ClearAll,
+          key_back_color: bbs,
+          key_text_color: tbs,
+        }
 
       # 第二行
       - {
@@ -1661,18 +1674,8 @@ preset_keyboards:
       - { click: equal, key_back_color: bgn, key_text_color: tgn }
 
       # 第三行
-      - {
-          click: "#",
-          width: 16,
-          key_back_color: bgn,
-          key_text_color: tgn,
-        }
-      - {
-          click: "'",
-          width: 16,
-          key_back_color: bgn,
-          key_text_color: tgn,
-        }
+      - { click: "#", width: 16, key_back_color: bgn, key_text_color: tgn }
+      - { click: "'", width: 16, key_back_color: bgn, key_text_color: tgn }
       - { click: 7 }
       - { click: 8 }
       - { click: 9 }
@@ -8521,15 +8524,14 @@ preset_keys:
       functional: false,
       send: BackSpace,
     }
-  BackSpace2:
-    {
+  BackSpace2: {
       label: "ic@backspace_outline",
       preview: "ic@backspace_outline",
       repeatable: true,
       functional: false,
       slide_delete: true, # 关闭滑动删除以解锁其他手势
       send: BackSpace,
-      swipe_up: ClearAll
+      swipe_up: ClearAll,
     }
   space:
     {
@@ -9084,12 +9086,28 @@ preset_keys:
   tiger_P: { label: "戈黑弋	臼米\n鼠足⻊行走	", send: "" }
   tiger_Y: { label: "爪爫卜⺊车車瓜至\n曲四罒小⺌𡭔酉", text: "" }
   tiger_F: { label: "㡀辰骨冎一㇀且示礻亡亾", commit: "" }
-  tiger_G: { label: "歹歺高 句丨亅\n士土韦羊⺷⺶芈", send: "", functional: false }
-  tiger_C: { label: "不虫飞	古火灬支及\n尸业", text: "", functional: false }
-  tiger_R: { label: "非之	巾	囗(框)了	皮	\n七殳	竹⺮瓦又ス", commit: "", functional: false }
-  tiger_L: { label: "艹廾丌艸齿	而方	廿龷千\n生卅夕卌牙", send: function_rime_clear }
-  tiger_A: { label: "疒丁	㇆乛⺄㇗乚ヿㄋㄅ\n丰龶缶鬼乙六耒\n门皿片爿丬舌未", text: "{function_rime_clear}" }
-  tiger_O: { label: "贝川巛巜自几⺇\n日曰⺜矢尤尢", text: "{eisu_toggle_keyboard_default}" }
+  tiger_G:
+    { label: "歹歺高 句丨亅\n士土韦羊⺷⺶芈", send: "", functional: false }
+  tiger_C:
+    { label: "不虫飞	古火灬支及\n尸业", text: "", functional: false }
+  tiger_R:
+    {
+      label: "非之	巾	囗(框)了	皮	\n七殳	竹⺮瓦又ス",
+      commit: "",
+      functional: false,
+    }
+  tiger_L:
+    { label: "艹廾丌艸齿	而方	廿龷千\n生卅夕卌牙", send: function_rime_clear }
+  tiger_A:
+    {
+      label: "疒丁	㇆乛⺄㇗乚ヿㄋㄅ\n丰龶缶鬼乙六耒\n门皿片爿丬舌未",
+      text: "{function_rime_clear}",
+    }
+  tiger_O:
+    {
+      label: "贝川巛巜自几⺇\n日曰⺜矢尤尢",
+      text: "{eisu_toggle_keyboard_default}",
+    }
   tiger_E: { label: "干见木朩欠	彡𠂉穴也" }
   tiger_U: { label: "白辶工隹手扌龵廴" }
   tiger_I: { label: "册丶㇏艮丩立舟\n糸纟予乡幺" }

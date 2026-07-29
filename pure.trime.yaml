@@ -8322,15 +8322,14 @@ preset_keys:
       functional: false,
       send: BackSpace,
     }
-  BackSpace2:
-    {
+  BackSpace2: {
       label: "ic@backspace_outline",
       preview: "ic@backspace_outline",
       repeatable: true,
       functional: false,
       slide_delete: true, # 关闭滑动删除以解锁其他手势
       send: BackSpace,
-      swipe_up: Clear_All
+      swipe_up: Clear_All,
     }
   space:
     {
