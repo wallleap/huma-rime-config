@@ -323,7 +323,9 @@ parse_aux_input = function(input_code, env)
     local token = item.token
     if token ~= "" then
       local token_pattern = escape_lua_pattern(token)
-      if input_code:find(token, 1, true) then
+      local token_pos, _ = input_code:find(token, 1, true)
+      -- 关键新增判断：分隔符不能出现在字符串首位，开头出现直接跳过该trigger
+      if token_pos and token_pos > 1 then
         local local_split = input_code:match(token_pattern .. "([^,]+)")
         if not local_split then
           return item.mode, "", token
@@ -335,6 +337,7 @@ parse_aux_input = function(input_code, env)
 
   return "none", "", ""
 end
+
 
 local function to_commit_only_candidate(cand)
   local rebuilt = Candidate(cand.type, cand.start, cand._end, cand.text, cand.comment)
