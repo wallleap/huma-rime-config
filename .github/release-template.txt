@@ -3,6 +3,20 @@
 ## 🚀 更新内容
 {CONTENTS}
 
+## 📦 下载说明
+- `huma-rime-config-full.zip` 包含字体、模型等的完整 zip 压缩包
+- `huma-rime-config.zip` 不包含字体、模型，仅有方案文件的 zip 压缩包
+- `fonts.zip` 字体文件压缩包
+- `wanxiang-lts-zh-hans_gram.zip` 万象模型压缩包
+
+> `*.tar.gz` 为对应 tar 压缩包
+
 ## 📥 高速下载
+- [huma-rime-config-full.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-rime-config-full.zip)
+- [huma-rime-config-full.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-rime-config-full.tar.gz)
 - [huma-rime-config.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-rime-config.zip)
 - [huma-rime-config.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-rime-config.tar.gz)
+- [fonts.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/fonts.zip)
+- [fonts.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/fonts.gz)
+- [wanxiang-lts-zh-hans_gram.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/wanxiang-lts-zh-hans_gram.zip)
+- [wanxiang-lts-zh-hans_gram.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/wanxiang-lts-zh-hans_gram.gz)
