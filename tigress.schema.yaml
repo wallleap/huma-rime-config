@@ -134,7 +134,7 @@ speller:
   auto_clear: max_length # 3种选择， manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
   auto_select: true
   # max_code_length: 4
-  max_code_length: 30
+  max_code_length: 200
   alphabet: "['zyxwvutsrqponmlkjihgfedcbaS=]`" # "[;'zyxwvutsrqponmlkjihgfedcba]"
   # initials: "abcdefghijklmnopqrstuvwxyz;'"
   auto_select_pattern: ^;\w+ # 自动上屏规则  对 [;] 引导的编码实行候选唯一自动上屏  ^;\w+|^\w{4}$ 四码上屏功能
