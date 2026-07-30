@@ -205,7 +205,7 @@
 1. 输入“虎”的编码：`zhh`
 2. 输入分隔符：`` ` ``
 3. 输入“码”的编码：`mn`
-   - 此时编码显示：`` zhh`mn ``
+   - 此时编码显示：``zhh`mn``
 4. 候选栏会出现带有 **☯** 标记的造词选项：`虎码 ☯ 造词: zhmn`
 5. 按 **空格** 上屏，该词即刻存入词库，并且能够在不部署的情况下直接使用（这时输入新造词不是读取的词库中的新词，而是直接从内存中读取的）。
 
@@ -224,6 +224,17 @@
 
 - 新造词语默认保存在 `lua/data/user_dicts/tigress_user.dict.yaml` 文件中，可以通过配置修改，但建议保持默认。
 - 格式为：`词语<Tab>权重<Tab>编码`。
+
+`lua/data/user_dicts/tigress_user.dict.yaml` 属于模板文件，更新后不需要再提交
+
+```bash
+# 开启标记，远程保留，本地修改不提交
+git update-index --skip-worktree lua/data/user_dicts/tigress_user.dict.yaml
+# 查询
+git ls-files -v | grep '^S'
+# 取消标记，恢复正常跟踪
+git update-index --no-skip-worktree lua/data/user_dicts/tigress_user.dict.yaml
+```
 
 ## 4. 通用辅助功能
 
