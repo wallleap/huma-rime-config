@@ -1,0 +1,100 @@
+# custom settings
+# encoding: utf-8
+
+# 自定义按键
+custom:
+  __include: ./../public/preset_menu/default:/preset_menu # default_menu, symbol_menu, all_menu
+  # 默认菜单 - 显示在输入法底部的快捷工具栏
+  default_menu:
+    menu: { events: [
+            eisu_toggle_emoji, # 显示emoji表情选择器
+            function_common_speech_recognition, # 点击语音输入
+            eisu_toggle_keyboard_english, # 切换到英文键盘
+            eisu_toggle_clip_board, # 打开剪切板
+            eisu_toggle_edit_setting, # 切换编辑设置
+            function_rime_switcher, # Rime输入法切换器
+            eisu_toggle_status_bar_board, # 方案状态栏
+            eisu_toggle_schema_board, # 键盘方案选择
+            eisu_toggle_theme_list_board, # 主题
+            eisu_toggle_custom_phrase_board, # 常用语
+            eisu_toggle_one_hand_board, # 单手模式
+            eisu_toggle_patch_candidate, # 候选栏配置
+          ] }
+
+  # 默认菜单 - 显示在输入法底部的快捷工具栏
+  default_sm_md_menu:
+    menu: { events: [
+            eisu_toggle_emoji, # 显示emoji表情选择器
+            function_common_speech_recognition, # 点击语音输入
+            eisu_toggle_keyboard_english_sm_md, # 切换到英文键盘
+            eisu_toggle_clip_board, # 打开剪切板
+            eisu_toggle_edit_setting, # 切换编辑设置
+            function_rime_switcher, # Rime输入法切换器
+            eisu_toggle_status_bar_board, # 方案状态栏
+            eisu_toggle_schema_board, # 键盘方案选择
+            eisu_toggle_theme_list_board, # 主题
+            eisu_toggle_custom_phrase_board, # 常用语
+            eisu_toggle_one_hand_board, # 单手模式
+            eisu_toggle_patch_candidate, # 候选栏配置
+          ] }
+
+  # 英文菜单
+  english_menu:
+    menu: { events: [
+            eisu_toggle_emoji, # 显示emoji表情选择器
+            function_common_speech_recognition, # 点击语音输入
+            eisu_toggle_keyboard_default, # 切换到默认键盘
+            eisu_toggle_clip_board, # 打开剪切板
+            eisu_toggle_edit_setting, # 切换编辑设置
+            function_rime_switcher, # Rime输入法切换器
+            eisu_toggle_status_bar_board, # 方案状态栏
+            eisu_toggle_schema_board, # 键盘方案选择
+            eisu_toggle_theme_list_board, # 主题
+            eisu_toggle_custom_phrase_board, # 常用语
+            eisu_toggle_one_hand_board, # 单手模式
+            eisu_toggle_patch_candidate, # 候选栏配置
+          ] }
+
+  # 英文菜单
+  english_sm_md_menu:
+    menu: { events: [
+            eisu_toggle_emoji, # 显示emoji表情选择器
+            function_common_speech_recognition, # 点击语音输入
+            eisu_toggle_keyboard_default_sm_md, # 切换到默认键盘
+            eisu_toggle_clip_board, # 打开剪切板
+            eisu_toggle_edit_setting, # 切换编辑设置
+            function_rime_switcher, # Rime输入法切换器
+            eisu_toggle_status_bar_board, # 方案状态栏
+            eisu_toggle_schema_board, # 键盘方案选择
+            eisu_toggle_theme_list_board, # 主题
+            eisu_toggle_custom_phrase_board, # 常用语
+            eisu_toggle_one_hand_board, # 单手模式
+            eisu_toggle_patch_candidate, # 候选栏配置
+          ] }
+
+  # 符号菜单 - 特殊符号选择器
+  symbol_menu:
+    menu: { events: [
+            # 各种标点符号和特殊字符
+            text_full_period, # 句号
+            text_full_question_mark, # 问号
+            text_full_point, # 点
+            text_half_ellipsis, # 省略号
+            text_half_bracket_left, # 左括号
+            text_half_bracket_right, # 右括号
+            text_full_semicolon, # 分号
+            text_full_dun, # 顿号
+            text_full_tilde, # 波浪号
+            text_full_colon, # 冒号
+            text_full_square_bracket_left, # 左方括号
+            text_full_square_bracket_right, # 右方括号
+            text_full_smile, # 笑脸表情
+            text_full_comma, # 逗号
+            text_half_pound_sign, # 井号
+            text_half_colon, # 半角冒号
+            "%", # 百分号
+            "-", # 连字符
+            "+", # 加号
+            "×", # 乘号
+            "=", # 等号
+          ] }

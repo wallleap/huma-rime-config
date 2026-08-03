@@ -31,14 +31,8 @@ custom:
     long_preview_margin: 4
     preview: true
     shadow: { radius: 0, offsetX: 0, offsetY: 0, color: "#90949C" }
-    menu: { events: [
-            eisu_toggle_emoji, # 显示emoji表情选择器
-            function_common_speech_recognition, # 点击语音输入
-            eisu_toggle_keyboard_english, # 切换到英文键盘
-            eisu_toggle_clip_board, # 打开剪切板
-            eisu_toggle_edit_setting, # 切换编辑设置
-            function_rime_switcher, # Rime输入法切换器
-          ] }
+    # menu
+    __include: ./preset_menu:/custom/default_menu
     #现在只支持配置click,swipe_up,swipe_down键盘
     keys:
       # 1
@@ -307,14 +301,8 @@ custom:
     key_down_text_offset_y: 0
     key_down_press_text_offset_x: 0
     key_down_press_text_offset_y: 0
-    menu: { events: [
-            eisu_toggle_emoji, # 显示emoji表情选择器
-            function_common_speech_recognition, # 点击语音输入
-            eisu_toggle_keyboard_english_sm_md, # 切换到英文键盘
-            eisu_toggle_clip_board, # 打开剪切板
-            eisu_toggle_edit_setting, # 切换编辑设置
-            function_rime_switcher, # Rime输入法切换器
-          ] }
+    # menu
+    __include: ./preset_menu:/custom/default_sm_md_menu
     keys:
       # 1
       - {
@@ -570,14 +558,8 @@ custom:
     ascii_mode: 1
     lock: true
     name: english
-    menu: { events: [
-            eisu_toggle_emoji, # 显示emoji表情选择器
-            function_common_speech_recognition, # 点击语音输入
-            eisu_toggle_keyboard_default, # 切换到默认键盘
-            eisu_toggle_clip_board, # 打开剪切板
-            eisu_toggle_edit_setting, # 切换编辑设置
-            function_rime_switcher, # Rime输入法切换器
-          ] }
+    # menu
+    __include: ./preset_menu:/custom/english_menu
     keys:
       #1
       - { click: q, swipe_up: commit_1, long_click: [q, 1, Q] }
@@ -649,14 +631,8 @@ custom:
     vertical_gap: 4
     height: 31
     name: english
-    menu: { events: [
-            eisu_toggle_emoji, # 显示emoji表情选择器
-            function_common_speech_recognition, # 点击语音输入
-            eisu_toggle_keyboard_default_sm_md, # 切换到默认键盘
-            eisu_toggle_clip_board, # 打开剪切板
-            eisu_toggle_edit_setting, # 切换编辑设置
-            function_rime_switcher, # Rime输入法切换器
-          ] }
+    # menu
+    __include: ./preset_menu:/custom/english_sm_md_menu
     keys:
       #1
       - { click: q, swipe_up: commit_1, long_click: [q, 1, Q] }
@@ -724,7 +700,7 @@ custom:
         }
   number:
     #。？！…（））；、～:[]ï`#：+*/×
-    __include: ./../public/preset_menu/default:/preset_menu/symbol_menu
+    __include: ./preset_menu:/custom/symbol_menu
     ascii_mode: 0
     name: number
     preview: false
@@ -793,7 +769,7 @@ custom:
         }
   number_sm_md:
     #。？！…（））；、～:[]ï`#：+*/×
-    __include: ./../public/preset_menu/default:/preset_menu/symbol_menu
+    __include: ./preset_menu:/custom/symbol_menu
     ascii_mode: 0
     name: number
     preview: false
@@ -862,7 +838,7 @@ custom:
         }
   symbols:
     #。？！…（））；、～:[]ï`#：+*/×
-    __include: ./../public/preset_menu/default:/preset_menu/symbol_menu
+    __include: ./preset_menu:/custom/symbol_menu
     ascii_mode: 0
     name: symbols
     keys:
@@ -1103,7 +1079,7 @@ custom:
         }
   symbols_sm_md:
     #。？！…（））；、～:[]ï`#：+*/×
-    __include: ./../public/preset_menu/default:/preset_menu/symbol_menu
+    __include: ./preset_menu:/custom/symbol_menu
     ascii_mode: 0
     name: symbols_sm_md
     vertical_gap: 4
@@ -1350,7 +1326,7 @@ custom:
         }
   half_symbols:
     name: half_symbols
-    __include: ./../public/preset_menu/default:/preset_menu/symbol_menu
+    __include: ./preset_menu:/custom/symbol_menu
     ascii_mode: 0
     keys:
       #1
