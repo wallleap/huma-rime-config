@@ -7,11 +7,14 @@ local function filter(input, env)
   end
 
   local context = env.engine.context
+  -- 通过 segment tag 判断是否为反查，不依赖具体前缀字符
+  local seg = context.composition:back()
+  local is_reverse = seg and (seg:has_tag("reverse_lookup") or seg:has_tag("flypy_lookup")) or false
 
   for cand in input:iter() do
-    -- Check switch state for every candidate
-    -- Using the switch name "chaifen" as defined in schema
-    if context:get_option("chaifen") and env.opencc then
+    -- 反查时一直显示拆分；常规输入受 chaifen 开关控制
+    local enable = is_reverse or context:get_option("chaifen")
+    if enable and env.opencc then
       -- Check if the candidate text is longer than max_char_length characters
       local len_config = env.engine.schema.config:get_int("chaifen/max_char_length")
       if len_config and string.len(cand.text) > len_config then
