@@ -25,6 +25,7 @@ schema:
 switches: # 0 默认关，1 默认开
   # name / options（要和下面的搭配使用），states（开关状态），reset（默认值）
   - name: ascii_mode # 中英文状态
+    reset: 0
     states: [中文, 西文]
   - name: extended_char # 自定义字集
     reset: 1
