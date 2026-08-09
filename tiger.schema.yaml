@@ -185,7 +185,8 @@ flypy_reverse_lookup:
     - "xform/([nl])ue/$1üe/"
     - "xform/([jqxy])v/$1u/"
   comment_format:
-    - "xform/^/ /"
+    - "xform/^/【/"
+    - "xform/$/】/"
   # suffix: "'" # 设置其尾缀标识
   # closing_tips: "〔反查〕" # 设置其结束输入提示符
   tag: flypy_lookup # 标记出 tag，用于识别反查用在 translator、reverse_lookup_filter、simplifier 中用以标定各自作用范围

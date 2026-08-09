@@ -135,7 +135,7 @@ speller:
   auto_select: true
   # max_code_length: 4
   max_code_length: 200
-  alphabet: "['zyxwvutsrqponmlkjihgfedcbaS=]`" # "[;'zyxwvutsrqponmlkjihgfedcba]"
+  alphabet: "['zyxwvutsrqponmlkjihgfedcbaS=]`/" # "[;'zyxwvutsrqponmlkjihgfedcba]"
   # initials: "abcdefghijklmnopqrstuvwxyz;'"
   auto_select_pattern: ^;\w+ # 自动上屏规则  对 [;] 引导的编码实行候选唯一自动上屏  ^;\w+|^\w{4}$ 四码上屏功能
 
@@ -149,7 +149,8 @@ reverse_lookup:
     - "xform/([nl])ue/$1üe/"
     - "xform/([jqxy])v/$1u/"
   comment_format:
-    - "xform/^/ /"
+    - "xform/^/【/"
+    - "xform/$/】/"
   # suffix: "'"
 
 # 翻译器配置
