@@ -3,270 +3,237 @@
 -- contributor: https://github.com/DeepChirp
 local calculator_translator = {}
 
-function calculator_translator.init( env )
-    local config = env.engine.schema.config
-    env.prefix = config:get_string( 'calculator/prefix' ) or '='
-    env.show_prefix = config:get_bool( 'calculator/show_prefix' ) -- set to true to show prefix in preedit area
-    -- env.decimalPlaces = config:get_string('calculator/decimalPlaces') or '4'
+function calculator_translator.init(env)
+  local config = env.engine.schema.config
+  env.prefix = config:get_string('calculator/prefix') or '='
+  env.show_prefix = config:get_bool('calculator/show_prefix') -- set to true to show prefix in preedit area
 end
 
-local function startsWith( str, start ) return string.sub( str, 1, string.len( start ) ) == start end
+local function truncateFromStart(str, truncateStr) return string.sub(str, string.len(truncateStr) + 1) end
 
-local function truncateFromStart( str, truncateStr ) return string.sub( str, string.len( truncateStr ) + 1 ) end
-
-local function yield_calc_cand( seg, cand_text, cand_comment, cand_preedit, show_prefix )
-    local cand = Candidate( 'calc', seg.start, seg._end, cand_text, cand_comment )
-    cand.quality = 99999
-    if not show_prefix then cand.preedit = cand_preedit end
-    yield( cand )
+local function yield_calc_cand(seg, cand_text, cand_comment, cand_preedit, show_prefix)
+  local cand = Candidate('calc', seg.start, seg._end, cand_text, cand_comment)
+  cand.quality = 99999
+  if not show_prefix then cand.preedit = cand_preedit end
+  yield(cand)
 end
 
--- 函数表
-local calcPlugin = {
-    -- e, exp(1) = e^1 = e
-    e = math.exp( 1 ),
-    -- π
-    pi = math.pi,
-}
+-- ==================== 需要额外逻辑的函数 ====================
 
--- random([m [,n ]]) 返回m-n之间的随机数, n为空则返回1-m之间, 都为空则返回0-1之间的小数
-local function random( ... ) return math.random( ... ) end
--- 注册到函数表中
-calcPlugin['rdm'] = random
-calcPlugin['random'] = random
+-- random([m [,n]]) 返回 m-n 之间的随机数, n 为空则返回 1-m 之间, 都为空则返回 0-1 之间的小数
+-- 直接复用 math.random
 
--- 正弦
-local function sin( x ) return math.sin( x ) end
-calcPlugin['sin'] = sin
-
--- 双曲正弦
-local function sinh( x ) return math.sinh( x ) end
-calcPlugin['sinh'] = sinh
-
--- 反正弦
-local function asin( x ) return math.asin( x ) end
-calcPlugin['asin'] = asin
-
--- 余弦
-local function cos( x ) return math.cos( x ) end
-calcPlugin['cos'] = cos
-
--- 双曲余弦
-local function cosh( x ) return math.cosh( x ) end
-calcPlugin['cosh'] = cosh
-
--- 反余弦
-local function acos( x ) return math.acos( x ) end
-calcPlugin['acos'] = acos
-
--- 正切
-local function tan( x ) return math.tan( x ) end
-calcPlugin['tan'] = tan
-
--- 双曲正切
-local function tanh( x ) return math.tanh( x ) end
-calcPlugin['tanh'] = tanh
-
--- 反正切
--- 返回以弧度为单位的点相对于x轴的逆时针角度。x是点的横纵坐标比值
--- 返回范围从−π到π （以弧度为单位），其中负角度表示向下旋转，正角度表示向上旋转
-local function atan( x ) return math.atan( x ) end
-calcPlugin['atan'] = atan
-
--- 反正切
--- atan( y/x ) = atan2(y, x)
--- 返回以弧度为单位的点相对于x轴的逆时针角度。y是点的纵坐标，x是点的横坐标
--- 返回范围从−π到π （以弧度为单位），其中负角度表示向下旋转，正角度表示向上旋转
--- 与 math.atan(y/x) 函数相比，具有更好的数学定义，因为它能够正确处理边界情况（例如x=0）
-local function atan2( y, x ) return math.atan2( y, x ) end
-calcPlugin['atan2'] = atan2
-
--- 将角度从弧度转换为度 e.g. deg(π) = 180
-local function deg( x ) return math.deg( x ) end
-calcPlugin['deg'] = deg
-
--- 将角度从度转换为弧度 e.g. rad(180) = π
-local function rad( x ) return math.rad( x ) end
-calcPlugin['rad'] = rad
-
--- 返回两个值, 无法参与运算后续, 只能单独使用
--- 返回m,e 使得x = m * 2^e
-local function frexp( x )
-    local m, e = math.frexp( x )
-    return m .. ' * 2^' .. e
+-- frexp(x) 返回 m,e 使得 x = m * 2^e; 由于是两个返回值, 无法参与后续运算, 以字符串形式展示
+local function frexp(x)
+  local m, e = math.frexp(x)
+  return m .. ' * 2^' .. e
 end
-calcPlugin['frexp'] = frexp
 
--- 返回 x * 2^y
-local function ldexp( x, y ) return math.ldexp( x, y ) end
-calcPlugin['ldexp'] = ldexp
+-- 返回 x^y
+local function pow(x, y) return x ^ y end
 
--- 返回 e^x
-local function exp( x ) return math.exp( x ) end
-calcPlugin['exp'] = exp
-
--- 返回x的平方根 e.g. sqrt(x) = x^0.5
-local function sqrt( x ) return math.sqrt( x ) end
-calcPlugin['sqrt'] = sqrt
-
--- 返回x的y次幂 e.g. pow(x, y) = x^y
-local function pow( x, y ) return x ^ y end
-calcPlugin['pow'] = pow
-
--- y为底x的对数, 使用换底公式实现
-local function log( y, x )
-    -- 不能为负数或0
-    if x <= 0 or y <= 0 then return nil end
-
-    return math.log( x ) / math.log( y )
+-- y 为底 x 的对数, 使用换底公式实现
+local function log(y, x)
+  -- 底数和真数不能为负数或 0
+  if x <= 0 or y <= 0 then return nil end
+  return math.log(x) / math.log(y)
 end
-calcPlugin['log'] = log
 
--- e为底x的对数
-local function loge( x )
-    -- 不能为负数或0
-    if x <= 0 then return nil end
-
-    return math.log( x )
+-- e 为底 x 的对数
+local function loge(x)
+  -- 真数不能为负数或 0
+  if x <= 0 then return nil end
+  return math.log(x)
 end
-calcPlugin['loge'] = loge
 
--- 10为底x的对数
-local function log10( x )
-    -- 不能为负数或0
-    if x <= 0 then return nil end
-
-    return math.log10( x )
+-- 10 为底 x 的对数
+local function log10(x)
+  -- 真数不能为负数或 0
+  if x <= 0 then return nil end
+  return math.log10(x)
 end
-calcPlugin['log10'] = log10
+
+-- atan2(y, x) 返回以弧度为单位的点 (x, y) 相对于 x 轴的逆时针角度, 范围从 -π 到 π
+-- 相比 math.atan(y/x) 能正确处理 x=0 等边界情况
+-- Lua 5.4 已移除 math.atan2, 需用双参 math.atan 兼容
+local function atan2(y, x)
+  if math.atan2 then return math.atan2(y, x) end
+  return math.atan(y, x)
+end
+
+-- 求和, 返回 (总和, 样本数量)
+local function sum(...)
+  local n = select('#', ...)
+  local total = 0
+  for i = 1, n do total = total + select(i, ...) end
+  return total, n
+end
 
 -- 平均值
-local function avg( ... )
-    local data = { ... }
-    local n = select( '#', ... )
-    -- 样本数量不能为0
-    if n == 0 then return nil end
-
-    -- 计算总和
-    local sum = 0
-    for _, value in ipairs( data ) do sum = sum + value end
-
-    return sum / n
+local function avg(...)
+  local total, n = sum(...)
+  -- 样本数量不能为 0
+  if n == 0 then return nil end
+  return total / n
 end
-calcPlugin['avg'] = avg
 
--- 方差
-local function variance( ... )
-    local data = { ... }
-    local n = select( '#', ... )
-    -- 样本数量不能为0
-    if n == 0 then return nil end
+-- 方差 (总体方差, 除以 n)
+local function variance(...)
+  local total, n = sum(...)
+  -- 样本数量不能为 0
+  if n == 0 then return nil end
+  local mean = total / n
 
-    -- 计算均值
-    local sum = 0
-    for _, value in ipairs( data ) do sum = sum + value end
-    local mean = sum / n
-
-    -- 计算方差
-    local sum_squared_diff = 0
-    for _, value in ipairs( data ) do sum_squared_diff = sum_squared_diff + (value - mean) ^ 2 end
-
-    return sum_squared_diff / n
+  -- 计算离差平方和
+  local sum_squared_diff = 0
+  for i = 1, n do
+    local v = select(i, ...)
+    sum_squared_diff = sum_squared_diff + (v - mean) ^ 2
+  end
+  return sum_squared_diff / n
 end
-calcPlugin['var'] = variance
 
 -- 阶乘
-local function factorial( x )
-    -- 不能为负数
-    if x < 0 then return nil end
-    if x == 0 or x == 1 then return 1 end
+local function factorial(x)
+  -- 不能为负数
+  if x < 0 then return nil end
+  if x == 0 or x == 1 then return 1 end
 
-    local result = 1
-    for i = 1, x do result = result * i end
-
-    return result
+  local result = 1
+  for i = 1, x do result = result * i end
+  return result
 end
-calcPlugin['fact'] = factorial
 
--- 帮助信息
-local help_map = {
-    { cmd = 'pi', demo = 'pi', desc = '圆周率 π' },
-    { cmd = 'e', demo = 'e', desc = '自然对数底 e' },
-    { cmd = 'sin', demo = 'sin(x)', desc = '正弦 (弧度)' },
-    { cmd = 'cos', demo = 'cos(x)', desc = '余弦 (弧度)' },
-    { cmd = 'tan', demo = 'tan(x)', desc = '正切 (弧度)' },
-    { cmd = 'asin', demo = 'asin(x)', desc = '反正弦' },
-    { cmd = 'acos', demo = 'acos(x)', desc = '反余弦' },
-    { cmd = 'atan', demo = 'atan(x)', desc = '反正切' },
-    { cmd = 'sinh', demo = 'sinh(x)', desc = '双曲正弦' },
-    { cmd = 'cosh', demo = 'cosh(x)', desc = '双曲余弦' },
-    { cmd = 'tanh', demo = 'tanh(x)', desc = '双曲正切' },
-    { cmd = 'sqrt', demo = 'sqrt(x)', desc = '平方根' },
-    { cmd = 'pow', demo = 'pow(x, y)', desc = 'x的y次幂 (x^y)' },
-    { cmd = 'log', demo = 'log(base, x)', desc = '对数' },
-    { cmd = 'log10', demo = 'log10(x)', desc = '以10为底对数' },
-    { cmd = 'loge', demo = 'loge(x)', desc = '自然对数' },
-    { cmd = 'exp', demo = 'exp(x)', desc = 'e的x次幂' },
-    { cmd = 'deg', demo = 'deg(rad)', desc = '弧度转角度' },
-    { cmd = 'rad', demo = 'rad(deg)', desc = '角度转弧度' },
-    { cmd = 'fact', demo = 'fact(n) or n!', desc = '阶乘' },
-    { cmd = 'random', demo = 'random(m, n)', desc = '随机数' },
-    { cmd = 'avg', demo = 'avg(1, 2, ...)', desc = '平均值' },
-    { cmd = 'var', demo = 'var(1, 2, ...)', desc = '方差' },
+-- 四舍五入
+local function round(x) return x >= 0 and math.floor(x + 0.5) or math.ceil(x - 0.5) end
+
+-- 取模
+local function mod(x, y) return x % y end
+
+-- ==================== 函数注册表 ====================
+-- 每个条目: { 名称, 实现, 示例, 描述 }
+-- 常量与函数统一注册, 注册表同时驱动帮助提示, 避免两份维护
+local definitions = {
+  -- 常量
+  { 'pi', math.pi, 'pi', '圆周率 π' },
+  { 'e', math.exp(1), 'e', '自然对数底 e' },
+  -- 三角函数 (弧度)
+  { 'sin', math.sin, 'sin(x)', '正弦 (弧度)' },
+  { 'cos', math.cos, 'cos(x)', '余弦 (弧度)' },
+  { 'tan', math.tan, 'tan(x)', '正切 (弧度)' },
+  { 'asin', math.asin, 'asin(x)', '反正弦' },
+  { 'acos', math.acos, 'acos(x)', '反余弦' },
+  { 'atan', math.atan, 'atan(x)', '反正切' },
+  { 'atan2', atan2, 'atan2(y, x)', '反正切 (y, x 分量)' },
+  { 'sinh', math.sinh, 'sinh(x)', '双曲正弦' },
+  { 'cosh', math.cosh, 'cosh(x)', '双曲余弦' },
+  { 'tanh', math.tanh, 'tanh(x)', '双曲正切' },
+  -- 指数、对数与幂
+  { 'exp', math.exp, 'exp(x)', 'e的x次幂' },
+  { 'sqrt', math.sqrt, 'sqrt(x)', '平方根' },
+  { 'pow', pow, 'pow(x, y)', 'x的y次幂 (x^y)' },
+  { 'log', log, 'log(base, x)', '以 base 为底 x 的对数' },
+  { 'loge', loge, 'loge(x)', '自然对数' },
+  { 'log10', log10, 'log10(x)', '以10为底对数' },
+  { 'ldexp', math.ldexp, 'ldexp(x, y)', 'x * 2^y' },
+  { 'frexp', frexp, 'frexp(x)', 'x = m * 2^e 分解' },
+  -- 取整、绝对值与最值
+  { 'floor', math.floor, 'floor(x)', '向下取整' },
+  { 'ceil', math.ceil, 'ceil(x)', '向上取整' },
+  { 'round', round, 'round(x)', '四舍五入' },
+  { 'abs', math.abs, 'abs(x)', '绝对值' },
+  { 'min', math.min, 'min(a, b, ...)', '最小值' },
+  { 'max', math.max, 'max(a, b, ...)', '最大值' },
+  { 'mod', mod, 'mod(x, y)', '取模 (x % y)' },
+  -- 角度换算
+  { 'deg', math.deg, 'deg(rad)', '弧度转角度' },
+  { 'rad', math.rad, 'rad(deg)', '角度转弧度' },
+  -- 其他
+  { 'fact', factorial, 'fact(n) or n!', '阶乘' },
+  { 'random', math.random, 'random(m, n)', '随机数' },
+  { 'rdm', math.random, 'random(m, n)', '随机数' },
+  { 'avg', avg, 'avg(1, 2, ...)', '平均值' },
+  { 'var', variance, 'var(1, 2, ...)', '方差' },
 }
 
+-- 函数表, 同时作为表达式求值时的全局环境
+local calcPlugin = {}
+-- 帮助信息, 由注册表生成
+local help_map = {}
+for _, def in ipairs(definitions) do
+  local name, fn, demo, desc = def[1], def[2], def[3], def[4]
+  calcPlugin[name] = fn
+  help_map[#help_map + 1] = { cmd = name, demo = demo, desc = desc }
+end
+
+-- ==================== 表达式预处理 ====================
+
 -- 实现阶乘计算(!)
-local function replaceToFactorial( str )
-    -- 替换[0-9]!字符为fact([0-9])以实现阶乘
-    return str:gsub( '([0-9]+)!', 'fact(%1)' )
+local function replaceToFactorial(str)
+  -- 替换 [0-9]! 字符为 fact([0-9]) 以实现阶乘
+  return str:gsub('([0-9]+)!', 'fact(%1)')
 end
 
 -- 处理百分号
 local function replacePercent(str)
-    str = str .. ' '
-    -- 先处理括号形式 ( ... )%
-    str = str:gsub("(%b())%%(%D)", function(block, tail)
-        return "(" .. block .. "/100)" .. tail
-    end)
-    -- 再处理纯数字形式 123% 12.3%
-    str = str:gsub("(%d+%.?%d*)%%(%D)", function(num, tail)
-        return "(" .. num .. "/100)" .. tail
-    end)
-    return str:sub(1, -2)
+  str = str .. ' '
+  -- 先处理括号形式 ( ... )%
+  str = str:gsub('(%b())%%(%D)', function(block, tail)
+    return '(' .. block .. '/100)' .. tail
+  end)
+  -- 再处理纯数字形式 123% 12.3%
+  str = str:gsub('(%d+%.?%d*)%%(%D)', function(num, tail)
+    return '(' .. num .. '/100)' .. tail
+  end)
+  return str:sub(1, -2)
 end
 
--- 简单计算器
-function calculator_translator.func( input, seg, env )
-    if not seg:has_tag( 'expression' ) or input == '' then return end
-    
-    local composition = env.engine.context.composition
-    local segment = composition:back()
+-- 截断错误信息, 避免提示过长
+local function shortErr(err) return string.sub(tostring(err), 1, 40) end
 
-    -- 提取算式
-    local express = truncateFromStart( input, env.prefix )
-    if express == '' then
-        segment.prompt = '算式示例：1+1、sin(pi)'
-        return
+-- ==================== 简单计算器 ====================
+
+function calculator_translator.func(input, seg, env)
+  if not seg:has_tag('expression') or input == '' then return end
+
+  local composition = env.engine.context.composition
+  local segment = composition:back()
+
+  -- 提取算式
+  local express = truncateFromStart(input, env.prefix)
+  if express == '' then
+    segment.prompt = '算式示例：1+1、sin(pi)'
+    return
+  end
+
+  local code = replacePercent(replaceToFactorial(express))
+  -- 先编译再执行, 以便区分语法错误与运行错误
+  local chunk, load_err = load('return ' .. code, 'calculate', 't', calcPlugin)
+  local result, err_msg
+  if chunk then
+    local ok, res = pcall(chunk)
+    if ok then result = res else err_msg = res end
+  else
+    err_msg = load_err
+  end
+
+  if result ~= nil and (type(result) == 'string' or type(result) == 'number') and #tostring(result) > 0 then
+    yield_calc_cand(seg, result, '', express, env.show_prefix)
+    yield_calc_cand(seg, express .. '=' .. result, '', express, env.show_prefix)
+    return
+  end
+
+  -- 计算失败: 先尝试匹配帮助信息 (输入函数名或其前缀时给出用法提示)
+  local lower_express = string.lower(express)
+  for _, info in ipairs(help_map) do
+    if string.find(string.lower(info.cmd), lower_express, 1, true) == 1 then
+      segment.prompt = info.demo .. '  ' .. info.desc
+      return
     end
-    
-    local code = replacePercent( replaceToFactorial( express ) )
-    local success, result = pcall( load( 'return ' .. code, 'calculate', 't', calcPlugin ) )
-    
-    if success and result and (type( result ) == 'string' or type( result ) == 'number') and #tostring( result ) > 0 then
-        yield_calc_cand( seg, result, '', express, env.show_prefix )
-        yield_calc_cand( seg, express .. '=' .. result, '', express, env.show_prefix )
-    else
-        -- 尝试匹配帮助信息
-        local lower_express = string.lower(express)
-        for _, info in ipairs(help_map) do
-            if string.find(string.lower(info.cmd), lower_express, 1, true) == 1 then
-                 segment.prompt = info.demo .. '  ' .. info.desc
-                 return
-            end
-        end
-        
-        segment.prompt = '解析失败'
-    end
+  end
+
+  -- 帮助也未命中, 给出具体失败原因
+  segment.prompt = err_msg and ('解析失败: ' .. shortErr(err_msg)) or '解析失败'
 end
 
 return calculator_translator
