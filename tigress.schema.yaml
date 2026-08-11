@@ -125,7 +125,7 @@ engine:
     - lua_filter@charset_comment_filter # Unicode分区提示滤镜
     - lua_filter@lua_unicode_display_filter # Unicode编码显示
     - lua_filter@maker_filter # 过滤掉系统词库中已存在的用户造词
-    - lua_filter@*in_user_dict # 在用户词典中
+    - lua_filter@*user_dict_marker_filter # 在用户词典中
     - lua_filter@switcher_filter # mode 切换方案
     - uniquifier # 过滤重复
 
@@ -301,7 +301,7 @@ maker:
   excluded_prefixes: ["`", "/", "="] # 排除的前缀，支持多字符，例如 ["`", "rv"]
 
 # lua 配置：在用户词典中
-in_user_dict:
+user_dict_marker:
   user_phrase_symbol: "✴️"
   user_table_symbol: "✨"
   sentence_symbol: "♾️"

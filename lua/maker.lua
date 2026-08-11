@@ -492,8 +492,8 @@ function M.filter(input, env)
     -- If we see the same text twice, we drop the second one.
     -- Assumption: User words (custom_phrase) usually appear first due to high quality.
     -- If system word appears first but matches a user word, we keep it.
-    -- (Wait, if system word matches user word, we might want to ensure it gets marked by is_in_user_dict later.
-    -- Since is_in_user_dict checks the DB, yielding the system word is fine, it will get marked.)
+    -- (Wait, if system word matches user word, we might want to ensure it gets marked by user_dict_marker_filter later.
+    -- Since user_dict_marker_filter checks the DB, yielding the system word is fine, it will get marked.)
 
     -- Special case: If we have multiple candidates with same text,
     -- we prefer the one that is NOT a generic table type if possible?

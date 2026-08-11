@@ -98,7 +98,7 @@
 │   │       └── tigress_user.dict.yaml     # 虎词 用户词库
 │   ├── date_translator.lua                # 日期时间
 │   ├── helper.lua                         # 输入 help 获取简要说明
-│   ├── in_user_dict.lua                   # 在用户词库添加 emoji
+│   ├── user_dict_marker_filter.lua          # 用户词典符号标记
 │   ├── input_statistics.lua               # 输入统计
 │   ├── lib/                               # [目录]存放工具库
 │   ├── maker.lua                          # 虎词自动造词
