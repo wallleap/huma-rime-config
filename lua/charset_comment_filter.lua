@@ -512,9 +512,15 @@ end
 
 --- charset comment filter
 local function charset_comment_filter(input, env)
-  local b = env.engine.context:get_option("charset_comment_filter") --开关状态
+  local context = env.engine.context
+  local b = context:get_option("charset_comment_filter") --开关状态
+  -- switcher（mode）切换方案的候选不追加注释
+  local seg = context.composition:back()
+  local switcher_tag = env.engine.schema.config:get_string("switcher/tag") or "mode"
+  local is_switcher = seg and seg:has_tag(switcher_tag) or false
+
   for cand in input:iter() do
-    if b then
+    if b and not is_switcher then
       for s, r in pairs(charset) do
         if (exists(is_charset(s), cand.text)) then
           cand:get_genuine().comment = cand.comment .. " " .. s

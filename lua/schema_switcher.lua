@@ -158,11 +158,12 @@ local function set_switch_keywords(input, seg, env)
   local schema_id = env.engine.schema.schema_id or ""
   local composition = env.engine.context.composition
   local segment = composition:back()
+  local switcher_tag = env.engine.schema.config:get_string("switcher/tag") or rv_var.switch_schema
 
   if input == rv_var.switch_schema and #enable_schema_list > 0 then
     -- 修改 segment 的 tag，避免被拆分滤镜处理
     if Set then
-      segment.tags = Set({ rv_var.switch_schema })
+      segment.tags = Set({ switcher_tag })
     end
 
     segment.prompt = " 方案：按数字键切换  " .. (env.engine.schema.schema_name or "") .. "  →  "
@@ -176,7 +177,7 @@ local function set_switch_keywords(input, seg, env)
           sel_index = i - 1
         end
         local candidate = Candidate(input, seg.start, seg._end, enable_schema_list[i][2], comment)
-        candidate.type = rv_var.switch_schema
+        candidate.type = switcher_tag
         segment.selected_index = sel_index
         candidate.quality = 100000000
         yield(candidate)
@@ -194,14 +195,15 @@ end
 local function filter(input, env)
   local context = env.engine.context
   local schema_id = env.engine.schema.schema_id
+  local switcher_tag = env.engine.schema.config:get_string("switcher/tag") or rv_var.switch_schema
 
   if context.input == rv_var.switch_schema then
     for cand in input:iter() do
       -- 获取真实候选以检查类型
       local genuine = cand:get_genuine()
 
-      -- 仅处理 type 为 mode 的候选 (检查 genuine.type)
-      if genuine.type == rv_var.switch_schema then
+      -- 仅处理 type 为 switcher_tag 的候选 (检查 genuine.type)
+      if genuine.type == switcher_tag then
         -- 使用 genuine.text 匹配，避免 filter 修改了 text
         local id = IsExistChar(enable_schema_list, genuine.text)
         if id ~= "" then
