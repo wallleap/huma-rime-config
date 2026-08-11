@@ -6,9 +6,9 @@ local rv_var = {
 -- 跨平台路径分隔符
 local path_sep = package.config:sub(1, 1)
 
-local kRejected = 0
 local kAccepted = 1
 local kNoop = 2
+local page_size = 9
 
 local function get_schema_name(schema_id)
   local user_data_dir = rime_api.get_user_data_dir() -- 获取用户目录路径
@@ -17,10 +17,21 @@ local function get_schema_name(schema_id)
     local file = io.open(path, "rb")
     if file then
       for line in file:lines() do
-        local m, n = line:match("(%s*name%:%s)%s*%p*([^%c%s]+)%p*")
-        if m and n then
-          file:close()
-          return n:gsub("[']+$", ""):gsub('["]+$', '')
+        local raw = line:match("%s*name%s*:%s*(.-)%s*$")
+        if raw and raw ~= "" then
+          local n = nil
+          local quote = raw:sub(1, 1)
+          if quote == '"' or quote == "'" then
+            local close = raw:find(quote, 2)
+            if close then n = raw:sub(2, close - 1) end
+          else
+            n = raw:match("^([^#]+)")
+            if n then n = n:gsub("%s+$", "") end
+          end
+          if n and n ~= "" then
+            file:close()
+            return n
+          end
         end
       end
       file:close()
@@ -55,6 +66,7 @@ local function get_schema_list()
     file:close()
     return schema_list
   end
+  return {}
 end
 
 local enable_schema_list = get_schema_list()
@@ -103,7 +115,7 @@ local function selector(key, env)
     local candidate_count = segment.menu:candidate_count()
     -- 修正1：将 `or ""` 改为 `or {}`（确保selected_candidate为表）
     local selected_candidate = segment:get_selected_candidate() or {}
-    local page_pos = math.modf(segment.selected_index / page_size) + 1
+    local page_pos = math.modf((segment.selected_index or 0) / page_size) + 1
 
     -- 修正2：安全访问text字段（避免nil）
     local last_candidate = selected_candidate.text or ""
@@ -114,7 +126,7 @@ local function selector(key, env)
 
     if candidate_count then
       -- 原逻辑：若通过数字键选择候选，更新last_candidate
-      if key.keycode > 0x2f and key.keycode < 0x6a and idx > -1 then
+      if key.keycode >= 0x30 and key.keycode <= 0x39 and idx > -1 then
         -- 新增：检查候选是否存在（避免越界）
         local candidate = segment:get_candidate_at(idx)
         last_candidate = candidate and candidate.text or ""
@@ -125,6 +137,7 @@ local function selector(key, env)
         local sc_id = IsExistChar(enable_schema_list, last_candidate)
         if sc_id and sc_id:find("%a") then
           env.engine:apply_schema(Schema(sc_id))
+          context:clear()
           return kAccepted
         end
       end
@@ -135,9 +148,10 @@ end
 
 -- 初始化
 local function init(env)
-  if Switcher == nil then return end
-  env.switcher = Switcher(env.engine)
-  page_size = env.engine.schema.page_size
+  if Switcher then
+    env.switcher = Switcher(env.engine)
+  end
+  page_size = env.engine.schema.page_size or 9
 end
 
 local function set_switch_keywords(input, seg, env)
@@ -151,17 +165,19 @@ local function set_switch_keywords(input, seg, env)
       segment.tags = Set({ rv_var.switch_schema })
     end
 
-    local select_index = 1
+    segment.prompt = " 方案：按数字键切换  " .. (env.engine.schema.schema_name or "") .. "  →  "
+
+    local sel_index = 1
     for i = 1, #enable_schema_list do
       if enable_schema_list[i][2] then
         local comment = "（切换方案）"
         if enable_schema_list[i][1] == schema_id then
           comment = "  👈"
-          select_index = i - 1
+          sel_index = i - 1
         end
         local candidate = Candidate(input, seg.start, seg._end, enable_schema_list[i][2], comment)
         candidate.type = rv_var.switch_schema
-        segment.selected_index = select_index
+        segment.selected_index = sel_index
         candidate.quality = 100000000
         yield(candidate)
       end
@@ -188,7 +204,7 @@ local function filter(input, env)
       if genuine.type == rv_var.switch_schema then
         -- 使用 genuine.text 匹配，避免 filter 修改了 text
         local id = IsExistChar(enable_schema_list, genuine.text)
-        if id then
+        if id ~= "" then
           if id == schema_id then
             cand.comment = "  👈"
             genuine.comment = "  👈"
