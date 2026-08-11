@@ -327,6 +327,67 @@ local charset = {
   ["[Compat]"] = { first = 0x2F8000, last = 0x2FA1FF }
 }
 
+-- 预计算排序的区块数组，供二分查找；同名区间按定义确定性排序
+local sorted_blocks = {}
+for name, range in pairs(charset) do
+  table.insert(sorted_blocks, { first = range.first, last = range.last, name = name })
+end
+table.sort(sorted_blocks, function(a, b)
+  if a.first ~= b.first then return a.first < b.first end
+  if a.last ~= b.last then return a.last < b.last end
+  return a.name < b.name
+end)
+
+-- 找出包含指定码位的所有区块（按排序逆序返回）
+local function find_blocks(cp)
+  local lo, hi = 1, #sorted_blocks
+  local left = 0
+  while lo <= hi do
+    local mid = math.floor((lo + hi) / 2)
+    local blk = sorted_blocks[mid]
+    if blk.first <= cp then
+      left = mid
+      lo = mid + 1
+    else
+      hi = mid - 1
+    end
+  end
+  local result = {}
+  for i = left, 1, -1 do
+    local blk = sorted_blocks[i]
+    if blk.first > cp then break end
+    if cp <= blk.last then table.insert(result, blk) end
+  end
+  return result
+end
+
+-- 文本所属区块名：所有字符必须落在同一区块，返回确定性的区块名
+local function get_block_name(text)
+  local codepoints = {}
+  for i in utf8.codes(text) do
+    table.insert(codepoints, utf8.codepoint(text, i))
+  end
+  if #codepoints == 0 then return nil end
+
+  local candidates = find_blocks(codepoints[1])
+  if #candidates == 0 then return nil end
+
+  for ci = 2, #codepoints do
+    local cp = codepoints[ci]
+    local filtered = {}
+    for bi = 1, #candidates do
+      local blk = candidates[bi]
+      if cp >= blk.first and cp <= blk.last then
+        table.insert(filtered, blk)
+      end
+    end
+    candidates = filtered
+    if #candidates == 0 then return nil end
+  end
+
+  return candidates[1].name
+end
+
 local function exists(single_filter, text)
   for i in utf8.codes(text) do
     local c = utf8.codepoint(text, i)
@@ -519,15 +580,18 @@ local function charset_comment_filter(input, env)
   local switcher_tag = env.engine.schema.config:get_string("switcher/tag") or "mode"
   local is_switcher = seg and seg:has_tag(switcher_tag) or false
 
+  if not b or is_switcher then
+    for cand in input:iter() do
+      yield(cand)
+    end
+    return
+  end
+
   for cand in input:iter() do
-    if b and not is_switcher then
-      for s, r in pairs(charset) do
-        if (exists(is_charset(s), cand.text)) then
-          cand:get_genuine().comment = cand.comment .. " " .. s
-          break
-        end --if
-      end  --for
-    end    --if
+    local name = get_block_name(cand.text)
+    if name then
+      cand:get_genuine().comment = (cand.comment or "") .. " " .. name
+    end
     yield(cand)
   end
 end
