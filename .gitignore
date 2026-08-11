@@ -16,6 +16,11 @@ data/
 !lua/data
 trash/
 
+# lint 依赖 (本地安装, 不入库)
+node_modules/
+package.json
+package-lock.json
+
 # 用户自定义短语文件
 *_phrase.txt
 
