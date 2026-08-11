@@ -25,3 +25,6 @@ tigress*.txt
 lua/data/input_stats/data.lua
 
 *.gram
+
+# 超越输入法
+themes/public
