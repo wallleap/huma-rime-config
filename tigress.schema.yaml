@@ -78,7 +78,6 @@ engine:
     - key_binder
     - speller
     - punctuator
-    - lua_processor@exe_processor # exe启动器
     - selector
     - navigator
     - express_editor # 计算

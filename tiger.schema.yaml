@@ -78,8 +78,7 @@ engine:
     - recognizer # 与 matcher 搭配使用，处理符合特定规则的输入码，如网址、反查等
     - speller # 处理拼写，将字母键加入输入码序列
     - punctuator # 句读处理器，将单个字符按键直接映射为标点符号或文字
-    - lua_processor@switcher_processor # mode 切换
-    - lua_processor@exe_processor # 使用 lua 自定义按键，后接@lua函数名，参数为(key, env)。exe启动器
+    - lua_processor@switcher_processor # mode 切换，使用 lua 自定义按键，后接@lua函数名，参数为(key, env)
     - selector # 选字处理器，处理选字操作，如候选词上屏、下屏、切换等
     - navigator # 处理输入栏内的光标移动，如左右方向键、Home、End 等
     - express_editor # 编辑器，处理空格、回车上屏、回退键
