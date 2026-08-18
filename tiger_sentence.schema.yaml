@@ -5,10 +5,13 @@ schema:
   version: "1.0"
   author:
     - TigerClaw
+  dependencies:
+    - flypy
   description: |
     从虎整句常用字词表生成的变长整句方案。
     光秃编码只取第 1 候选；分号/引号/数字写入编码选重。
     首次输入时用 Lua 加载 sentence-ngram-v2.bin 做 Kneser-Ney 打分。
+    敲 ` 鍵進入小鹤双拼反查。
 
 switches:
   - name: ascii_mode
@@ -31,15 +34,17 @@ engine:
     - navigator
     - express_editor
   segmentors:
+    - matcher
     - abc_segmentor
     - punct_segmentor
     - fallback_segmentor
   translators:
     - punct_translator
+    - reverse_lookup_translator@flypy_reverse_lookup
     - lua_translator@tiger_sentence_translator
 
 speller:
-  alphabet: "zyxwvutsrqponmlkjihgfedcba;';0123456789"
+  alphabet: "zyxwvutsrqponmlkjihgfedcba;';0123456789`"
   initials: "abcdefghijklmnopqrstuvwxyz"
   delimiter: " "
   auto_select: false
@@ -50,6 +55,23 @@ translator:
   enable_sentence: false
   enable_encoder: false
   enable_completion: false
+
+# 小鹤双拼反查
+flypy_reverse_lookup:
+  dictionary: flypy
+  prefix: "`"
+  tips: "〔小鹤双拼〕"
+  preedit_format:
+    - "xform/^`//"
+    - "xform/([nl])v/$1ü/"
+    - "xform/([nl])ue/$1üe/"
+    - "xform/([jqxy])v/$1u/"
+  comment_format:
+    - "xform/^/【/"
+    - "xform/$/】/"
+  tag: flypy_lookup
+  extra_tags: [reverse_lookup]
+  overwrite_comment: false
 
 menu:
   page_size: 5
@@ -66,6 +88,9 @@ punctuator:
 
 recognizer:
   import_preset: default
+  patterns:
+    reverse_lookup: "^`[a-z]*'?$"
+    flypy_lookup: "^`[a-z]*'?$"
 
 ascii_composer:
   good_old_caps_lock: true
