@@ -17,6 +17,10 @@ switches:
   - name: ascii_mode
     reset: 0
     states: [中文, 西文]
+  - name: pinyin
+    states: [拼, pīn]
+  - name: chaifen
+    states: [拆隐, 拆显]
   - name: ascii_punct
     states: [。，, ．，]
   - name: full_shape
@@ -42,6 +46,10 @@ engine:
     - punct_translator
     - reverse_lookup_translator@flypy_reverse_lookup
     - lua_translator@tiger_sentence_translator
+  filters:
+    - lua_filter@pinyin_comment_filter
+    - lua_filter@chaifen_comment_filter
+    - uniquifier
 
 speller:
   alphabet: "zyxwvutsrqponmlkjihgfedcba;';0123456789`"
@@ -72,6 +80,30 @@ flypy_reverse_lookup:
   tag: flypy_lookup
   extra_tags: [reverse_lookup]
   overwrite_comment: false
+
+# 拼音滤镜
+pinyin:
+  opencc_config: pinyin.json
+  option_name: pinyin
+  show_in_comment: true
+  comment_format:
+    - "xform/&nbsp;/ /"
+  tips: char
+  tags:
+    - abc
+    - reverse_lookup
+
+# 拆分滤镜
+chaifen:
+  opencc_config: hu_cf.json
+  option_name: chaifen
+  show_in_comment: true
+  comment_format:
+    - "xform/&nbsp;/ /"
+  tags:
+    - abc
+    - reverse_lookup
+  tips: all
 
 menu:
   page_size: 5
