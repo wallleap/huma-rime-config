@@ -1,0 +1,77 @@
+# encoding: utf-8
+schema:
+  schema_id: tiger_sentence
+  name: 虎码·整句
+  version: "1.0"
+  author:
+    - TigerClaw
+  description: |
+    从虎整句常用字词表生成的变长整句方案。
+    光秃编码只取第 1 候选；分号/引号/数字写入编码选重。
+    首次输入时用 Lua 加载 sentence-ngram-v2.bin 做 Kneser-Ney 打分。
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [中文, 西文]
+  - name: ascii_punct
+    states: [。，, ．，]
+  - name: full_shape
+    states: [半角, 全角]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - lua_processor@tiger_sentence_processor
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - lua_translator@tiger_sentence_translator
+
+speller:
+  alphabet: "zyxwvutsrqponmlkjihgfedcba;';0123456789"
+  initials: "abcdefghijklmnopqrstuvwxyz"
+  delimiter: " "
+  auto_select: false
+
+translator:
+  dictionary: tiger_sentence
+  enable_user_dict: false
+  enable_sentence: false
+  enable_encoder: false
+  enable_completion: false
+
+menu:
+  page_size: 5
+
+key_binder:
+  bindings:
+    - { when: has_menu, accept: Tab, send: Down }
+    - { when: has_menu, accept: Shift+Tab, send: Up }
+    - { when: paging, accept: minus, send: Page_Up }
+    - { when: has_menu, accept: equal, send: Page_Down }
+
+punctuator:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+
+ascii_composer:
+  good_old_caps_lock: true
+  switch_key:
+    Caps_Lock: clear
+    Shift_L: commit_code
+    Shift_R: commit_code
+    Control_L: noop
+    Control_R: noop

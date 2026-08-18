@@ -17,6 +17,7 @@ patch:
   schema_list:
     - schema: tiger
     - schema: tigress
+    - schema: tiger_sentence
     - schema: flypy
 
   # 切换器配置

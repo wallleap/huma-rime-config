@@ -1,3 +1,8 @@
+-- 虎码整句
+local tiger_sentence = require("tiger_sentence")
+tiger_sentence_processor = tiger_sentence.processor
+tiger_sentence_translator = tiger_sentence.translator
+
 charset_comment_filter = require("charset_comment_filter") --Unicode分区提示
 core2022 = require("core2022_filter")                      --自定义字符集过滤（常用字集）
 -- dz_ci = require("dz_ci_filter") --单字模式 这个别用，有问题的
