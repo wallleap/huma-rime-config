@@ -29,6 +29,13 @@ jobs:
           curl -L -o ./wanxiang-lts-zh-hans.gram \
           https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram
 
+      # 下载 sentence-ngram-v2.bin 语法文件
+      - name: Download sentence-ngram-v2 grammar file
+        run: |
+          mkdir -p models
+          curl -L -o ./models/sentence-ngram-v2.bin \
+          https://github.com/wallleap/huma-rime-config/releases/download/LTS/sentence-ngram-v2.bin
+
       # 重命名示例文件
       - name: Rename custom_phrase.example.txt to custom_phrase.txt
         run: |
@@ -66,7 +73,7 @@ jobs:
           # 在这里添加你不想打包的文件/文件夹
           # 格式：｜ 文件1｜文件2｜目录/｜等等
           # =======================================================
-          GLOBAL_EXCLUDE="dist|tmp_base|tmp_full|.git|.github|.gitignore|.gitattributes|*.example.*|bin|README.md|changelog.txt|crawler.py|huma.recipe.yaml|LICENSE"
+          GLOBAL_EXCLUDE="dist|tmp_base|tmp_full|.git|.github|.gitignore|.gitattributes|*.example.*|bin|models|README.md|changelog.txt|crawler.py|huma.recipe.yaml|LICENSE"
 
           # 1. huma font zip
           cp -r fonts/huma/ huma/
@@ -96,10 +103,11 @@ jobs:
           tar -zcvf "dist/${PACKAGE}.tar.gz" "$FOLDER"
           mv "$FOLDER" tmp_base # 还原临时目录
 
-          # 6. 构建【完整包文件】tmp_full：全部文件（基础文件+fonts+万象gram）
+          # 6. 构建【完整包文件】tmp_full：全部文件（基础文件+fonts+万象gram+models）
           mv tmp_base/* tmp_full/
           cp -r fonts tmp_full/
           cp wanxiang-lts-zh-hans.gram tmp_full/
+          cp -r models tmp_full/
           mv tmp_full "$FOLDER"
           tar -zcvf "dist/${PACKAGE}-full.tar.gz" "$FOLDER"
           zip -r9 "dist/${PACKAGE}-full.zip" "$FOLDER"
@@ -115,6 +123,11 @@ jobs:
           tar -zcvf "dist/wanxiang-lts-zh-hans_gram.tar.gz" gram/
           zip -r9 "dist/wanxiang-lts-zh-hans_gram.zip" gram/
           rm -rf gram
+
+          # 9. 单独打包 sentence-ngram-v2.bin
+          tar -zcvf "dist/sentence-ngram-v2_bin.tar.gz" models/
+          zip -r9 "dist/sentence-ngram-v2_bin.zip" models/
+          rm -rf models
 
           # 输出dist目录全部产物核对
           ls -lh dist/
@@ -132,6 +145,12 @@ jobs:
             "dist/fonts.tar.gz"
             "dist/wanxiang-lts-zh-hans_gram.zip"
             "dist/wanxiang-lts-zh-hans_gram.tar.gz"
+            "dist/sentence-ngram-v2_bin.zip"
+            "dist/sentence-ngram-v2_bin.tar.gz"
+            "dist/huma-font.zip"
+            "dist/pingfangmod-font.zip"
+            "dist/t26_pure-theme.zip"
+            "dist/dvorak_pure-theme.zip"
           )
           for file in "${FILE_LIST[@]}"; do
             if [ -s "$file" ]; then

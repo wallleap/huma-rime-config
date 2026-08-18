@@ -7,7 +7,9 @@
 - `huma-rime-config-full.zip` 包含字体、模型等的完整 zip 压缩包
 - `huma-rime-config.zip` 不包含字体、模型，仅有方案文件的 zip 压缩包
 - `fonts.zip` 字体文件压缩包
-- `wanxiang-lts-zh-hans_gram.zip` 万象模型压缩包
+- `wanxiang-lts-zh-hans_gram.zip` 万象模型压缩包，下载后放到 Rime 根目录
+- `sentence-ngram-v2_bin.zip` 虎码整句模型压缩包，下载后要放入 `models` 目录
+
 
 > `*.tar.gz` 为对应 tar 压缩包
 
@@ -16,9 +18,9 @@
 - `huma-font.zip` 虎码专用字体
 - `pingfangmod-font.zip` Ping Fang SC 修改
 - `t26_pure-theme.zip` 中文26键朴素主题（虎码专用，下滑显示虎码字根）
-- `dvorak_pure.zip` Dvorak 朴素主题
+- `dvorak_pure-theme.zip` Dvorak 朴素主题
 
-> 超越输入法不支持 `tag.gz` 导入，故不提供该格式压缩包
+> 超越输入法不支持 `tar.gz` 导入，故不提供该格式压缩包
 
 ## 📥 高速下载
 - [huma-rime-config-full.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-rime-config-full.zip)
@@ -29,6 +31,8 @@
 - [fonts.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/fonts.tar.gz)
 - [wanxiang-lts-zh-hans_gram.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/wanxiang-lts-zh-hans_gram.zip)
 - [wanxiang-lts-zh-hans_gram.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/wanxiang-lts-zh-hans_gram.tar.gz)
+- [sentence-ngram-v2_bin.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/sentence-ngram-v2_bin.zip)
+- [sentence-ngram-v2_bin.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/sentence-ngram-v2_bin.tar.gz)
 
 ---
 
