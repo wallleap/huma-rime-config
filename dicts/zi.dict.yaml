@@ -8057,6 +8057,7 @@ sort: by_weight
 隊	duì	430
 対	duì	409
 镦	duī	370
+㨃	duǐ	361
 頧	duǐ	351
 兌	duì	271
 鐜	duī	216
@@ -8075,7 +8076,6 @@ sort: by_weight
 痽	duī	23
 譵	duì	23
 濧	duì	23
-㨃	duǐ	1
 瀩	duì	1
 㳔	duì	1
 譈	duì	1
@@ -37735,6 +37735,9 @@ sort: by_weight
 微	wēi	9971
 维	wéi	5132
 围	wéi	4875
+尾	wěi	4776
+胃	wèi	3765
+喂	wèi	2719
 威	wēi	938
 危	wēi	924
 谓	wèi	911
@@ -37742,13 +37745,10 @@ sort: by_weight
 委	wěi	864
 卫	wèi	820
 违	wéi	779
-尾	wěi	776
 伟	wěi	775
-胃	wèi	765
 伪	wěi	764
 魏	wèi	754
 慰	wèi	754
-喂	wèi	719
 薇	wēi	709
 畏	wèi	690
 纬	wěi	682
