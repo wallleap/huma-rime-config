@@ -31,5 +31,8 @@ lua/data/input_stats/data.lua
 
 *.gram
 
+# KN 模型文件（过大，需手动放到 models/ 目录）
+models/*.bin
+
 # 超越输入法
 themes/public
