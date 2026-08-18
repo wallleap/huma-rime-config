@@ -27,6 +27,6 @@ patch:
   "style/horizontal": false
   "style/candidate_list_layout": stack
 
-  "style/comment_font_face": "Consolas, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen"
-  "style/font_face": "Consolas, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen"
-  "style/label_font_face": "Consolas, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen"
+  "style/comment_font_face": "Consolas, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen, CJK-extJ"
+  "style/font_face": "Consolas, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen, CJK-extJ"
+  "style/label_font_face": "Consolas, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen, CJK-extJ"

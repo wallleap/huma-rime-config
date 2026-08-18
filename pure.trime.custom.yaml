@@ -20,6 +20,7 @@ patch:
       simsunb.ttf,
       simsung.ttf,
       LXGWWenKaiGBScreen.ttf,
+      CJK-extJ.ttf,
     ]
   "style/comment_font":
     [
@@ -38,6 +39,7 @@ patch:
       simsunb.ttf,
       simsung.ttf,
       LXGWWenKaiGBScreen.ttf,
+      CJK-extJ.ttf,
     ]
 
   # 自定义配色方案

@@ -22,9 +22,9 @@ patch:
   "style/horizontal": false
   "style/candidate_list_layout": stack
 
-  "style/comment_font_face": "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen"
-  "style/font_face": "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen"
-  "style/label_font_face": "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen"
+  "style/comment_font_face": "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen, CJK-extJ"
+  "style/font_face": "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen, CJK-extJ"
+  "style/label_font_face": "Consolas, Segoe UI Emoji, Noto Color Emoji, Apple Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen, CJK-extJ"
 
   "menu/page_size": 9 # 自定义候选个数，可修改。若要改成5个，行首加上#号注释即可（Rime默认就是5个）
   # 横排显示建议把下面这行也注释掉，换成阿拉伯数字标号
