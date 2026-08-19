@@ -23,9 +23,14 @@ switches:
     reset: 0
     states: [中文, 西文]
   - name: pinyin
+    reset: 1
     states: [拼, pīn]
   - name: chaifen
+    reset: 1
     states: [拆隐, 拆显]
+  - name: emoji_cn
+    reset: 0
+    states: [🈚, 🈶]
   - name: ascii_punct
     states: [。，, ．，]
   - name: full_shape
@@ -54,6 +59,7 @@ engine:
   filters:
     - lua_filter@pinyin_comment_filter
     - lua_filter@chaifen_comment_filter
+    - simplifier@emoji_cn
     - uniquifier
 
 speller:
@@ -109,6 +115,12 @@ chaifen:
   tags:
     - abc
     - reverse_lookup
+  tips: all
+
+# Emoji 表情滤镜
+emoji_cn:
+  opencc_config: emoji.json
+  option_name: emoji_cn
   tips: all
 
 menu:
