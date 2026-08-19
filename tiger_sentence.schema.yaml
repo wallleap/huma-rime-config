@@ -24,10 +24,8 @@ switches:
     reset: 0
     states: [中文, 西文]
   - name: pinyin
-    reset: 1
     states: [拼, pīn]
   - name: chaifen
-    reset: 1
     states: [拆隐, 拆显]
   - name: emoji_cn
     reset: 0
