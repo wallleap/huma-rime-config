@@ -7,10 +7,12 @@ local function filter(input, env)
   -- switcher（mode）切换方案的候选不追加注释
   local switcher_tag = config:get_string("switcher/tag") or "mode"
   local is_switcher = seg and seg:has_tag(switcher_tag) or false
+  -- 计算器(expression)/临时英文(easy_english)/数字(number)/统计(stats) 等特殊功能候选不追加注释
+  local is_special = seg and (seg:has_tag("expression") or seg:has_tag("easy_english") or seg:has_tag("number") or seg:has_tag("stats")) or false
 
   -- 反查时一直显示拼音；常规输入受 pinyin 开关控制
   local enable = is_reverse or context:get_option("pinyin")
-  if not enable or is_switcher then
+  if not enable or is_switcher or is_special then
     for cand in input:iter() do
       yield(cand)
     end

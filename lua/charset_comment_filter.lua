@@ -574,13 +574,19 @@ end
 --- charset comment filter
 local function charset_comment_filter(input, env)
   local context = env.engine.context
+  local config = env.engine.schema.config
   local b = context:get_option("charset_comment_filter") --开关状态
-  -- switcher（mode）切换方案的候选不追加注释
+  -- 通过 segment tag 判断是否为反查，不依赖具体前缀字符
   local seg = context.composition:back()
-  local switcher_tag = env.engine.schema.config:get_string("switcher/tag") or "mode"
+  local is_reverse = seg and (seg:has_tag("reverse_lookup") or seg:has_tag("flypy_lookup")) or false
+  -- switcher（mode）切换方案的候选不追加注释
+  local switcher_tag = config:get_string("switcher/tag") or "mode"
   local is_switcher = seg and seg:has_tag(switcher_tag) or false
+  -- 计算器(expression)/临时英文(easy_english)/数字(number)/统计(stats) 等特殊功能候选不追加注释
+  local is_special = seg and (seg:has_tag("expression") or seg:has_tag("easy_english") or seg:has_tag("number") or seg:has_tag("stats")) or false
 
-  if not b or is_switcher then
+  -- 反查时不显示 Unicode 分区注释，常规输入受 charset_comment_filter 开关控制
+  if not b or is_reverse or is_switcher or is_special then
     for cand in input:iter() do
       yield(cand)
     end
