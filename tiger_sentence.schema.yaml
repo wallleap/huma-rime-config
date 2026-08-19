@@ -57,7 +57,8 @@ engine:
     - uniquifier
 
 speller:
-  alphabet: "zyxwvutsrqponmlkjihgfedcba;';0123456789`"
+  # alphabet: "zyxwvutsrqponmlkjihgfedcba;';0123456789`"
+  alphabet: "['zyxwvutsrqponmlkjihgfedcba]`/=S" # 定义本方案输入键 "[;'zyxwvutsrqponmlkjihgfedcba]`"
   initials: "abcdefghijklmnopqrstuvwxyz"
   delimiter: " "
   auto_select: false
@@ -114,14 +115,20 @@ menu:
   page_size: 5
 
 key_binder:
-  bindings:
-    - { when: has_menu, accept: Tab, send: Down }
-    - { when: has_menu, accept: Shift+Tab, send: Up }
-    - { when: paging, accept: minus, send: Page_Up }
-    - { when: has_menu, accept: equal, send: Page_Down }
+  bindings: # 设置功能性快捷键
+    __patch:
+      - key_bindings:/emacs_editing
+      - key_bindings:/select_candidate
+      - key_bindings:/move_by_word_with_tab
+      - key_bindings:/paging_with_minus_equal
+      - key_bindings:/paging_with_comma_period
+      - key_bindings:/paging_with_brackets
+      - key_bindings:/windows_compatible_mode_switch
+      - key_bindings:/tiger_pc_options
+      # - key_bindings:/tiger_mobile_options
 
 punctuator:
-  import_preset: default
+  import_preset: symbols
 
 recognizer:
   import_preset: default
@@ -129,11 +136,11 @@ recognizer:
     reverse_lookup: "^`[a-z]*'?$"
     flypy_lookup: "^`[a-z]*'?$"
 
-ascii_composer:
-  good_old_caps_lock: true
-  switch_key:
-    Caps_Lock: clear
-    Shift_L: commit_code
-    Shift_R: commit_code
-    Control_L: noop
-    Control_R: noop
+# ascii_composer:
+#   good_old_caps_lock: true
+#   switch_key:
+#     Caps_Lock: clear
+#     Shift_L: commit_code
+#     Shift_R: commit_code
+#     Control_L: noop
+#     Control_R: noop
