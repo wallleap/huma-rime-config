@@ -42,6 +42,7 @@ engine:
     - ascii_composer
     - recognizer
     - key_binder
+    - lua_processor@switcher_processor
     - lua_processor@tiger_sentence_processor
     - speller
     - punctuator
@@ -59,10 +60,18 @@ engine:
     - reverse_lookup_translator@flypy_reverse_lookup
     - table_translator@easy_english
     - lua_translator@tiger_sentence_translator
+    - lua_translator@number_translator
+    - lua_translator@calculator_translator
+    - lua_translator@switcher_translator
+    - lua_translator@*helper
+    - lua_translator@*uuid_translator
+    - lua_translator@*date_translator
+    - lua_translator@*input_statistics
   filters:
     - lua_filter@pinyin_comment_filter
     - lua_filter@chaifen_comment_filter
     - simplifier@emoji_cn
+    - lua_filter@switcher_filter
     - uniquifier
 
 speller:
@@ -162,9 +171,13 @@ punctuator:
 recognizer:
   import_preset: default
   patterns:
+    punct: "^/([0-9]0?|[A-Za-z]+)$"
     reverse_lookup: "^`[a-z]*'?$"
     flypy_lookup: "^`[a-z]*'?$"
     easy_english: "^'[A-Z|a-z]*`?$"
+    expression: "^=.*$"
+    number: "^S[0-9]*$"
+    stats: "^tj(rt|zt|yt|nt|qk)$"
 
 # ascii_composer:
 #   good_old_caps_lock: true
