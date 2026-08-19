@@ -18,7 +18,8 @@ schema:
   ascii_icon: "icons/en.ico"
   full_icon: "icons/full.ico"
   half_icon: "icons/half.ico"
-  icon: "icons/tiger.ico"
+  # icon: "icons/tiger.ico"
+  icon: "icons/tiger_ci.ico"
   version: 0.9
 
 switches: # 0 默认关，1 默认开

@@ -18,7 +18,8 @@ schema:
   ascii_icon: "icons/en.ico" # 小狼毫输入状态图标
   full_icon: "icons/full.ico"
   half_icon: "icons/half.ico"
-  icon: "icons/tiger.ico"
+  # icon: "icons/tiger.ico"
+  icon: "icons/tiger_zi.ico"
   version: "0.9" # 版本号，建议加引号，字符串格式
 
 # 开关

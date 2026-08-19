@@ -2,6 +2,11 @@
 schema:
   schema_id: tiger_sentence
   name: 虎码·整句
+  ascii_icon: "icons/en.ico" # 小狼毫输入状态图标
+  full_icon: "icons/full.ico"
+  half_icon: "icons/half.ico"
+  # icon: "icons/tiger.ico"
+  icon: "icons/tiger_sentence.ico"
   version: "1.0"
   author:
     - TigerClaw
