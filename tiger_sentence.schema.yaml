@@ -57,6 +57,10 @@ engine:
     - punct_translator
     - reverse_lookup_translator@flypy_reverse_lookup
     - table_translator@easy_english
+    - history_translator@historyDM # 重复上屏 电脑
+    - history_translator@historyDM2 # 重复上屏 电脑2
+    - history_translator@historyDM3 # 重复上屏 电脑3
+    - history_translator@historySJ # 重复上屏 手机
     - lua_translator@tiger_sentence_translator
     - lua_translator@number_translator
     - lua_translator@calculator_translator
@@ -146,6 +150,26 @@ easy_english:
     - "xlit|_| |"
   comment_format:
     - "xform/~/ /"
+
+historySJ:
+  input: "z"
+  size: 1
+  initial_quality: 0
+
+historyDM:
+  input: "["
+  size: 1
+  initial_quality: 999
+
+historyDM2:
+  input: "'"
+  size: 1
+  initial_quality: -999
+
+historyDM3:
+  input: "]"
+  size: 1
+  initial_quality: 999
 
 menu:
   page_size: 5
