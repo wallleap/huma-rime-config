@@ -30,9 +30,20 @@ switches:
   - name: emoji_cn
     reset: 0
     states: [🈚, 🈶]
+  - name: simplification # 简转繁滤镜
+    reset: 0
+    states: [简中, 繁中]
+  - name: charset_comment_filter # 字符集提示
+    reset: 0
+    states: [U区关, U区开]
+  - name: udpf_switch
+    reset: 0
+    states: [U编关, U编开]
   - name: ascii_punct
+    reset: 0
     states: [。，, ．，]
   - name: full_shape
+    reset: 0
     states: [半角, 全角]
 
 engine:
@@ -70,10 +81,13 @@ engine:
     - lua_translator@*date_translator
     - lua_translator@*input_statistics
   filters:
+    - simplifier@simplification # 用字转换，简繁滤镜
     - lua_filter@pinyin_comment_filter
     - lua_filter@chaifen_comment_filter
     - simplifier@emoji_cn
     - lua_filter@switcher_filter
+    - lua_filter@charset_comment_filter # Unicode分区提示滤镜
+    - lua_filter@lua_unicode_display_filter # Unicode编码显示
     - uniquifier
 
 speller:
@@ -135,6 +149,12 @@ chaifen:
 emoji_cn:
   opencc_config: emoji.json
   option_name: emoji_cn
+  tips: all
+
+# 简繁(+部分异体)滤镜
+simplification:
+  opencc_config: st_tu.json # 简 ➡ 繁·异（秃版标准）
+  option_name: simplification
   tips: all
 
 # 临时英文
