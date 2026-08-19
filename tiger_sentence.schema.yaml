@@ -12,6 +12,7 @@ schema:
     - TigerClaw
   dependencies:
     - flypy
+    - easy_english
   description: |
     从虎整句常用字词表生成的变长整句方案。
     光秃编码只取第 1 候选；分号/引号/数字写入编码选重。
@@ -49,12 +50,14 @@ engine:
     - express_editor
   segmentors:
     - matcher
+    - affix_segmentor@easy_english
     - abc_segmentor
     - punct_segmentor
     - fallback_segmentor
   translators:
     - punct_translator
     - reverse_lookup_translator@flypy_reverse_lookup
+    - table_translator@easy_english
     - lua_translator@tiger_sentence_translator
   filters:
     - lua_filter@pinyin_comment_filter
@@ -123,6 +126,20 @@ emoji_cn:
   option_name: emoji_cn
   tips: all
 
+# 临时英文
+easy_english:
+  dictionary: easy_english
+  tag: easy_english
+  prefix: "'"
+  tips: 〔En〕
+  enable_completion: true
+  enable_sentence: false
+  initial_quality: -1
+  preedit_format:
+    - "xlit|_| |"
+  comment_format:
+    - "xform/~/ /"
+
 menu:
   page_size: 5
 
@@ -147,6 +164,7 @@ recognizer:
   patterns:
     reverse_lookup: "^`[a-z]*'?$"
     flypy_lookup: "^`[a-z]*'?$"
+    easy_english: "^'[A-Z|a-z]*`?$"
 
 # ascii_composer:
 #   good_old_caps_lock: true
