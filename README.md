@@ -25,17 +25,23 @@
 
 ```bash
 .
-├── backgrounds                            # [目录]存放同文输入法键盘背景图
+├── .github                                # [目录] GitHub CI/CD
+│   └── workflows/
+│       └── tag-release.yml               # Release 自动发布工作流
+├── AGENTS.md                              # AI 助手指南
+├── backgrounds/                           # [目录]同文输入法键盘背景图
 │   ├── keyboard-dark.png                  # 同文输入法 深棕暗调 配色背景
 │   └── keyboard-light.png                 # 同文输入法 暖黄渐变 配色背景
 ├── bin                                    # [目录]存放辅助脚本
-│   ├── download_gram.sh                   # 本地下载模型文件
-│   └── sync_dicts.sh                      # 本地同步虎码、万象词库
-├── core2022.dict.yaml                     # 字符集过滤辅助方案词库
-├── core2022.schema.yaml                   # 字符集过滤辅助方案
+│   ├── download_gram.sh                   # 下载模型文件
+│   ├── gen_core2022.sh                    # 从 dict 生成 core2022 字集 Lua 数据
+│   ├── lint.mjs                           # YAML/Lua/Dict 格式校验
+│   ├── lint.sh                            # lint 包装脚本
+│   └── sync_dicts.sh                      # 同步虎码、万象词库
 ├── custom_phrase.txt                      # 用户自定义短语
 ├── default.custom.yaml                    # 全局默认配置补丁
-├── dicts                                  # [目录]存放所有扩展词库
+├── dicts/                                 # [目录]存放所有扩展词库
+│   ├── core2022.dict.yaml                 # core2022 字集词库
 │   ├── cuoyin.dict.yaml                   # 万象 错音错字
 │   ├── diming.dict.yaml                   # 万象 地名
 │   ├── duoyin.dict.yaml                   # 万象 多音字
@@ -56,7 +62,7 @@
 ├── flypy.custom.yaml                      # 小鹤双拼补丁
 ├── flypy.dict.yaml                        # 小鹤双拼词库
 ├── flypy.schema.yaml                      # 小鹤双拼方案
-├── fonts                                  # [目录]存放字体文件
+├── fonts/                                 # [目录]存放字体文件
 │   ├── AppleColorEmoji.ttf                # Apple Emoji
 │   ├── Consolas.ttf                       # 英文字体
 │   ├── LXGWWenKaiGBScreen.ttf             # 霞鹭文楷GB屏幕阅读版
@@ -83,32 +89,42 @@
 ├── info.yaml                              # 超越输入法 方案描述
 ├── key_bindings.custom.yaml               # 按键绑定补丁
 ├── key_bindings.yaml                      # 按键绑定
-├── lua                                    # [目录] 存放 Lua 脚本
-│   ├── aux_code.lua                       # 辅助码拆分
-│   ├── calculator_translator.lua          # 计算器
-│   ├── chaifen_comment_filter.lua         # 拆分提示/注释
-│   ├── charset_comment_filter.lua         # 字符集提示
-│   ├── core2022_filter.lua                # 字集过滤
+├── lua/                                   # [目录] 存放 Lua 脚本
+│   ├── aux_code.lua                       # 辅助码拆分
+│   ├── calculator_translator.lua          # 计算器
+│   ├── chaifen_comment_filter.lua         # 拆分提示/注释
+│   ├── charset_comment_filter.lua         # 字符集提示
+│   ├── core2022_filter.lua                # 字集过滤
 │   ├── data/                              # [目录] 存放 Lua 使用数据文件
-│   │   ├── aux_code                       # [目录]存放拼音辅助码码表文件
+│   │   ├── aux_code/                      # [目录]存放拼音辅助码码表文件
 │   │   │   └── flypy_full.txt             # 小鹤音形辅助码码表
-│   │   ├── input_stats                    # [目录]存放输入统计数据
+│   │   ├── core2022/                      # [目录]存放字集数据
+│   │   │   └── data.lua                   # core2022 字集 hash set（自动生成）
+│   │   ├── input_stats/                   # [目录]存放输入统计数据
 │   │   │   └── data.lua                   # 自动生成输入统计
-│   │   └── user_dicts                     # [目录]存放用户词库
+│   │   └── user_dicts/                    # [目录]存放用户词库
 │   │       └── tigress_user.dict.yaml     # 虎词 用户词库
-│   ├── date_translator.lua                # 日期时间
-│   ├── helper.lua                         # 输入 help 获取简要说明
-│   ├── user_dict_marker_filter.lua          # 用户词典符号标记
-│   ├── input_statistics.lua               # 输入统计
-│   ├── lib/                               # [目录]存放工具库
-│   ├── maker.lua                          # 虎词自动造词
-│   ├── number.lua                         # 数字转换
-│   ├── pinyin_comment_filter.lua          # 拼音注释
-│   ├── schema_switcher.lua                # 输入 mode 选择切换方案
-│   ├── unicode_display.lua                # Unicode 显示
-│   └── uuid_translator.lua                # 输入 uuid 生成
+│   ├── date_translator.lua                # 日期时间
+│   ├── dz_ci_filter.lua                   # 单字词过滤
+│   ├── helper.lua                         # 输入 help 获取简要说明
+│   ├── input_statistics.lua               # 输入统计
+│   ├── lib/                               # [目录]存放工具库
+│   │   ├── base.lua                       # 通用工具（Rime 目录获取等）
+│   │   └── segment.lua                    # segment tag 分类工具
+│   ├── maker.lua                          # 虎词自动造词
+│   ├── number.lua                         # 数字转换
+│   ├── pinyin_comment_filter.lua          # 拼音注释
+│   ├── schema_switcher.lua                # 输入 mode 选择切换方案
+│   ├── tiger_sentence.lua                 # 虎码整句
+│   ├── tiger_sentence_kn.lua              # 整句 KN 模型
+│   ├── tiger_sentence_lexicon.lua         # 整句词典
+│   ├── tiger_sentence_ranks.lua           # 整句词频
+│   ├── unicode_display.lua                # Unicode 显示
+│   ├── user_dict_marker_filter.lua        # 用户词典符号标记
+│   └── uuid_translator.lua                # 输入 uuid 生成
+├── models/                               # [目录]存放整句模型
+│   └── sentence-ngram-v2.bin              # 虎码整句 ngram 模型
 ├── opencc/                                # [目录]存放滤镜文件（拼音、拆分、繁简转换、emoji）
-├── punctuation.yaml                       # 标点符号配置
 ├── pure.trime.custom.yaml                 # 安卓同文输入法补丁
 ├── pure.trime.yaml                        # 安卓同文输入法朴素主题
 ├── README.md                              # README 文档
@@ -117,8 +133,8 @@
 ├── squirrel.custom.yaml                   # 鼠须管配置补丁
 ├── stroke.dict.yaml                       # 笔画输入方案词库
 ├── symbols.yaml                           # 符号
-├── themes                                 # [目录]存放鸿蒙输入法主题
-│   ├── dvorak_pure                        # [目录]Dvorak 朴素主题
+├── themes/                                # [目录]存放鸿蒙输入法主题
+│   ├── dvorak_pure/                       # [目录]Dvorak 朴素主题
 │   │   ├── info.yaml                      # 主题信息
 │   │   ├── preset_fonts.yaml              # 文字样式
 │   │   ├── preset_keyboards.yaml          # 键盘配置
@@ -129,12 +145,17 @@
 ├── tiger.custom.yaml                      # 虎单方案补丁
 ├── tiger.extended.dict.yaml               # 虎单方案词库
 ├── tiger.schema.yaml                      # 虎单方案
-├── tigress_phrase.txt                     # 自动生成的虎词造词词库
+├── tiger_sentence.custom.yaml             # 虎码整句方案补丁
+├── tiger_sentence.dict.yaml               # 虎码整句方案词库
+├── tiger_sentence.schema.yaml             # 虎码整句方案
 ├── tigress.custom.yaml                    # 虎词方案补丁
 ├── tigress.extended.dict.yaml             # 虎词方案词库
 ├── tigress.schema.yaml                    # 虎词方案
-├── trash                                  # [目录]回收站
-│   └── stroke.schema.yaml                 # 笔画输入方案，前端自带会自动删除，做个备份
+├── trash/                                 # [目录]回收站
+│   ├── PY_c.custom.yaml                  # 拼音方案补丁备份
+│   ├── PY_c.dict.yaml                    # 拼音方案词库备份
+│   ├── PY_c.schema.yaml                  # 拼音方案备份
+│   └── stroke.schema.yaml                # 笔画输入方案备份
 ├── wanxiang-lts-zh-hans.gram              # 万象模型
 └── weasel.custom.yaml                     # 小狼毫配置补丁
 ```
@@ -143,7 +164,7 @@
 
 ## 1. 方案介绍
 
-本项目包含三个核心方案，分别针对不同的使用场景：
+本项目包含四个核心方案，分别针对不同的使用场景：
 
 ### 🐯 虎码单字版 (Tiger) - `tiger.schema.yaml`
 
@@ -156,6 +177,12 @@
 - **定位**：适合日常整句、词组输入（仍是四码）。
 - **核心特色**：集成了强大的**自动造词系统**，支持在使用过程中动态扩充词库。
 - **功能**：支持简/繁切换、Emoji、拼音反查、日期计算等丰富功能。
+
+### 🐯 虎码整句版 (Tiger Sentence) - `tiger_sentence.schema.yaml`
+
+- **定位**：基于 ngram 整句模型，按词频和语境自动整句输入。
+- **特色**：输入编码后自动出整句候选，无需逐词选择，适合长文本连续输入。
+- **模型**：依赖 `models/sentence-ngram-v2.bin` 整句模型。
 
 ### 🦩 小鹤双拼 - `flypy.schema.yaml`
 
@@ -298,7 +325,7 @@ git update-index --no-skip-worktree lua/data/user_dicts/tigress_user.dict.yaml
 ```sh
 # ===================== 同步列表 =====================
 SYNC_LIST=(
-  "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/core2022.dict.yaml|${REPO_ROOT}"
+  "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/core2022.dict.yaml|${REPO_ROOT}/dicts"
   "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/easy_english.dict.yaml|${REPO_ROOT}"
   "https://github.com/zhhmn/huma-rime/raw/master/tiger.dict.yaml|${REPO_ROOT}/dicts"
   "https://github.com/zhhmn/huma-rime/raw/master/tigress_ci.dict.yaml|${REPO_ROOT}/dicts"
@@ -334,6 +361,24 @@ chmod +x ./bin/sync_dicts.sh
 ```sh
 chmod +x ./bin/download_gram.sh
 ./bin/download_gram.sh
+```
+
+### 7.3 lint.sh Rime 配置仓库格式校验
+
+```sh
+chmod +x ./bin/lint.sh
+./bin/lint.sh
+```
+
+### 7.4 gen\_core2022.sh 生成 core2022 字集 hash set
+
+该脚本用于从 `dicts/core2022.dict.yaml` 生成 `lua/data/core2022/data.lua`
+
+给脚本添加执行权限，然后运行
+
+```sh
+chmod +x ./bin/gen_core2022.sh
+./bin/gen_core2022.sh
 ```
 
 ## 8. 同步用户数据
