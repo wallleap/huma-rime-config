@@ -26,9 +26,9 @@
 - `key_bindings.yaml`、`symbols.yaml`、`opencc/`、`fonts/`、`themes/`、`backgrounds/`、`icons/` — 辅助配置与资源
 - 同文输入法主题：`*.trime.yaml`（如 `pure.trime.yaml`、 `dvorak.trime.yaml` ）是主题主文件，`*.trime.custom.yaml` 是其补丁
 - Lua 子目录：
-    - `lua/lib/base.lua` — Lua 工具库
-    - `lua/data/aux_code/` — 辅助码码表（如 `flypy_full.txt` 小鹤音形码表）
-    - `lua/data/input_stats/` — 输入统计数据（由 `input_statistics.lua` 自动生成，勿手动改）
+  - `lua/lib/base.lua` — Lua 工具库
+  - `lua/data/aux_code/` — 辅助码码表（如 `flypy_full.txt` 小鹤音形码表）
+  - `lua/data/input_stats/` — 输入统计数据（由 `input_statistics.lua` 自动生成，勿手动改）
 - 超越输入法：根目录 `info.yaml`（方案描述）+ `space.custom.yaml`（目录补丁）+ `themes/`（主题目录，含 `dvorak_pure/` 、 `t26_pure/`）
 
 ## Conventions
@@ -75,12 +75,12 @@
     - 为特定输入方案定制外观：https://github.com/rime/weasel/wiki/%E4%B8%BA%E7%89%B9%E5%AE%9A%E8%BE%93%E5%85%A5%E6%96%B9%E6%A1%88%E5%AE%9A%E5%88%B6%E5%A4%96%E8%A7%82
     - 示例：https://github.com/rime/weasel/wiki/%E7%A4%BA%E4%BE%8B
 - `*.trime.yaml`、`*.trime.custom.yaml` 同文输入法配置
-    - 配置文件中的一些语法：https://github.com/osfans/trime/wiki/trimer%E5%B0%8F%E7%9F%A5%E8%AF%86(2)---%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9Byaml%E8%AF%AD%E6%B3%95
-    - 索引：https://github.com/osfans/trime/wiki/UserGuide
-    - trime 旧配置：https://github.com/osfans/trime/wiki/trime.yaml-%E8%A9%B3%E8%A7%A3
-    - trime 新配置：https://github.com/osfans/trime/wiki/Theme-Configuration-(New)
+  - 配置文件中的一些语法：https://github.com/osfans/trime/wiki/trimer%E5%B0%8F%E7%9F%A5%E8%AF%86(2)---%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9Byaml%E8%AF%AD%E6%B3%95
+  - 索引：https://github.com/osfans/trime/wiki/UserGuide
+  - trime 旧配置：https://github.com/osfans/trime/wiki/trime.yaml-%E8%A9%B3%E8%A7%A3
+  - trime 新配置：https://github.com/osfans/trime/wiki/Theme-Configuration-(New)
 - 超越输入法，当前目录会导入到 `space/schemas/huma_rime_config/`，在本目录中的同名目录（如 `themes`、`fonts`）只在这本目录中的输入方案生效
-    - space 仓库：https://github.com/Beyond-Input-Method/space
+  - space 仓库：https://github.com/Beyond-Input-Method/space
 - 虎码上游方案：https://github.com/zhhmn/huma-rime — `bin/sync_dicts.sh` 的源，方案与词库更新来源
 - 万象词库：https://github.com/amzxyz/rime_wanxiang — `dicts/` 大部分词库来源
 - 本项目仓库：https://github.com/wallleap/huma-rime-config — 上游维护版本（当前仓库为其本地定制副本）
