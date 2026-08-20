@@ -220,6 +220,7 @@ recognizer:
     expression: "^=.*$"
     number: "^S[0-9]*$"
     stats: "^tj(rt|zt|yt|nt|qk)$"
+    help: "^help$" # 帮助输入信息识别模式
 
 # ascii_composer:
 #   good_old_caps_lock: true

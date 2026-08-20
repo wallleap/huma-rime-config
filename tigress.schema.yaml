@@ -273,6 +273,7 @@ recognizer:
     easy_english: "^'[A-Z|a-z]*`?$"
     expression: "^=.*$"
     stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
+    help: "^help$" # 帮助输入信息识别模式
 
 # 标点符号配置
 punctuator:

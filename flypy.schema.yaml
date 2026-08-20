@@ -251,6 +251,7 @@ recognizer:
     expression: "^=.*$"
     reverse_lookup: "^`[a-z]*'?$"
     stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
+    help: "^help$" # 帮助输入信息识别模式
 
 historyDM:
   input: "["

@@ -333,6 +333,7 @@ recognizer:
     expression: "^=.*$"
     number: "^S[0-9]*$"
     stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
+    help: "^help$" # 帮助输入信息识别模式
 
 # 标点符号，用于将输入的标点符号转换为对应的码点
 punctuator:
