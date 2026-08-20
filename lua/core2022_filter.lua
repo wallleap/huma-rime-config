@@ -14,7 +14,9 @@ local charsets = {
   { first = 0x2ceb0,  last = 0x2ebef }, -- 扩F
   { first = 0x30000,  last = 0x3134f }, -- 扩G
   { first = 0x31350,  last = 0x323af }, -- 扩H
-  { first = 0x2EBF0,  last = 0x2EE5D }, -- 扩I
+  { first = 0x2ebf0,  last = 0x2ee5f }, -- 扩I https://codepoints.net/cjk_unified_ideographs_extension_i
+  -- { first = 0x323b0, last = 0x33479 }, -- 扩J https://www.unicode.org/charts/PDF/Unicode-17.0/U170-323B0.pdf
+  { first = 0x323b0,  last = 0x3347f }, -- 扩J symbl.cc
   { first = 0x31c0,   last = 0x31ef }, -- 笔画
   { first = 0x2e80,   last = 0x2eff }, -- 部首扩展
   { first = 0x2f00,   last = 0x2fdf }, -- 康熙部首
