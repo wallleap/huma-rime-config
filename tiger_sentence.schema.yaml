@@ -92,8 +92,8 @@ engine:
 
 speller:
   # alphabet: "zyxwvutsrqponmlkjihgfedcba;';0123456789`"
-  alphabet: "['zyxwvutsrqponmlkjihgfedcba]`/=S" # 定义本方案输入键 "[;'zyxwvutsrqponmlkjihgfedcba]`"
-  initials: "abcdefghijklmnopqrstuvwxyz"
+  alphabet: "['zyxwvutsrqponmlkjihgfedcba]`/=S]" # 定义本方案输入键 "[;'zyxwvutsrqponmlkjihgfedcba]`"
+  # initials: "abcdefghijklmnopqrstuvwxyz" # 不设则默认等于 alphabet，使 / 等特殊字符也能作首码进入缓冲区，等后续输入触发 recognizer
   delimiter: " "
   auto_select: false
 
