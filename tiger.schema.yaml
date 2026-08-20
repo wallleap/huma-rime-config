@@ -7,7 +7,6 @@ schema:
   author: # 作者
     - 虎码团队
   dependencies: # 依赖的方案
-    - core2022 # 自定义字集工具方案
     - flypy # 小鹤双拼方案，用于反查
     - easy_english # 英文
   description: | # 简要描述

@@ -24,7 +24,7 @@ FALLBACK_BASE="https://gh-proxy.com/"
 
 # ===================== 同步列表 =====================
 SYNC_LIST=(
-  "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/core2022.dict.yaml|${REPO_ROOT}"
+  "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/core2022.dict.yaml|${REPO_ROOT}/dicts"
   "https://github.com/zhhmn/huma-rime/raw/refs/heads/master/easy_english.dict.yaml|${REPO_ROOT}"
   "https://github.com/zhhmn/huma-rime/raw/master/tiger.dict.yaml|${REPO_ROOT}/dicts"
   "https://github.com/zhhmn/huma-rime/raw/master/tigress_ci.dict.yaml|${REPO_ROOT}/dicts"
@@ -296,11 +296,16 @@ find "${TMP_DIR}" -mindepth 1 -maxdepth 1 \
   \( -name 'job_*' -o -name 'changed_marks' -o -name 'failed_marks' -o -name 'logs' -o -name 'done_marks' \) \
   -exec rm -rf {} + 2>/dev/null || true
 
+# ===================== 重新生成 core2022 字集 Lua 表 =====================
+if [ -f "${REPO_ROOT}/dicts/core2022.dict.yaml" ]; then
+  bash "${SCRIPT_DIR}/gen_core2022.sh"
+fi
+
 # ===================== Git 自动提交推送 =====================
 echo "========================================"
 if [ "${CHANGED}" -eq 1 ]; then
   echo "📤 检测到文件变化，开始提交 Git..."
-  git add dicts/
+  git add dicts/ lua/data/core2022/
   git commit -m "chore(dicts): 更新字典文件 $(date '+%Y-%m-%d %H:%M:%S')"
   git push
   echo "✅ Git 推送完成！"

@@ -1,3 +1,9 @@
+-- core2022 字集过滤：常用字白名单来自 lua/data/core2022/data.lua
+-- 白名单由 bin/gen_core2022.sh 从 dicts/core2022.dict.yaml 自动生成
+-- extended_char 开关为「常用字」(on) 时，CJK 候选字必须在白名单内才输出；
+-- 为「全字集」(off) 时不过滤，全部输出
+local charset = require("data.core2022.data")
+
 local charsets = {
   { first = 0x4e00,   last = 0x9fff }, -- 基本区
   { first = 0x3400,   last = 0x4dbf }, -- 扩A
@@ -41,43 +47,33 @@ local charsets = {
 }
 
 local function is_cjk(code)
-  for i, charset in ipairs(charsets) do
-    if ((code >= charset.first) and (code <= charset.last)) then
+  for _, cs in ipairs(charsets) do
+    if code >= cs.first and code <= cs.last then
       return true
     end
   end
   return false
 end
 
-local function should_yield(text, option, coredb)
-  local should_yield = true
-  if option then
-    for i in utf8.codes(text) do
-      local code = utf8.codepoint(text, i)
-      if is_cjk(code) then
-        charset = coredb:lookup(utf8.char(code))
-        if charset == "" then
-          should_yield = false
-          break
-        end
-      end
+-- on 为 true（常用字模式）时，文本中任一 CJK 字符不在白名单即丢弃
+local function should_yield(text, on)
+  if not on then return true end
+  for i in utf8.codes(text) do
+    local code = utf8.codepoint(text, i)
+    if is_cjk(code) and not charset[utf8.char(code)] then
+      return false
     end
   end
-  return should_yield
+  return true
 end
 
 local function filter(input, env)
-  on = env.engine.context:get_option("extended_char")
+  local on = env.engine.context:get_option("extended_char")
   for cand in input:iter() do
-    if should_yield(cand.text, on, env.coredb) then
+    if should_yield(cand.text, on) then
       yield(cand)
     end
   end
 end
 
-local function init(env)
-  -- 当此组件被载入时，打开反查库，并存入 `coredb` 中
-  env.coredb = ReverseDb("build/core2022.reverse.bin")
-end
-
-return { init = init, func = filter }
+return { func = filter }
