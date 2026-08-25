@@ -11,7 +11,8 @@ local charset = {
   ["[扩F]"] = { first = 0x2ceb0, last = 0x2ebef },
   ["[扩G]"] = { first = 0x30000, last = 0x3134f },
   ["[扩H]"] = { first = 0x31350, last = 0x323af },
-  ["[扩I]"] = { first = 0x2EBF0, last = 0x2EE5D },
+  ["[扩I]"] = { first = 0x2ebf0, last = 0x2ee5f },
+  ["[扩J]"] = { first = 0x323b0, last = 0x3347f },
   ["[笔画]"] = { first = 0x31c0, last = 0x31ef },
   ["[部首补充]"] = { first = 0x2e80, last = 0x2eff },
   ["[康熙部首]"] = { first = 0x2f00, last = 0x2fdf },
@@ -88,8 +89,8 @@ local charset = {
   ["[格鲁吉亚文扩展]"] = { first = 0x1c90, last = 0x1cbf },
   ["[巽他文增补]"] = { first = 0x1cc0, last = 0x1ccf },
   ["[吠陀扩展]"] = { first = 0x1cd0, last = 0x1cff },
-  ["[国际音标扩展]"] = { first = 0x1d00, last = 0x1d7f },
-  ["[国际音标增补]"] = { first = 0x1d80, last = 0x1dbf },
+  ["[音标扩展]"] = { first = 0x1d00, last = 0x1d7f },
+  ["[音标增补]"] = { first = 0x1d80, last = 0x1dbf },
   ["[结合变音标记增补]"] = { first = 0x1dc0, last = 0x1dff },
   ["[拉丁语扩展附加]"] = { first = 0x1e00, last = 0x1eff },
   ["[希腊语扩展]"] = { first = 0x1f00, last = 0x1fff },
@@ -323,7 +324,7 @@ local charset = {
   ["[传统计算机符号]"] = { first = 0x1fb00, last = 0x1fbff },
   ["[标签]"] = { first = 0xe0000, last = 0xe007f },
   ["[变化选择器补充]"] = { first = 0xe0100, last = 0xe01ef },
-  ["[私用区补充A]"] = { first = 0xf0000, last = 0xffff },
+  ["[私用区补充A]"] = { first = 0xf0000, last = 0xfffff },
   ["[私用区补充B]"] = { first = 0x100000, last = 0x10ffff },
   ["[Compat]"] = { first = 0x2F8000, last = 0x2FA1FF }
 }
@@ -364,211 +365,27 @@ end
 
 -- 文本所属区块名：所有字符必须落在同一区块，返回确定性的区块名
 local function get_block_name(text)
-  local codepoints = {}
-  for i in utf8.codes(text) do
-    table.insert(codepoints, utf8.codepoint(text, i))
-  end
-  if #codepoints == 0 then return nil end
-
-  local candidates = find_blocks(codepoints[1])
-  if #candidates == 0 then return nil end
-
-  for ci = 2, #codepoints do
-    local cp = codepoints[ci]
-    local filtered = {}
-    for bi = 1, #candidates do
-      local blk = candidates[bi]
-      if cp >= blk.first and cp <= blk.last then
-        table.insert(filtered, blk)
+  local first = true
+  local candidates
+  for _, cp in utf8.codes(text) do
+    if first then
+      candidates = find_blocks(cp)
+      if #candidates == 0 then return nil end
+      first = false
+    else
+      local filtered = {}
+      for bi = 1, #candidates do
+        local blk = candidates[bi]
+        if cp >= blk.first and cp <= blk.last then
+          filtered[#filtered + 1] = blk
+        end
       end
+      candidates = filtered
+      if #candidates == 0 then return nil end
     end
-    candidates = filtered
-    if #candidates == 0 then return nil end
   end
-
+  if first then return nil end
   return candidates[1].name
-end
-
-local function exists(single_filter, text)
-  for i in utf8.codes(text) do
-    local c = utf8.codepoint(text, i)
-    if (not single_filter(c)) then
-      return false
-    end
-  end
-  return true
-end
-
-local function is_charset(s)
-  return function(c)
-    return c >= charset[s].first and c <= charset[s].last
-  end
-end
-
-local function is_cjk_ext(c)
-  return is_charset("中日韩统一汉字扩展A")(c) or is_charset("中日韩统一汉字扩展B")(c) or
-      is_charset("中日韩统一汉字扩展C")(c) or is_charset("中日韩统一汉字扩展D")(c) or
-      is_charset("中日韩统一汉字扩展E")(c) or is_charset("中日韩统一汉字扩展F")(c) or
-      is_charset("中日韩统一汉字扩展G")(c) or is_charset("中日韩统一汉字")(c) or
-      is_charset("中日韩汉字部首补充")(c) or is_charset("康熙部首")(c) or
-      is_charset("中日韩兼容汉字")(c) or is_charset("中日韩兼容汉字补充")(c) or
-      is_charset("中日韩汉字笔画")(c) or is_charset("结构")(c) or
-      is_charset("注音符号")(c) or is_charset("注音扩展")(c) or
-      is_charset("基本拉丁文字")(c) or is_charset("拉丁文字西欧语言补充")(c) or
-      is_charset("拉丁文字扩展A")(c) or is_charset("拉丁文字扩展B")(c) or
-      is_charset("国际音标扩展")(c) or is_charset("占位修饰符")(c) or
-      is_charset("组合附加记号")(c) or is_charset("希腊文字和科普特文字")(c) or
-      is_charset("西里尔文")(c) or is_charset("西里尔文补充")(c) or
-      is_charset("亚美尼亚文")(c) or is_charset("希伯莱文")(c) or
-      is_charset("阿拉伯文")(c) or is_charset("叙利亚文")(c) or
-      is_charset("阿拉伯文补充")(c) or is_charset("它拿文")(c) or
-      is_charset("西非书面文字")(c) or is_charset("撒马利亚文字")(c) or
-      is_charset("曼达安文字")(c) or is_charset("叙利亚文补充")(c) or
-      is_charset("阿拉伯文补充")(c) or is_charset("天城文")(c) or
-      is_charset("孟加拉文")(c) or is_charset("古木基文")(c) or
-      is_charset("古吉拉特文")(c) or is_charset("奥里亚文")(c) or
-      is_charset("泰米尔文")(c) or is_charset("泰卢固文")(c) or
-      is_charset("卡纳达文")(c) or is_charset("马拉雅拉姆文")(c) or
-      is_charset("僧伽罗文")(c) or is_charset("泰文")(c) or
-      is_charset("老挝文")(c) or is_charset("藏文")(c) or
-      is_charset("缅甸文")(c) or is_charset("格鲁吉亚文")(c) or
-      is_charset("谚文字母")(c) or is_charset("埃塞俄比亚文")(c) or
-      is_charset("埃塞俄比亚文补充")(c) or is_charset("切罗基文")(c) or
-      is_charset("统一加拿大原住民音节文字")(c) or is_charset("欧甘文字")(c) or
-      is_charset("卢恩文字")(c) or is_charset("他加禄文")(c) or
-      is_charset("哈努诺文")(c) or is_charset("布希德文")(c) or
-      is_charset("塔格巴努瓦文")(c) or is_charset("高绵文")(c) or
-      is_charset("蒙古文")(c) or is_charset("统一加拿大原住民音节文字扩展")(c) or
-      is_charset("林布文")(c) or is_charset("德宏傣文")(c) or
-      is_charset("西双版纳新傣文")(c) or is_charset("高绵文符号")(c) or
-      is_charset("布吉文字")(c) or is_charset("西双版纳老傣文")(c) or
-      is_charset("组合附加记号扩展")(c) or is_charset("巴厘文字")(c) or
-      is_charset("巽他文字")(c) or is_charset("巴塔克文")(c) or
-      is_charset("雷布查文")(c) or is_charset("桑塔利文")(c) or
-      is_charset("西里尔文扩展C")(c) or is_charset("格鲁吉亚文")(c) or
-      is_charset("巽他文字补充")(c) or is_charset("吠陀文字补充")(c) or
-      is_charset("音标扩展")(c) or is_charset("音标扩展补充")(c) or
-      is_charset("组合附加记号补充")(c) or is_charset("拉丁文附加扩展")(c) or
-      is_charset("希腊文扩展")(c) or is_charset("通用标点符号")(c) or
-      is_charset("上标和下标")(c) or is_charset("货币符号")(c) or
-      is_charset("符号用组合附加记号")(c) or is_charset("类字母符号")(c) or
-      is_charset("数字形式")(c) or is_charset("缅箭头")(c) or
-      is_charset("数学运算符")(c) or is_charset("杂类技术符号")(c) or
-      is_charset("控制符图形")(c) or is_charset("光学字符诀别符号")(c) or
-      is_charset("包围式字母与数字符号")(c) or is_charset("制表符")(c) or
-      is_charset("方块元素")(c) or is_charset("几何形状")(c) or
-      is_charset("杂类符号")(c) or is_charset("印刷符号")(c) or
-      is_charset("杂类数学符号A")(c) or is_charset("补充箭头A")(c) or
-      is_charset("盲文点字")(c) or is_charset("补充箭头B")(c) or
-      is_charset("杂类数学符号B")(c) or is_charset("补充数学运算符")(c) or
-      is_charset("杂类标志与箭头")(c) or is_charset("格拉哥里文字")(c) or
-      is_charset("拉丁文字扩展C")(c) or is_charset("科普特文")(c) or
-      is_charset("格鲁吉亚文补充")(c) or is_charset("提非纳文字")(c) or
-      is_charset("埃塞俄比亚文扩展")(c) or is_charset("西里尔文扩展A")(c) or
-      is_charset("补充标点符号")(c) or is_charset("表意文字描述字符")(c) or
-      is_charset("中日韩符号和标点")(c) or is_charset("平假名")(c) or
-      is_charset("片假名")(c) or is_charset("谚文兼容字母")(c) or
-      is_charset("汉文记号")(c) or is_charset("注音符号扩展")(c) or
-      is_charset("片假名音标扩展")(c) or is_charset("包围式中日韩字符与月份")(c) or
-      is_charset("中日韩兼容全角字符")(c) or is_charset("易经六十四卦符号")(c) or
-      is_charset("彝文")(c) or is_charset("彝文部首")(c) or
-      is_charset("老傈僳文")(c) or is_charset("卡瓦伊文")(c) or
-      is_charset("西里尔文扩展B")(c) or is_charset("巴姆穆文")(c) or
-      is_charset("声调修饰符号")(c) or is_charset("拉丁文字扩展D")(c) or
-      is_charset("锡尔赫特城文字")(c) or is_charset("通用印度数学")(c) or
-      is_charset("八思巴文")(c) or is_charset("索拉什特拉文字")(c) or
-      is_charset("天城文扩展")(c) or is_charset("克耶里文")(c) or
-      is_charset("勒姜文")(c) or is_charset("谚文字母扩展A")(c) or
-      is_charset("爪哇文")(c) or is_charset("缅甸文扩展B")(c) or
-      is_charset("占文")(c) or is_charset("缅甸文扩展A")(c) or
-      is_charset("越南傣文")(c) or is_charset("曼尼普尔文扩展")(c) or
-      is_charset("埃塞俄比亚文扩展A")(c) or is_charset("拉丁文字扩展E")(c) or
-      is_charset("切罗基文字补充")(c) or is_charset("曼尼普尔文")(c) or
-      is_charset("谚文")(c) or is_charset("谚文字母扩展B")(c) or
-      is_charset("私用区")(c) or is_charset("字母变体")(c) or
-      is_charset("阿拉伯文变体A")(c) or is_charset("异体选择符")(c) or
-      is_charset("竖排标点符号")(c) or is_charset("组合用半记号")(c) or
-      is_charset("中日韩兼容标点符号")(c) or is_charset("小型标点符号")(c) or
-      is_charset("阿拉伯文变体B")(c) or is_charset("半角与全角符号")(c) or
-      is_charset("特殊字符")(c) or is_charset("线形文字B音节文字")(c) or
-      is_charset("线形文字B表意文字")(c) or is_charset("爱琴数学")(c) or
-      is_charset("古希腊数学")(c) or is_charset("古代符号")(c) or
-      is_charset("费斯托斯圆盘符号")(c) or is_charset("吕基亚文")(c) or
-      is_charset("卡利亚文")(c) or is_charset("科普特闰余数字")(c) or
-      is_charset("古意大利文")(c) or is_charset("哥特文")(c) or
-      is_charset("古彼尔姆文")(c) or is_charset("乌加里特文")(c) or
-      is_charset("古波斯楔形文")(c) or is_charset("德塞雷特文")(c) or
-      is_charset("萧伯纳文")(c) or is_charset("奥斯曼亚文")(c) or
-      is_charset("欧塞奇文")(c) or is_charset("爱尔巴桑文")(c) or
-      is_charset("高加索爱尔巴尼亚文")(c) or is_charset("线形文字A")(c) or
-      is_charset("塞浦路斯音节文字A")(c) or is_charset("皇家亚拉姆文字")(c) or
-      is_charset("帕尔迈拉文字")(c) or is_charset("纳巴泰文")(c) or
-      is_charset("哈特拉文")(c) or is_charset("腓尼基文")(c) or
-      is_charset("吕底亚文")(c) or is_charset("麦罗埃象形文字")(c) or
-      is_charset("麦罗埃草书文字")(c) or is_charset("佉卢虱吒文")(c) or
-      is_charset("古南阿拉伯文")(c) or is_charset("古北阿拉伯文")(c) or
-      is_charset("摩尼文")(c) or is_charset("阿维斯陀文")(c) or
-      is_charset("帕提亚碑铭体文字")(c) or is_charset("巴列维碑铭体文字")(c) or
-      is_charset("巴列维圣诗体文字")(c) or is_charset("古突厥文")(c) or
-      is_charset("古匈牙利文")(c) or is_charset("哈乃斐罗兴亚文")(c) or
-      is_charset("鲁米数学符号")(c) or is_charset("雅兹迪文")(c) or
-      is_charset("古粟特文")(c) or is_charset("粟特文")(c) or
-      is_charset("花剌子模文字")(c) or is_charset("婆罗米文字")(c) or
-      is_charset("凯提文")(c) or is_charset("索拉僧平文")(c) or
-      is_charset("查克马文")(c) or is_charset("马哈佳尼文")(c) or
-      is_charset("夏拉达文")(c) or is_charset("僧伽罗古代数学")(c) or
-      is_charset("克吉奇文")(c) or is_charset("穆尔塔尼文")(c) or
-      is_charset("信德文")(c) or is_charset("格兰塔文")(c) or
-      is_charset("尼瓦文")(c) or is_charset("提尔胡塔文")(c) or
-      is_charset("悉昙文")(c) or is_charset("莫迪文")(c) or
-      is_charset("蒙古文补充")(c) or is_charset("泰克里文")(c) or
-      is_charset("阿洪姆文")(c) or is_charset("多格拉文")(c) or
-      is_charset("瓦兰齐地文")(c) or is_charset("迪维希文")(c) or
-      is_charset("喜城文")(c) or is_charset("札那巴札尔方形文字")(c) or
-      is_charset("索永布文")(c) or is_charset("包钦毫文")(c) or
-      is_charset("拜克舒基文")(c) or is_charset("玛钦文")(c) or
-      is_charset("马萨拉姆贡德文")(c) or is_charset("贡贾拉贡德文")(c) or
-      is_charset("望加锡文")(c) or is_charset("傈僳文补充")(c) or
-      is_charset("泰米尔文补充")(c) or is_charset("楔形文字补充")(c) or
-      is_charset("楔形文字数字和标点符号")(c) or is_charset("早期王朝楔形文字")(c) or
-      is_charset("埃及象形文字")(c) or is_charset("埃及象形文字格式控制符")(c) or
-      is_charset("安纳托利亚象形文字")(c) or is_charset("巴姆穆文补充")(c) or
-      is_charset("木如文")(c) or is_charset("巴萨文")(c) or
-      is_charset("杨松录苗文")(c) or is_charset("梅德法伊德林文字")(c) or
-      is_charset("柏格理苗文")(c) or is_charset("表意文字符号及标点")(c) or
-      is_charset("西夏文")(c) or is_charset("西夏文部首")(c) or
-      is_charset("契丹小字")(c) or is_charset("西夏文补充")(c) or
-      is_charset("假名补充")(c) or is_charset("假名扩展A")(c) or
-      is_charset("小写假名扩展")(c) or is_charset("女书")(c) or
-      is_charset("杜普雷速记文字")(c) or is_charset("速记格式控制符")(c) or
-      is_charset("拜占庭乐谱符号")(c) or is_charset("乐谱符号")(c) or
-      is_charset("古希腊乐谱记号")(c) or is_charset("玛雅数字")(c) or
-      is_charset("太玄经符号")(c) or is_charset("算筹数字")(c) or
-      is_charset("数学字母数字符号")(c) or is_charset("萨顿手语符号")(c) or
-      is_charset("格拉哥里文字补充")(c) or is_charset("花布苗文")(c) or
-      is_charset("万却文字")(c) or is_charset("门德基卡库文字")(c) or
-      is_charset("阿德拉姆文字")(c) or is_charset("印度西亚克数字")(c) or
-      is_charset("奥斯曼西亚克数字")(c) or is_charset("阿拉伯数学用字母符号")(c) or
-      is_charset("麻将牌")(c) or is_charset("多米诺骨牌")(c) or
-      is_charset("扑克牌")(c) or is_charset("包围式字母数字补充")(c) or
-      is_charset("包围式表意文字补充")(c) or is_charset("杂类符号与图形标记")(c) or
-      is_charset("表情符号")(c) or is_charset("装饰印刷符号")(c) or
-      is_charset("交通与印刷符号")(c) or is_charset("炼金术符号")(c) or
-      is_charset("几何形状扩展")(c) or is_charset("补充箭头C")(c) or
-      is_charset("补充符号与图形标记")(c) or is_charset("棋类符号")(c) or
-      is_charset("符号及图形标记扩展A")(c) or is_charset("传统计算机符号")(c) or
-      is_charset("标签")(c) or is_charset("异体选择符补充")(c) or
-      is_charset("补充私用区A")(c) or is_charset("补充私用区B")(c) or
-      is_charset("Compat")(c)
-end
-
-local function charset_filter(input)
-  for cand in input:iter() do
-    if (not exists(is_cjk_ext, cand.text))
-    then
-      yield(cand)
-    end
-  end
 end
 
 
