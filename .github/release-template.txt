@@ -8,8 +8,7 @@
 - `huma-rime-config.zip` 不包含字体、模型，仅有方案文件的 zip 压缩包
 - `fonts.zip` 字体文件压缩包
 - `wanxiang-lts-zh-hans_gram.zip` 万象模型压缩包，下载后放到 Rime 根目录
-- `sentence-ngram-v2_bin.zip` 虎码整句模型压缩包，下载后要放入 `models` 目录
-
+- `sentence-ngram-mobile_bin.zip` 虎码整句模型压缩包，下载后要放入 `models` 目录
 
 > `*.tar.gz` 为对应 tar 压缩包
 
@@ -32,8 +31,8 @@
 - [wanxiang-lts-zh-hans_gram.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/wanxiang-lts-zh-hans_gram.zip)
 - [wanxiang-lts-zh-hans_gram.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/wanxiang-lts-zh-hans_gram.tar.gz)
 - [sentence-ngram-v2_bin.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/sentence-ngram-v2_bin.zip)
-- [sentence-ngram-v2_bin.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/sentence-ngram-v2_bin.tar.gz)
-
+- [sentence-ngram-mobile_bin.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/sentence-ngram-mobile_bin.zip)
+- [sentence-ngram-mobile_bin.tar.gz](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/sentence-ngram-mobile_bin.tar.gz)
 ---
 
 - [huma-font.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-font.zip)

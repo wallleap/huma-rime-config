@@ -29,12 +29,12 @@ jobs:
           curl -L -o ./wanxiang-lts-zh-hans.gram \
           https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram
 
-      # 下载 sentence-ngram-v2.bin 语法文件
-      - name: Download sentence-ngram-v2 grammar file
+      # 下载 sentence-ngram-mobile.bin 语法文件
+      - name: Download sentence-ngram-mobile grammar file
         run: |
           mkdir -p models
-          curl -L -o ./models/sentence-ngram-v2.bin \
-          https://github.com/wallleap/huma-rime-config/releases/download/LTS/sentence-ngram-v2.bin
+          curl -L -o ./models/sentence-ngram-mobile.bin \
+          https://github.com/wallleap/huma-rime-config/releases/download/LTS/sentence-ngram-mobile.bin
 
       # 重命名示例文件
       - name: Rename custom_phrase.example.txt to custom_phrase.txt
@@ -124,9 +124,9 @@ jobs:
           zip -r9 "dist/wanxiang-lts-zh-hans_gram.zip" gram/
           rm -rf gram
 
-          # 9. 单独打包 sentence-ngram-v2.bin
-          tar -zcvf "dist/sentence-ngram-v2_bin.tar.gz" models/
-          zip -r9 "dist/sentence-ngram-v2_bin.zip" models/
+          # 9. 单独打包 sentence-ngram-mobile.bin
+          tar -zcvf "dist/sentence-ngram-mobile_bin.tar.gz" models/
+          zip -r9 "dist/sentence-ngram-mobile_bin.zip" models/
           rm -rf models
 
           # 输出dist目录全部产物核对
@@ -145,8 +145,8 @@ jobs:
             "dist/fonts.tar.gz"
             "dist/wanxiang-lts-zh-hans_gram.zip"
             "dist/wanxiang-lts-zh-hans_gram.tar.gz"
-            "dist/sentence-ngram-v2_bin.zip"
-            "dist/sentence-ngram-v2_bin.tar.gz"
+            "dist/sentence-ngram-mobile_bin.zip"
+            "dist/sentence-ngram-mobile_bin.tar.gz"
             "dist/huma-font.zip"
             "dist/pingfangmod-font.zip"
             "dist/t26_pure-theme.zip"

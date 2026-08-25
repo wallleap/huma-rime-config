@@ -17,7 +17,7 @@ FALLBACK_BASE="https://gh-proxy.com/"
 # ===================== 同步列表 =====================
 SYNC_LIST=(
   "https://github.com/amzxyz/RIME-LMDG/releases/download/LTS/wanxiang-lts-zh-hans.gram|${REPO_ROOT}"
-  "https://github.com/wallleap/huma-rime-config/releases/download/LTS/sentence-ngram-v2.bin|${REPO_ROOT}/models"
+  "https://github.com/wallleap/huma-rime-config/releases/download/LTS/sentence-ngram-mobile.bin|${REPO_ROOT}/models"
 )
 
 # ===================== Ctrl+C 处理 =====================

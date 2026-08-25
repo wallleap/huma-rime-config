@@ -7,7 +7,7 @@ schema:
   half_icon: "icons/half.ico"
   # icon: "icons/tiger.ico"
   icon: "icons/tiger_sentence.ico"
-  version: "1.0"
+  version: "1.1"
   author:
     - TigerClaw
   dependencies:
@@ -15,9 +15,9 @@ schema:
     - easy_english
   description: |
     从虎整句常用字词表生成的变长整句方案。
-    光秃编码只取第 1 候选；分号/引号/数字写入编码选重。
-    首次输入时用 Lua 加载 sentence-ngram-v2.bin 做 Kneser-Ney 打分。
-    敲 ` 鍵進入小鹤双拼反查。
+    整段不超过 4 码时检索该码位全部字词，首选排在非首选前面；
+    超过 4 码后光秃编码只取第 1 候选。分号/引号/数字写入编码选重。
+    首次输入时用 Lua 优先分页加载 sentence-ngram-mobile.bin 做 Kneser-Ney 打分。
 
 switches:
   - name: ascii_mode
@@ -27,6 +27,9 @@ switches:
     states: [拼, pīn]
   - name: chaifen
     states: [拆隐, 拆显]
+  - name: tiger_sentence_early_commit
+    reset: 1
+    states: [ 提前上屏关, 提前上屏开 ]
   - name: emoji_cn
     reset: 0
     states: [🈚, 🈶]
