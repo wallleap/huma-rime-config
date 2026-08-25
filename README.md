@@ -55,8 +55,6 @@
 │   ├── tigress.dict.yaml                  # 虎词 单字
 │   ├── wuzhong.dict.yaml                  # 万象 物种
 │   └── zi.dict.yaml                       # 万象 单字
-├── dvorak.trime.custom.yaml               # 同文输入法 主题补丁
-├── dvorak.trime.yaml                      # 同文输入法 Dvorak 主题
 ├── easy_english.dict.yaml                 # 英文字库
 ├── easy_english.schema.yaml               # 英文方案
 ├── flypy.custom.yaml                      # 小鹤双拼补丁
@@ -134,14 +132,13 @@
 ├── stroke.dict.yaml                       # 笔画输入方案词库
 ├── symbols.yaml                           # 符号
 ├── themes/                                # [目录]存放鸿蒙输入法主题
-│   ├── dvorak_pure/                       # [目录]Dvorak 朴素主题
+│   ├── t26_pure/                          # [目录]26键朴素主题
 │   │   ├── info.yaml                      # 主题信息
 │   │   ├── preset_fonts.yaml              # 文字样式
 │   │   ├── preset_keyboards.yaml          # 键盘配置
 │   │   ├── preset_keys.yaml               # 按键配置
 │   │   ├── res/                           # [目录]资源目录，存放图标等
 │   │   └── theme.yaml                     # 主题具体配置
-│   └── t26_pure/                          # [目录]26键朴素主题
 ├── tiger.custom.yaml                      # 虎单方案补丁
 ├── tiger.extended.dict.yaml               # 虎单方案词库
 ├── tiger.schema.yaml                      # 虎单方案
