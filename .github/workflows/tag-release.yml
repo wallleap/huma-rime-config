@@ -89,13 +89,8 @@ jobs:
           cp -r themes/t26_pure/ t26_pure/
           zip -r9 "dist/t26_pure-theme.zip" t26_pure/
           rm -rf t26_pure
-          
-          # 4. dvorak_pure theme zip
-          cp -r themes/dvorak_pure/ dvorak_pure/
-          zip -r9 "dist/dvorak_pure-theme.zip" dvorak_pure/
-          rm -rf dvorak_pure
 
-          # 5. 构建【基础包文件】tmp_base：排除fonts目录、万象gram模型文件
+          # 4. 构建【基础包文件】tmp_base：排除fonts目录、万象gram模型文件
           mv !(fonts|wanxiang-lts-zh-hans.gram|$GLOBAL_EXCLUDE) tmp_base/
           # 将 tmp_base 重命名为 huma_rime_config 后打包基础 zip
           mv tmp_base "$FOLDER"
@@ -103,7 +98,7 @@ jobs:
           tar -zcvf "dist/${PACKAGE}.tar.gz" "$FOLDER"
           mv "$FOLDER" tmp_base # 还原临时目录
 
-          # 6. 构建【完整包文件】tmp_full：全部文件（基础文件+fonts+万象gram+models）
+          # 5. 构建【完整包文件】tmp_full：全部文件（基础文件+fonts+万象gram+models）
           mv tmp_base/* tmp_full/
           cp -r fonts tmp_full/
           cp wanxiang-lts-zh-hans.gram tmp_full/
@@ -113,18 +108,18 @@ jobs:
           zip -r9 "dist/${PACKAGE}-full.zip" "$FOLDER"
           rm -rf "$FOLDER" tmp_base tmp_full # 清理临时打包目录
 
-          # 7. 单独打包 fonts.zip（仅fonts文件夹）
+          # 6. 单独打包 fonts.zip（仅fonts文件夹）
           tar -zcvf "dist/fonts.tar.gz" fonts/
           zip -r9 "dist/fonts.zip" fonts/
 
-          # 8. 单独打包万象模型文件
+          # 7. 单独打包万象模型文件
           mkdir -p gram
           mv wanxiang-lts-zh-hans.gram gram/
           tar -zcvf "dist/wanxiang-lts-zh-hans_gram.tar.gz" gram/
           zip -r9 "dist/wanxiang-lts-zh-hans_gram.zip" gram/
           rm -rf gram
 
-          # 9. 单独打包 sentence-ngram-mobile.bin
+          # 8. 单独打包 sentence-ngram-mobile.bin
           tar -zcvf "dist/sentence-ngram-mobile_bin.tar.gz" models/
           zip -r9 "dist/sentence-ngram-mobile_bin.zip" models/
           rm -rf models
@@ -150,7 +145,6 @@ jobs:
             "dist/huma-font.zip"
             "dist/pingfangmod-font.zip"
             "dist/t26_pure-theme.zip"
-            "dist/dvorak_pure-theme.zip"
           )
           for file in "${FILE_LIST[@]}"; do
             if [ -s "$file" ]; then

@@ -17,7 +17,6 @@
 - `huma-font.zip` 虎码专用字体
 - `pingfangmod-font.zip` Ping Fang SC 修改
 - `t26_pure-theme.zip` 中文26键朴素主题（虎码专用，下滑显示虎码字根）
-- `dvorak_pure-theme.zip` Dvorak 朴素主题
 
 > 超越输入法不支持 `tar.gz` 导入，故不提供该格式压缩包
 
@@ -38,4 +37,3 @@
 - [huma-font.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/huma-font.zip)
 - [pingfangmod-font.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/pingfangmod-font.zip)
 - [t26_pure-theme.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/t26_pure-theme.zip)
-- [dvorak_pure-theme.zip](https://ghfast.top/https://github.com/{REPO}/releases/download/{TAG}/dvorak_pure-theme.zip)
