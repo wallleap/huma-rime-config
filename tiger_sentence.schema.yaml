@@ -92,6 +92,7 @@ engine:
     - lua_filter@switcher_filter
     - lua_filter@charset_comment_filter # Unicode分区提示滤镜
     - lua_filter@lua_unicode_display_filter # Unicode编码显示
+    - lua_filter@*user_dict_marker_filter # 在用户词典中
     - uniquifier
 
 speller:
