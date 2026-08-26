@@ -24,6 +24,9 @@ package-lock.json
 # 用户自定义短语文件
 *_phrase.txt
 
+# 虎码整句补充语料
+tiger_sentence.supplement.txt
+
 flypy.txt
 tigress*.txt
 
