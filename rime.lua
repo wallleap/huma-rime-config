@@ -27,3 +27,6 @@ chaifen_comment_filter = require("chaifen_comment_filter")
 
 -- 拼音滤镜（追加模式）
 pinyin_comment_filter = require("pinyin_comment_filter")
+
+-- 虎码整句快捷符号直上屏（分号 + 按键）
+quick_symbol_processor = require("quick_symbol")

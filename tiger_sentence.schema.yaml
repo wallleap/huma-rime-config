@@ -58,6 +58,7 @@ engine:
     - recognizer
     - key_binder
     - lua_processor@switcher_processor
+    - lua_processor@quick_symbol_processor # 快捷符号直上屏（分号+按键），需在 tiger_sentence_processor 之前拦截
     - lua_processor@tiger_sentence_processor
     - speller
     - punctuator
@@ -108,7 +109,7 @@ speller:
   auto_select: false
 
 translator:
-  dictionary: tiger_sentence
+  dictionary: tiger_sentence.extended
   enable_user_dict: false
   enable_sentence: false
   enable_encoder: false
