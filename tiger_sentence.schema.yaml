@@ -7,7 +7,7 @@ schema:
   half_icon: "icons/half.ico"
   # icon: "icons/tiger.ico"
   icon: "icons/tiger_sentence.ico"
-  version: "1.1"
+  version: "1.2"
   author:
     - TigerClaw
   dependencies:
@@ -23,6 +23,9 @@ switches:
   - name: ascii_mode
     reset: 0
     states: [中文, 西文]
+  - name: extended_char # 自定义字集
+    reset: 1
+    states: [全集, 常用]
   - name: pinyin
     states: [拼, pīn]
   - name: chaifen
@@ -62,6 +65,7 @@ engine:
     - navigator
     - express_editor
   segmentors:
+    - ascii_segmentor
     - matcher
     - affix_segmentor@easy_english
     - abc_segmentor
@@ -85,6 +89,7 @@ engine:
     - lua_translator@*date_translator
     - lua_translator@*input_statistics
   filters:
+    - lua_filter@core2022 # 自定义字集过滤lua；放在最上面完美解决简繁滤镜出错的问题
     - simplifier@simplification # 用字转换，简繁滤镜
     - lua_filter@pinyin_comment_filter
     - lua_filter@chaifen_comment_filter
@@ -97,7 +102,7 @@ engine:
 
 speller:
   # alphabet: "zyxwvutsrqponmlkjihgfedcba;';0123456789`"
-  alphabet: "['zyxwvutsrqponmlkjihgfedcba]`/=S]" # 定义本方案输入键 "[;'zyxwvutsrqponmlkjihgfedcba]`"
+  alphabet: "['zyxwvutsrqponmlkjihgfedcba0123456789]`/=S;]" # 定义本方案输入键 "[;'zyxwvutsrqponmlkjihgfedcba]`"
   # initials: "abcdefghijklmnopqrstuvwxyz" # 不设则默认等于 alphabet，使 / 等特殊字符也能作首码进入缓冲区，等后续输入触发 recognizer
   delimiter: " "
   auto_select: false
@@ -205,14 +210,17 @@ historyDM3:
   size: 1
   initial_quality: 999
 
-menu:
-  page_size: 5
+# lua 配置：在用户词典中
+user_dict_marker:
+  user_phrase_symbol: "✴️"
+  user_table_symbol: "✨"
+  sentence_symbol: "♾️"
 
 key_binder:
   bindings: # 设置功能性快捷键
     __patch:
       - key_bindings:/emacs_editing
-      - key_bindings:/select_candidate
+      # - key_bindings:/select_candidate
       - key_bindings:/move_by_word_with_tab
       - key_bindings:/paging_with_minus_equal
       - key_bindings:/paging_with_comma_period
@@ -246,6 +254,7 @@ recognizer:
 #     Control_R: noop
 
 __patch:
+  "menu/page_size": 5
   # "menu/alternative_select_labels": [㊀, ㊁, ㊂, ㊃, ㊄, ㊅, ㊆, ㊇, ㊈] 
   
   "style/horizontal": false
