@@ -8,9 +8,6 @@ description: 方案主体来自 虎码秃码
 url: https://github.com/wallleap/huma-rime-config
 create_time: 2025-12-27
 update_time: 2026-08-10
-# 支持的设备。有指定的只取指定的，没指定的取全部
-supported_devices:
-  pc: ["tiger", "tigress", "flypy"]
 # 方案使用主题
 use_theme:
   # 如果没有自定义主题，则使用默认主题.

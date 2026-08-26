@@ -1,13 +1,14 @@
 # space.custom.yaml
-# 用户自定义配置，使用librime patch语法覆盖space.yaml中的配置
+# 用户自定义配置，使用 librime patch 语法覆盖 space.yaml 中的配置
 
 patch:
+  config_version: 1.1
   schema_id: tiger
   schema: huma_rime_config
   schema_dir: schemas/
   theme: t26_pure
   theme_dir: schemas/huma_rime_config/themes/
-  font: pingfangmod
+  font: huma
   font_dir: schemas/huma_rime_config/fonts/
   symbol: default
   symbol_dir: symbols/
@@ -20,8 +21,18 @@ patch:
   sound_effect: default
   haptics_on: true
   haptics_volume: 1
-  haptic: precise
+  haptic: system
   haptic_dir: haptics/
-  schema_use_theme:
-    custom:
-      tiger: schemas/huma_rime_config/themes/t26_pure
+  global_keyboard_menu: [
+      eisu_toggle_emoji, # 显示emoji表情选择器
+      function_common_speech_recognition, # 点击语音输入
+      eisu_toggle_clip_board, # 打开剪切板
+      eisu_toggle_edit_setting, # 切换编辑设置
+      function_rime_switcher, # Rime输入法切换器
+      eisu_toggle_status_bar_board, # 方案状态栏
+      eisu_toggle_schema_board, # 键盘方案选择
+      eisu_toggle_theme_list_board, # 主题
+      eisu_toggle_custom_phrase_board, # 常用语
+      eisu_toggle_one_hand_board, # 单手模式
+      eisu_toggle_patch_candidate, # 候选栏配置
+    ]

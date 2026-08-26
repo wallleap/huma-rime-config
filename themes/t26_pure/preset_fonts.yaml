@@ -70,5 +70,5 @@ custom:
     key_text_size: 14 # 键文本字号
     key_upper_text_size: 6 # 符号字号
     key_long_text_size: 14 # 长标籤字号
-    preview_text_size: 34 # 按键提示字号
+    preview_text_size: 28 # 按键提示字号
     long_preview_text_size: 20 # 长按键提示字号

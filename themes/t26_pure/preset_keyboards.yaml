@@ -32,7 +32,7 @@ custom:
     preview: true
     shadow: { radius: 0, offsetX: 0, offsetY: 0, color: "#90949C" }
     # menu
-    __include: ./preset_menu:/custom/default_menu
+    # __include: ./preset_menu:/custom/default_menu
     #现在只支持配置click,swipe_up,swipe_down键盘
     keys:
       # 1
@@ -302,7 +302,7 @@ custom:
     key_down_press_text_offset_x: 0
     key_down_press_text_offset_y: 0
     # menu
-    __include: ./preset_menu:/custom/default_sm_md_menu
+    # __include: ./preset_menu:/custom/default_sm_md_menu
     keys:
       # 1
       - {
@@ -559,7 +559,7 @@ custom:
     lock: true
     name: english
     # menu
-    __include: ./preset_menu:/custom/english_menu
+    # __include: ./preset_menu:/custom/english_menu
     keys:
       #1
       - { click: q, swipe_up: commit_1, long_click: [q, 1, Q] }
@@ -632,7 +632,7 @@ custom:
     height: 31
     name: english
     # menu
-    __include: ./preset_menu:/custom/english_sm_md_menu
+    # __include: ./preset_menu:/custom/english_sm_md_menu
     keys:
       #1
       - { click: q, swipe_up: commit_1, long_click: [q, 1, Q] }
@@ -885,7 +885,7 @@ custom:
       #c:~
       - { click: commit_half_tilde_no_functional, long_click: ["～", "~"] }
       - { click: "/", long_click: ["/", "／", "|", "｜", "＼", "\\"] }
-      - { click: ":", long_click: ["：'", ":"] }
+      - { click: ":", long_click: ["：", ":"] }
       #;
       - {
           click: text_half_semicolon_default_no_functional,
@@ -1128,7 +1128,7 @@ custom:
       #c:~
       - { click: commit_half_tilde_no_functional, long_click: ["～", "~"] }
       - { click: "/", long_click: ["/", "／", "|", "｜", "＼", "\\"] }
-      - { click: ":", long_click: ["：'", ":"] }
+      - { click: ":", long_click: ["：", ":"] }
       #;
       - {
           click: text_half_semicolon_default_no_functional,
