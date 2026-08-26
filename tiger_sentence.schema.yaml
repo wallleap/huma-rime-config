@@ -70,6 +70,7 @@ engine:
   translators:
     - punct_translator
     - reverse_lookup_translator@flypy_reverse_lookup
+    - table_translator@custom_phrase # 自定义短语
     - table_translator@easy_english
     - history_translator@historyDM # 重复上屏 电脑
     - history_translator@historyDM2 # 重复上屏 电脑2
@@ -159,6 +160,15 @@ simplification:
   opencc_config: st_tu.json # 简 ➡ 繁·异（秃版标准）
   option_name: simplification
   tips: all
+
+# 自定义短语
+custom_phrase:
+  dictionary: ""
+  user_dict: custom_phrase
+  db_class: stabledb
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: 100
 
 # 临时英文
 easy_english:
