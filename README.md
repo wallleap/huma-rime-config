@@ -57,7 +57,6 @@
 │   └── zi.dict.yaml                       # 万象 单字
 ├── easy_english.dict.yaml                 # 英文字库
 ├── easy_english.schema.yaml               # 英文方案
-├── flypy.custom.yaml                      # 小鹤双拼补丁
 ├── flypy.dict.yaml                        # 小鹤双拼词库
 ├── flypy.schema.yaml                      # 小鹤双拼方案
 ├── fonts/                                 # [目录]存放字体文件
@@ -139,13 +138,10 @@
 │   │   ├── preset_keys.yaml               # 按键配置
 │   │   ├── res/                           # [目录]资源目录，存放图标等
 │   │   └── theme.yaml                     # 主题具体配置
-├── tiger.custom.yaml                      # 虎单方案补丁
 ├── tiger.extended.dict.yaml               # 虎单方案词库
 ├── tiger.schema.yaml                      # 虎单方案
-├── tiger_sentence.custom.yaml             # 虎码整句方案补丁
 ├── tiger_sentence.dict.yaml               # 虎码整句方案词库
 ├── tiger_sentence.schema.yaml             # 虎码整句方案
-├── tigress.custom.yaml                    # 虎词方案补丁
 ├── tigress.extended.dict.yaml             # 虎词方案词库
 ├── tigress.schema.yaml                    # 虎词方案
 ├── trash/                                 # [目录]回收站
