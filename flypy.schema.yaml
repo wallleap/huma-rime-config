@@ -321,3 +321,9 @@ user_dict_marker:
   user_phrase_symbol: "✴️"
   user_table_symbol: "✨"
   sentence_symbol: "♾️"
+
+__patch:
+  "menu/page_size": 5
+
+  "style/horizontal": true
+  "style/candidate_list_layout": linear

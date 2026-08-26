@@ -359,3 +359,32 @@ key_binder:
       - key_bindings:/windows_compatible_mode_switch
       - key_bindings:/tiger_pc_options
       # - key_bindings:/tiger_mobile_options
+
+__patch:
+  "style/horizontal": false
+  "style/candidate_list_layout": stack
+
+  "style/comment_font_face": "Consolas, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen, CJK-extJ"
+  "style/font_face": "Consolas, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen, CJK-extJ"
+  "style/label_font_face": "Consolas, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, PingFang SC, STHeiti, Microsoft YaHei, SimHei, TH-Times, TH-Tshyn-P0, TH-Tshyn-P1, TH-Tshyn-P2, TH-Tshyn-P16, TumanPUA, SimSun, 宋体, 新宋体, SimSun-ExtB, SimSun-ExtG, LXGW WenKai GB Screen, CJK-extJ"
+
+  # "style/mark_text": " " # 编号前标志，这里是空格，可在引号里可以自己加东西替换，如 "😅"
+  # "style/layout/border_width": 2 # 边框宽度，默认是0
+  # "style/layout/border_height": 2 # 边框高度，默认是0
+  # "style/horizontal": true # 默认是false竖排显示，删掉行首的#号，可横排显示（横排建议把上面这行注释掉）
+  # "style/layout/candidate_spacing": 17 # 候选框改为横排后,增加 候选与候选 的间距
+  # "style/layout/hilite_spacing": 8 # 候选框改为横排后,增加 标号与候选 的间距
+  # "style/layout/min_width": 85 # 候选框改为横排后,增加最小宽度
+  # "style/layout/max_width": 1200 # 候选框改为横排后，限制最大宽度，超长自动换行
+
+  # "style/preedit_type": preview # 嵌入首选项内容(字词)。有4个选项可设：input 嵌入输入码 | composition 嵌入编码 | preview 嵌入首选项 | preview_all 嵌入全部内容
+  # "style/layout/margin_y": -1 # 启用后可隐藏候选框(盲打)，建议配合上面的嵌入首选项，一起使用
+
+  # "style/inline_preedit": false # 嵌入编码模式，默认是true开启，若想关闭，取消注释即可（删除前面的#号）
+
+  # 去掉圆角 新小狼毫（Win）
+  # "style/layout/corner_radius": 0 # 候选圆角
+  # "style/layout/round_corner": 0 # 高亮圆角
+
+  # 竖排候选框超长时自动倒序
+  # "style/vertical_auto_reverse": false # 默认启用，若想关闭，将该行行首的#删掉
