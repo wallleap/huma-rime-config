@@ -36,18 +36,21 @@ jobs:
           curl -L -o ./models/sentence-ngram-mobile.bin \
           https://github.com/wallleap/huma-rime-config/releases/download/LTS/sentence-ngram-mobile.bin
 
-      # 重命名示例文件
-      - name: Rename custom_phrase.example.txt to custom_phrase.txt
+      # 准备自定义短语与虎码整句补充语料文件
+      - name: Prepare custom_phrase and tiger_sentence supplement files
         run: |
+          # 自定义短语：优先重命名示例文件，否则写入默认内容
           if [ -f "custom_phrase.example.txt" ]; then
             mv custom_phrase.example.txt custom_phrase.txt
-            echo "✅ Renamed successfully"
+            echo "✅ custom_phrase.example.txt renamed to custom_phrase.txt"
           else
-            # 创建 custom_phrase.txt 文件到目录下
-            echo -e "Rime 输入法\trime\t100" > ./custom_phrase.txt
-
-            echo "ℹ️ No example file found, skip"
+            echo -e "Rime 输入法\trime\t100" > custom_phrase.txt
+            echo "ℹ️ No custom_phrase.example.txt found, created default custom_phrase.txt"
           fi
+
+          # 虎码整句补充语料：写入"虎码"词条（覆盖写入，保证发布包内容干净）
+          echo -e "虎码 5000" > tiger_sentence.supplement.txt
+          echo "✅ tiger_sentence.supplement.txt created"
 
       # 定义统一变量（全局可用）
       - name: Set build variables
