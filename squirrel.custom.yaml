@@ -11,24 +11,24 @@ patch:
   # chord_duration: 0.1 # 连击时长，单位秒
   # 应用程序选项：ascii_mode 初始为西文模式，no_inline 不使用行内编辑
   #   inline 强制使用行内编辑，vim_mode 退出 Vim 插入模式自动切换输入法状态
-  # app_options: {}
-  app_options:
-    com.apple.Spotlight:
-      ascii_mode: true
-    com.microsoft.VSCode:
-      ascii_mode: true
-      vim_mode: true
-      inline: true
-    com.googlecode.iterm2:
-      ascii_mode: true
-      vim_mode: true
-      inline: true
-    com.raycast.macos:
-      ascii_mode: true
-    org.vim.MacVim:
-      ascii_mode: true # 初始爲西文模式
-      no_inline: true # 不使用行內編輯
-      vim_mode: true # 退出VIM插入模式自動切換輸入法狀態
+  app_options: {}
+  # app_options:
+  #   com.apple.Spotlight:
+  #     ascii_mode: true
+  #   com.microsoft.VSCode:
+  #     ascii_mode: true
+  #     vim_mode: true
+  #     inline: true
+  #   com.googlecode.iterm2:
+  #     ascii_mode: true
+  #     vim_mode: true
+  #     inline: true
+  #   com.raycast.macos:
+  #     ascii_mode: true
+  #   org.vim.MacVim:
+  #     ascii_mode: true # 初始爲西文模式
+  #     no_inline: true # 不使用行內編輯
+  #     vim_mode: true # 退出VIM插入模式自動切換輸入法狀態
   # 样式相关
   style:
     color_scheme: purity_of_essence # 预设配色方案名称
