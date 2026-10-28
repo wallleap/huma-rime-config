@@ -1,0 +1,295 @@
+# Rime schema
+# encoding: utf-8
+# based https://github.com/rime/rime-double-pinyin/blob/master/double_pinyin_flypy.schema.yaml
+
+schema:
+  schema_id: pinyin
+  name: 全拼
+  version: "0.0.1"
+  author:
+    - 词库来源于 wanxiang
+  description: |
+    全拼方案，使用万象词库。
+  ascii_icon: "icons/en.ico"
+  full_icon: "icons/full.ico"
+  half_icon: "icons/half.ico"
+  icon: "icons/pin.ico"
+  dependencies:
+    - stroke
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [中文, 西文]
+  - name: full_shape
+    states: [半角, 全角]
+  - name: simplification # 简转繁滤镜
+    reset: 0
+    states: [简中, 繁中]
+  - name: ascii_punct
+    states: [。，, ．，]
+  - name: pinyin # 拼音滤镜
+    reset: 0
+    states: [拼, pīn]
+  - name: emoji_cn # emoji滤镜
+    reset: 0
+    states: [🈚, 🈶]
+  - name: charset_comment_filter # 字符集提示
+    reset: 0
+    states: [U区关, U区开]
+  - name: udpf_switch
+    reset: 0
+    states: [U编关, U编开]
+
+engine:
+  processors:
+    - lua_processor@switcher_processor
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - affix_segmentor@easy_english # 英文相关
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - echo_translator
+    - punct_translator # 转换标点符号
+    - script_translator # 脚本表转换
+    - reverse_lookup_translator # 反查翻译器
+    - table_translator
+    - table_translator@custom_phrase # 自定义短语
+    - table_translator@easy_english # 临时英文
+    - history_translator@historyDM # 历史上屏 电脑
+    - history_translator@historyDM2 # 历史上屏 电脑2
+    - history_translator@historyDM3 # 历史上屏 电脑3
+    - history_translator@historySJ # 历史上屏 手机
+    - lua_translator@switcher_translator # 切换方案
+    - lua_translator@number_translator # 数字转大写
+    - lua_translator@calculator_translator # 简易计算器
+    - lua_translator@*helper # 帮助
+    - lua_translator@*uuid_translator # UUID 输入
+    - lua_translator@*date_translator # 动态日期时间输入
+    - lua_translator@*input_statistics # 统计不同方案不同维度下输入信息
+  filters:
+    - simplifier@simplification # 简繁滤镜
+    - simplifier@pinyin # 拼音滤镜
+    - simplifier@emoji_cn # 表情滤镜
+    - lua_filter@charset_comment_filter # Unicode分区提示滤镜
+    - lua_filter@lua_unicode_display_filter # Unicode编码显示
+    - lua_filter@switcher_filter # 切换方案
+    - lua_filter@*user_dict_marker_filter # 在用户词典中
+    - lua_filter@*aux_code@flypy_full # 辅码码表
+    - uniquifier # 过滤重复的候选字，可能来自简繁转换
+
+speller:
+  alphabet: "['zyxwvutsrqponmlkjihgfedcba]/`" # "['zyxwvutsrqponmlkjihgfedcba]"
+  delimiter: " '"
+  algebra:
+    - erase/^xx$/
+    # 万象词库转换
+    - xlit/āáǎàōóǒòēéěèīíǐìūúǔùǖǘǚǜü/aaaaooooeeeeiiiiuuuuvvvvv/
+    - xform/^ng$/eng/
+    - xform/ńg|ňg|ǹg/eng/
+    - xform/ń|ň|ǹ/en/
+    - xform/ḿ/m/
+    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
+    # 纯声母补全（匹配以该声母开头的常用字，Rime自动补全韵母）
+    - derive/^([bpmfdtnlgkhjqxzcsrwy])$/$1/
+    # 简拼
+    - abbrev/^(.).+$/$1/
+
+translator:
+  dictionary: flypy
+  prism: flypy
+  user_dict: flypy # 在本地生成的用户词典名称
+  db_class: userdb # 用户词典格式，tabledb（文本） 或 userdb （二进制）
+  initial_quality: 1 # 该翻译器出字优先级别
+  enable_user_dict: true # 开启用户词典〔用户词典记录动态字词频、用户词〕
+  enable_encoder: true # 开启自动造词
+  strict_spelling: false # 严格拼写
+  enable_sentence: false # 是否开启自动造句
+  enable_completion: false # 编码提示 true 开启  false 关闭
+  encode_commit_history: true # 是否对已上屏的词自动造词
+  max_phrase_length: 99 # 自动造词的最长字数
+  contextual_suggestions: true # 上下文建议
+  max_homographs: 7 # 最大同形字数
+  max_homophones: 7 # 最大同音字数
+  comment_format: # 提示码自定义
+    - "xform/~/ /" # 去掉编码提示前的~号
+    - "xform/^/ /" # 去掉编码提示后的空号
+    - "xform/&nbsp;/ /" # 去掉空格
+  preedit_format: # 上屏码自定义
+    - xform/([nl])v/$1ü/ # 拼音状态下输入nv实际显示nü
+    - xform/([nl])ue/$1üe/ # n或者l后面紧跟着输入ue显示üe
+    - xform/([jqxy])v/$1u/ # j q x y 后面紧跟着输入v 实际显示upreedit_format:
+    # - xform/([bpmfdtnljqx])n/$1iao/
+    # - xform/(\w)g/$1eng/
+    # - xform/(\w)q/$1iu/
+    # - xform/(\w)w/$1ei/
+    # - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
+    # - xform/(\w)t/$1ve/
+    # - xform/(\w)y/$1un/
+    # - xform/([dtnlgkhvuirzcs])o/$1uo/
+    # - xform/(\w)p/$1ie/
+    # - xform/([jqx])s/$1iong/
+    # - xform/(\w)s/$1ong/
+    # - xform/(\w)d/$1ai/
+    # - xform/(\w)f/$1en/
+    # - xform/(\w)h/$1ang/
+    # - xform/(\w)j/$1an/
+    # - xform/([gkhvuirzcs])k/$1uai/
+    # - xform/(\w)k/$1ing/
+    # - xform/([jqxnl])l/$1iang/
+    # - xform/(\w)l/$1uang/
+    # - xform/(\w)z/$1ou/
+    # - xform/([gkhvuirzcs])x/$1ua/
+    # - xform/(\w)x/$1ia/
+    # - xform/(\w)c/$1ao/
+    # - xform/([dtgkhvuirzcs])v/$1ui/
+    # - xform/(\w)b/$1in/
+    # - xform/(\w)m/$1ian/
+    # - xform/([aoe])\1(\w)/$1$2/
+    # - "xform/(^|[ '])v/$1zh/"
+    # - "xform/(^|[ '])i/$1ch/"
+    # - "xform/(^|[ '])u/$1sh/"
+    # - xform/([jqxy])v/$1u/
+    # - xform/([nl])v/$1ü/
+
+# 语言模型
+grammar:
+  language: wanxiang-lts-zh-hans
+  collocation_min_length: 2
+  collocation_max_length: 8
+  collocation_penalty: -16
+  non_collocation_penalty: -8
+  weak_collocation_penalty: -100
+  rear_penalty: -20
+
+reverse_lookup:
+  dictionary: stroke
+  enable_completion: true
+  prefix: "`"
+  suffix: "'"
+  tips: 〔笔画〕
+  preedit_format:
+    - xlit/hspnz/一丨丿丶乙/
+  comment_format:
+    - xform/([nl])v/$1ü/
+
+custom_phrase:
+  dictionary: ""
+  user_dict: custom_phrase
+  db_class: stabledb
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: 100
+
+punctuator:
+  import_preset: symbols
+
+key_binder:
+  # import_preset: default
+  bindings: # 设置功能性快捷键
+    __patch:
+      - key_bindings:/emacs_editing
+      - key_bindings:/select_candidate
+      - key_bindings:/move_by_word_with_tab
+      - key_bindings:/paging_with_minus_equal
+      - key_bindings:/paging_with_comma_period
+      - key_bindings:/paging_with_brackets
+      - key_bindings:/windows_compatible_mode_switch
+      - key_bindings:/tiger_pc_options
+      # - key_bindings:/tiger_mobile_options
+
+recognizer:
+  import_preset: default
+  patterns:
+    punct: "^/([0-9]0?|[A-Za-z]+)$"
+    easy_english: "^'[A-Z|a-z]*`?$"
+    expression: "^=.*$"
+    reverse_lookup: "^`[a-z]*'?$"
+    stats: "^tj(rt|zt|yt|nt|qk)$" # 统计输入信息识别模式
+    help: "^help$" # 帮助输入信息识别模式
+
+historyDM:
+  input: "["
+  size: 1
+  initial_quality: 999
+
+historyDM2:
+  input: "'"
+  size: 1
+  initial_quality: -999
+
+historyDM3:
+  input: "]"
+  size: 1
+  initial_quality: 999
+
+# ↓简繁(+部分异体)滤镜
+simplification: #⇩四选一
+  opencc_config: st_tu.json # 简 ➡ 繁（秃版CC标准）
+  # opencc_config: s2tw.json # 简 ➡ 台湾正体
+  # opencc_config: s2hk.json # 简 ➡ 香港繁体
+  # opencc_config: s2twp.json # 简 ➡ 台湾正体（含常用词汇如：软体→軟體、鼠标→滑鼠）
+  option_name: simplification
+  tips: all # 转换文字段 all字词|char字
+
+# ↓拼音滤镜
+pinyin:
+  opencc_config: pinyin.json
+  option_name: pinyin
+  show_in_comment: true # 作为注解在后面显示
+  comment_format:
+    - "xform/&nbsp;/ /"
+    - "xform/^/ /"
+  tips: char
+  tags:
+    - abc
+    - reverse_lookup
+
+# ↓emoji表情滤镜
+emoji_cn:
+  opencc_config: emoji.json
+  option_name: emoji_cn
+  tips: all
+
+# 临时英文
+easy_english:
+  dictionary: easy_english
+  tag: easy_english
+  prefix: "'"
+  tips: 〔En〕
+  enable_completion: true
+  enable_sentence: false
+  initial_quality: -1
+  preedit_format:
+    - "xlit|_| |"
+  comment_format: #去掉编码提示前的~号
+    - "xform/~/ /"
+
+# lua 配置：辅助码
+aux_code:
+  learn_trigger: "`"
+  no_learn_trigger: "``"
+  show_aux_notice: true
+
+# lua 配置：在用户词典中
+user_dict_marker:
+  user_phrase_symbol: "✴️"
+  user_table_symbol: "✨"
+  sentence_symbol: "♾️"
+
+__patch:
+  "menu/page_size": 5
+
+  "style/horizontal": true
+  "style/candidate_list_layout": linear
