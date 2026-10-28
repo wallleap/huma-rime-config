@@ -149,9 +149,10 @@ engine:
 
 # 拼写器配置
 speller:
-  auto_clear: max_length # 3种选择， manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
+  # auto_clear: max_length # 3种选择， manual|auto|max_length 空码按下一键确认清屏|空码自动清|达到最长码时后码顶上清屏
+  # max_code_length: 4 # 形码最大码长，超过则顶字上屛〔number〕
   auto_select: true # 自动上屛〔true 或 false〕
-  max_code_length: 4 # 形码最大码长，超过则顶字上屛〔number〕
+  auto_select_pattern: ^;\w+|^\w{4}$ # 四码自动上屏 ^;\w+ 对 [;] 引导的编码实行候选唯一自动上屏
   alphabet: "['zyxwvutsrqponmlkjihgfedcba]`/=S;" # 定义本方案输入键 "[;'zyxwvutsrqponmlkjihgfedcba]`"
   # initials: "abcdefghijklmnopqrstuvwxyz;'" # 定义仅作始码之键
   # finals: "[a-z;']" # 定义仅作末码之键
@@ -161,7 +162,6 @@ speller:
   #   xform/([nl])v/$1ü/ # 将 nv 转换为 ü
   #   xform/([nl])ue/$1üe/ # 将 nue 转换为 üe
   #   xform/([jqxy])v/$1u/ # 将 jv, qv, xv, yv 转换为 u
-  auto_select_pattern: ^;\w+|^\w{4}$ # 四码自动上屏 ^;\w+ 对 [;] 引导的编码实行候选唯一自动上屏
   # use_space: false # 以空格作输入码〔true或false〕
 ######### speller 的演算包含：#######
 # https://github.com/rime/home/wiki/SpellingAlgebra
